@@ -1,1 +1,1 @@
-{"sdkName":"Google"}
+{"sdkName":"Google","configList":[{"key":"AppKey"}],"permissionList":["ACCESS_WIFI_STATE","INTERNET"]}
