@@ -26,16 +26,16 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
+    compile files('libs/CMBilling.jar')
+    compile files('libs/CMBillingForUnity.jar')
     compile files('libs/classes.jar')
-    compile project(path: ':sdkinterface')
-    compile project(':sdkinterface')
-    compile files('libs/DataEye_Android_v2.9.3.jar')
 }
 
+
 task deleteOldJar(type: Delete) {
-    delete 'build/outputs/DataEye.jar'
+    delete 'build/outputs/MiGuSdk.jar'
 }
 
 task exportJar(type: Copy) {
@@ -43,7 +43,8 @@ task exportJar(type: Copy) {
     into('build/libs/')
     include('classes.jar')
     exclude('test/', 'BuildConfig.class', 'R.class')
-    rename ('classes.jar', 'DataEye.jar')
+    rename ('classes.jar', 'MiGuSdk.jar')
 }
 
 exportJar.dependsOn(deleteOldJar, build)
+

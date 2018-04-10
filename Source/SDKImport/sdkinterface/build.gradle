@@ -32,13 +32,14 @@ dependencies {
 }
 
 task deleteOldJar(type: Delete) {
-    delete 'build/outputs/ADxmiSDK.jar'
+    delete 'build/outputs/SDKInterface.jar'
 }
 
 task exportJar(type: Copy) {
     from('build/intermediates/bundles/release/')
     into('build/libs/')
     include('classes.jar')
+    exclude('test/', 'BuildConfig.class', 'R.class')
     rename ('classes.jar', 'SDKInterface.jar')
 }
 

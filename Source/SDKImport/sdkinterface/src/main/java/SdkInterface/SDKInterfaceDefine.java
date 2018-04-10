@@ -30,4 +30,23 @@ public class SDKInterfaceDefine
     public static final String FunctionName_OnLogout = "OnLogout";
     public static final String FunctionName_OnPay = "OnPay";
 
+    //Login相关参数
+
+    //Pay相关参数
+
+    //AD相关参数
+
+    //Log相关参数
+    public static final String Log_FunctionName = "LogFunctionName";
+    public static final String Log_FunctionName_Login = "Login";
+    public static final String Log_FunctionName_LoginOut = "LoginOut";
+    public static final String Log_FunctionName_Event = "Event";
+
+    //Log Login相关
+    public static final String Log_ParameterName_AccountId  = "AccountId";
+
+    //Log Event相关
+    public static final String Log_ParameterName_EventID  = "EventID";
+    public static final String Log_ParameterName_EventLabel = "EventLabel";
+    public static final String Log_ParameterName_EventMap   = "EventMap";
 }

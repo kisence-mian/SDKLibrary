@@ -6,6 +6,9 @@ import android.util.Log;
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -19,10 +22,8 @@ public class SdkInterface
 {
     static final String CallBackFuntionName = "OnSDKCallBack";
 
-    static String CallBackObjectName;
     static Properties SdkManifest;
-
-    static String assetsPath = "file:///android_asset";
+    static String CallBackObjectName;
 
     //region 外部交互
     public static void UnityRequestFunction(String content)
@@ -48,13 +49,13 @@ public class SdkInterface
         }
     }
 
-    static void SendMessage(String content)
+    public static void SendMessage(String content)
     {
         Log.d("Unity","SendMessage ->" + content + "<-");
         UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
     }
 
-    static void SendError(String errorContent,Exception e)
+    public static void SendError(String errorContent,Exception e)
     {
         try
         {
@@ -76,7 +77,7 @@ public class SdkInterface
         }
     }
 
-    static void SendLog(String LogContent)
+    public static void SendLog(String LogContent)
     {
         try
         {
@@ -121,38 +122,42 @@ public class SdkInterface
 
     //region 登陆
 
-    static ArrayList<ISDK> loginSDKList;
+    static ArrayList<SDKBase> loginSDKList;
 
-    static void InitLoginSDK(JSONObject json)
-    {
-        loginSDKList = new ArrayList<ISDK>();
+    static void InitLoginSDK(JSONObject json) {
+        loginSDKList = new ArrayList<SDKBase>();
 
         String loginClassNameConfig = SdkManifest.getProperty("Login");
-        String[] loginClassNameList = loginClassNameConfig.split("|");
-
-        SendLog(loginClassNameConfig);
+        String[] loginClassNameList = loginClassNameConfig.split("\\|");
 
         //加载对应类，并放入loginSDKList
-        for (int i = 0 ; i < loginClassNameList.length ; i++)
-            try {
-                String className = loginClassNameList[i];
-                ClassLoader dcl = GetContext().getClassLoader();
+        for (int i = 0; i < loginClassNameList.length; i++) {
 
-                Class c = dcl.loadClass(className);
-                ILogin ins = (ILogin) c.newInstance();
-                ins.Init(json);
+            if (loginClassNameList[i] != null
+                    && loginClassNameList[i] != "") {
+                try {
 
-                loginSDKList.add(ins);
-            } catch (Exception e) {
-                SendError(e.toString(), e);
+                    String className = loginClassNameList[i];
+
+                    Class c = GetClass(className);
+                    LoginBase ins = (LoginBase) c.newInstance();
+                    ins.Init(json);
+
+                    loginSDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
             }
+
+        }
+
     }
 
     public static void Login(JSONObject json)
     {
         try
         {
-            ILogin login = (ILogin)GetSDK(json,loginSDKList);
+            LoginBase login = (LoginBase)GetSDK(json,loginSDKList);
             if(login != null)
             {
                 login.Login(json);
@@ -173,29 +178,32 @@ public class SdkInterface
     //endregion
 
     //region 支付
-    static ArrayList<ISDK> paySDKList;
+    static ArrayList<SDKBase> paySDKList;
     static void InitPay(JSONObject json)
     {
-        paySDKList = new ArrayList<ISDK>();
+        paySDKList = new ArrayList<SDKBase>();
 
         String payClassNameConfig = SdkManifest.getProperty("AD");
-        String[] payClassNameList = payClassNameConfig.split("|");
+        String[] payClassNameList = payClassNameConfig.split("\\|");
 
         SendLog(payClassNameConfig);
 
         for (int i = 0; i < payClassNameList.length; i++) {
-            //加载对应类，并放入loginSDKList
-            try {
-                String className = payClassNameList[i];
-                ClassLoader dcl = GetClassLoader();
 
-                Class c = dcl.loadClass(className);
-                IPay ins = (IPay) c.newInstance();
-                ins.Init(json);
+            if (payClassNameList[i] != null
+                    && payClassNameList[i] != "") {
+                //加载对应类，并放入loginSDKList
+                try {
+                    String className = payClassNameList[i];
 
-                paySDKList.add(ins);
-            } catch (Exception e) {
-                SendError(e.toString(), e);
+                    Class c = GetClass(className);
+                    PayBase ins = (PayBase) c.newInstance();
+                    ins.Init(json);
+
+                    paySDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
             }
         }
     }
@@ -203,7 +211,7 @@ public class SdkInterface
     static void Pay(JSONObject json)
     {
         try {
-            IPay pay =(IPay)GetSDK(json,paySDKList);
+            PayBase pay =(PayBase)GetSDK(json,paySDKList);
             if(pay != null)
             {
                 pay.Pay(json);
@@ -217,35 +225,38 @@ public class SdkInterface
     //endregion 支付
 
     //region 广告
-    static ArrayList<ISDK> adSDKList;
+    static ArrayList<SDKBase> adSDKList;
     static void InitAD(JSONObject json) {
-        adSDKList = new ArrayList<ISDK>();
+        adSDKList = new ArrayList<SDKBase>();
 
         String adClassNameConfig = SdkManifest.getProperty("AD");
-        String[] adClassNameList = adClassNameConfig.split("|");
+        String[] adClassNameList = adClassNameConfig.split("\\|");
 
         SendLog(adClassNameConfig);
 
         for (int i = 0; i < adClassNameList.length; i++) {
             //加载对应类，并放入loginSDKList
-            try {
-                String className = adClassNameList[i];
-                ClassLoader dcl = GetClassLoader();
 
-                Class c = dcl.loadClass(className);
-                IAD ins = (IAD) c.newInstance();
-                ins.Init(json);
+            if (adClassNameList[i] != null
+                    && adClassNameList[i] != "") {
+                try {
+                    String className = adClassNameList[i];
 
-                adSDKList.add(ins);
-            } catch (Exception e) {
-                SendError(e.toString(), e);
+                    Class c = GetClass(className);
+                    ADBase ins = (ADBase) c.newInstance();
+                    ins.Init(json);
+
+                    adSDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
             }
         }
     }
 
     static void AD(JSONObject json) {
         try {
-            IAD ad = (IAD) GetSDK(json, adSDKList);
+            ADBase ad = (ADBase) GetSDK(json, adSDKList);
             if (ad != null) {
                 ad.AD(json);
             }
@@ -262,33 +273,32 @@ public class SdkInterface
     //endregion
 
     //region 事件上报
-    static ArrayList<ISDK> logList;
+    static ArrayList<SDKBase> logList;
     static void InitLog(JSONObject json)
     {
-        logList = new ArrayList<ISDK>();
+        logList = new ArrayList<SDKBase>();
 
         String logClassNameConfig = SdkManifest.getProperty("Log");
-        String[] logClassNameList = logClassNameConfig.split("|");
+        String[] logClassNameList = logClassNameConfig.split("\\|");
 
         SendLog(logClassNameConfig);
 
         for (int i = 0 ; i < logClassNameList.length ; i++)
         {
-            //加载对应类，并放入loginSDKList
-            try
-            {
-                String className = logClassNameList[i];
-                ClassLoader dcl = GetClassLoader();
+            if (logClassNameList[i] != null
+                    && logClassNameList[i] != "") {
+                //加载对应类，并放入loginSDKList
+                try {
+                    String className = logClassNameList[i];
 
-                Class c = dcl.loadClass(className);
-                ILog ins = (ILog) c.newInstance();
-                ins.Init(json);
+                    Class c = GetClass(className);
+                    LogBase ins = (LogBase) c.newInstance();
+                    ins.Init(json);
 
-                logList.add(ins);
-            }
-            catch (Exception e)
-            {
-                SendError(e.toString(),e);
+                    logList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
             }
         }
     }
@@ -296,7 +306,7 @@ public class SdkInterface
     static void Log(JSONObject json)
     {
         for (int i = 0; i < logList.size(); i++) {
-            ILog log = (ILog) logList.get(i);
+            LogBase log = (LogBase) logList.get(i);
             log.Log(json);
         }
     }
@@ -305,13 +315,13 @@ public class SdkInterface
 
     //region 通用工具
 
-    static ISDK GetSDK(JSONObject json,ArrayList<ISDK> list) throws Exception {
+    static SDKBase GetSDK(JSONObject json,ArrayList<SDKBase> list) throws Exception {
         if(json.has(SDKInterfaceDefine.ParameterName_SDKName))
         {
             String SDKName = json.getString(SDKInterfaceDefine.ParameterName_SDKName);
             for (int i = 0; i < list.size(); i++)
             {
-                if(list.get(i).GetSDKName() == SDKName)
+                if(list.get(i).SDKName == SDKName)
                 {
                     return list.get(i);
                 }
@@ -337,16 +347,8 @@ public class SdkInterface
 
     static DexClassLoader loader;
 
-    public static DexClassLoader GetClassLoader()
-    {
-        String LoadPath = "file:///android_asset/";
-
-        if(loader == null)
-        {
-            loader = new DexClassLoader(LoadPath,LoadPath,null,GetContext().getClassLoader());
-        }
-
-        return loader;
+    public  static Class GetClass(String className) throws ClassNotFoundException, IOException {
+        return Class.forName(className);
     }
 
     //endregion

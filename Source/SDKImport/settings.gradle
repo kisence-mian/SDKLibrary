@@ -1,1 +1,1 @@
-include ':app', ':dataeyes', ':sdkinterface'
+include ':app', ':dataeyes', ':sdkinterface', ':logintest', ':migusdk'

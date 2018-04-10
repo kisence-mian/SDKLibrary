@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/SDKImport.iml" filepath="$PROJECT_DIR$/SDKImport.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataeyes/dataeyes.iml" filepath="$PROJECT_DIR$/dataeyes/dataeyes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logintest/logintest.iml" filepath="$PROJECT_DIR$/logintest/logintest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/migusdk/migusdk.iml" filepath="$PROJECT_DIR$/migusdk/migusdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdkinterface/sdkinterface.iml" filepath="$PROJECT_DIR$/sdkinterface/sdkinterface.iml" />
     </modules>
   </component>
