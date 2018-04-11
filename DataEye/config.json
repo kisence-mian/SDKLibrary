@@ -1,1 +1,1 @@
-{"sdkName":"DataEye","className":"","sdkType":"Login","configList":[{"key":"AppID"},{"key":"ChannelID"}],"permissionList":["INTERNET","READ_PHONE_STATE","ACCESS_NETWORK_STATE","ACCESS_WIFI_STATE","WRITE_EXTERNAL_STORAGE","GET_TASKS"]}
+{"sdkName":"DataEye","className":"DataEye","sdkType":"Login","configList":[{"key":"AppID"},{"key":"ChannelID"}],"permissionList":["INTERNET","READ_PHONE_STATE","ACCESS_NETWORK_STATE","ACCESS_WIFI_STATE","WRITE_EXTERNAL_STORAGE","GET_TASKS"],"minSDKversion":0,"targetSDKVersion":0,"activityInfoList":[],"serviceInfoList":[]}

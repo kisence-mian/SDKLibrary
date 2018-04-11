@@ -31,6 +31,7 @@ dependencies {
     compile files('libs/CMBilling.jar')
     compile files('libs/CMBillingForUnity.jar')
     compile files('libs/classes.jar')
+    compile project(':sdkinterface')
 }
 
 
