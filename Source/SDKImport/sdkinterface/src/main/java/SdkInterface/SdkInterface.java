@@ -27,22 +27,22 @@ public class SdkInterface
         try
         {
             JSONObject json = new JSONObject(content);
-            String functionName = json.getString(SDKInterfaceDefine.ParameterName_FunctionName);
+            String functionName = json.getString(SDKInterfaceDefine.ModuleName);
 
             switch(functionName)
             {
-                case SDKInterfaceDefine.FunctionName_Init:Init(json);break;
-                case SDKInterfaceDefine.FunctionName_Login:Login(json);break;
-                case SDKInterfaceDefine.FunctionName_Log:Log(json);break;
-                case SDKInterfaceDefine.FunctionName_AD:AD(json);break;
-                case SDKInterfaceDefine.FunctionName_Pay:Pay(json);break;
-                case SDKInterfaceDefine.FunctionName_Other:Other(json);break;
+                case SDKInterfaceDefine.ModuleName_Init:Init(json);break;
+                case SDKInterfaceDefine.ModuleName_Login:Login(json);break;
+                case SDKInterfaceDefine.ModuleName_Log:Log(json);break;
+                case SDKInterfaceDefine.ModuleName_AD:AD(json);break;
+                case SDKInterfaceDefine.ModuleName_Pay:Pay(json);break;
+                case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
                 default:SendError("UnityRequestFunction : not support function name " + content,null);
             }
         }
         catch (Exception e)
         {
-            SendError("UnityRequestFunction :Json Not Found " + SDKInterfaceDefine.ParameterName_FunctionName + " -> " + content,e);
+            SendError("UnityRequestFunction :Json Not Found " + SDKInterfaceDefine.ModuleName + " -> " + content,e);
         }
     }
 
@@ -57,7 +57,9 @@ public class SdkInterface
         try
         {
             JSONObject jo = new JSONObject();
-            jo.put(SDKInterfaceDefine.ParameterName_FunctionName, SDKInterfaceDefine.ParameterName_Error);
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
+            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
+
             jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent);
 
             UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
@@ -79,7 +81,9 @@ public class SdkInterface
         try
         {
             JSONObject jo = new JSONObject();
-            jo.put(SDKInterfaceDefine.ParameterName_FunctionName, SDKInterfaceDefine.FunctionName_Log);
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
+            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnLog);
+
             jo.put(SDKInterfaceDefine.ParameterName_Content, LogContent);
 
             UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
@@ -100,7 +104,7 @@ public class SdkInterface
     {
         try
         {
-            CallBackObjectName = json.getString(SDKInterfaceDefine.ParameterName_ListenerName);
+            CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
             SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
 
             //加载当前环境下有的SDK放入SDK接口内
@@ -340,9 +344,9 @@ public class SdkInterface
     //region 通用工具
 
     static SDKBase GetSDK(JSONObject json,ArrayList<SDKBase> list) throws Exception {
-        if(json.has(SDKInterfaceDefine.ParameterName_SDKName))
+        if(json.has(SDKInterfaceDefine.SDKName))
         {
-            String SDKName = json.getString(SDKInterfaceDefine.ParameterName_SDKName);
+            String SDKName = json.getString(SDKInterfaceDefine.SDKName);
             for (int i = 0; i < list.size(); i++)
             {
                 if(list.get(i).SDKName == SDKName)
@@ -353,9 +357,9 @@ public class SdkInterface
 
             return null;
         }
-        else if(json.has(SDKInterfaceDefine.ParameterName_SDKIndex))
+        else if(json.has(SDKInterfaceDefine.SDKIndex))
         {
-            int index = json.getInt(SDKInterfaceDefine.ParameterName_SDKIndex);
+            int index = json.getInt(SDKInterfaceDefine.SDKIndex);
             return list.get(index);
         }
         else

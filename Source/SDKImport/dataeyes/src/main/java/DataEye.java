@@ -41,7 +41,7 @@ public class DataEye extends SDKBase implements ILog
     @Override
     public void Log(JSONObject json) {
         try {
-            String logFunction = json.getString(SDKInterfaceDefine.Log_FunctionName);
+            String logFunction = json.getString(SDKInterfaceDefine.FunctionName);
 
             switch (logFunction) {
                     case SDKInterfaceDefine.Log_FunctionName_Login:
@@ -67,7 +67,7 @@ public class DataEye extends SDKBase implements ILog
     {
         Log.d("Unity","DataEye Login " + json.toString());
         try {
-            String accountId = json.getString(SDKInterfaceDefine.ParameterName_FunctionName);
+            String accountId = json.getString(SDKInterfaceDefine.FunctionName);
             DCAccount.login(accountId);
 
         } catch (Exception e) {

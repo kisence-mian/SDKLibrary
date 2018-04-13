@@ -1,10 +1,6 @@
 import com.unity3d.player.UnityPlayer;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import javax.security.auth.callback.Callback;
-
 import SdkInterface.IPay;
 import SdkInterface.SDKBase;
 import SdkInterface.SdkInterface;
@@ -32,35 +28,35 @@ public class MiGuPay extends SDKBase implements IPay , IOther
 
                     JSONObject jo = new JSONObject();
 
-                    jo.put(SDKInterfaceDefine.ParameterName_FunctionName,SDKInterfaceDefine.FunctionName_Login);
-                    jo.put("userId" ,userId);
+                    jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+                    jo.put(SDKInterfaceDefine.Log_ParameterName_AccountId ,userId);
 
                     // 游戏业务收到登录结果后的处理逻辑
                     switch (resultCode) {
                         case LoginResult.UNKOWN:
                             //未发起登录或无法获取登录结果
-                            jo.put("IsSuccess",false);
-                            jo.put("Info","未发起登录或无法获取登录结果");
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                            jo.put(SDKInterfaceDefine.ParameterName_Content,"未发起登录或无法获取登录结果");
                             break;
                         case LoginResult.SUCCESS_IMPLICIT:
                             //隐式登录成功
-                            jo.put("IsSuccess",true);
-                            jo.put("Info","隐式登录成功");
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
+                            jo.put(SDKInterfaceDefine.ParameterName_Content,"隐式登录成功");
                             break;
                         case LoginResult.FAILED_IMPLICIT:
                             //隐式登录失败
-                            jo.put("IsSuccess",false);
-                            jo.put("Info","隐式登录失败");
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                            jo.put(SDKInterfaceDefine.ParameterName_Content,"隐式登录失败");
                             break;
                         case LoginResult.SUCCESS_EXPLICIT:
                             //显式登录成功
-                            jo.put("IsSuccess",true);
-                            jo.put("Info","显式登录成功");
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
+                            jo.put(SDKInterfaceDefine.ParameterName_Content,"显式登录成功");
                             break;
                         case LoginResult.FAILED_EXPLICIT:
                             //显式登录失败
-                            jo.put("IsSuccess",false);
-                            jo.put("Info","显式登录失败");
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                            jo.put(SDKInterfaceDefine.ParameterName_Content,"显式登录失败");
                             break;
                     }
 
@@ -104,19 +100,18 @@ public class MiGuPay extends SDKBase implements IPay , IOther
         public void onResult(int resultCode, String billingIndex, Object arg) {
             try {
                 JSONObject jo = new JSONObject();
-                jo.put(SDKInterfaceDefine.ParameterName_FunctionName,SDKInterfaceDefine.FunctionName_OnPay);
-                jo.put("billingIndex",billingIndex);
-                jo.put("arg",arg.toString());
+                jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,billingIndex);
 
                 // 游戏业务收到付费结果后的处理逻辑
                 switch (resultCode) {
                     case BillingResult.SUCCESS:
                         //成功
-                        jo.put("IsSuccess",true);
+                        jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
                         break;
                     case BillingResult.FAILED:
                         //失败
-                        jo.put("IsSuccess",false);
+                        jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
                         break;
                 }
                 CallBack(jo.toString());
@@ -155,7 +150,6 @@ public class MiGuPay extends SDKBase implements IPay , IOther
         {
             SendError("Pay Exception " + json.toString(),e);
         }
-
     }
 
     //在这里实现退出接口
@@ -163,7 +157,7 @@ public class MiGuPay extends SDKBase implements IPay , IOther
     public void Other(JSONObject json)
     {
         try {
-            String otherFunction = json.getString(SDKInterfaceDefine.Other_FunctionName);
+            String otherFunction = json.getString(SDKInterfaceDefine.FunctionName);
 
             if(otherFunction == SDKInterfaceDefine.Other_FunctionName_Exit)
             {
@@ -173,9 +167,9 @@ public class MiGuPay extends SDKBase implements IPay , IOther
                     //确认退出逻辑
                         JSONObject jo = new JSONObject();
                         try {
-                            jo.put(SDKInterfaceDefine.ParameterName_FunctionName,SDKInterfaceDefine.FunctionName_OnOther);
-                            jo.put(SDKInterfaceDefine.Other_FunctionName,SDKInterfaceDefine.Other_FunctionName_Exit);
-                            jo.put("IsSuccess",true);
+                            jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Other);
+                            jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.Other_FunctionName_Exit);
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
 
                             CallBack(jo.toString());
                         } catch (JSONException e) {
@@ -189,9 +183,9 @@ public class MiGuPay extends SDKBase implements IPay , IOther
 
                         JSONObject jo = new JSONObject();
                         try {
-                            jo.put(SDKInterfaceDefine.ParameterName_FunctionName,SDKInterfaceDefine.FunctionName_OnOther);
-                            jo.put(SDKInterfaceDefine.Other_FunctionName,SDKInterfaceDefine.Other_FunctionName_Exit);
-                            jo.put("IsSuccess",false);
+                            jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.FunctionName_OnOther);
+                            jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.Other_FunctionName_Exit);
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
 
                             CallBack(jo.toString());
 
