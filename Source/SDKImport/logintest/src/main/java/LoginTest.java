@@ -1,8 +1,9 @@
 import org.json.JSONObject;
 
-import SdkInterface.LoginBase;
+import SdkInterface.ILogin;
+import SdkInterface.SDKBase;
 
-public class LoginTest extends LoginBase
+public class LoginTest extends SDKBase implements ILogin
 {
     @Override
     public void Init(JSONObject json)

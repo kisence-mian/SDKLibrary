@@ -10,15 +10,16 @@ import org.json.JSONObject;
 
 import java.util.Map;
 
-import SdkInterface.LogBase;
 import SdkInterface.SDKInterfaceDefine;
 import SdkInterface.SdkInterface;
+import SdkInterface.SDKBase;
+import SdkInterface.ILog;
 
 /**
  * Created by GaiKai on 2018/4/10.
  */
 
-public class DataEye extends LogBase
+public class DataEye extends SDKBase implements ILog
 {
     @Override
     public void Init(JSONObject json)
@@ -34,6 +35,30 @@ public class DataEye extends LogBase
 
         } catch (Exception e) {
             SendError("DataEye IOException",e);
+        }
+    }
+
+    @Override
+    public void Log(JSONObject json) {
+        try {
+            String logFunction = json.getString(SDKInterfaceDefine.Log_FunctionName);
+
+            switch (logFunction) {
+                    case SDKInterfaceDefine.Log_FunctionName_Login:
+                        Login(json);
+                        break;
+                    case SDKInterfaceDefine.Log_FunctionName_LoginOut:
+                        LoginOut(json);
+                        break;
+                    case SDKInterfaceDefine.Log_FunctionName_Event:
+                        OnEvent(json);
+                    break;
+                default:
+                    SendError("Dont support Log_FunctionName " + logFunction, null);
+            }
+
+        } catch (JSONException e) {
+            SendError("Log Exception " + e.toString(),e);
         }
     }
 

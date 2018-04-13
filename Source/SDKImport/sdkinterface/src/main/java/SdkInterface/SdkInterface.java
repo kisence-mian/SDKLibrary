@@ -6,13 +6,9 @@ import android.util.Log;
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
-
-import dalvik.system.DexClassLoader;
 
 /**
  * Created by GaiKai on 2018/4/3.
@@ -40,12 +36,13 @@ public class SdkInterface
                 case SDKInterfaceDefine.FunctionName_Log:Log(json);break;
                 case SDKInterfaceDefine.FunctionName_AD:AD(json);break;
                 case SDKInterfaceDefine.FunctionName_Pay:Pay(json);break;
-                default:SendError("UnityRequestFunction not support function name " + json.toString(),null);
+                case SDKInterfaceDefine.FunctionName_Other:Other(json);break;
+                default:SendError("UnityRequestFunction : not support function name " + content,null);
             }
         }
         catch (Exception e)
         {
-            SendError(e.toString(),e);
+            SendError("UnityRequestFunction :Json Not Found " + SDKInterfaceDefine.ParameterName_FunctionName + " -> " + content,e);
         }
     }
 
@@ -111,6 +108,7 @@ public class SdkInterface
             InitLog(json);
             InitPay(json);
             InitAD(json);
+            InitOther(json);
         }
         catch (Exception e)
         {
@@ -139,10 +137,7 @@ public class SdkInterface
 
                     String className = loginClassNameList[i];
 
-                    Class c = GetClass(className);
-                    LoginBase ins = (LoginBase) c.newInstance();
-                    ins.Init(json);
-
+                    SDKBase ins = GetClass(className,json);
                     loginSDKList.add(ins);
                 } catch (Exception e) {
                     SendError(e.toString(), e);
@@ -157,7 +152,7 @@ public class SdkInterface
     {
         try
         {
-            LoginBase login = (LoginBase)GetSDK(json,loginSDKList);
+            ILogin login = (ILogin)GetSDK(json,loginSDKList);
             if(login != null)
             {
                 login.Login(json);
@@ -195,10 +190,7 @@ public class SdkInterface
                 //加载对应类，并放入loginSDKList
                 try {
                     String className = payClassNameList[i];
-
-                    Class c = GetClass(className);
-                    PayBase ins = (PayBase) c.newInstance();
-                    ins.Init(json);
+                    SDKBase ins =  GetClass(className,json);
 
                     paySDKList.add(ins);
                 } catch (Exception e) {
@@ -211,7 +203,7 @@ public class SdkInterface
     static void Pay(JSONObject json)
     {
         try {
-            PayBase pay =(PayBase)GetSDK(json,paySDKList);
+            IPay pay =(IPay)GetSDK(json,paySDKList);
             if(pay != null)
             {
                 pay.Pay(json);
@@ -241,10 +233,7 @@ public class SdkInterface
                     && adClassNameList[i] != "") {
                 try {
                     String className = adClassNameList[i];
-
-                    Class c = GetClass(className);
-                    ADBase ins = (ADBase) c.newInstance();
-                    ins.Init(json);
+                    SDKBase ins =  GetClass(className,json);
 
                     adSDKList.add(ins);
                 } catch (Exception e) {
@@ -256,7 +245,7 @@ public class SdkInterface
 
     static void AD(JSONObject json) {
         try {
-            ADBase ad = (ADBase) GetSDK(json, adSDKList);
+            IAD ad = (IAD) GetSDK(json, adSDKList);
             if (ad != null) {
                 ad.AD(json);
             }
@@ -290,9 +279,7 @@ public class SdkInterface
                 //加载对应类，并放入loginSDKList
                 try {
                     String className = logClassNameList[i];
-
-                    Class c = GetClass(className);
-                    LogBase ins = (LogBase) c.newInstance();
+                    SDKBase ins =  GetClass(className,json);
                     ins.Init(json);
 
                     logList.add(ins);
@@ -306,8 +293,45 @@ public class SdkInterface
     static void Log(JSONObject json)
     {
         for (int i = 0; i < logList.size(); i++) {
-            LogBase log = (LogBase) logList.get(i);
+            ILog log = (ILog) logList.get(i);
             log.Log(json);
+        }
+    }
+
+    //endregion
+
+    //region 其他接口
+
+    static ArrayList<SDKBase> otherSDKList;
+    static void InitOther(JSONObject json) {
+        otherSDKList = new ArrayList<SDKBase>();
+
+        String otherClassNameConfig = SdkManifest.getProperty("Other");
+        String[] otherClassNameList = otherClassNameConfig.split("\\|");
+
+        SendLog(otherClassNameConfig);
+
+        for (int i = 0; i < otherClassNameList.length; i++) {
+            //加载对应类，并放入loginSDKList
+
+            if (otherClassNameList[i] != null
+                    && otherClassNameList[i] != "") {
+                try {
+                    String className = otherClassNameList[i];
+                    SDKBase ins =  GetClass(className,json);
+
+                    otherSDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
+            }
+        }
+    }
+
+    static void Other(JSONObject json) {
+        for (int i = 0; i < otherSDKList.size(); i++) {
+            IOther other = (IOther) otherSDKList.get(i);
+            other.Other(json);
         }
     }
 
@@ -345,10 +369,23 @@ public class SdkInterface
         return UnityPlayer.currentActivity.getApplicationContext();
     }
 
-    static DexClassLoader loader;
+    static HashMap<String,SDKBase> allClass = new HashMap() ;
 
-    public  static Class GetClass(String className) throws ClassNotFoundException, IOException {
-        return Class.forName(className);
+    public  static SDKBase GetClass(String className,JSONObject json) throws Exception
+    {
+        if(allClass.containsKey(className))
+        {
+            return allClass.get(className);
+        }
+        else
+        {
+            Class cla = Class.forName(className);
+            SDKBase sdk = (SDKBase)cla.newInstance();
+            sdk.Init(json);
+            allClass.put(className,sdk);
+
+            return sdk;
+        }
     }
 
     //endregion
