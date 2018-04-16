@@ -99,7 +99,6 @@ public class SdkInterface
     //endregion
 
     //region Init
-
     static void Init(JSONObject json)
     {
         try
@@ -182,7 +181,7 @@ public class SdkInterface
     {
         paySDKList = new ArrayList<SDKBase>();
 
-        String payClassNameConfig = SdkManifest.getProperty("AD");
+        String payClassNameConfig = SdkManifest.getProperty("Pay");
         String[] payClassNameList = payClassNameConfig.split("\\|");
 
         SendLog(payClassNameConfig);
