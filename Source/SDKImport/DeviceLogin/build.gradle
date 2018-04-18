@@ -32,7 +32,7 @@ dependencies {
 }
 
 task deleteOldJar(type: Delete) {
-    delete 'build/outputs/LoginTest.jar'
+    delete 'build/outputs/DeviceLogin.jar'
 }
 
 task exportJar(type: Copy) {
@@ -40,7 +40,7 @@ task exportJar(type: Copy) {
     into('build/libs/')
     include('classes.jar')
     exclude('test/', 'BuildConfig.class', 'R.class')
-    rename ('classes.jar', 'LoginTest.jar')
+    rename ('classes.jar', 'DeviceLogin.jar')
 }
 
 exportJar.dependsOn(deleteOldJar, build)

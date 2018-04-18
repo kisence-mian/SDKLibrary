@@ -98,7 +98,7 @@ public class MiGuPay extends SDKBase implements IPay , IOther
             }
         }
 
-//        GameInterface.initializeApp(UnityPlayer.currentActivity);
+        GameInterface.initializeApp(UnityPlayer.currentActivity);
 
         Log.d("Unity","Migu Init Finish");
     }

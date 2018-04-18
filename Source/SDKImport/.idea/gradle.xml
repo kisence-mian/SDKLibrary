@@ -9,9 +9,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/DeviceLogin" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/dataeyes" />
-            <option value="$PROJECT_DIR$/logintest" />
             <option value="$PROJECT_DIR$/migusdk" />
             <option value="$PROJECT_DIR$/sdkinterface" />
           </set>
