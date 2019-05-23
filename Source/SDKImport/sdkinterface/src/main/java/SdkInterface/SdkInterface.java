@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.unity3d.player.UnityPlayer;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -337,10 +339,27 @@ public class SdkInterface
         }
     }
 
-    static void Other(JSONObject json) {
-        for (int i = 0; i < otherSDKList.size(); i++) {
-            IOther other = (IOther) otherSDKList.get(i);
-            other.Other(json);
+    static void Other(JSONObject json)
+    {
+        SendLog("SDKInterBase Other " + json.toString());
+        try {
+            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+            for (int i = 0; i < otherSDKList.size(); i++) {
+                IOther other = (IOther) otherSDKList.get(i);
+                String[] fs = other.GetFunctionName();
+                for (int j = 0; j < fs.length; j++)
+                {
+                    SendLog(functionName+"=> fs[] "  + j + " "+ fs[j] + " ->" + fs[j].equals(functionName));
+
+                    if(fs[j].equals(functionName))
+                    {
+                        other.Other(json);
+                    }
+                }
+            }
+        } catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
         }
     }
 

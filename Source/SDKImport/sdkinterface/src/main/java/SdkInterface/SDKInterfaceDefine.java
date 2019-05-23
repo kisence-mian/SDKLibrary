@@ -72,4 +72,10 @@ public class SDKInterfaceDefine
 
     //Other相关参数
     public static final String Other_FunctionName_Exit = "Exit";
+
+    //Other -> 剪贴板
+    public static final String Other_ModuleName_Clipboard = "Clipboard ";
+    public static final String Other_FunctionName_CopyToClipboard = "CopyToClipboard";
+    public static final String Other_FunctionName_CopyFromClipboard = "CopyFromClipboard";
+    public static final String Other_ParameterName_Content = "Content";
 }

@@ -8,5 +8,7 @@ import org.json.JSONObject;
 
 public interface IOther
 {
-    void Other(JSONObject json);
+   void Other(JSONObject json);
+
+   String[] GetFunctionName();
 }

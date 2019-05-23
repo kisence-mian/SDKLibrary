@@ -1,5 +1,9 @@
 package SdkInterface;
 
+import android.app.Activity;
+
+import com.unity3d.player.UnityPlayer;
+
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -30,5 +34,9 @@ public class SDKBase {
 
     public Properties GetProperties() throws IOException {
         return PropertieTool.getProperties(SdkInterface.GetContext(),SDKName);
+    }
+    public Activity GetCurrentActivity()
+    {
+        return UnityPlayer.currentActivity;
     }
 }

@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import SdkInterface.*;
 
-public class WeiXinSDK extends SDKBase implements ILogin,IPay
+public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 {
     public static  String AppID = "";
     public static  String AppSecret ="";
@@ -71,5 +71,15 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay
         } catch (Exception e) {
             SendError("WX Pay Error " + e.toString(),e);
         }
+    }
+
+    @Override
+    public void Other(JSONObject json) {
+
+    }
+
+    @Override
+    public String[] GetFunctionName() {
+        return new String[]{};
     }
 }
