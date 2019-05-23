@@ -4,10 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DeviceLogin/DeviceLogin.iml" filepath="$PROJECT_DIR$/DeviceLogin/DeviceLogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDKImport.iml" filepath="$PROJECT_DIR$/SDKImport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admob/admob.iml" filepath="$PROJECT_DIR$/admob/admob.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autoupdate/autoupdate.iml" filepath="$PROJECT_DIR$/autoupdate/autoupdate.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataeyes/dataeyes.iml" filepath="$PROJECT_DIR$/dataeyes/dataeyes.iml" />
       <module fileurl="file://$PROJECT_DIR$/migusdk/migusdk.iml" filepath="$PROJECT_DIR$/migusdk/migusdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdkinterface/sdkinterface.iml" filepath="$PROJECT_DIR$/sdkinterface/sdkinterface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/weixinlogin/weixinlogin.iml" filepath="$PROJECT_DIR$/weixinlogin/weixinlogin.iml" />
     </modules>
   </component>
 </project>

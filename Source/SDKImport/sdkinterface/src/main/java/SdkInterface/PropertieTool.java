@@ -16,7 +16,7 @@ public class PropertieTool
         Properties urlProps;
         Properties props = new Properties();
 
-        //通过activity中的context攻取setting.properties的FileInputStream
+        //通过activity中的context读取setting.properties的FileInputStream
         InputStream in = c.getAssets().open(propertieName + ".properties");
         props.load(in);
 

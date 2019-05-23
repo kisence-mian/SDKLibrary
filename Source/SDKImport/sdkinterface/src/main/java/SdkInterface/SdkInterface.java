@@ -17,6 +17,7 @@ import java.util.Properties;
 public class SdkInterface
 {
     static final String CallBackFuntionName = "OnSDKCallBack";
+    static boolean isInit = false;
 
     static Properties SdkManifest;
     static String CallBackObjectName;
@@ -52,6 +53,12 @@ public class SdkInterface
         UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
     }
 
+    public static void SendMessage(JSONObject json)
+    {
+        Log.d("Unity","SendMessage ->" + json.toString() + "<-");
+        UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, json.toString());
+    }
+
     public static void SendError(String errorContent,Exception e)
     {
         try
@@ -60,20 +67,16 @@ public class SdkInterface
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
             jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
 
-            jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent);
+            jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent+ "\n" + GetCallStrack(e));
 
-            UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
+            UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString() );
         }
         catch (Exception ex)
         {
-            Log.e("Unity","SendError Exception ->" + ex.toString() + "<-");
+            Log.e("Unity","SendError Exception ->" + ex.toString() + "\n" + GetCallStrack(ex) + "<-");
         }
 
-        Log.d("Unity","SendError ->" + errorContent + "<-");
-        if(e != null)
-        {
-            e.printStackTrace();
-        }
+        Log.d("Unity","SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
     }
 
     public static void SendLog(String LogContent)
@@ -101,21 +104,25 @@ public class SdkInterface
     //region Init
     static void Init(JSONObject json)
     {
-        try
+        if(!isInit)
         {
-            CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
-            SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
+            isInit = true;
+            try
+            {
+                CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
+                SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
 
-            //加载当前环境下有的SDK放入SDK接口内
-            InitLoginSDK(json);
-            InitLog(json);
-            InitPay(json);
-            InitAD(json);
-            InitOther(json);
-        }
-        catch (Exception e)
-        {
-            SendError("Init Exception: ->" + e.toString(),e);
+                //加载当前环境下有的SDK放入SDK接口内
+                InitLoginSDK(json);
+                InitLog(json);
+                InitPay(json);
+                InitAD(json);
+                InitOther(json);
+            }
+            catch (Exception e)
+            {
+                SendError("Init Exception: ->" + e.toString(),e);
+            }
         }
     }
 
@@ -126,11 +133,12 @@ public class SdkInterface
     static ArrayList<SDKBase> loginSDKList;
 
     static void InitLoginSDK(JSONObject json) {
-        loginSDKList = new ArrayList<SDKBase>();
+        loginSDKList = new ArrayList<>();
 
         String loginClassNameConfig = SdkManifest.getProperty("Login");
         String[] loginClassNameList = loginClassNameConfig.split("\\|");
 
+        SendLog("Login Init ->" + loginClassNameConfig);
         //加载对应类，并放入loginSDKList
         for (int i = 0; i < loginClassNameList.length; i++) {
 
@@ -146,9 +154,7 @@ public class SdkInterface
                     SendError(e.toString(), e);
                 }
             }
-
         }
-
     }
 
     public static void Login(JSONObject json)
@@ -179,12 +185,12 @@ public class SdkInterface
     static ArrayList<SDKBase> paySDKList;
     static void InitPay(JSONObject json)
     {
-        paySDKList = new ArrayList<SDKBase>();
+        paySDKList = new ArrayList<>();
 
         String payClassNameConfig = SdkManifest.getProperty("Pay");
         String[] payClassNameList = payClassNameConfig.split("\\|");
 
-        SendLog(payClassNameConfig);
+        SendLog("Pay Init ->" + payClassNameConfig);
 
         for (int i = 0; i < payClassNameList.length; i++) {
 
@@ -214,7 +220,7 @@ public class SdkInterface
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            SendError("Pay Error" + e.toString(),e);
         }
     }
     //endregion 支付
@@ -222,12 +228,12 @@ public class SdkInterface
     //region 广告
     static ArrayList<SDKBase> adSDKList;
     static void InitAD(JSONObject json) {
-        adSDKList = new ArrayList<SDKBase>();
+        adSDKList = new ArrayList<>();
 
         String adClassNameConfig = SdkManifest.getProperty("AD");
         String[] adClassNameList = adClassNameConfig.split("\\|");
 
-        SendLog(adClassNameConfig);
+        SendLog("AD init ->" + adClassNameConfig);
 
         for (int i = 0; i < adClassNameList.length; i++) {
             //加载对应类，并放入loginSDKList
@@ -268,12 +274,12 @@ public class SdkInterface
     static ArrayList<SDKBase> logList;
     static void InitLog(JSONObject json)
     {
-        logList = new ArrayList<SDKBase>();
+        logList = new ArrayList<>();
 
         String logClassNameConfig = SdkManifest.getProperty("Log");
         String[] logClassNameList = logClassNameConfig.split("\\|");
 
-        SendLog(logClassNameConfig);
+        SendLog("Log Init ->" + logClassNameConfig);
 
         for (int i = 0 ; i < logClassNameList.length ; i++)
         {
@@ -307,12 +313,12 @@ public class SdkInterface
 
     static ArrayList<SDKBase> otherSDKList;
     static void InitOther(JSONObject json) {
-        otherSDKList = new ArrayList<SDKBase>();
+        otherSDKList = new ArrayList<>();
 
         String otherClassNameConfig = SdkManifest.getProperty("Other");
         String[] otherClassNameList = otherClassNameConfig.split("\\|");
 
-        SendLog(otherClassNameConfig);
+        SendLog("Other Init ->" + otherClassNameConfig);
 
         for (int i = 0; i < otherClassNameList.length; i++) {
             //加载对应类，并放入loginSDKList
@@ -343,27 +349,37 @@ public class SdkInterface
     //region 通用工具
 
     static SDKBase GetSDK(JSONObject json,ArrayList<SDKBase> list) throws Exception {
-        if(json.has(SDKInterfaceDefine.SDKName))
-        {
-            String SDKName = json.getString(SDKInterfaceDefine.SDKName);
-            for (int i = 0; i < list.size(); i++)
-            {
-                if(list.get(i).SDKName == SDKName)
-                {
-                    return list.get(i);
-                }
-            }
 
-            return null;
-        }
-        else if(json.has(SDKInterfaceDefine.SDKIndex))
+        if(isInit)
         {
-            int index = json.getInt(SDKInterfaceDefine.SDKIndex);
-            return list.get(index);
+            if(json.has(SDKInterfaceDefine.SDKName))
+            {
+                String SDKName = json.getString(SDKInterfaceDefine.SDKName);
+                for (int i = 0; i < list.size(); i++)
+                {
+                    if(list.get(i).SDKName != null && list.get(i).SDKName.equals(SDKName))
+                    {
+                        return list.get(i);
+                    }
+                }
+
+                SendLog("GetSDK 找不到 SDKName ：" + SDKName );
+                return null;
+            }
+            else if(json.has(SDKInterfaceDefine.SDKIndex))
+            {
+                int index = json.getInt(SDKInterfaceDefine.SDKIndex);
+                return list.get(index);
+            }
+            else
+            {
+                return list.get(0);
+            }
         }
         else
         {
-            return list.get(0);
+            SendLog("SDKManager尚未初始化！" );
+            return null;
         }
     }
 
@@ -372,7 +388,7 @@ public class SdkInterface
         return UnityPlayer.currentActivity.getApplicationContext();
     }
 
-    static HashMap<String,SDKBase> allClass = new HashMap() ;
+    static HashMap<String,SDKBase> allClass = new HashMap<String,SDKBase>() ;
 
     public  static SDKBase GetClass(String className,JSONObject json) throws Exception
     {
@@ -384,6 +400,7 @@ public class SdkInterface
         {
             Class cla = Class.forName(className);
             SDKBase sdk = (SDKBase)cla.newInstance();
+            sdk.SDKName = className;
             sdk.Init(json);
             allClass.put(className,sdk);
 
@@ -392,4 +409,20 @@ public class SdkInterface
     }
 
     //endregion
+
+    public static String GetCallStrack(Exception e) {
+
+        String content = "";
+
+        StackTraceElement[] stackElements = e.getStackTrace();
+
+        if (stackElements != null) {
+            for (int i = 0; i < stackElements.length; i++) {
+                content += "\t at " +  stackElements[i].getClassName() +"." + stackElements[i].getMethodName()
+                        + "(" + stackElements[i].getFileName() + ":" + stackElements[i].getLineNumber()+ ")\n";
+            }
+        }
+
+        return content;
+    }
 }

@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import SdkInterface.ILogin;
 import SdkInterface.SDKBase;
 import SdkInterface.SDKInterfaceDefine;
+import SdkInterface.SdkInterface;
 
 public class DeviceLogin extends SDKBase implements ILogin
 {
@@ -28,6 +29,8 @@ public class DeviceLogin extends SDKBase implements ILogin
             jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogin);
 
             jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,AccountId);
+
+            SdkInterface.SendMessage(jo.toString());
 
         }
         catch (JSONException e)

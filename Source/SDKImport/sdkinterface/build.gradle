@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "26"
 
     defaultConfig {
         minSdkVersion 14
@@ -22,16 +22,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    testCompile 'junit:junit:4.12'
-    compile files('libs/classes.jar')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26+'
+    implementation files('libs/classes.jar')
 }
 
-task deleteOldJar(type: Delete) {
+task deleteOldJar(type: Delete)  {
     delete 'build/outputs/SDKInterface.jar'
 }
 

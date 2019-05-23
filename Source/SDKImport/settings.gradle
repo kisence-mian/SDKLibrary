@@ -1,1 +1,1 @@
-include ':app', ':dataeyes', ':sdkinterface', ':DeviceLogin', ':migusdk'
+include ':app', ':dataeyes', ':sdkinterface', ':DeviceLogin', ':migusdk', ':weixinlogin', ':autoupdate', ':admob'
