@@ -1,16 +1,18 @@
 package SdkInterface;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-
 import com.unity3d.player.UnityPlayer;
+import com.unity3d.player.UnityPlayerActivity;
 
-import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
+
+import SdkInterface.tool.ActResultRequest;
 
 /**
  * Created by GaiKai on 2018/4/3.
@@ -23,6 +25,9 @@ public class SdkInterface
 
     static Properties SdkManifest;
     static String CallBackObjectName;
+
+    //用于接收onActivityResult回调
+    public static ActResultRequest actResultRequest;
 
     //region 外部交互
     public static void UnityRequestFunction(String content)
@@ -42,10 +47,12 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
                 default:SendError("UnityRequestFunction : not support function name " + content,null);
             }
+
+            InitActResultRequest();
         }
         catch (Exception e)
         {
-            SendError("UnityRequestFunction :Json Not Found " + SDKInterfaceDefine.ModuleName + " -> " + content,e);
+            SendError("UnityRequestFunction Error  msg  -> " + content + " error: " + e.toString(),e);
         }
     }
 
@@ -126,6 +133,18 @@ public class SdkInterface
                 SendError("Init Exception: ->" + e.toString(),e);
             }
         }
+    }
+
+    static void InitActResultRequest()
+    {
+        class StartThread implements Runnable{
+            public void run(){
+                SendLog("Start InitActResultRequest Runnable");
+                actResultRequest = new ActResultRequest(UnityPlayer.currentActivity);
+                SendLog("Finish InitActResultRequest Runnable");
+            }
+        }
+        UnityPlayer.currentActivity.runOnUiThread(new StartThread());
     }
 
     //endregion

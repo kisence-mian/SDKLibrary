@@ -1,6 +1,7 @@
 package SdkInterface;
 
 import android.app.Activity;
+import android.content.Intent;
 
 import com.unity3d.player.UnityPlayer;
 
@@ -8,6 +9,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Properties;
+
+import SdkInterface.tool.ActResultRequest;
 
 /**
  * Created by GaiKai on 2018/4/4.
@@ -38,5 +41,16 @@ public class SDKBase {
     public Activity GetCurrentActivity()
     {
         return UnityPlayer.currentActivity;
+    }
+
+    public void StartForResult(Intent intent, ActResultRequest.Callback callback)
+    {
+        try
+        {
+            SdkInterface.actResultRequest.startForResult(intent,callback);
+        }catch (Exception e)
+        {
+            SendError("StartForResult" + e.toString(),e);
+        }
     }
 }

@@ -74,8 +74,14 @@ public class SDKInterfaceDefine
     public static final String Other_FunctionName_Exit = "Exit";
 
     //Other -> 剪贴板
-    public static final String Other_ModuleName_Clipboard = "Clipboard ";
+    public static final String Other_ModuleName_Clipboard = "Clipboard";
     public static final String Other_FunctionName_CopyToClipboard = "CopyToClipboard";
     public static final String Other_FunctionName_CopyFromClipboard = "CopyFromClipboard";
     public static final String Other_ParameterName_Content = "Content";
+
+    //Other -> 热更新安装包
+    public static final String Other_FunctionName_DownloadAPK = "DownloadAPK";
+    public static final String Other_ParameterName_DownloadURL = "DownloadURL";
+    public static final String  Other_ParameterName_Progress = "Progress";
+    public static final String  Other_ParameterName_TotalProgress = "TotalProgress";
 }
