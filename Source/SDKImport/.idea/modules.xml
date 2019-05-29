@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/autoupdate/autoupdate.iml" filepath="$PROJECT_DIR$/autoupdate/autoupdate.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataeyes/dataeyes.iml" filepath="$PROJECT_DIR$/dataeyes/dataeyes.iml" />
       <module fileurl="file://$PROJECT_DIR$/migusdk/migusdk.iml" filepath="$PROJECT_DIR$/migusdk/migusdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qqlogin/qqlogin.iml" filepath="$PROJECT_DIR$/qqlogin/qqlogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdkinterface/sdkinterface.iml" filepath="$PROJECT_DIR$/sdkinterface/sdkinterface.iml" />
       <module fileurl="file://$PROJECT_DIR$/weixinlogin/weixinlogin.iml" filepath="$PROJECT_DIR$/weixinlogin/weixinlogin.iml" />
     </modules>

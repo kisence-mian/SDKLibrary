@@ -8,6 +8,8 @@ import com.unity3d.player.UnityPlayer;
 import com.unity3d.player.UnityPlayerActivity;
 
 import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -53,6 +55,18 @@ public class SdkInterface
         catch (Exception e)
         {
             SendError("UnityRequestFunction Error  msg  -> " + content + " error: " + e.toString(),e);
+        }
+    }
+
+    public static String GetProperties(String properties,String key,String defaultValue)
+    {
+        try {
+            return PropertieTool.getProperties(GetContext(), properties).getProperty(key);
+        }
+        catch (Exception e)
+        {
+            SendError("GetProperties Error " + e.toString() + " properties " + properties + " key " + key,e);
+            return defaultValue;
         }
     }
 

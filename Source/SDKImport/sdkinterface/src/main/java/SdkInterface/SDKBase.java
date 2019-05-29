@@ -26,6 +26,9 @@ public class SDKBase {
     public void CallBack(String content) {
         SdkInterface.SendMessage(content);
     }
+    public void CallBack(JSONObject jo) {
+        SdkInterface.SendMessage(jo);
+    }
 
     public void SendLog(String content) {
         SdkInterface.SendLog(content);
