@@ -81,7 +81,9 @@ public class SDKInterfaceDefine
 
     //Other -> 热更新安装包
     public static final String Other_FunctionName_DownloadAPK = "DownloadAPK";
+    public static final String Other_FunctionName_GetAPKSize = "GetAPKSize";
     public static final String Other_ParameterName_DownloadURL = "DownloadURL";
     public static final String  Other_ParameterName_Progress = "Progress";
     public static final String  Other_ParameterName_TotalProgress = "TotalProgress";
+    public static final String  Other_ParameterName_Size = "Size";
 }

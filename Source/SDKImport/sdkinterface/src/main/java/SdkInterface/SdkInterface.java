@@ -452,7 +452,7 @@ public class SdkInterface
         {
             Class cla = Class.forName(className);
             SDKBase sdk = (SDKBase)cla.newInstance();
-            sdk.SDKName = className;
+            sdk.SDKName = SdkManifest.getProperty(className,className);
             sdk.Init(json);
             allClass.put(className,sdk);
 

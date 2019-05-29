@@ -45,6 +45,9 @@ public class HotUpdate extends SDKBase implements IOther
                 case SDKInterfaceDefine.Other_FunctionName_DownloadAPK:
                     DownloadAPK(json);
                     break;
+                case SDKInterfaceDefine.Other_FunctionName_GetAPKSize:
+                    GetAPKSize(json);
+                    break;
             }
         } catch (Exception e) {
             SdkInterface.SendError("HotUpdate error "+ e.toString(),e);
@@ -67,6 +70,44 @@ public class HotUpdate extends SDKBase implements IOther
         SdkInterface.SendLog("DownloadAPK Other -> " + downLoadURL);
 
         getFile(downLoadURL);
+    }
+
+    void GetAPKSize(JSONObject json)throws Exception
+    {
+        //如果传入了值则使用传入值
+        if(json.has(SDKInterfaceDefine.Other_ParameterName_DownloadURL))
+        {
+            downLoadURL = json.getString(SDKInterfaceDefine.Other_ParameterName_DownloadURL);
+        }
+        //否则读取配置
+        else
+        {
+            downLoadURL = GetProperties().getProperty("DownloadURL");
+        }
+
+        /* 取得URL */
+        URL myURL = new URL(downLoadURL);
+        /* 创建连接 */
+        HttpURLConnection conn = (HttpURLConnection) myURL.openConnection();
+        conn.setRequestMethod("GET");
+        int total = conn.getContentLength();
+
+        SendAPKSize(total);
+    }
+
+    void SendAPKSize(int total)
+    {
+        try {
+
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Other);
+            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.Other_FunctionName_GetAPKSize);
+            jo.put(SDKInterfaceDefine.Other_ParameterName_Size, total);
+            SdkInterface.SendMessage(jo);
+
+        } catch (Exception e) {
+            SdkInterface.SendError("SendAPKSize error: " + e.getMessage(), e);
+        }
     }
 
     /* 处理下载URL文件自定义函数 */
@@ -231,7 +272,7 @@ public class HotUpdate extends SDKBase implements IOther
 
     @Override
     public String[] GetFunctionName() {
-        return new String[]{SDKInterfaceDefine.Other_FunctionName_DownloadAPK};
+        return new String[]{SDKInterfaceDefine.Other_FunctionName_DownloadAPK,SDKInterfaceDefine.Other_FunctionName_GetAPKSize};
     }
 
 
