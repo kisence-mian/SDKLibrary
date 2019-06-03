@@ -8,6 +8,8 @@ import android.util.SparseArray;
 public class OnActResultEventDispatcherFragment extends Fragment {
     public static final String TAG = "on_act_result_event_dispatcher";
 
+    public  int mRequestCode = 0x11;
+
     private SparseArray<ActResultRequest.Callback> mCallbacks = new SparseArray<>();
 
     @Override
@@ -17,8 +19,10 @@ public class OnActResultEventDispatcherFragment extends Fragment {
     }
 
     public void startForResult(Intent intent, ActResultRequest.Callback callback) {
-        mCallbacks.put(callback.hashCode(), callback);
-        startActivityForResult(intent, callback.hashCode());
+        // mRequestCode与callback需要一一对应
+        mCallbacks.put(mRequestCode, callback);
+        startActivityForResult(intent, mRequestCode);
+        mRequestCode++;
     }
 
     @Override
@@ -31,5 +35,9 @@ public class OnActResultEventDispatcherFragment extends Fragment {
         if (callback != null) {
             callback.onActivityResult(requestCode,resultCode, data);
         }
+    }
+
+    public void setCallBack(ActResultRequest.Callback callback) {
+        mCallbacks.put(callback.hashCode(), callback);
     }
 }

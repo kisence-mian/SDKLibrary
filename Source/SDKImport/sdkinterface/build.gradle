@@ -25,9 +25,10 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26+'
     implementation files('libs/classes.jar')
+    implementation 'com.android.support:support-v4:26.1.0'
 }
 
-task deleteOldJar(type: Delete)  {
+task deleteOldJar(type: Delete) {
     delete 'build/outputs/SDKInterface.jar'
 }
 
@@ -36,7 +37,7 @@ task exportJar(type: Copy) {
     into('build/libs/')
     include('classes.jar')
     exclude('test/', 'BuildConfig.class', 'R.class')
-    rename ('classes.jar', 'SDKInterface.jar')
+    rename('classes.jar', 'SDKInterface.jar')
 }
 
 exportJar.dependsOn(deleteOldJar, build)

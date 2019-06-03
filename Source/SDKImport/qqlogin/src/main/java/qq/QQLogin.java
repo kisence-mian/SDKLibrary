@@ -1,18 +1,23 @@
 package qq;
 
+import android.content.Intent;
 import android.text.TextUtils;
 
 import com.tencent.connect.common.Constants;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
 
 import org.json.JSONObject;
 
 import java.io.IOException;
 
+import SdkInterface.LoginPlatform;
 import SdkInterface.SDKBase;
 import SdkInterface.ILogin;
 import SdkInterface.SDKInterfaceDefine;
+import SdkInterface.SdkInterface;
+import SdkInterface.tool.ActResultRequest;
 
 public class QQLogin extends SDKBase implements ILogin {
 
@@ -38,22 +43,21 @@ public class QQLogin extends SDKBase implements ILogin {
     @Override
     public void Login(JSONObject json)
     {
-        IUiListener listener = new BaseUiListener() {
+        SendLog("QQ Login  start " + json);
+        //添加回调监听
+        SdkInterface.SetActivityCallBack(Constants.REQUEST_LOGIN ,new ActResultRequest.Callback() {
             @Override
-            public void onComplete(Object o) {
+            public void onActivityResult(int requestCode,int resultCode, Intent data) {
 
-                try
-                {
-                    SendLog("Login onComplete " + o);
-                    initOpenidAndToken((JSONObject) o);
-                }catch (Exception e)
-                {
-                    SendError("Login onComplete Error " + e,e);
-                }
+                SendLog("SetFragmentCallBack onActivityResult ");
+
+                Tencent.onActivityResultData(requestCode,resultCode,data,loginListener);
             }
-        };
+        });
 
-        mTencent.login(GetCurrentActivity(),"get_user_info",listener);
+        mTencent.login(GetCurrentActivity(),"all",loginListener);
+
+        SendLog("QQ Login finish " + json);
     }
 
     public void initOpenidAndToken(JSONObject jsonObject) {
@@ -85,6 +89,7 @@ public class QQLogin extends SDKBase implements ILogin {
             jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
             jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,id);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.QQ.toString());
 
             CallBack(jo);
         }
@@ -92,7 +97,42 @@ public class QQLogin extends SDKBase implements ILogin {
         {
             SendError("LoginCallBack Error " + e.toString(),e);
         }
-
     }
 
+    IUiListener loginListener = new BaseUiListener() {
+        @Override
+        protected void doComplete(JSONObject values) {
+            try
+            {
+                SendLog("Login doComplete " + values);
+                initOpenidAndToken(values);
+            }catch (Exception e)
+            {
+                SendError("Login onComplete Error " + e,e);
+            }
+        }
+
+        @Override
+        public void onComplete(Object o) {
+
+            try
+            {
+                SendLog("Login onComplete " + o);
+                initOpenidAndToken((JSONObject) o);
+            }catch (Exception e)
+            {
+                SendError("Login onComplete Error " + e,e);
+            }
+        }
+
+        @Override
+        public void onError(UiError e) {
+            SendLog("Login onError " + e.toString());
+        }
+
+        @Override
+        public void onCancel() {
+            SendLog("Login onCancel");
+        }
+    };
 }

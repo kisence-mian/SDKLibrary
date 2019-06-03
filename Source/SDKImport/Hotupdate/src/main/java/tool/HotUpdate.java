@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.webkit.URLUtil;
 
@@ -266,15 +265,10 @@ public class HotUpdate extends SDKBase implements IOther
                 SendLog("StartForResult resultCode " + resultCode);
             }
         });
-
-        GetCurrentActivity().startActivity(intent);
     }
 
     @Override
     public String[] GetFunctionName() {
         return new String[]{SDKInterfaceDefine.Other_FunctionName_DownloadAPK,SDKInterfaceDefine.Other_FunctionName_GetAPKSize};
     }
-
-
-
 }

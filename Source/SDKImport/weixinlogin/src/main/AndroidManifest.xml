@@ -1,13 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.weixinlogin">
-    <activity android:name="WeiXin.wxapi.WXEntryActivity"
-        android:screenOrientation="landscape"
-        android:configChanges="orientation|screenSize"
-        android:exported="true"
-        android:taskAffinity="net.sourceforge.simcpux"
-        android:launchMode="singleTask"
-        >
-    </activity>
 
 </manifest>
 

@@ -41,6 +41,7 @@ public class SDKInterfaceDefine
     public static final String FunctionName_Logout = "Logout";
     public static final String Login_ParameterName_Device = "Device";
     public static final String Login_ParameterName_AccountId = "AccountId";
+    public static final String Login_ParameterName_loginPlatform = "loginPlatform";
 
     //Pay相关参数
     public static final String Pay_ParameterName_GoodsID     = "GoodsID";

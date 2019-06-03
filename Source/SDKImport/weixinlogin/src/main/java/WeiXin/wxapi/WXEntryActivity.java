@@ -10,6 +10,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import org.json.JSONObject;
 
+import SdkInterface.LoginPlatform;
 import SdkInterface.SDKInterfaceDefine;
 import SdkInterface.SdkInterface;
 import WeiXin.WeiXinSDK;
@@ -48,6 +49,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler
                 //发回给SDKManager
 
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+                jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.WeiXin.toString());
 
                 if(resp.errCode==BaseResp.ErrCode.ERR_OK)//成功
                 {

@@ -1,19 +1,23 @@
 package SdkInterface.tool;
-
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 
-public class ActResultRequest
-{
+public class ActResultRequest {
+
     private OnActResultEventDispatcherFragment fragment;
 
     public ActResultRequest(Activity activity) {
         fragment = getEventDispatchFragment(activity);
     }
 
+    public OnActResultEventDispatcherFragment getFragment()
+    {
+        return fragment;
+    }
+
     private OnActResultEventDispatcherFragment getEventDispatchFragment(Activity activity) {
-        final FragmentManager fragmentManager = activity.getFragmentManager();
+        FragmentManager fragmentManager = activity.getFragmentManager();
 
         OnActResultEventDispatcherFragment fragment = findEventDispatchFragment(fragmentManager);
         if (fragment == null) {
@@ -37,6 +41,6 @@ public class ActResultRequest
 
     public interface Callback {
 
-        void onActivityResult(int requestCode ,int resultCode, Intent data);
+        void onActivityResult(int requestCode,int resultCode, Intent data);
     }
 }
