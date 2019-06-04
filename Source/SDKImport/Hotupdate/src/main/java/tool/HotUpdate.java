@@ -251,7 +251,7 @@ public class HotUpdate extends SDKBase implements IOther
             SendLog("openFile A");
             /* 设置intent的file与MimeType */
             String type = "application/vnd.android.package-archive";
-            Uri contentUri = FileProvider.getUriForFile(GetCurrentActivity(), "tool.hotupdate.fileprovider",f);
+            Uri contentUri = FileProvider.getUriForFile(GetCurrentActivity(),  GetCurrentActivity().getPackageName() + ".fileprovider",f);
             intent.setDataAndType(contentUri, type);
         } else {
             SendLog("openFile B");
