@@ -87,4 +87,10 @@ public class SDKInterfaceDefine
     public static final String  Other_ParameterName_Progress = "Progress";
     public static final String  Other_ParameterName_TotalProgress = "TotalProgress";
     public static final String  Other_ParameterName_Size = "Size";
+
+    //Properties
+    public static final String FileName_ChannelProperties = "Channel";
+
+    public static final String PropertiesKey_IsLog = "IsLog";                           //是否输出日志
+    public static final String PropertiesKey_UpdateDownLoadPath = "UpdateDownLoadPath"; //热更新下载地址
 }

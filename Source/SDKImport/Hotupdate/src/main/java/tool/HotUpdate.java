@@ -1,6 +1,5 @@
 package tool;
 
-import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -139,6 +138,7 @@ public class HotUpdate extends SDKBase implements IOther
     private void getDataSource(String url) throws Exception {
         if (!URLUtil.isNetworkUrl(url)) {
             SdkInterface.SendLog("错误的URL " + url);
+            SendProgressError("Error URL");
         }
         else {
             InputStream is = null;
@@ -189,6 +189,7 @@ public class HotUpdate extends SDKBase implements IOther
 
             } catch (Exception ex) {
                 SdkInterface.SendError("error: " + ex.toString(), ex);
+                SendProgressError("Download Exception");
             }
         }
     }
@@ -203,6 +204,25 @@ public class HotUpdate extends SDKBase implements IOther
             jo.put(SDKInterfaceDefine.Other_ParameterName_TotalProgress, total);
             jo.put(SDKInterfaceDefine.Other_ParameterName_Progress, current);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.ParameterName_Error, success);
+            SdkInterface.SendMessage(jo);
+
+        } catch (Exception e) {
+            SdkInterface.SendError("error: " + e.getMessage(), e);
+        }
+    }
+
+    void SendProgressError(String error)
+    {
+        try {
+
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Other);
+            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.Other_FunctionName_DownloadAPK);
+            jo.put(SDKInterfaceDefine.Other_ParameterName_TotalProgress, 0);
+            jo.put(SDKInterfaceDefine.Other_ParameterName_Progress, 0);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, false);
+            jo.put(SDKInterfaceDefine.ParameterName_Error, error);
             SdkInterface.SendMessage(jo);
 
         } catch (Exception e) {

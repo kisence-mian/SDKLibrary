@@ -1,6 +1,5 @@
 package SdkInterface;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -8,6 +7,8 @@ import android.util.SparseArray;
 
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -22,6 +23,7 @@ public class SdkInterface
 {
     static final String CallBackFuntionName = "OnSDKCallBack";
     static boolean isInit = false;
+    static boolean isLog = false;
 
     static Properties SdkManifest;
     static String CallBackObjectName;
@@ -63,7 +65,15 @@ public class SdkInterface
     public static String GetProperties(String properties,String key,String defaultValue)
     {
         try {
-            return PropertieTool.getProperties(GetContext(), properties).getProperty(key);
+
+            if( PropertieTool.getProperties(GetContext(), properties).containsKey(key))
+            {
+                return PropertieTool.getProperties(GetContext(), properties).getProperty(key);
+            }
+            else
+            {
+                return defaultValue;
+            }
         }
         catch (Exception e)
         {
@@ -74,14 +84,17 @@ public class SdkInterface
 
     public static void SendMessage(String content)
     {
-        Log.d("Unity","SendMessage ->" + content + "<-");
+        if(isLog)
+        {
+            Log.d("Unity","SendMessage ->" + content + "<-");
+        }
+
         UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
     }
 
     public static void SendMessage(JSONObject json)
     {
-        Log.d("Unity","SendMessage ->" + json.toString() + "<-");
-        UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, json.toString());
+        SendMessage(json.toString());
     }
 
     public static void SendError(String errorContent,Exception e)
@@ -91,37 +104,45 @@ public class SdkInterface
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
             jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
-
             jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent+ "\n" + GetCallStrack(e));
 
             UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString() );
         }
         catch (Exception ex)
         {
-            Log.e("Unity","SendError Exception ->" + ex.toString() + "\n" + GetCallStrack(ex) + "<-");
+            if(isLog)
+            {
+                Log.e("Unity", "SendError Exception ->" + ex.toString() + "\n" + GetCallStrack(ex) + "<-");
+            }
         }
 
-        Log.d("Unity","SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
+        if(isLog)
+        {
+            Log.e("Unity", "SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
+        }
     }
 
     public static void SendLog(String LogContent)
     {
-        try
+        if(isLog)
         {
-            JSONObject jo = new JSONObject();
-            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
-            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnLog);
+            try
+            {
+                JSONObject jo = new JSONObject();
+                jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
+                jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnLog);
 
-            jo.put(SDKInterfaceDefine.ParameterName_Content, LogContent);
+                jo.put(SDKInterfaceDefine.ParameterName_Content, LogContent);
 
-            UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
+                UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
+            }
+            catch (Exception e)
+            {
+                Log.e("Unity","SendLog Exception ->" + e.toString() + "<-");
+            }
+
+            Log.d("Unity","SendLog ->" + LogContent + "<-");
         }
-        catch (Exception e)
-        {
-            Log.e("Unity","SendLog Exception ->" + e.toString() + "<-");
-        }
-
-        Log.d("Unity","SendLog ->" + LogContent + "<-");
     }
 
     //endregion
@@ -136,6 +157,7 @@ public class SdkInterface
             {
                 CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
                 SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
+                isLog = GetIsLog();
 
                 //加载当前环境下有的SDK放入SDK接口内
                 InitLoginSDK(json);
@@ -496,6 +518,18 @@ public class SdkInterface
 
         if (callback != null) {
             callback.onActivityResult(requestCode,resultCode, data);
+        }
+    }
+
+    static boolean GetIsLog()  {
+
+        if(SdkManifest.containsKey(SDKInterfaceDefine.PropertiesKey_IsLog))
+        {
+            return Boolean.parseBoolean(SdkManifest.getProperty(SDKInterfaceDefine.PropertiesKey_IsLog));
+        }
+        else
+        {
+            return  false;
         }
     }
 }

@@ -2,16 +2,11 @@ package qq;
 
 import android.content.Intent;
 import android.text.TextUtils;
-
 import com.tencent.connect.common.Constants;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
-
 import org.json.JSONObject;
-
-import java.io.IOException;
-
 import SdkInterface.LoginPlatform;
 import SdkInterface.SDKBase;
 import SdkInterface.ILogin;
