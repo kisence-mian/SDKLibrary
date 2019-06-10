@@ -1,4 +1,4 @@
-package SdkInterface;
+package sdkInterface;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.Properties;
 
-import SdkInterface.tool.ActResultRequest;
+import sdkInterface.tool.ActResultRequest;
 
 /**
  * Created by GaiKai on 2018/4/4.

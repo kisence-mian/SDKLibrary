@@ -12,9 +12,9 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
 import org.json.JSONObject;
 
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.SdkInterface;
+import sdkInterface.SDKInterfaceDefine;
 import WeiXin.WeiXinSDK;
+import sdkInterface.SdkInterface;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
 {
@@ -24,6 +24,15 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
         if(WeiXinSDK.api != null)
         {
             WeiXinSDK.api.handleIntent(getIntent(), this);
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        if(WeiXinSDK.api != null) {
+            WeiXinSDK.api.handleIntent(intent, this);
         }
     }
 
@@ -42,7 +51,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
             {
                 JSONObject jo = new JSONObject();
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,"Unknown");
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,"Unknown");//获取不到商品ID
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,baseResp.transaction);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,baseResp.openId);
 

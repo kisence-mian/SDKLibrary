@@ -12,9 +12,9 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 
 import org.json.JSONObject;
 
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.SdkInterface;
+import sdkInterface.SDKInterfaceDefine;
 import WeiXin.WeiXinSDK;
+import sdkInterface.SdkInterface;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
 {

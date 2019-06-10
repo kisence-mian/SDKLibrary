@@ -3,11 +3,10 @@ import android.util.Log;
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONException;
 import org.json.JSONObject;
-import SdkInterface.IPay;
-import SdkInterface.SDKBase;
-import SdkInterface.SdkInterface;
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.IOther;
+import sdkInterface.IPay;
+import sdkInterface.SDKBase;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.IOther;
 import cn.cmgame.billing.api.BillingResult;
 import cn.cmgame.billing.api.GameInterface;
 import cn.cmgame.billing.api.GameInterface.ILoginCallback;
@@ -161,7 +160,7 @@ public class MiGuPay extends SDKBase implements IPay , IOther
                 case SDKInterfaceDefine.Pay_GoodsTypeEnum_RIGHTS: typeid = 4;break;
             }
 
-            GameInterface.doBilling(SdkInterface.GetContext(), typeid, GoodsId, cpParam, billingCallback);
+            GameInterface.doBilling(sdkInterface.GetContext(), typeid, GoodsId, cpParam, billingCallback);
 
         }catch (Exception e)
         {
@@ -180,7 +179,7 @@ public class MiGuPay extends SDKBase implements IPay , IOther
 
             if(otherFunction == SDKInterfaceDefine.Other_FunctionName_Exit)
             {
-                GameInterface.exit(SdkInterface.GetContext(), new GameExitCallback() {
+                GameInterface.exit(sdkInterface.GetContext(), new GameExitCallback() {
                     @Override
                     public void onConfirmExit() {
                     //确认退出逻辑

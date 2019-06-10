@@ -1,4 +1,4 @@
-package SdkInterface.tool;
+package sdkInterface.tool;
 
 import android.app.Fragment;
 import android.content.Intent;

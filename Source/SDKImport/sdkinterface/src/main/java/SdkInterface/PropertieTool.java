@@ -1,4 +1,4 @@
-package SdkInterface;
+package sdkInterface;
 
 import android.content.Context;
 

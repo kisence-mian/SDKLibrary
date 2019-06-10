@@ -1,4 +1,4 @@
-package SdkInterface;
+package sdkInterface;
 
 public enum LoginPlatform {
 

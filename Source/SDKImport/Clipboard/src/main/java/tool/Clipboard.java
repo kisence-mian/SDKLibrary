@@ -2,10 +2,11 @@ package tool;
 
 import org.json.JSONObject;
 import android.app.Activity;
-import SdkInterface.IOther;
-import SdkInterface.SDKBase;
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.SdkInterface;
+import sdkInterface.IOther;
+import sdkInterface.SDKBase;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.SdkInterface;
+
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
@@ -48,7 +49,7 @@ public class Clipboard extends SDKBase implements IOther
     // 向剪贴板中添加文本
     public void copyTextToClipboard(final Context activity, final String content) throws Exception{
 
-        SdkInterface.SendLog("Clipboard copyTextToClipboard" + json.toString());
+        SdkInterface.SendLog("Clipboard copyTextToClipboard ->" + content);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -68,7 +69,7 @@ public class Clipboard extends SDKBase implements IOther
     }
     // 从剪贴板中获取文本
     public void getTextFromClipboard() throws Exception {
-        SdkInterface.SendLog("Clipboard getTextFromClipboard" + json.toString());
+        SdkInterface.SendLog("Clipboard getTextFromClipboard" );
         String content = "";
         if (clipboard != null && clipboard.hasPrimaryClip() && clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
             ClipData cdText = clipboard.getPrimaryClip();

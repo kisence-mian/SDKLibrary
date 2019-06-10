@@ -1,9 +1,6 @@
-package SdkInterface;
+package sdkInterface;
 
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Map;
 
 /**
  * Created by GaiKai on 2018/4/3.

@@ -9,7 +9,7 @@ import com.unity3d.player.UnityPlayer;
 import org.json.JSONObject;
 import java.io.IOException;
 
-import SdkInterface.*;
+import sdkInterface.*;
 
 public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 {
@@ -27,7 +27,6 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 
             api = WXAPIFactory.createWXAPI(UnityPlayer.currentActivity, WeiXinSDK.AppID);
             api.registerApp(AppID);
-//            api.handleIntent(getIntent(), this);
 
             SdkInterface.SendLog("WeiXinSDK Init: AppID " + AppID + " AppSecret " + AppSecret);
 

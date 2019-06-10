@@ -7,12 +7,12 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-import SdkInterface.LoginPlatform;
-import SdkInterface.SDKBase;
-import SdkInterface.ILogin;
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.SdkInterface;
-import SdkInterface.tool.ActResultRequest;
+import sdkInterface.LoginPlatform;
+import sdkInterface.SDKBase;
+import sdkInterface.ILogin;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.SdkInterface;
+import sdkInterface.tool.ActResultRequest;
 
 public class QQLogin extends SDKBase implements ILogin {
 

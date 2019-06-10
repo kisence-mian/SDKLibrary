@@ -1,4 +1,4 @@
-package SdkInterface;
+package sdkInterface;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,12 +8,11 @@ import android.util.SparseArray;
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 
-import SdkInterface.tool.ActResultRequest;
+import sdkInterface.tool.ActResultRequest;
 
 /**
  * Created by GaiKai on 2018/4/3.

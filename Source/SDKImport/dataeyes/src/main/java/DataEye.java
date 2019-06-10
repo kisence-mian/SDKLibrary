@@ -10,10 +10,9 @@ import org.json.JSONObject;
 
 import java.util.Map;
 
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.SdkInterface;
-import SdkInterface.SDKBase;
-import SdkInterface.ILog;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.SDKBase;
+import sdkInterface.ILog;
 
 /**
  * Created by GaiKai on 2018/4/10.
@@ -29,7 +28,7 @@ public class DataEye extends SDKBase implements ILog
         try {
 
             DCAgent.setReportMode(DCReportMode.DC_AFTER_LOGIN);
-            DCAgent.initConfig(SdkInterface.GetContext()
+            DCAgent.initConfig(sdkInterface.GetContext()
                     ,GetProperties().getProperty("AppID")
                     ,GetProperties().getProperty("ChannelID"));
 

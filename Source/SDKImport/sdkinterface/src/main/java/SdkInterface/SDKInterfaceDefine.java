@@ -1,4 +1,4 @@
-package SdkInterface;
+package sdkInterface;
 
 /**
  * Created by GaiKai on 2018/4/4.

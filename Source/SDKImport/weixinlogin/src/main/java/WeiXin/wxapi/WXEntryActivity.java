@@ -10,10 +10,10 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import org.json.JSONObject;
 
-import SdkInterface.LoginPlatform;
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.SdkInterface;
+import sdkInterface.LoginPlatform;
+import sdkInterface.SDKInterfaceDefine;
 import WeiXin.WeiXinSDK;
+import sdkInterface.SdkInterface;
 
 public class WXEntryActivity extends Activity implements IWXAPIEventHandler
 {

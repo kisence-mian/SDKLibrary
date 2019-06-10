@@ -15,11 +15,11 @@ import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import SdkInterface.SDKBase;
-import SdkInterface.IOther;
-import SdkInterface.SDKInterfaceDefine;
-import SdkInterface.SdkInterface;
-import SdkInterface.tool.ActResultRequest;
+import sdkInterface.SDKBase;
+import sdkInterface.IOther;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.SdkInterface;
+import sdkInterface.tool.ActResultRequest;
 
 import static android.app.Activity.RESULT_OK;
 
