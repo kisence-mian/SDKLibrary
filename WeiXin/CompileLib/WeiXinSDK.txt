@@ -1,11 +1,14 @@
 package WeiXin;
 
+import android.widget.Toast;
+
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.unity3d.player.UnityPlayer;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 
@@ -15,6 +18,7 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 {
     public static  String AppID = "";
     public static  String AppSecret ="";
+    public static  String MchID ="";
 
     public static IWXAPI api;
 
@@ -24,6 +28,7 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
         try {
             AppID = GetProperties().getProperty("AppID");
             AppSecret = GetProperties().getProperty("AppSecret");
+            MchID = GetProperties().getProperty("MchID");
 
             api = WXAPIFactory.createWXAPI(UnityPlayer.currentActivity, WeiXinSDK.AppID);
             api.registerApp(AppID);
@@ -41,11 +46,32 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
     {
         SdkInterface.SendLog("WeiXinSDK Login 1 AppID " + AppID + " AppSecret " + AppSecret);
 
-        SendAuth.Req req = new SendAuth.Req();
-        req.scope = "snsapi_userinfo";
-        req.state = "wechat_sdk_demo_test";
-        api.sendReq(req);
+        if(api.isWXAppInstalled())
+        {
+            SendAuth.Req req = new SendAuth.Req();
+            req.scope = "snsapi_userinfo";
+            req.state = "wechat_sdk_demo_test";
+            api.sendReq(req);
+        }
+        else
+        {
+            Toast.makeText(GetCurrentActivity(), "WeChat Not Install~", Toast.LENGTH_LONG).show();
 
+            SdkInterface.SendLog("Not Install WeChat !");
+            JSONObject jo = new JSONObject();
+            try {
+                jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+                jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.WeiXin.toString());
+                jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,"");
+                jo.put(SDKInterfaceDefine.ParameterName_Error,"Not Install WeChat");
+
+                SdkInterface.SendMessage(jo);
+            }
+            catch (JSONException e) {
+                SdkInterface.SendError("Login error:" + e.toString(),e);
+            }
+        }
         SdkInterface.SendLog("WeiXinSDK Login 3 ");
     }
 
@@ -59,10 +85,10 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 
             PayReq request = new PayReq();
             request.appId = WeiXinSDK.AppID;
-            request.partnerId = "1526756671"; 
-            request.prepayId= prepayid; 
+            request.partnerId = MchID;
+            request.prepayId= prepayid;
             request.packageValue = "Sign=WXPay";
-            request.nonceStr= "111"; 
+            request.nonceStr= "111";
             request.timeStamp= "222";
             request.sign= "333";
             api.sendReq(request);

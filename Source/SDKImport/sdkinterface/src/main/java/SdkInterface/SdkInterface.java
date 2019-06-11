@@ -76,9 +76,23 @@ public class SdkInterface
         }
         catch (Exception e)
         {
-            SendError("GetProperties Error " + e.toString() + " properties " + properties + " key " + key,e);
             return defaultValue;
         }
+    }
+
+    public static String GetSupportLoginPlatform()
+    {
+        String result = "";
+        for (int i = 0; i < loginSDKList.size(); i++)
+        {
+            result += loginSDKList.get(i).SDKName;
+
+            if(i != loginSDKList.size() -1 )
+            {
+                result +="|";
+            }
+        }
+        return result;
     }
 
     public static void SendMessage(String content)
@@ -205,8 +219,8 @@ public class SdkInterface
                 try {
 
                     String className = loginClassNameList[i];
-
                     SDKBase ins = GetClass(className,json);
+
                     loginSDKList.add(ins);
                 } catch (Exception e) {
                     SendError(e.toString(), e);
@@ -347,7 +361,6 @@ public class SdkInterface
                 try {
                     String className = logClassNameList[i];
                     SDKBase ins =  GetClass(className,json);
-                    ins.Init(json);
 
                     logList.add(ins);
                 } catch (Exception e) {
@@ -462,8 +475,6 @@ public class SdkInterface
     {
         return UnityPlayer.currentActivity.getApplicationContext();
     }
-
-
 
     static HashMap<String,SDKBase> allClass = new HashMap<String,SDKBase>() ;
 

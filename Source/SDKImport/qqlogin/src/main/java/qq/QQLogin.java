@@ -122,12 +122,17 @@ public class QQLogin extends SDKBase implements ILogin {
 
         @Override
         public void onError(UiError e) {
+
             SendLog("Login onError " + e.toString());
+
+            LoginCallBack("",false);
         }
 
         @Override
         public void onCancel() {
+
             SendLog("Login onCancel");
+            LoginCallBack("",false);
         }
     };
 }

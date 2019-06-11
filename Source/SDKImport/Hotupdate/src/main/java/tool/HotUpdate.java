@@ -3,7 +3,6 @@ package tool;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.provider.Settings;
 import android.support.v4.content.FileProvider;
 import android.webkit.URLUtil;
@@ -21,12 +20,12 @@ import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.SdkInterface;
 import sdkInterface.tool.ActResultRequest;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class HotUpdate extends SDKBase implements IOther
 {
     private String currentFilePath = "" ;
-    File file = new File(Environment.getExternalStorageDirectory()+"");
     private final String fileEx = "InstallAPKCache";
     private final String fileNa = ".apk";
     String downLoadURL = "";
@@ -111,24 +110,17 @@ public class HotUpdate extends SDKBase implements IOther
     /* 处理下载URL文件自定义函数 */
     private void getFile(final String strPath) {
         try {
-            if (strPath.equals(currentFilePath)) {
-                getDataSource(strPath);
-            }
-            else
-            {
-                currentFilePath = strPath;
-                Runnable r = new Runnable() {
-                    public void run() {
-                        try {
-                            getDataSource(strPath);
-                        } catch (Exception e) {
-                            SdkInterface.SendError("getFile Error " + e.toString(),e);
-                        }
+            currentFilePath = strPath;
+            Runnable r = new Runnable() {
+                public void run() {
+                    try {
+                        getDataSource(strPath);
+                    } catch (Exception e) {
+                        SdkInterface.SendError("getFile Error " + e.toString(),e);
                     }
-                };
-                new Thread(r).start();
-            }
-
+                }
+            };
+            new Thread(r).start();
         } catch (Exception e) {
             SdkInterface.SendError("getFile Error " + e.toString(),e);
         }
@@ -204,7 +196,6 @@ public class HotUpdate extends SDKBase implements IOther
             jo.put(SDKInterfaceDefine.Other_ParameterName_TotalProgress, total);
             jo.put(SDKInterfaceDefine.Other_ParameterName_Progress, current);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
-            jo.put(SDKInterfaceDefine.ParameterName_Error, success);
             SdkInterface.SendMessage(jo);
 
         } catch (Exception e) {
@@ -249,7 +240,7 @@ public class HotUpdate extends SDKBase implements IOther
                     public void onActivityResult(int requestCode,int resultCode, Intent data) {
                         SendLog("申请权限 resultCode " + resultCode);
 
-                        if (resultCode == RESULT_OK ) {
+                        if (resultCode == RESULT_OK || resultCode == RESULT_CANCELED ) {
                             InstallAPK(f);
                         }
                     }
@@ -282,9 +273,41 @@ public class HotUpdate extends SDKBase implements IOther
         StartForResult(intent, new ActResultRequest.Callback() {
             @Override
             public void onActivityResult(int requestCode,int resultCode, Intent data) {
+
                 SendLog("StartForResult resultCode " + resultCode);
+
+                if(resultCode == RESULT_OK)
+                {
+                    SendInstallResult(true);
+                }
+                else
+                {
+                    SendInstallResult(false);
+                }
             }
         });
+    }
+
+    void SendInstallResult(boolean success)
+    {
+        try {
+
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Other);
+            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.Other_FunctionName_DownloadAPK);
+            jo.put(SDKInterfaceDefine.Other_ParameterName_TotalProgress, 0);
+            jo.put(SDKInterfaceDefine.Other_ParameterName_Progress, 0);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+
+            if(!success)
+            {
+                jo.put(SDKInterfaceDefine.ParameterName_Error, "User Cancel Install");
+            }
+            SdkInterface.SendMessage(jo);
+
+        } catch (Exception e) {
+            SdkInterface.SendError("error: " + e.getMessage(), e);
+        }
     }
 
     @Override
