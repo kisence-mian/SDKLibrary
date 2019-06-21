@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import sdkInterface.SDKInterfaceDefine;
 import WeiXin.WeiXinSDK;
 import sdkInterface.SdkInterface;
+import sdkInterface.StoreName;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
 {
@@ -49,12 +50,12 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
         {
             if (baseResp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX)
             {
-                //向Unity发送消息
                 JSONObject jo = new JSONObject();
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,"Unknown");//获取不到商品ID
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,"Unknown");
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,baseResp.transaction);
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,baseResp.openId);
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,WeiXinSDK.orderID);
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.WX.toString());
 
                 if (baseResp.errCode == 0)
                 {
@@ -69,7 +70,6 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
 
                 if (baseResp.errCode == 0) {
                     Toast.makeText(this, "WXPay Success!", Toast.LENGTH_SHORT).show();
-                    //支付成功
                     finish();
                 } else if (baseResp.errCode == -2) {
                     Toast.makeText(this, "WXPay Cancle!", Toast.LENGTH_SHORT).show();

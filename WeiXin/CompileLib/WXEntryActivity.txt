@@ -41,7 +41,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler
         SdkInterface.SendLog("WX onResp " + resp.getType() + " code: " + resp.errCode);
         try {
             JSONObject jo = new JSONObject();
-            if (resp.getType()== ConstantsAPI.COMMAND_SENDAUTH  ) //登录
+            if (resp.getType()== ConstantsAPI.COMMAND_SENDAUTH  )
             {
                 SendAuth.Resp r = (SendAuth.Resp)resp;
                 String token = r.code;
@@ -49,12 +49,12 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
                 jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.WeiXin.toString());
 
-                if(resp.errCode==BaseResp.ErrCode.ERR_OK)//成功
+                if(resp.errCode==BaseResp.ErrCode.ERR_OK)
                 {
                     jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
                     jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,token);
                 }
-                else  
+                else
                 {
                     jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
                     jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,token);
@@ -62,7 +62,6 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler
 
                 SdkInterface.SendMessage(jo);
             }
-
             else if(resp.getType()==ConstantsAPI.COMMAND_SENDMESSAGE_TO_WX  ) 
             {
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Other);

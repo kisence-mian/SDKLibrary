@@ -51,6 +51,9 @@ public class SDKInterfaceDefine
     public static final String Pay_ParameterName_CallBackUrl = "CallBackUrl";
     public static final String Pay_ParameterName_CpOrderID   = "CpOrderID";//第三方支付ID
     public static final String Pay_ParameterName_OrderID     = "OrderID";  //我们自己的支付ID
+    public static final String Pay_ParameterName_Price       = "Price";  //价格
+    public static final String Pay_ParameterName_Currency    = "Currency";  //货币
+    public  static final String Pay_ParameterName_Payment    = "Payment";   //支付途径
 
     public static final String Pay_GoodsTypeEnum_ONCE_ONLY = "ONCE_ONLY";
     public static final String Pay_GoodsTypeEnum_NORMAL    = "NORMAL";
@@ -59,12 +62,21 @@ public class SDKInterfaceDefine
     //AD相关参数
 
     //Log相关参数
-    public static final String Log_FunctionName_Login    = "Login";
-    public static final String Log_FunctionName_LoginOut = "LoginOut";
-    public static final String Log_FunctionName_Event    = "Event";
+    public static final String Log_FunctionName_Login    = "LogLogin";
+    public static final String Log_FunctionName_LoginOut = "LogLoginOut";
+    public static final String Log_FunctionName_Event    = "LogEvent";
+    public static final String Log_FunctionName_LogPay   = "LogPay";
+    public static final String Log_FunctionName_LogPaySuccess = "LogPaySuccess";
+
+    public static final String Log_FunctionName_RewardVirtualCurrency = "LogRewardVirtualCurrency"; //奖励虚拟币
+    public static final String Log_FunctionName_PurchaseVirtualCurrency = "LogPurchaseVirtualCurrency";//消费虚拟币
+    public static final String Log_FunctionName_UseItem = "LogUseItem";//使用虚拟物品（通过虚拟币购买的）
 
     //Log Login相关
     public static final String Log_ParameterName_AccountId = "AccountId";
+
+    //Log VirtualCurrency相关
+    public static final String Log_ParameterName_RewardReason = "RewardReason";
 
     //Log Event相关
     public static final String Log_ParameterName_EventID    = "EventID";
@@ -75,7 +87,6 @@ public class SDKInterfaceDefine
     public static final String Other_FunctionName_Exit = "Exit";
 
     //Other -> 剪贴板
-    public static final String Other_ModuleName_Clipboard = "Clipboard";
     public static final String Other_FunctionName_CopyToClipboard = "CopyToClipboard";
     public static final String Other_FunctionName_CopyFromClipboard = "CopyFromClipboard";
     public static final String Other_ParameterName_Content = "Content";
@@ -93,4 +104,5 @@ public class SDKInterfaceDefine
 
     public static final String PropertiesKey_IsLog = "IsLog";                           //是否输出日志
     public static final String PropertiesKey_UpdateDownLoadPath = "UpdateDownLoadPath"; //热更新下载地址
+    public static final String PropertiesKey_ChannelName = "ChannelName";               //渠道名称
 }

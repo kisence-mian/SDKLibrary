@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+
+
+    <stroke
+        android:width="0.5dp"
+        android:color="@color/ipay_color_value_3" /><!--矩形的边线  -->
+
+    <gradient
+        android:endColor="@color/ipay_color_value_1"
+        android:startColor="@color/ipay_color_value_1" /><!-- 矩形的内部颜色，这里设置成白色，即空心 -->
+
+</shape>

@@ -6,6 +6,8 @@ import android.util.Log;
 import android.util.SparseArray;
 
 import com.unity3d.player.UnityPlayer;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -39,6 +41,8 @@ public class SdkInterface
     {
         try
         {
+            SendLog("SDKInterface UnityRequestFunction receive ->"  + content + "<-");
+
             JSONObject json = new JSONObject(content);
             String functionName = json.getString(SDKInterfaceDefine.ModuleName);
 
@@ -50,14 +54,14 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_AD:AD(json);break;
                 case SDKInterfaceDefine.ModuleName_Pay:Pay(json);break;
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
-                default:SendError("UnityRequestFunction : not support function name " + content,null);
+                default:SendError("UnityRequestFunction : not support function name ->" + content + "<-",null);
             }
 
             InitActResultRequest();
         }
         catch (Exception e)
         {
-            SendError("UnityRequestFunction Error  msg  -> " + content + " error: " + e.toString(),e);
+            SendError("UnityRequestFunction Error  msg  -> " + content + "<- error: " + e.toString(),e);
         }
     }
 
@@ -251,6 +255,8 @@ public class SdkInterface
     }
 
 
+
+
     //endregion
 
     //region 支付
@@ -374,7 +380,46 @@ public class SdkInterface
     {
         for (int i = 0; i < logList.size(); i++) {
             ILog log = (ILog) logList.get(i);
-            log.Log(json);
+            LogLogic(log,json);
+        }
+    }
+
+    static void LogLogic(ILog log,JSONObject json)
+    {
+        try {
+            String logFunction = json.getString(SDKInterfaceDefine.FunctionName);
+
+            switch (logFunction) {
+                case SDKInterfaceDefine.Log_FunctionName_Login:
+                    log.Login(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_LoginOut:
+                    log.LoginOut(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_Event:
+                    log.OnEvent(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_LogPay:
+                    log.LogPay(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_LogPaySuccess:
+                    log.LogPaySuccess(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_RewardVirtualCurrency:
+                    log.RewardVirtualCurrency(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_PurchaseVirtualCurrency:
+                    log.PurchaseVirtualCurrency(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_UseItem:
+                    log.UseItem(json);
+                    break;
+                default:
+                    SendError("Don't support Log_FunctionName " + logFunction, null);
+            }
+
+        } catch (JSONException e) {
+            SendError("Log Exception " + e.toString(),e);
         }
     }
 

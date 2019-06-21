@@ -1,1 +1,1 @@
-include ':app', ':dataeyes', ':sdkinterface', ':DeviceLogin', ':migusdk', ':weixinlogin', ':autoupdate', ':admob', ':Clipboard', ':Clipboard', ':Hotupdate', ':qqlogin'
+include ':app', ':dataeyes', ':sdkinterface', ':DeviceLogin', ':migusdk', ':weixinlogin', ':autoupdate', ':admob', ':Clipboard', ':Clipboard', ':Hotupdate', ':qqlogin', ':talkingData', ':Umeng', ':iapppay'

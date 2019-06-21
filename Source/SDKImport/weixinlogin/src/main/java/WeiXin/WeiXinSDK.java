@@ -20,6 +20,8 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
     public static  String AppSecret ="";
     public static  String MchID ="";
 
+    public static String orderID;
+
     public static IWXAPI api;
 
     @Override
@@ -78,15 +80,13 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
     @Override
     public void Pay(JSONObject json)  {
         SendLog("WX Pay " + json.toString());
-        String prepayid = null;
-
         try {
-            prepayid = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            orderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
 
             PayReq request = new PayReq();
             request.appId = WeiXinSDK.AppID;
             request.partnerId = MchID;
-            request.prepayId= prepayid;
+            request.prepayId= orderID;
             request.packageValue = "Sign=WXPay";
             request.nonceStr= "111";
             request.timeStamp= "222";

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/welcome_page"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/ipay_title_h"
+    android:background="@color/ipay_color_value_7">
+
+    <ImageView
+        android:id="@+id/activity_title_bar_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:padding="@dimen/ipay_margin_10"
+        android:scaleType="fitXY"
+        android:src="@drawable/ipay_ui_back_selector"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/activity_title_bar_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/ipay_ui_title_bar_normal_title"
+        android:textColor="@color/ipay_color_value_1"
+        android:textSize="@dimen/ipay_text_size_18"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/activity_title_bar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/ipay_margin_10"
+        android:text="@string/ipay_ui_title_bar_normal_log"
+        android:textColor="@drawable/ipay_ui_title_right_button_selector"
+        android:textSize="@dimen/ipay_text_size_15"
+        android:visibility="visible" />
+
+</RelativeLayout>

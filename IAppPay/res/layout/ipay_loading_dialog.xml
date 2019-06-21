@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/ipay_common_bg"
+    android:gravity="center_horizontal"
+    android:minHeight="95dp"
+    android:minWidth="95dp"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/ipay_margin_10"
+        android:indeterminateDrawable="@drawable/ipay_loading" />
+
+    <TextView
+        android:id="@+id/dialog_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/ipay_margin_10"
+        android:text="@string/ipay_common_loading"
+        android:textColor="@color/ipay_color_value_1"
+        android:textSize="@dimen/ipay_text_size_14" />
+</LinearLayout>
