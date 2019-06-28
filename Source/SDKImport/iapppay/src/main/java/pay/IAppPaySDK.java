@@ -80,6 +80,10 @@ public class IAppPaySDK extends SDKBase implements IPay
                     SendLog("IAppPaySDK onPayResult decode ->" + decode + "<- ");
                     SendPayCallBack(true,json[1],resultInfo);
                 }
+                else
+                {
+                    SendPayCallBack(false,null,resultInfo);
+                }
             }
             catch (Exception e) {
                 SendError("IAppPaySDK PayCallBack Error " + e,e);
@@ -89,17 +93,29 @@ public class IAppPaySDK extends SDKBase implements IPay
         void SendPayCallBack(boolean success,String json,String info)
         {
             try {
-                JSONObject result = new JSONObject(json);
 
                 JSONObject jo = new JSONObject();
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
 
+                if(json != null)
+                {
+                    JSONObject result = new JSONObject(json);
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,result.getString("waresid"));
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,result.getString("cporderid"));
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Price,result.getString("money"));
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,result.getString("currency"));
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,result.getString("transid"));
+                }
+                else
+                {
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,"UnKnow");
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,"UnKnow");
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Price,"UnKnow");
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,"UnKnow");
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,"UnKnow");
+                }
+
                 jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,result.getString("waresid"));
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,result.getString("cporderid"));
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_Price,result.getString("money"));
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,result.getString("currency"));
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,result.getString("transid"));
                 jo.put(SDKInterfaceDefine.ParameterName_Content,info);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.IAppPay.toString());
 
