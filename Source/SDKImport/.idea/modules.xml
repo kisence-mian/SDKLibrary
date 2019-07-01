@@ -14,6 +14,8 @@
       <module fileurl="file://$PROJECT_DIR$/iapppay/iapppay.iml" filepath="$PROJECT_DIR$/iapppay/iapppay.iml" />
       <module fileurl="file://$PROJECT_DIR$/migusdk/migusdk.iml" filepath="$PROJECT_DIR$/migusdk/migusdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/qqlogin/qqlogin.iml" filepath="$PROJECT_DIR$/qqlogin/qqlogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdk4399/sdk4399.iml" filepath="$PROJECT_DIR$/sdk4399/sdk4399.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdk4399single/sdk4399single.iml" filepath="$PROJECT_DIR$/sdk4399single/sdk4399single.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdkinterface/sdkinterface.iml" filepath="$PROJECT_DIR$/sdkinterface/sdkinterface.iml" />
       <module fileurl="file://$PROJECT_DIR$/talkingData/talkingData.iml" filepath="$PROJECT_DIR$/talkingData/talkingData.iml" />
       <module fileurl="file://$PROJECT_DIR$/weixinlogin/weixinlogin.iml" filepath="$PROJECT_DIR$/weixinlogin/weixinlogin.iml" />

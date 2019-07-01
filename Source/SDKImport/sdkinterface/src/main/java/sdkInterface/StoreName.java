@@ -15,5 +15,6 @@ public enum StoreName
     FacebookStore,
     WX,
     AliPay, //支付宝
-    IAppPay //爱贝
+    IAppPay, //爱贝
+    Store4399 //4399
 }

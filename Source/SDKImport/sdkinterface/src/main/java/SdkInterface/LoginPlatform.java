@@ -30,4 +30,8 @@ public enum LoginPlatform {
     /// 苹果
     /// </summary>
     Apple,
+    /// <summary>
+    /// 4399
+    /// </summary>
+    P4399,
 }
