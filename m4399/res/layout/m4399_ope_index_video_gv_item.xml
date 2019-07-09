@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/index_video_pic"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/m4399_ope_default_img_video" />
+
+    <TextView
+        android:id="@+id/index_video_name"
+        android:layout_width="match_parent"
+        android:layout_height="21dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ae000000"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1" />
+</RelativeLayout>

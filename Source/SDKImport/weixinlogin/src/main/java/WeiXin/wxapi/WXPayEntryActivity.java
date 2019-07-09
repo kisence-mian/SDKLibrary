@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import sdkInterface.SDKInterfaceDefine;
 import WeiXin.WeiXinSDK;
 import sdkInterface.SdkInterface;
-import sdkInterface.StoreName;
+import sdkInterface.define.StoreName;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
 {
@@ -52,10 +52,10 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
             {
                 JSONObject jo = new JSONObject();
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,"Unknown");
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,baseResp.transaction);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,WeiXinSDK.orderID);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.WX.toString());
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, WeiXinSDK.orderID);
 
                 if (baseResp.errCode == 0)
                 {
@@ -65,6 +65,8 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
                 {
                     jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
                 }
+
+                WeiXinSDK.payInfo.ToJson(jo);
 
                 SdkInterface.SendMessage(jo);
 

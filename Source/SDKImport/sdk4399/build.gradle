@@ -32,6 +32,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile project(path: ':sdkinterface')
     implementation files('libs/android-support-v13.jar')
-    implementation files('libs/alipaySingle-20170510.jar')
     implementation files('libs/m4399OperateSDK-v2.26.0.3-06191702.jar')
 }

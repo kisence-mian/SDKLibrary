@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.m4399.operate.ui.widget.ball.AssistPopView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/m4399_ope_ball_pop_lc_bg"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="85dp"
+        android:paddingLeft="16dp">
+
+
+        <LinearLayout
+            android:id="@+id/pop_la"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pop_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:textColor="#ff9515"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/pop_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:maxLines="2"
+                android:textColor="#89000000"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/pop_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:src="@drawable/m4399_ope_ball_pop_delete" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/pop_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/pop_la"
+            android:paddingRight="22dp"
+            android:textColor="#42000000"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</cn.m4399.operate.ui.widget.ball.AssistPopView>

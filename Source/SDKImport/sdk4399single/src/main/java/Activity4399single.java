@@ -1,4 +1,3 @@
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -11,12 +10,9 @@ import sdkInterface.IPay;
 import cn.m4399.operate.OperateCenterConfig;
 import cn.m4399.operate.SingleOperateCenter;
 import cn.m4399.operate.SingleOperateCenter.SingleRechargeListener;
-import cn.m4399.operate.UpgradeInfo;
-import cn.m4399.operate.model.callback.Callbacks.OnCheckFinishedListener;
-import cn.m4399.operate.model.callback.Callbacks.OnDownloadListener;
 import cn.m4399.recharge.RechargeOrder;
 import sdkInterface.SDKInterfaceDefine;
-import sdkInterface.StoreName;
+import sdkInterface.define.StoreName;
 
 public class Activity4399single extends SDKBase implements IPay
 {
@@ -39,16 +35,16 @@ public class Activity4399single extends SDKBase implements IPay
             initSDK();
 
         } catch (Exception e) {
-            SendError("IAppPaySDK Init Error " + e,e);
+            SendError("4399 Init Error " + e,e);
         }
     }
 
     @Override
     public void Pay(JSONObject json) {
-        SendLog("WX Pay " + json.toString());
+        SendLog("4399 Pay " + json.toString());
         try {
-            String productName = json.getString(sdkInterface.SDKInterfaceDefine.Pay_ParameterName_GoodsName);
-            String price =(json.getString(sdkInterface.SDKInterfaceDefine.Pay_ParameterName_Price));
+            String productName = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsName);
+            String price =(json.getString(SDKInterfaceDefine.Pay_ParameterName_Price));
             mOpeCenter.recharge(GetCurrentActivity(), price, productName);
 
         } catch (JSONException e) {
@@ -138,13 +134,13 @@ public class Activity4399single extends SDKBase implements IPay
         try {
 
             JSONObject jo = new JSONObject();
-            jo.put(sdkInterface.SDKInterfaceDefine.ModuleName, sdkInterface.SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
 
-            jo.put(sdkInterface.SDKInterfaceDefine.Pay_ParameterName_GoodsID,info.getGoods());
-            jo.put(sdkInterface.SDKInterfaceDefine.Pay_ParameterName_Price,info.getJe());
-            jo.put(sdkInterface.SDKInterfaceDefine.ParameterName_IsSuccess,success);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,info.getGoods());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Price,info.getJe());
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,info.getOrderId());
-            jo.put(sdkInterface.SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.Store4399.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.m4399.toString());
 
             sdkInterface.SdkInterface.SendMessage(jo);
         } catch (JSONException e)

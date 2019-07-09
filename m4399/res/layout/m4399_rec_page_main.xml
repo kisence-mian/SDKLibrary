@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/m4399RecPageStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.m4399.recharge.ui.widget.RechargeNavBarView
+        android:id="@+id/nav"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/m4399_rec_title_height" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nav"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="@dimen/m4399_rec_page_margin"
+        android:layout_marginRight="@dimen/m4399_rec_page_margin"
+        android:layout_marginTop="@dimen/m4399_rec_page_margint_top"
+        android:background="@android:color/white"
+        android:scrollbars="none">
+
+        <include
+            android:id="@+id/money_area"
+            layout="@layout/m4399_rec_sec_order_role_area"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+    </ScrollView>
+
+    <include
+        android:id="@+id/go_pay_view"
+        layout="@layout/m4399_rec_sec_single_btn_area"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m4399_rec_sum_btns_eara_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="@dimen/m4399_rec_page_margin"
+        android:layout_marginRight="@dimen/m4399_rec_page_margin" />
+
+</RelativeLayout>

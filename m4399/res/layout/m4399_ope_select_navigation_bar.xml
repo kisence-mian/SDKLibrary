@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><!--  个人中心 导航栏 by.zhengxu  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="46dp"
+    android:background="@drawable/m4399_ope_vip_page_bg"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:id="@+id/navigation_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="@dimen/m4399_ope_coupon_padding"
+        android:paddingRight="@dimen/m4399_ope_coupon_padding">
+
+        <ImageView
+            android:id="@+id/navigation_back"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/m4399_rec_coupon_close" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textColor="#333333"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:id="@+id/coupon_update"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:paddingLeft="@dimen/m4399_ope_coupon_padding"
+        android:paddingRight="@dimen/m4399_ope_coupon_padding">
+
+        <ImageView
+            android:id="@+id/coupon_update_img"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/m4399_rec_coupon_update" />
+
+    </RelativeLayout>
+
+    <View
+        style="@style/m4399PerfectLine"
+        android:layout_alignParentBottom="true" />
+
+
+</RelativeLayout>

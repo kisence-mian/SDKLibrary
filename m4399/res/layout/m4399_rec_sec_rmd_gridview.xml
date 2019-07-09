@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/m4399_rec_label_margin"
+        android:gravity="top"
+        android:text="@string/m4399_rec_choose_money"
+        android:textColor="#333333"
+        android:textSize="14sp"
+
+        />
+
+    <cn.m4399.recharge.ui.widget.ExpandableGridView
+        android:id="@+id/rmd_gridview"
+        style="@style/m4399RecRmdGridviewStyle">
+
+    </cn.m4399.recharge.ui.widget.ExpandableGridView>
+
+
+</LinearLayout>

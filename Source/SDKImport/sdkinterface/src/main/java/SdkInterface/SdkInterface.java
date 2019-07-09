@@ -4,17 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.util.SparseArray;
-
 import com.unity3d.player.UnityPlayer;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import sdkInterface.tool.ActResultRequest;
+import sdkInterface.tool.PropertieTool;
 
 /**
  * Created by GaiKai on 2018/4/3.
@@ -54,6 +53,7 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_AD:AD(json);break;
                 case SDKInterfaceDefine.ModuleName_Pay:Pay(json);break;
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
+                case SDKInterfaceDefine.ModuleName_LifeCycle:LifeCycle(json);break;
                 default:SendError("UnityRequestFunction : not support function name ->" + content + "<-",null);
             }
 
@@ -477,6 +477,25 @@ public class SdkInterface
         }
     }
 
+    static void LifeCycle(JSONObject json)
+    {
+        SendLog("SDKInterBase LifeCycle " + json.toString());
+        try {
+            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.LifeCycle_FunctionName_OnApplicationQuit: entry.getValue().OnAppplicationQuit(json);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
+    }
+
     //endregion
 
     //region 通用工具
@@ -573,6 +592,21 @@ public class SdkInterface
 
         if (callback != null) {
             callback.onActivityResult(requestCode,resultCode, data);
+        }
+    }
+
+    public static void OnDestroy()
+    {
+        SendLog("SDKInterBase OnDestroy " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnDestory();;
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
         }
     }
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.m4399.operate.ui.widget.ball.AssistView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/pop_window_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/m4399_default_content_description" />
+
+
+    <ImageView
+        android:id="@+id/pop_dot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/m4399_ope_sign_red_dot"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/ping_re"
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+
+
+        <cn.m4399.operate.ui.widget.RotateTextView
+            android:id="@+id/ping_num_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:lineSpacingExtra="-3dp"
+            android:textColor="@color/m4399_ope_usercenter_white"
+            android:textSize="9sp" />
+        <!--        <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:src="@drawable/m4399_ope_ping_lock"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"/>-->
+    </RelativeLayout>
+
+</cn.m4399.operate.ui.widget.ball.AssistView>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- padding and margin-->
+    <dimen name="m4399_ope_btn_action_ali_envelope">110dp</dimen>
+</resources>

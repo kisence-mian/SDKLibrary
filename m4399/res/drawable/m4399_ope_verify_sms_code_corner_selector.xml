@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/m4399_ope_verify_sms_code_pressed_color" />
+            <stroke android:width="@dimen/m4399_ope_verify_border_line_dimen" android:color="@color/m4399_ope_verify_sms_code_color" />
+            <corners android:radius="@dimen/m4399_ope_verify_sms_code_radius_dimen" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/m4399_ope_verify_common_src_color" />
+            <stroke android:width="@dimen/m4399_ope_verify_border_line_dimen" android:color="@color/m4399_ope_verify_sms_code_color" />
+            <corners android:radius="@dimen/m4399_ope_verify_sms_code_radius_dimen" />
+        </shape>
+    </item>
+</selector>

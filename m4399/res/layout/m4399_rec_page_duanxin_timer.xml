@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/m4399RecPageStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.m4399.recharge.ui.widget.RechargeNavBarView
+        android:id="@+id/nav"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/m4399_rec_title_height" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/phone_bind_loading"
+            style="@style/m4399LoadingStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/pay_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:lineSpacingMultiplier="1"
+            android:text="@string/m4399_rec_pay_wait"
+            android:textColor="#fe9515"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m4399_rec_paddingLeft"
+                android:layout_marginRight="@dimen/m4399_rec_paddingLeft"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/m4399_rec_duanxin_timer_prefix"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/left_time_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/m4399_rec_duanxin_timer"
+                android:textColor="#999999"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

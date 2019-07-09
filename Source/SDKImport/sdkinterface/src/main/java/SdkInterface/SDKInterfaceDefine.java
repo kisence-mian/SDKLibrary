@@ -12,6 +12,7 @@ public class SDKInterfaceDefine
 
     public static final String SDKName  = "SDKName";
     public static final String SDKIndex = "SDKIndex";
+    public static final String Tag = "Tag";
 
     public static final String ParameterName_IsSuccess = "IsSuccess";
     public static final String ParameterName_Error     = "Error";
@@ -26,6 +27,7 @@ public class SDKInterfaceDefine
     public static final String ModuleName_AD    = "AD";
     public static final String ModuleName_Other = "Other";
     public static final String ModuleName_Log   = "Log";
+    public static final String ModuleName_LifeCycle = "LifeCycle";
 
     //回调方法
     public static final String FunctionName_OnError = "OnError";
@@ -37,11 +39,15 @@ public class SDKInterfaceDefine
     public static final String FunctionName_OnPay    = "OnPay";
     public static final String FunctionName_OnOther  = "OnOther";
 
+    //LifeCycle 相关参数
+    public static final String LifeCycle_FunctionName_OnApplicationQuit = "OnApplicationQuit";
+
     //Login相关参数
     public static final String FunctionName_Logout = "Logout";
     public static final String Login_ParameterName_Device = "Device";
     public static final String Login_ParameterName_AccountId = "AccountId";
     public static final String Login_ParameterName_loginPlatform = "loginPlatform";
+    public static final String Login_ParameterName_AuchToken  = "AuchToken";
 
     //Pay相关参数
     public static final String Pay_ParameterName_GoodsID     = "GoodsID";
@@ -53,7 +59,8 @@ public class SDKInterfaceDefine
     public static final String Pay_ParameterName_OrderID     = "OrderID";  //我们自己的支付ID
     public static final String Pay_ParameterName_Price       = "Price";  //价格
     public static final String Pay_ParameterName_Currency    = "Currency";  //货币
-    public  static final String Pay_ParameterName_Payment    = "Payment";   //支付途径
+    public static final String Pay_ParameterName_Payment     = "Payment";   //支付途径
+    public static final String Pay_ParameterName_Receipt     = "Receipt";   //支付回执
 
     public static final String Pay_GoodsTypeEnum_ONCE_ONLY = "ONCE_ONLY";
     public static final String Pay_GoodsTypeEnum_NORMAL    = "NORMAL";
@@ -67,6 +74,7 @@ public class SDKInterfaceDefine
     public static final String Log_FunctionName_Event    = "LogEvent";
     public static final String Log_FunctionName_LogPay   = "LogPay";
     public static final String Log_FunctionName_LogPaySuccess = "LogPaySuccess";
+
 
     public static final String Log_FunctionName_RewardVirtualCurrency = "LogRewardVirtualCurrency"; //奖励虚拟币
     public static final String Log_FunctionName_PurchaseVirtualCurrency = "LogPurchaseVirtualCurrency";//消费虚拟币
@@ -103,6 +111,9 @@ public class SDKInterfaceDefine
     public static final String FileName_ChannelProperties = "Channel";
 
     public static final String PropertiesKey_IsLog = "IsLog";                           //是否输出日志
-    public static final String PropertiesKey_UpdateDownLoadPath = "UpdateDownLoadPath"; //热更新下载地址
+    public static final String PropertiesKey_UpdateDownLoadPath = "UpdateDownLoadPath"; //热更新下载地址(最后没有斜线)
     public static final String PropertiesKey_ChannelName = "ChannelName";               //渠道名称
+    public static final String PropertiesKey_StoreName   = "StoreName";                 //商店名称
+    public static final String PropertiesKey_LoginPlatform = "LoginPlatform";           //登录平台
+    public static final String PropertiesKey_NetworkID = "NetworkID";                   //服务器选择
 }

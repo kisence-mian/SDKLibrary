@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/m4399_ope_common_alert_dialog_bg"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/id_edittext"
+                style="@style/m4399RecInputAreaStyle"
+                android:layout_width="115dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/m4399_rec_id_dialog_title"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/id_code"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="2"
+                android:background="@color/m4399_rec_color_grey"
+                android:gravity="center"
+                android:scaleType="fitXY" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/id_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:gravity="left"
+            android:text="@string/m4399_rec_id_message"
+            android:textColor="#FF2C2C"
+            android:visibility="invisible" />
+
+
+    </LinearLayout>
+
+    <View style="@style/m4399PerfectLine" />
+
+    <include layout="@layout/m4399_ope_common_dialog_foot" />
+</LinearLayout>

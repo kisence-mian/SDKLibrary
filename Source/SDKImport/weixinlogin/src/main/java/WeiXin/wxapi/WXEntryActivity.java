@@ -10,7 +10,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import org.json.JSONObject;
 
-import sdkInterface.LoginPlatform;
+import sdkInterface.define.LoginPlatform;
 import sdkInterface.SDKInterfaceDefine;
 import WeiXin.WeiXinSDK;
 import sdkInterface.SdkInterface;

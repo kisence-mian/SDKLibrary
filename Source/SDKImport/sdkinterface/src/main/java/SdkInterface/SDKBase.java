@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import sdkInterface.tool.ActResultRequest;
+import sdkInterface.tool.PropertieTool;
 
 /**
  * Created by GaiKai on 2018/4/4.
@@ -22,6 +23,10 @@ public class SDKBase {
     public void Init(JSONObject json) {
 
     }
+
+    public void OnAppplicationQuit(JSONObject json) { }
+
+    public void OnDestory() { }
 
     public void CallBack(String content) {
         SdkInterface.SendMessage(content);

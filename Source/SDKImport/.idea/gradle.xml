@@ -18,11 +18,15 @@
             <option value="$PROJECT_DIR$/dataeyes" />
             <option value="$PROJECT_DIR$/iapppay" />
             <option value="$PROJECT_DIR$/migusdk" />
+            <option value="$PROJECT_DIR$/oppo" />
+            <option value="$PROJECT_DIR$/oppoSingle" />
             <option value="$PROJECT_DIR$/qqlogin" />
             <option value="$PROJECT_DIR$/sdk4399" />
             <option value="$PROJECT_DIR$/sdk4399single" />
             <option value="$PROJECT_DIR$/sdkinterface" />
             <option value="$PROJECT_DIR$/talkingData" />
+            <option value="$PROJECT_DIR$/vivo" />
+            <option value="$PROJECT_DIR$/vivoSingle" />
             <option value="$PROJECT_DIR$/weixinlogin" />
           </set>
         </option>

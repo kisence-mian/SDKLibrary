@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/index_client_qq"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/m4399_ope_client_height"
+        android:background="@drawable/m4399_ope_client_qq_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="4dp"
+        android:paddingRight="3dp">
+
+
+        <ImageView
+            android:id="@+id/customerServiceImg"
+            android:layout_width="@dimen/m4399_ope_client_img_size"
+            android:layout_height="@dimen/m4399_ope_client_img_size"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/m4399_ope_custmer_service_common" />
+
+        <TextView
+            android:id="@+id/customer_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/m4399_ope_common_qq_client"
+            android:textColor="#dd000000"
+            android:textSize="@dimen/m4399_ope_client_tv_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/m4399_ope_client_arrow_height"
+            android:layout_marginLeft="@dimen/m4399_ope_client_arrow_margin"
+            android:src="@drawable/m4399_ope_vip_arrow_right" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/index_vip_arrow"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:src="@drawable/m4399_ope_vip_arrow"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alert_title"
+    style="@style/m4399QuitTitleStyle"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:paddingBottom="18dp"
+    android:paddingTop="18dp"
+    android:text="@string/m4399_ope_quit_title" />

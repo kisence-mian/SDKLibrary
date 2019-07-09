@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/verify_content"
+    android:layout_width="304dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/m4399_ope_block_captcha_bg">
+
+    <TextView
+        android:id="@+id/seek_captcha_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/m4399_ope_account_abnormal"
+        android:textColor="#333333"
+        android:textSize="16sp" />
+
+    <FrameLayout
+        android:id="@+id/seek_captcha_refresh"
+        android:layout_width="49dp"
+        android:layout_height="46dp"
+        android:layout_alignParentRight="true">
+
+        <cn.m4399.operate.ui.widget.captcha.LoadingView
+            android:id="@+id/seek_captcha_refresh_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:src="@drawable/m4399_ope_captcha_refresh" />
+
+        <TextView
+            android:id="@+id/seek_captcha_refresh_countdown"
+            android:layout_width="17dp"
+            android:layout_height="14dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/m4399_ope_verify_placeholder_color"
+            android:textSize="@dimen/m4399_ope_verify_sms_code_err_text_size"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+    <cn.m4399.operate.ui.widget.captcha.EasySeekCaptchaView
+        android:id="@+id/seek_captcha_view"
+        android:layout_width="272dp"
+        android:layout_height="153dp"
+        android:layout_below="@id/seek_captcha_title"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/seek_captcha_loading_view"
+        android:layout_width="272dp"
+        android:layout_height="153dp"
+        android:layout_below="@id/seek_captcha_title"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/m4399_ope_captcha_loading_bg"
+        android:gravity="center"
+        android:text="@string/m4399_ope_validate_code_loading"
+        android:textColor="#999999"
+        android:textSize="13sp" />
+
+    <cn.m4399.operate.ui.widget.captcha.TextSeekBar
+        android:id="@+id/seek_captcha_bar"
+        android:layout_width="285dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/seek_captcha_view"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="24dp" />
+
+</RelativeLayout>

@@ -7,19 +7,20 @@ import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.unity3d.player.UnityPlayer;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
-
 import sdkInterface.*;
+import sdkInterface.define.LoginPlatform;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.module.PayInfo;
 
 public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 {
+    public static PayInfo payInfo;
     public static  String AppID = "";
     public static  String AppSecret ="";
     public static  String MchID ="";
-
     public static String orderID;
 
     public static IWXAPI api;
@@ -34,6 +35,8 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 
             api = WXAPIFactory.createWXAPI(UnityPlayer.currentActivity, WeiXinSDK.AppID);
             api.registerApp(AppID);
+
+            payInfo = PayInfo.FromJson(json);
 
             SdkInterface.SendLog("WeiXinSDK Init: AppID " + AppID + " AppSecret " + AppSecret);
 

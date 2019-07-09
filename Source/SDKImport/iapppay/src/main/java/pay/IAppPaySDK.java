@@ -5,18 +5,18 @@ import com.iapppay.sdk.main.IAppPay;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
 import java.net.URLDecoder;
-
 import sdkInterface.SDKBase;
 import sdkInterface.IPay;
 import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.SdkInterface;
-import sdkInterface.StoreName;
+import sdkInterface.define.StoreName;
+import sdkInterface.module.PayInfo;
 
 public class IAppPaySDK extends SDKBase implements IPay
 {
+    PayInfo payInfo;
+
     String AppID = "";
     int ScreenType = 0;
     String Acid = "";
@@ -53,6 +53,7 @@ public class IAppPaySDK extends SDKBase implements IPay
     public void Pay(JSONObject json)
     {
         try {
+            payInfo = PayInfo.FromJson(json);
             String prepayID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
             String post = "transid=" + prepayID + "&appid=" + AppID;
 
@@ -105,15 +106,11 @@ public class IAppPaySDK extends SDKBase implements IPay
                     jo.put(SDKInterfaceDefine.Pay_ParameterName_Price,result.getString("money"));
                     jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,result.getString("currency"));
                     jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,result.getString("transid"));
+
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt,result.getString("cporderid"));
                 }
-                else
-                {
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,"UnKnow");
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,"UnKnow");
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Price,"UnKnow");
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,"UnKnow");
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,"UnKnow");
-                }
+
+                payInfo.ToJson(jo);
 
                 jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
                 jo.put(SDKInterfaceDefine.ParameterName_Content,info);

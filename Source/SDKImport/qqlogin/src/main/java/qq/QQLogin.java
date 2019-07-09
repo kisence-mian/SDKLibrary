@@ -7,7 +7,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-import sdkInterface.LoginPlatform;
+import sdkInterface.define.LoginPlatform;
 import sdkInterface.SDKBase;
 import sdkInterface.ILogin;
 import sdkInterface.SDKInterfaceDefine;

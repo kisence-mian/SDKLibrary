@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <cn.m4399.operate.ui.widget.CommonNavView
+            android:id="@+id/webview_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <cn.m4399.recharge.thirdparty.smoothprogressbar.SmoothProgressBar
+            android:id="@+id/smooth_progressbar"
+            style="@style/m4399OpePocketProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:indeterminate="true"
+            android:progress="0" />
+
+
+        <WebView
+            android:id="@+id/webview_browser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/webview_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/m4399_default_content_description"
+        android:focusable="true"
+        android:padding="5dp"
+        android:src="@drawable/m4399_ope_usercenter_webview_back_btn"
+        android:visibility="gone" />
+
+</RelativeLayout>

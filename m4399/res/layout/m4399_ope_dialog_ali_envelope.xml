@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/m4399OpeAliDialogStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:gravity="bottom|center_horizontal"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/m4399_rec_ali_red_package_inner_view" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="38dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/m4399_ope_btn_abandon_word"
+            android:layout_width="@dimen/m4399_ope_btn_action_ali_envelope"
+            android:layout_height="38dp"
+            android:layout_gravity="left"
+            android:background="@drawable/m4399_ope_btn_negative_ali_envelop"
+            android:gravity="center"
+            android:text="@string/m4399_ope_abandon_word"
+            android:textColor="#ead85e"
+            android:textSize="16sp"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:id="@+id/m4399_ope_btn_use_word"
+            android:layout_width="@dimen/m4399_ope_btn_action_ali_envelope"
+            android:layout_height="38dp"
+            android:layout_gravity="right"
+            android:background="@drawable/m4399_ope_btn_positive_ali_envelop"
+            android:gravity="center"
+            android:text="@string/m4399_ope_use_word"
+            android:textColor="#5a3d10"
+            android:textSize="16sp"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+</LinearLayout>
