@@ -55,7 +55,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,baseResp.transaction);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,WeiXinSDK.orderID);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.WX.toString());
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, WeiXinSDK.orderID);
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, WeiXinSDK.payInfo.tag);
 
                 if (baseResp.errCode == 0)
                 {

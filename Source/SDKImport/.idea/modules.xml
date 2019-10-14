@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/autoupdate/autoupdate.iml" filepath="$PROJECT_DIR$/autoupdate/autoupdate.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataeyes/dataeyes.iml" filepath="$PROJECT_DIR$/dataeyes/dataeyes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/huawei/huawei.iml" filepath="$PROJECT_DIR$/huawei/huawei.iml" />
       <module fileurl="file://$PROJECT_DIR$/iapppay/iapppay.iml" filepath="$PROJECT_DIR$/iapppay/iapppay.iml" />
       <module fileurl="file://$PROJECT_DIR$/migusdk/migusdk.iml" filepath="$PROJECT_DIR$/migusdk/migusdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppo/oppo.iml" filepath="$PROJECT_DIR$/oppo/oppo.iml" />
@@ -20,6 +21,8 @@
       <module fileurl="file://$PROJECT_DIR$/sdk4399single/sdk4399single.iml" filepath="$PROJECT_DIR$/sdk4399single/sdk4399single.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdkinterface/sdkinterface.iml" filepath="$PROJECT_DIR$/sdkinterface/sdkinterface.iml" />
       <module fileurl="file://$PROJECT_DIR$/talkingData/talkingData.iml" filepath="$PROJECT_DIR$/talkingData/talkingData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uc/uc.iml" filepath="$PROJECT_DIR$/uc/uc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ucsdk/ucsdk.iml" filepath="$PROJECT_DIR$/ucsdk/ucsdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/vivo/vivo.iml" filepath="$PROJECT_DIR$/vivo/vivo.iml" />
       <module fileurl="file://$PROJECT_DIR$/vivoSingle/vivoSingle.iml" filepath="$PROJECT_DIR$/vivoSingle/vivoSingle.iml" />
       <module fileurl="file://$PROJECT_DIR$/weixinlogin/weixinlogin.iml" filepath="$PROJECT_DIR$/weixinlogin/weixinlogin.iml" />

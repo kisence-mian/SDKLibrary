@@ -35,9 +35,6 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 
             api = WXAPIFactory.createWXAPI(UnityPlayer.currentActivity, WeiXinSDK.AppID);
             api.registerApp(AppID);
-
-            payInfo = PayInfo.FromJson(json);
-
             SdkInterface.SendLog("WeiXinSDK Init: AppID " + AppID + " AppSecret " + AppSecret);
 
         } catch (IOException e)
@@ -84,7 +81,10 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
     public void Pay(JSONObject json)  {
         SendLog("WX Pay " + json.toString());
         try {
-            orderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            payInfo = PayInfo.FromJson(json);
+            orderID = payInfo.orderID;
+
+            SendLog("WX Pay PrepayID :" +orderID);
 
             PayReq request = new PayReq();
             request.appId = WeiXinSDK.AppID;

@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/autoupdate" />
             <option value="$PROJECT_DIR$/dataeyes" />
+            <option value="$PROJECT_DIR$/huawei" />
             <option value="$PROJECT_DIR$/iapppay" />
             <option value="$PROJECT_DIR$/migusdk" />
             <option value="$PROJECT_DIR$/oppo" />
@@ -25,6 +26,8 @@
             <option value="$PROJECT_DIR$/sdk4399single" />
             <option value="$PROJECT_DIR$/sdkinterface" />
             <option value="$PROJECT_DIR$/talkingData" />
+            <option value="$PROJECT_DIR$/uc" />
+            <option value="$PROJECT_DIR$/ucsdk" />
             <option value="$PROJECT_DIR$/vivo" />
             <option value="$PROJECT_DIR$/vivoSingle" />
             <option value="$PROJECT_DIR$/weixinlogin" />

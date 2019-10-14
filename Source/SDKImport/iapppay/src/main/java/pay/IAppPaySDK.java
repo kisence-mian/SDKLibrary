@@ -54,7 +54,7 @@ public class IAppPaySDK extends SDKBase implements IPay
     {
         try {
             payInfo = PayInfo.FromJson(json);
-            String prepayID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            String prepayID = json.getString(SDKInterfaceDefine.Tag);
             String post = "transid=" + prepayID + "&appid=" + AppID;
 
             IAppPay.startPay(GetCurrentActivity(),post,callBack);
