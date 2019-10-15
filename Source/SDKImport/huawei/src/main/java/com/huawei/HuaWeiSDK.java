@@ -15,6 +15,8 @@ import sdkInterface.ILogin;
 import sdkInterface.IPay;
 import sdkInterface.SDKBase;
 import sdkInterface.ILog;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.define.LoginPlatform;
 
 public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
 
@@ -81,6 +83,19 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
 //                                SendLog("game login check sign: onResult: retCode=" + code + "  resultDesc=" + resultDesc + "  isCheckSuccess=" + isCheckSuccess);
 //                            }
 //                        });
+
+                        try {
+                            JSONObject jo = new JSONObject();
+                            jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+                            jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,userData.getGameAuthSign() );
+                            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
+                            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.HuaWei.toString());
+
+                            CallBack(jo);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            SendError("UCSDK onLoginSucc",e);
+                        }
                     }
                 } else {
                     SendLog("game login: onResult: retCode=" + retCode);
@@ -99,6 +114,5 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
     @Override
     public void Pay(JSONObject json)
     {
-
     }
 }

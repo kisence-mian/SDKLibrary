@@ -42,4 +42,12 @@ public enum LoginPlatform {
     /// VIVO
     /// </summary>
     VIVO,
+    /// <summary>
+    /// 华为
+    /// </summary>
+    HuaWei,
+    /// <summary>
+    /// UC
+    /// </summary>
+    UC,
 }

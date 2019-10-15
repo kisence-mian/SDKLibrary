@@ -1,5 +1,6 @@
 package com.uc;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import cn.gundam.sdk.shell.even.SDKEventKey;
@@ -15,11 +16,16 @@ import cn.gundam.sdk.shell.param.SDKParams;
 import sdkInterface.IPay;
 import sdkInterface.SDKBase;
 import sdkInterface.ILogin;
+import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.SdkInterface;
 import cn.uc.gamesdk.UCGameSdk;
+import sdkInterface.define.LoginPlatform;
+import sdkInterface.define.StoreName;
+import sdkInterface.module.PayInfo;
 
 public class UCSDK extends SDKBase implements ILogin, IPay
 {
+    public static PayInfo payInfo;
     int AppID;
     int cpID;
 
@@ -43,17 +49,42 @@ public class UCSDK extends SDKBase implements ILogin, IPay
         private void onLoginSucc(String sid)
         {
             //sid即token，需发送给游戏服务器做登录校验获取accountId用户唯一标识，客户端无法获取用户唯 一标识
-            // appendText("登录成功,sid:" + sid);
             SdkInterface.SendLog("UCSDK onLoginSucc:" + sid);
+            try {
+                JSONObject jo = new JSONObject();
+                jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+                jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,sid);
+                jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
+                jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.UC.toString());
+
+                CallBack(jo);
+            } catch (Exception e) {
+                e.printStackTrace();
+                SendError("UCSDK onLoginSucc",e);
+            }
         }
 
         @Subscribe(event = SDKEventKey.ON_LOGIN_FAILED)
         private void onLoginFailed(String desc)
         {
             SdkInterface.SendLog("UCSDK 登录失败:" + desc);
+
+            try {
+                JSONObject jo = new JSONObject();
+                jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+                jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,"");
+                jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.UC.toString());
+
+                CallBack(jo);
+            } catch (Exception e) {
+                e.printStackTrace();
+                SendError("UCSDK onLoginFailed",e);
+            }
         }
 
-        @Subscribe(event = SDKEventKey.ON_CREATE_ORDER_SUCC)    private void onCreateOrderSucc(OrderInfo orderInfo)
+        @Subscribe(event = SDKEventKey.ON_CREATE_ORDER_SUCC)
+        private void onCreateOrderSucc(OrderInfo orderInfo)
         {
             if (orderInfo != null) {
                 StringBuilder sb = new StringBuilder();
@@ -62,9 +93,26 @@ public class UCSDK extends SDKBase implements ILogin, IPay
                 sb.append(String.format("'payWay':'%s'", orderInfo.getPayWay()));
                 sb.append(String.format("'payWayName':'%s'", orderInfo.getPayWayName()));
                 SdkInterface.SendLog( "此处为订单生成回调，客户端无支付成功回调，订单是否成功以 服务端回调为准: callback orderInfo = " + sb);
+
+                try
+                {
+                    JSONObject jo = new JSONObject();
+                    jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
+                    jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,orderInfo.getOrderId());
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.UC.toString());
+
+                    payInfo.ToJson(jo);
+                    SdkInterface.SendMessage(jo);
+                }
+                catch (Exception e)
+                {
+                    SendError("UCSDK onCreateOrderSucc Exception " +e,e);
+                }
             }
         }
-        @Subscribe(event = SDKEventKey.ON_PAY_USER_EXIT)    private void onPayUserExit(OrderInfo orderInfo)
+        @Subscribe(event = SDKEventKey.ON_PAY_USER_EXIT)
+        private void onPayUserExit(OrderInfo orderInfo)
         {
             if (orderInfo != null) {
                 StringBuilder sb = new StringBuilder();
@@ -73,6 +121,22 @@ public class UCSDK extends SDKBase implements ILogin, IPay
                 sb.append(String.format("'payWay':'%s'", orderInfo.getPayWay()));
                 sb.append(String.format("'payWayName':'%s'", orderInfo.getPayWayName()));
                 SdkInterface.SendLog("支付界面关闭: callback orderInfo = " + sb);
+
+                try
+                {
+                    JSONObject jo = new JSONObject();
+                    jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
+                    jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,orderInfo.getOrderId());
+                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.UC.toString());
+
+                    payInfo.ToJson(jo);
+                    SdkInterface.SendMessage(jo);
+                }
+                catch (Exception e)
+                {
+                    SendError("UCSDK onPayUserExit Exception " + e,e);
+                }
             }
         }
     };
@@ -121,7 +185,17 @@ public class UCSDK extends SDKBase implements ILogin, IPay
     {
         try
         {
-            UCGameSdk.defaultSdk().pay(GetCurrentActivity(),null);
+            payInfo = PayInfo.FromJson(json);
+
+            String[] tags = payInfo.tag.split("\\|");
+
+            SDKParams sdkParams = new SDKParams();
+            sdkParams.put(SDKParamKey.AMOUNT, payInfo.price);
+            sdkParams.put(SDKParamKey.ACCOUNT_ID, tags[0]); //Tag传用户ID
+            sdkParams.put(SDKParamKey.SIGN_TYPE, "MD5");
+            sdkParams.put(SDKParamKey.SIGN, tags[1]);
+
+            UCGameSdk.defaultSdk().pay(GetCurrentActivity(),sdkParams);
         }catch (Exception e)
         {
             SendError("UCSDK Pay Exception " + e.toString(),e);

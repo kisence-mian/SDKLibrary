@@ -18,5 +18,7 @@ public enum StoreName
     IAppPay, //爱贝
     m4399, //4399
     OPPO,
-    VIVO
+    VIVO,
+    HuaWei,
+    UC,
 }
