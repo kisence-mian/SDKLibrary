@@ -56,7 +56,7 @@ public final class ActivityMgr implements Application.ActivityLifecycleCallbacks
      * @param app 应用程序 | application
      */
     public void init(Application app, Activity initActivity) {
-        HMSAgentLog.d("init");
+        HMSAgentLog.d("ActivityMgr init");
 
         if (application != null) {
             application.unregisterActivityLifecycleCallbacks(this);
@@ -257,6 +257,8 @@ public final class ActivityMgr implements Application.ActivityLifecycleCallbacks
      * @param curActivity 最新的activity | Latest activity
      */
     private void setCurActivity(Activity curActivity) {
+
+        HMSAgentLog.d("setCurActivity: >" + curActivity + "<");
         synchronized (LOCK_LASTACTIVITIES) {
             int idxCurActivity = curActivities.indexOf(curActivity);
             if (idxCurActivity == -1) {

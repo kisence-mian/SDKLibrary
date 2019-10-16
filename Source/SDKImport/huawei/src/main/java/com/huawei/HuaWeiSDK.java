@@ -1,5 +1,7 @@
 package com.huawei;
 
+import android.widget.Toast;
+
 import com.huawei.android.hms.agent.HMSAgent;
 import com.huawei.android.hms.agent.common.handler.CheckUpdateHandler;
 import com.huawei.android.hms.agent.common.handler.ConnectHandler;
@@ -31,13 +33,18 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
             AppID = GetProperties().getProperty("AppID");
             CpID = GetProperties().getProperty("cpID");
 
-            HMSAgent.init(GetCurrentActivity().getApplication());
+            HMSAgent.init(GetCurrentActivity().getApplication(),GetCurrentActivity());
 
             //连接华为移动服务
             HMSAgent.connect(GetCurrentActivity(), new ConnectHandler() {
                 @Override
                 public void onConnect(int rst) {
                     SendLog ("HMS connect end:" + rst);
+
+                    if(rst == -1001)
+                    {
+                        Toast.makeText(GetCurrentActivity(), "HuaWei Mobile Service is Not Install~", Toast.LENGTH_LONG).show();
+                    }
                 }
             });
 
@@ -83,7 +90,7 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
 //                                SendLog("game login check sign: onResult: retCode=" + code + "  resultDesc=" + resultDesc + "  isCheckSuccess=" + isCheckSuccess);
 //                            }
 //                        });
-
+                        //返回登陆成功
                         try {
                             JSONObject jo = new JSONObject();
                             jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
@@ -99,6 +106,25 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
                     }
                 } else {
                     SendLog("game login: onResult: retCode=" + retCode);
+
+                    if(retCode == -1001)
+                    {
+                        Toast.makeText(GetCurrentActivity(), "HuaWei Mobile Service is Not Install~", Toast.LENGTH_LONG).show();
+                    }
+
+                    //返回登陆失败
+                    try {
+                        JSONObject jo = new JSONObject();
+                        jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+                        jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,"" );
+                        jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                        jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.HuaWei.toString());
+
+                        CallBack(jo);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        SendError("UCSDK onLoginSucc",e);
+                    }
                 }
             }
 
