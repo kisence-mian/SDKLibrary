@@ -7,6 +7,7 @@ import sdkInterface.define.GoodsType;
 
 public class PayInfo
 {
+    public String userID;
     public String goodsID;
     public String goodsName;
     public GoodsType goodsType ;
@@ -30,6 +31,8 @@ public class PayInfo
             info.currency = json.getString(SDKInterfaceDefine.Pay_ParameterName_Currency);
 
             info.tag = json.getString(SDKInterfaceDefine.Tag);
+
+            info.userID = json.getString(SDKInterfaceDefine.ParameterName_UserID);
 
             return info;
         }

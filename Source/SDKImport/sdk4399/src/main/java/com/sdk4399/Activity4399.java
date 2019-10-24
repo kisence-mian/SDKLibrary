@@ -108,9 +108,6 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
                             //充值失败逻辑
                             SendPayCallBack(success,GoodsID,String.valueOf(resultCode));
                         }
-
-
-
                     }
                 });
     }

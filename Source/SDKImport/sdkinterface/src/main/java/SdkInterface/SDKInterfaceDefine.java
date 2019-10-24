@@ -17,6 +17,7 @@ public class SDKInterfaceDefine
     public static final String ParameterName_IsSuccess = "IsSuccess";
     public static final String ParameterName_Error     = "Error";
     public static final String ParameterName_Content   = "Content";
+    public static final String ParameterName_UserID    = "UserID";
 
     public static final String ModuleName_Init     = "Init";
     public static final String ModuleName_Dispose  = "Dispose";
@@ -111,9 +112,12 @@ public class SDKInterfaceDefine
     public static final String FileName_ChannelProperties = "Channel";
 
     public static final String PropertiesKey_IsLog = "IsLog";                           //是否输出日志
+    public static final String PropertiesKey_SelectNetworkPath = "SelectNetworkPath";  //选服配置下载地址
     public static final String PropertiesKey_UpdateDownLoadPath = "UpdateDownLoadPath"; //热更新下载地址(最后没有斜线)
+    public static final String PropertiesKey_TestUpdateDownLoadPath = "TestUpdateDownLoadPath"; //热更新下载测试地址(最后没有斜线)
     public static final String PropertiesKey_ChannelName = "ChannelName";               //渠道名称
     public static final String PropertiesKey_StoreName   = "StoreName";                 //商店名称
     public static final String PropertiesKey_LoginPlatform = "LoginPlatform";           //登录平台
     public static final String PropertiesKey_NetworkID = "NetworkID";                   //服务器选择
+    public static final String PropertiesKey_QQGroup   = "QQGroup";                     //玩家QQ群
 }

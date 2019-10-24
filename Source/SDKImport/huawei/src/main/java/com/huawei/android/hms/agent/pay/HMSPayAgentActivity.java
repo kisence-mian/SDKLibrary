@@ -42,9 +42,9 @@ public class HMSPayAgentActivity extends BaseAgentActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        HMSAgentLog.d("HMSPayAgentActivity onActivityResult=" + resultCode);
         if(requestCode == REQUEST_PAY) {
-            HMSAgentLog.d("resultCode=" + resultCode);
+            HMSAgentLog.d("HMSPayAgentActivity resultCode=" + resultCode);
             if (resultCode == Activity.RESULT_OK) {
                 //获取支付完成信息
                 PayResultInfo payResultInfo = HuaweiPay.HuaweiPayApi.getPayResultInfoFromIntent(data);
@@ -53,7 +53,8 @@ public class HMSPayAgentActivity extends BaseAgentActivity {
                 } else {
                     PayApi.INST.onPayEnd(HMSAgent.AgentResultCode.RESULT_IS_NULL, null);
                 }
-            } else {
+            }
+            else {
                 PayApi.INST.onPayEnd(HMSAgent.AgentResultCode.ON_ACTIVITY_RESULT_ERROR, null);
             }
 

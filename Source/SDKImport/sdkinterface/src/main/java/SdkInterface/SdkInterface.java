@@ -595,13 +595,82 @@ public class SdkInterface
         }
     }
 
+    public static void OnCreate()
+    {
+        SendLog("SDKInterBase OnCreate " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                try {
+                    entry.getValue().OnCreate();
+                }
+                catch (Exception e)
+                {
+                    SendError("OnCreate Error:" + e.toString(),e);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("OnCreate Error:" + e.toString(),e);
+        }
+    }
+
     public static void OnDestroy()
     {
         SendLog("SDKInterBase OnDestroy " );
         try {
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
-                entry.getValue().OnDestory();;
+                try {
+                    entry.getValue().OnDestory();
+                }
+                catch (Exception e)
+                {
+                    SendError("OnCreate Error:" + e.toString(),e);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnResume()
+    {
+        SendLog("SDKInterBase OnResume " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                try {
+                    entry.getValue().OnResume();
+                }
+                catch (Exception e)
+                {
+                    SendError("OnCreate Error:" + e.toString(),e);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnPause()
+    {
+        SendLog("SDKInterBase OnPause " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                try {
+                    entry.getValue().OnPause();
+                }
+                catch (Exception e)
+                {
+                    SendError("OnCreate Error:" + e.toString(),e);
+                }
             }
         }
         catch (Exception e)

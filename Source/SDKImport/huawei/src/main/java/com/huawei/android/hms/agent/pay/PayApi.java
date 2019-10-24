@@ -102,7 +102,7 @@ public final class PayApi extends BaseApiAgent {
                 }
 
                 int rstCode = status.getStatusCode();
-                HMSAgentLog.d("status=" + status);
+                HMSAgentLog.d("status=" + status + " getStatusCode " + rstCode);
                 // 需要重试的错误码，并且可以重试
                 if ((rstCode == CommonCode.ErrorCode.SESSION_INVALID
                         || rstCode == CommonCode.ErrorCode.CLIENT_API_INVALID) && retryTimes > 0) {
@@ -125,6 +125,7 @@ public final class PayApi extends BaseApiAgent {
 
                     //启动支付流程
                     try {
+                        HMSAgentLog.e("启动支付流程");
                         statusForPay = status;
                         Intent intent = new Intent(curActivity, HMSPayAgentActivity.class);
                         intent.putExtra(BaseAgentActivity.EXTRA_IS_FULLSCREEN, UIUtils.isActivityFullscreen(curActivity));
@@ -134,6 +135,7 @@ public final class PayApi extends BaseApiAgent {
                         onPayEnd(HMSAgent.AgentResultCode.START_ACTIVITY_ERROR, null);
                     }
                 }else {
+                    HMSAgentLog.e("結束支付");
                     onPayEnd(rstCode, null);
                 }
             }

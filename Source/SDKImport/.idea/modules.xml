@@ -26,6 +26,7 @@
       <module fileurl="file://$PROJECT_DIR$/vivo/vivo.iml" filepath="$PROJECT_DIR$/vivo/vivo.iml" />
       <module fileurl="file://$PROJECT_DIR$/vivoSingle/vivoSingle.iml" filepath="$PROJECT_DIR$/vivoSingle/vivoSingle.iml" />
       <module fileurl="file://$PROJECT_DIR$/weixinlogin/weixinlogin.iml" filepath="$PROJECT_DIR$/weixinlogin/weixinlogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xiaomi/xiaomi.iml" filepath="$PROJECT_DIR$/xiaomi/xiaomi.iml" />
     </modules>
   </component>
 </project>

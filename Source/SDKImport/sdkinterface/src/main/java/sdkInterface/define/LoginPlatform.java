@@ -50,4 +50,43 @@ public enum LoginPlatform {
     /// UC
     /// </summary>
     UC,
+    /// <summary>
+    /// 百度
+    /// </summary>
+    Baidu,
+
+    /// <summary>
+    /// 360
+    /// </summary>
+    m360,
+
+    /// <summary>
+    ///  哔哩哔哩
+    /// </summary>
+    BiLiBiLi,
+
+    /// <summary>
+    /// 魅族
+    /// </summary>
+    Meizu,
+
+    /// <summary>
+    ///  酷派
+    /// </summary>
+    Coolpad,
+
+    /// <summary>
+    /// 联想
+    /// </summary>
+    Lenovo,
+
+    /// <summary>
+    /// 金立
+    /// </summary>
+    Gionee,
+
+    /// <summary>
+    /// 葫芦侠
+    /// </summary>
+    Huluxia
 }

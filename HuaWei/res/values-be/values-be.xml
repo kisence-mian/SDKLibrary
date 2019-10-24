@@ -1,48 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hms_abort" priority="translator">"Спыніць"</string>
-    <string name="hms_abort_message" priority="translator">"Спыніць спампоўку?"</string>
-    <string name="hms_bindfaildlg_message" priority="translator">"%1$s не можа выкарыстоўваць Мабільныя службы Huawei. Запусціце Дыспетчар тэлефона ці перайдзіце ў Налады, уключыце ўсе дазволы для %2$s (уключаючы аўтаматычны і другасны запускі) і паўтарыце спробу."</string>
-    <string name="hms_cancel" priority="translator">"Адмяніць"</string>
-    <string name="hms_check_failure" priority="translator">"Не ўдалося праверыць наяўнасць абнаўленняў."</string>
-    <string name="hms_check_no_update" priority="translator">"Вы ўжо карыстаецеся апошняй версіяй."</string>
-    <string name="hms_checking" priority="translator">"Праверка абнаўленняў…"</string>
-    <string name="hms_confirm" priority="translator">"ОК"</string>
-    <string name="hms_download_failure" priority="translator">"Не атрымалася спампаваць пакет Паслуг Мабільнай Сувязі Huawei."</string>
-    <string name="hms_download_no_space" priority="translator">"Недастаткова свабоднага месца. Немагчыма завяршыць спампоўку."</string>
-    <string name="hms_download_retry" priority="translator">"Памылка падчас спампоўкі. Паўтарыць спробу?"</string>
-    <string name="hms_downloading" priority="translator">"Спампоўка пакета Паслуг Мабільнай Сувязі Huawei | прагрэс: %d%%"</string>
-    <string name="hms_downloading_loading" priority="LT">"Ідзе спампоўка"</string>
-    <string name="hms_downloading_new" priority="LT">"Загрузка HMS"</string>
-    <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
-    <string name="hms_install" priority="translator">"Усталяваць"</string>
-    <string name="hms_install_message" priority="translator">"Для карыстання гэтай функцыяй неабходна ўсталяваць Мабільныя сэрвісы Huawei. Усталяваць?"</string>
-    <string name="hms_retry" priority="translator">"Паўтарыць"</string>
-    <string name="hms_update" priority="translator">"Абнавіць"</string>
-    <string name="hms_update_message" priority="translator">"Абнавіцеся да апошняй версіі Паслуг Мабільнай Сувязі Huawei, каб выкарыстоўваць гэту функцыю. Абнавіць зараз?"</string>
-    <string name="hms_update_message_new" priority="LT">"Для гэтай паслугі неабходна апошняя версія наступнай праграмы:\n\n%1$s"</string>
-    <string name="hms_update_title" priority="translator">"Паслугі Мабільнай Сувязі Huawei"</string>
-    <string name="upsdk_app_dl_installing" priority="LT">"Загрузка AppGallery"</string>
-    <string name="upsdk_app_download_info_new" priority="translator">"Усталяваць"</string>
-    <string name="upsdk_app_size" priority="translator">"Памер"</string>
-    <string name="upsdk_app_version" priority="translator">"Версія"</string>
-    <string name="upsdk_cancel" priority="translator">"Адмена"</string>
-    <string name="upsdk_checking_update_prompt" priority="translator">"Пошук абнаўленняў…"</string>
-    <string name="upsdk_choice_update" priority="LT">"Абнаўленне даступна. Калі ласка, спампуйце і ўсталюйце апошнюю версію."</string>
-    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Немагчыма падлучыцца да серверу. Калі ласка, паспрабуйце пазней."</string>
-    <string name="upsdk_detail" priority="translator">"Дэталі"</string>
-    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Немагчыма атрымаць даныя. Калі ласка, паспрабуйце пазней."</string>
-    <string name="upsdk_install" priority="LT">"Усталюйце AppGallery, каб абнавіць. Усталяваць зараз?"</string>
-    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Інтэрнэт злучэнне адсутнічае. Калі ласка, праверце сеткавыя налады."</string>
-    <string name="upsdk_ota_app_name" priority="LT">"Праграма"</string>
-    <string name="upsdk_ota_cancel" priority="translator">"Пазней"</string>
-    <string name="upsdk_ota_force_cancel_new" priority="LT">"Выхад"</string>
-    <string name="upsdk_ota_notify_updatebtn" priority="translator">"Абнавіць"</string>
-    <string name="upsdk_ota_title" priority="translator">"Новая версія"</string>
-    <string name="upsdk_storage_utils" priority="LT">"%1$s МБ"</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Адмяніць устаноўку?"</string>
-    <string name="upsdk_third_app_dl_install_failed" priority="translator">"Памылка ўсталявання."</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Так"</string>
-    <string name="upsdk_update_check_no_new_version" priority="translator">"Вы ўжо карыстаецеся апошнюю версію."</string>
-    <string name="upsdk_updating" priority="translator">"Абнаўленне"</string>
+  <string name="c_buoycircle_abort" priority="translator">"ТАК"</string>
+  <string name="c_buoycircle_abort_message" priority="translator">"Спыніць спампоўку?"</string>
+  <string name="c_buoycircle_appmarket_name" priority="translator">"HUAWEI AppGallery"</string>
+  <string name="c_buoycircle_auto_hide_notice" priority="translator">"Перацягніце сюды, каб схаваць"</string>
+  <string name="c_buoycircle_cancel" priority="translator">"АДМЯНІЦЬ"</string>
+  <string name="c_buoycircle_check_failure" priority="translator">"Праверка абнаўлення не выканана."</string>
+  <string name="c_buoycircle_checking" priority="translator">"Праверка абнаўленняў…"</string>
+  <string name="c_buoycircle_confirm" priority="translator">"ОК"</string>
+  <string name="c_buoycircle_download_failure" priority="translator">"Немагчыма спампаваць HUAWEI AppGallery."</string>
+  <string name="c_buoycircle_download_no_space" priority="translator">"Недастаткова свабоднага месца. Немагчыма спампаваць."</string>
+  <string name="c_buoycircle_download_retry" priority="translator">"Спампоўка не выканана. Паўтарыць спробу?"</string>
+  <string name="c_buoycircle_downloading_loading" priority="translator">"Спампоўка…"</string>
+  <string name="c_buoycircle_floatwindow_click_fail_toast" priority="translator">"Уключыце функцыю другаснага запуску для HUAWEI AppGallery праз Дыспетчар або ў Наладах."</string>
+  <string name="c_buoycircle_hide_guide_btn_cancel" priority="translator">"АДМЯНІЦЬ"</string>
+  <string name="c_buoycircle_hide_guide_btn_confirm" priority="translator">"СХАВАЦЬ"</string>
+  <string name="c_buoycircle_hide_guide_content_nosensor" priority="translator">"Калі шары будуць схаваны, перазапусціце праграму, каб яны з\’явіліся зноў."</string>
+  <string name="c_buoycircle_hide_guide_content_sensor" priority="translator">"Калі шары будуць схаваны, перавярніце прыладу, каб яны з\’явіліся зноў."</string>
+  <string name="c_buoycircle_hide_guide_noremind" priority="translator">"Больш не напамінаць"</string>
+  <string name="c_buoycircle_hide_guide_title" priority="translator">"Схаваць шары"</string>
+  <string name="c_buoycircle_install" priority="translator">"УСТАНАВІЦЬ"</string>
+  <string name="c_buoycircle_no" priority="translator">"НЕ"</string>
+  <string name="c_buoycircle_retry" priority="translator">"ПАЎТАРЫЦЬ СПРОБУ"</string>
+  <string name="c_buoycircle_update_message_new" priority="translator">"Гэтаму сэрвісу патрэбна апошняя версія наступнай праграмы:\n\n%1$s"</string>
+  <string name="hms_game_login_notice" priority="LT">"Вітаем, %1$s"</string>
+  <string name="hms_abort" priority="translator">"Спыніць"</string>
+  <string name="hms_abort_message" priority="translator">"Спыніць спампоўку?"</string>
+  <string name="hms_bindfaildlg_message" priority="translator">"%1$s не можа выкарыстоўваць Мабільныя службы Huawei. Запусціце Дыспетчар тэлефона ці перайдзіце ў Налады, уключыце ўсе дазволы для %2$s (уключаючы аўтаматычны і другасны запускі) і паўтарыце спробу."</string>
+  <string name="hms_cancel" priority="translator">"Адмяніць"</string>
+  <string name="hms_check_failure" priority="translator">"Не ўдалося праверыць наяўнасць абнаўленняў."</string>
+  <string name="hms_check_no_update" priority="translator">"Вы ўжо карыстаецеся апошняй версіяй."</string>
+  <string name="hms_checking" priority="translator">"Праверка абнаўленняў…"</string>
+  <string name="hms_confirm" priority="translator">"ОК"</string>
+  <string name="hms_download_failure" priority="translator">"Не атрымалася спампаваць пакет Паслуг Мабільнай Сувязі Huawei."</string>
+  <string name="hms_download_no_space" priority="translator">"Недастаткова свабоднага месца. Немагчыма завяршыць спампоўку."</string>
+  <string name="hms_download_retry" priority="translator">"Памылка падчас спампоўкі. Паўтарыць спробу?"</string>
+  <string name="hms_downloading" priority="translator">"Спампоўка пакета Паслуг Мабільнай Сувязі Huawei | прагрэс: %d%%"</string>
+  <string name="hms_downloading_loading" priority="LT">"Ідзе спампоўка"</string>
+  <string name="hms_downloading_new" priority="LT">"Загрузка HMS"</string>
+  <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+  <string name="hms_install" priority="translator">"Усталяваць"</string>
+  <string name="hms_install_message" priority="translator">"Для карыстання гэтай функцыяй неабходна ўсталяваць Мабільныя сэрвісы Huawei. Усталяваць?"</string>
+  <string name="hms_retry" priority="translator">"Паўтарыць"</string>
+  <string name="hms_update" priority="translator">"Абнавіць"</string>
+  <string name="hms_update_message" priority="translator">"Абнавіцеся да апошняй версіі Паслуг Мабільнай Сувязі Huawei, каб выкарыстоўваць гэту функцыю. Абнавіць зараз?"</string>
+  <string name="hms_update_message_new" priority="LT">"Для гэтай паслугі неабходна апошняя версія наступнай праграмы:\n\n%1$s"</string>
+  <string name="hms_update_title" priority="translator">"Паслугі Мабільнай Сувязі Huawei"</string>
+  <string name="upsdk_app_dl_installing" priority="LT">"Загрузка AppGallery"</string>
+  <string name="upsdk_app_download_info_new" priority="translator">"Усталяваць"</string>
+  <string name="upsdk_app_size" priority="translator">"Памер"</string>
+  <string name="upsdk_app_version" priority="translator">"Версія"</string>
+  <string name="upsdk_cancel" priority="translator">"Адмена"</string>
+  <string name="upsdk_checking_update_prompt" priority="translator">"Пошук абнаўленняў…"</string>
+  <string name="upsdk_choice_update" priority="LT">"Абнаўленне даступна. Калі ласка, спампуйце і ўсталюйце апошнюю версію."</string>
+  <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Немагчыма падлучыцца да серверу. Калі ласка, паспрабуйце пазней."</string>
+  <string name="upsdk_detail" priority="translator">"Дэталі"</string>
+  <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Немагчыма атрымаць даныя. Калі ласка, паспрабуйце пазней."</string>
+  <string name="upsdk_install" priority="LT">"Усталюйце AppGallery, каб абнавіць. Усталяваць зараз?"</string>
+  <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Інтэрнэт злучэнне адсутнічае. Калі ласка, праверце сеткавыя налады."</string>
+  <string name="upsdk_ota_app_name" priority="LT">"Праграма"</string>
+  <string name="upsdk_ota_cancel" priority="translator">"Пазней"</string>
+  <string name="upsdk_ota_force_cancel_new" priority="LT">"Выхад"</string>
+  <string name="upsdk_ota_notify_updatebtn" priority="translator">"Абнавіць"</string>
+  <string name="upsdk_ota_title" priority="translator">"Новая версія"</string>
+  <string name="upsdk_storage_utils" priority="LT">"%1$s МБ"</string>
+  <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Адмяніць устаноўку?"</string>
+  <string name="upsdk_third_app_dl_install_failed" priority="translator">"Памылка ўсталявання."</string>
+  <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Так"</string>
+  <string name="upsdk_update_check_no_new_version" priority="translator">"Вы ўжо карыстаецеся апошнюю версію."</string>
+  <string name="upsdk_updating" priority="translator">"Абнаўленне"</string>
 </resources>

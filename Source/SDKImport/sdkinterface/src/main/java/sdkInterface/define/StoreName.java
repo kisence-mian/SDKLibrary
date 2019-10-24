@@ -21,4 +21,12 @@ public enum StoreName
     VIVO,
     HuaWei,
     UC,
+    Baidu,
+    m360,
+    BiLiBiLi ,//  哔哩哔哩
+    Meizu, // 魅族
+    Coolpad,//  酷派
+    Lenovo,// 联想
+    Gionee,// 金立
+    Huluxia// 葫芦侠
 }

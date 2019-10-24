@@ -1,6 +1,8 @@
 package sdkInterface.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
+
 import com.unity3d.player.UnityPlayerActivity;
 
 import sdkInterface.SdkInterface;
@@ -16,8 +18,25 @@ public class MainActivity extends UnityPlayerActivity
 
     @Override
     protected void onDestroy() {
-
         SdkInterface.OnDestroy();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onCreate(Bundle bundle) {
+        SdkInterface.OnCreate();
+        super.onCreate(bundle);
+    }
+
+    @Override
+    protected void onResume() {
+        SdkInterface.OnResume();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        SdkInterface.OnPause();
+        super.onPause();
     }
 }

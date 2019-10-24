@@ -23,6 +23,7 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
 
     PayInfo payInfo;
 
+    String CpOrderID ="";
     @Override
     public void Init(JSONObject json)
     {
@@ -59,18 +60,25 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
     @Override
     public void Pay(JSONObject json) {
 
-        int amount = 0;
         String name = "";
         String vivoSignature = "";
         String orderID ="";
-//        int platform = 2; //1微信、2支付宝，这里固定使用支付宝
+
+//      int platform = 2; //1微信、2支付宝，这里固定使用支付宝
 
         payInfo = PayInfo.FromJson(json);
-        amount = (int)(payInfo.price * 100); // 支付金额，单位分
-        name =  payInfo.goodsName;
 
-        vivoSignature = payInfo.orderID; //由订单推送接口返回，字段为accessKey
-        orderID = payInfo.tag;//交易流水号
+        String[] info = payInfo.tag.split("\\|");
+
+        String[] info2 = payInfo.orderID.split("\\|");
+
+        String amount = info[0]; //后端控制价格
+        vivoSignature = info[1];
+
+        CpOrderID = info2[0];
+        orderID = info2[1]; //由订单推送接口返回，字段为accessKey
+
+        name =  payInfo.goodsName;
 
         SendLog("setVivoSignature " + vivoSignature);
         SendLog("setTransNo " + orderID);
@@ -79,16 +87,14 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
         SendLog("setProductName " + name);
         SendLog("setProductPrice " + amount);
 
-        VivoPayInfo.Builder builder = new VivoPayInfo.Builder();
-        builder.setProductName(name)
-                .setProductDes("")
-                .setProductPrice(String.valueOf(amount))
-                .setVivoSignature(vivoSignature) //验签
-                .setAppId(AppID)
-                .setTransNo(orderID) //交易流水号
-                .setUid(OpenID);
-
-        VivoPayInfo vivoPayInfo = builder.build();
+        VivoPayInfo vivoPayInfo = new VivoPayInfo(
+                payInfo.goodsID,
+                payInfo.goodsID,
+                amount,
+                vivoSignature,
+                AppID,
+                orderID,
+                OpenID);
 
         VivoUnionSDK.pay(GetCurrentActivity(),vivoPayInfo,new VivoPayCallback(){
             @Override
@@ -150,12 +156,15 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
     void SendPayCallBack(boolean success,String transNo,String errorCode)
     {
         try {
+            String receipt = CpOrderID +"|" + transNo;
+
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,transNo);
             jo.put(SDKInterfaceDefine.ParameterName_Error,errorCode);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.VIVO.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, receipt);
 
             payInfo.ToJson(jo);
 

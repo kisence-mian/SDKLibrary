@@ -31,6 +31,7 @@
             <option value="$PROJECT_DIR$/vivo" />
             <option value="$PROJECT_DIR$/vivoSingle" />
             <option value="$PROJECT_DIR$/weixinlogin" />
+            <option value="$PROJECT_DIR$/xiaomi" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
