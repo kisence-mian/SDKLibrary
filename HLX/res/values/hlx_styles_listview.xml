@@ -1,0 +1,23 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+   
+    <!-- ListView 最基本的定义，屏蔽关键属性，不设置此样式会出错 -->
+    <style name="value_listview_base" parent="@android:style/Widget.ListView">
+        <item name="android:scrollbars">none</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+    
+    <!-- GridView 最基本的定义，屏蔽关键属性，不设置此样式会出错 -->
+    <style name="value_gridview_base" parent="@android:style/Widget.GridView">
+        <item name="android:scrollbars">none</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+  
+    <!-- ExpandableListView 最基本的定义，屏蔽关键属性，不设置此样式会出错 -->
+    <style name="value_exlistview_base" parent="@android:style/Widget.ExpandableListView">
+        <item name="android:scrollbars">none</item>
+        <item name="android:groupIndicator">@null</item>
+    </style>
+
+</resources>

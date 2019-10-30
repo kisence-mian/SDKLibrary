@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bdp_bg_round_fcfcfc"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="45dip"
+            android:layout_height="48dip" />
+
+        <com.baidu.platformsdk.widget.DkPagerSlidingTabStrip
+            android:id="@+id/pstsTitle"
+            android:layout_width="0dip"
+            android:layout_height="48dip"
+            android:layout_weight="1" />
+        <!-- 关闭按钮 -->
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="15dp"
+            android:contentDescription="@string/bdp_image"
+            android:src="@drawable/bdp_paycenter_btn_close_selector" />
+    </LinearLayout>
+
+    <!-- 子视图 -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#FFD8D8D8" />
+
+    <com.baidu.platformsdk.widget.WrapContentHeightViewPager
+        android:id="@+id/vpView"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginTop="2dip"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="11dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bdp_image"
+            android:paddingBottom="2dip"
+            android:paddingRight="10dip"
+            android:src="@drawable/bdp_logo_baidu"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

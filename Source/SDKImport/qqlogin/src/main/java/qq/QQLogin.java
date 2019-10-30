@@ -55,6 +55,11 @@ public class QQLogin extends SDKBase implements ILogin {
         SendLog("QQ Login finish " + json);
     }
 
+    @Override
+    public void LoginOut(JSONObject json) {
+
+    }
+
     public void initOpenidAndToken(JSONObject jsonObject) {
         try {
             String token = jsonObject.getString(Constants.PARAM_ACCESS_TOKEN);

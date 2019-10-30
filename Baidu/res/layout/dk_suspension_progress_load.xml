@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="horizontal"
+    android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="3dp">
+    
+	<ProgressBar 
+		android:id="@+id/dk_loadingImageView"  
+	        android:layout_width="32dp"  
+	        android:layout_height="32dp"  
+	        android:indeterminate="false"  
+	        android:indeterminateDrawable="@drawable/dk_bg_progress_loading"/> 
+	
+    <TextView
+    	android:id="@+id/dk_suspension_load_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="@android:color/black"
+        android:text="@string/dk_tv_string_loading"/>
+
+</LinearLayout>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sv_view"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/bdp_dialog_login_padding"
+    android:scrollbarStyle="outsideOverlay" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- 用于获取焦点的输入框 -->
+
+        <EditText
+            android:id="@+id/edtFocus"
+            android:layout_width="0dip"
+            android:layout_height="0dip"
+            android:inputType="none" />
+
+        <LinearLayout
+            android:id="@+id/linAccountPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dip"
+            android:orientation="vertical" >
+
+            <!-- 账号 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/edtAccount"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/bdp_account_login_hint_account_baidu"
+                    android:maxLength="80"
+                    android:singleLine="true"
+                    android:textColor="@color/bdp_black"
+                    android:textColorHint="@color/bdp_color_text_hint"
+                    android:textCursorDrawable="@null"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imgAccountDel"
+                    android:layout_width="30dip"
+                    android:layout_height="40dip"
+                    android:layout_marginRight="15dip"
+                    android:contentDescription="@string/bdp_image"
+                    android:scaleType="center"
+                    android:src="@drawable/bdp_icon_text_clear_selector"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imgArrow"
+                    android:layout_width="30dip"
+                    android:layout_height="40dip"
+                    android:layout_marginRight="15dip"
+                    android:contentDescription="@string/bdp_image"
+                    android:scaleType="center"
+                    android:src="@drawable/bdp_account_icon_unfold_selector"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line_account"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:background="@color/bdp_color_cccccc" />
+
+            <!-- 密码 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/edtPass"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dip"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/bdp_account_login_hint_pass"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textColor="@color/bdp_black"
+                    android:textColorHint="@color/bdp_color_text_hint"
+                    android:textCursorDrawable="@null"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imgPassDel"
+                    android:layout_width="30dip"
+                    android:layout_height="40dip"
+                    android:contentDescription="@string/bdp_image"
+                    android:scaleType="center"
+                    android:src="@drawable/bdp_icon_text_clear_selector"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/txtFindPass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dip"
+                    android:text="@string/bdp_account_login_forgot_pass"
+                    android:textColor="@color/bdp_color_color_535353"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line_pass"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:background="@color/bdp_color_cccccc" />
+            <!-- 按钮 -->
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="39dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bdp_btn_pink_selector"
+                android:enabled="false"
+                android:text="@string/bdp_account_login"
+                android:textColor="@color/bdp_white"
+                android:textSize="17sp" />
+
+            <!-- 其他账号登录 -->
+
+            <LinearLayout
+                android:id="@+id/linOtherAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="27dip"
+                android:paddingTop="27dip"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bdp_account_other_login"
+                    android:textColor="#ff999999"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imgQqLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/bdp_image"
+                    android:src="@drawable/bdp_account_icon_qq" />
+
+                <ImageView
+                    android:id="@+id/imgRenrenLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/bdp_image"
+                    android:src="@drawable/bdp_account_icon_renren" />
+
+                <ImageView
+                    android:id="@+id/imgSinaLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/bdp_image"
+                    android:src="@drawable/bdp_account_icon_sina" />
+
+                <ImageView
+                    android:id="@+id/imgTxweiboLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/bdp_image"
+                    android:src="@drawable/bdp_account_icon_txweibo" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/bdp_image"
+            android:paddingBottom="5dip"
+            android:src="@drawable/bdp_logo_baidu_bottom"
+            android:visibility="gone" />
+
+        <!-- 历史账号列表 -->
+
+        <LinearLayout
+            android:id="@+id/linHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/linAccountPass"
+            android:layout_alignRight="@id/linAccountPass"
+            android:layout_alignTop="@id/linAccountPass"
+            android:layout_marginTop="42dip"
+            android:background="@drawable/bdp_bg_white_round_border"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="310dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/new_bg_dialog"
+        android:orientation="vertical" >
+
+        <include layout="@layout/dk_dialog_header" />
+
+        <LinearLayout
+            android:id="@+id/dk_dialog_draw_container1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingLeft="26dp"
+            android:paddingRight="26dp"
+            android:paddingTop="20dp" >
+
+            <TextView
+                android:id="@+id/warn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dk_enter_phone_num"
+                android:textColor="#666666"
+                android:layout_marginBottom="5dp"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/login_input"
+                android:hint="@string/dk_enter_phone_num"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="10dp"
+                android:numeric="integer"
+                android:maxLength="11"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/etCode"
+                    android:layout_width="150dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/login_input"
+                    android:numeric="integer"
+                    android:hint="@string/dk_enter_sms_verifycode"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btnGetCode"
+                    android:layout_width="115dp"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/dk_btn_confirm_quit_selector"
+                    android:text="@string/dk_get_sms_verifycode"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/dk_btn_pointer_game_selector"
+                android:textColor="@android:color/white"
+                android:text="@string/dk_submit"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/dk_payemnt_dialog_cc"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

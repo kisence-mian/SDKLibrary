@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dkMainViewLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/new_bg_dialog"
+    android:orientation="vertical" >
+
+    <include 
+        layout="@layout/dk_dialog_header"
+        android:layout_height="0px"
+        android:layout_weight="1"/>
+
+    <RelativeLayout
+        android:id="@+id/hintContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:background="#ff0000"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="3" >
+
+       
+
+        <ViewStub 
+            android:id="@+id/dkPayThirdPart"
+            android:layout="@layout/dk_payment_third_part"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+      
+
+    </RelativeLayout>
+
+    <include
+        android:layout_height="0px"
+        android:layout_weight="1"
+        layout="@layout/dk_dialog_footer"
+        android:visibility="visible" />
+
+</LinearLayout>

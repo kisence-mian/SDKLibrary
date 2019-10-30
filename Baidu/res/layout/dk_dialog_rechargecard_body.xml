@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minHeight="240dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="5dp" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/dk_payment_the_amount"
+            android:textColor="#666666"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tvRechargeTip"
+            android:layout_width="60dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/bg_sum"
+            android:gravity="center"
+            android:textColor="#ff6600"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/etCardNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/login_input"
+        android:drawablePadding="25dip"
+        android:hint="@string/hint_recharge_card_number"
+        android:inputType="number"
+        android:maxLength="20"
+        android:paddingLeft="25dip"
+        android:singleLine="true"
+        android:textColor="#ff98bede"
+        android:textColorHint="#ffdddddd" />
+    <EditText
+        android:id="@+id/etCardPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="8dip"
+        android:layout_marginRight="8dip"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/login_input"
+        android:drawablePadding="25dip"
+        android:hint="@string/hint_recharge_card_password"
+        android:maxLength="19"
+        android:inputType="textVisiblePassword"
+        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:paddingLeft="25dip"
+        android:singleLine="true"
+        android:textColor="#ff98bede"
+        android:textColorHint="#ffdddddd" />
+    <Button
+        android:id="@+id/btnRecharge"
+        android:layout_width="fill_parent"
+        android:layout_height="34dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/btn_card_recharge_selector"
+        android:gravity="center"
+        android:text="@string/dk_payment_channel_recharege"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+</LinearLayout>

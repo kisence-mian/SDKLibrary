@@ -238,15 +238,27 @@ public class SdkInterface
         try
         {
             ILogin login = (ILogin)GetSDK(json,loginSDKList);
+            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+
             if(login != null)
             {
-                login.Login(json);
+                if(SDKInterfaceDefine.Login_FunctionName_Login.equals(functionName))
+                {
+                    login.Login(json);
+                }
+                else if(SDKInterfaceDefine.Login_FunctionName_LoginOut.equals(functionName))
+                {
+                    login.LoginOut(json);
+                }
+                else
+                {
+                    SendError("Not find functionName  ->" + functionName + "< >" + json.toString() + "<",null);
+                }
             }
             else
             {
                 SendError("Not find Login Class -> " + json.toString(),null);
             }
-
         }
         catch (Exception e)
         {
@@ -301,6 +313,40 @@ public class SdkInterface
             SendError("Pay Error" + e.toString(),e);
         }
     }
+
+    //与外部交互
+    public static boolean GetPrePay(String SDKName)
+    {
+        SendLog("GetPrePay >" + SDKName + "<");
+
+        for (int i = 0; i < paySDKList.size(); i++) {
+
+            if(paySDKList.get(i).SDKName.equals(SDKName))
+            {
+                IPay pay = (IPay)paySDKList.get(i);
+                return pay.IsPrePay();
+            }
+        }
+
+        return  false;
+    }
+
+    public static boolean GetReSendPay(String SDKName)
+    {
+        SendLog("GetReSendPay >" + SDKName + "<");
+
+        for (int i = 0; i < paySDKList.size(); i++) {
+
+            if(paySDKList.get(i).SDKName.equals(SDKName))
+            {
+                IPay pay = (IPay)paySDKList.get(i);
+                return pay.IsReSendPay();
+            }
+        }
+
+        return  false;
+    }
+
     //endregion 支付
 
     //region 广告
@@ -595,40 +641,13 @@ public class SdkInterface
         }
     }
 
-    public static void OnCreate()
-    {
-        SendLog("SDKInterBase OnCreate " );
-        try {
-            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
-            {
-                try {
-                    entry.getValue().OnCreate();
-                }
-                catch (Exception e)
-                {
-                    SendError("OnCreate Error:" + e.toString(),e);
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            SendError("OnCreate Error:" + e.toString(),e);
-        }
-    }
-
     public static void OnDestroy()
     {
         SendLog("SDKInterBase OnDestroy " );
         try {
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
-                try {
-                    entry.getValue().OnDestory();
-                }
-                catch (Exception e)
-                {
-                    SendError("OnCreate Error:" + e.toString(),e);
-                }
+                entry.getValue().OnDestory();;
             }
         }
         catch (Exception e)
@@ -637,19 +656,13 @@ public class SdkInterface
         }
     }
 
-    public static void OnResume()
+    public static void OnCreate()
     {
-        SendLog("SDKInterBase OnResume " );
+        SendLog("SDKInterBase OnCreate " );
         try {
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
-                try {
-                    entry.getValue().OnResume();
-                }
-                catch (Exception e)
-                {
-                    SendError("OnCreate Error:" + e.toString(),e);
-                }
+                entry.getValue().OnCreate();
             }
         }
         catch (Exception e)
@@ -664,13 +677,22 @@ public class SdkInterface
         try {
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
-                try {
-                    entry.getValue().OnPause();
-                }
-                catch (Exception e)
-                {
-                    SendError("OnCreate Error:" + e.toString(),e);
-                }
+                entry.getValue().OnPause();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnResume()
+    {
+        SendLog("SDKInterBase OnResume " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnResume();
             }
         }
         catch (Exception e)

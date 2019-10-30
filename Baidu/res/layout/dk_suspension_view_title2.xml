@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="54dp">
+
+
+    <TextView
+        android:background="@drawable/dk_bg_suspention_title_select"
+        android:id="@+id/dk_suspension_view2_tab1"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:textSize="16sp"
+        android:textColor="@color/dk_color_f70468"
+        android:text="@string/dk_suspension_view2_new"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+
+    <TextView
+        android:layout_toEndOf="@+id/dk_suspension_view2_tab1"
+        android:layout_toRightOf="@+id/dk_suspension_view2_tab1"
+        android:id="@+id/dk_suspension_view2_tab2"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:textSize="16sp"
+        android:textColor="@color/dk_color_333333"
+        android:text="@string/dk_suspension_view2_hot"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+
+    <ImageView
+        android:id="@+id/dk_suspension_load"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_toStartOf="@+id/dk_suspension_close"
+        android:layout_toLeftOf="@+id/dk_suspension_close"
+        android:src="@drawable/alonesdk_download"
+        android:layout_width="21dp"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:background="@drawable/dk_bg_suspention_dot"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="-10dp"
+        android:layout_marginRight="-10dp"
+        android:id="@+id/dk_suspension_view2_dot"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_alignEnd="@+id/dk_suspension_load"
+        android:layout_alignRight="@+id/dk_suspension_load" />
+
+    <ImageView
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/dk_errornotic_close_up"
+        android:id="@+id/dk_suspension_close"
+        android:layout_width="16dp"
+        android:layout_height="match_parent" />
+    <View
+        android:background="@color/dk_color_d8d8d8"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+</RelativeLayout>

@@ -178,6 +178,7 @@ public class ActivityOPPO extends SDKBase implements ILogin, IPay {
         } catch (JSONException e) {
             e.printStackTrace();
             SendError("OPPO Pay Error " + e, e);
+            SendPayCallBack(false, payInfo);
         }
     }
 
@@ -205,10 +206,10 @@ public class ActivityOPPO extends SDKBase implements ILogin, IPay {
         }
     }
 
-    @Override
-    public void OnDestory() {
-        GameCenterSDK.getInstance().onExit(GetCurrentActivity(), new GameExitCallback() { public void exitGame() { AppUtil.exitGameProcess(GetCurrentActivity()); } });
-    }
+//    @Override
+//    public void OnDestory() {
+//        GameCenterSDK.getInstance().onExit(GetCurrentActivity(), new GameExitCallback() { public void exitGame() { AppUtil.exitGameProcess(GetCurrentActivity()); } });
+//    }
 
     @Override
     public void OnAppplicationQuit(JSONObject json) {

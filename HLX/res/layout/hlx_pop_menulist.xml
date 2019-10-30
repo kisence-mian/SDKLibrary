@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/hlx_input_box_style2_bg"
+              android:orientation="vertical"
+        >
+    <ListView
+            android:id="@+id/menulist"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="#dedfe0"
+            android:dividerHeight="0.5dip"
+            android:background="#e5e5e5"
+            android:scrollbarThumbVertical="@drawable/hlx_scrollbar_vertical_thumb" >
+    </ListView>
+</LinearLayout>

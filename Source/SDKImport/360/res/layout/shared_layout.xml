@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请选择分享类型"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
+ 	<ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+    	<RadioGroup
+	        android:id="@+id/radioGroup1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" >
+	        <RadioButton
+	            android:id="@+id/radio0"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:checked="true"
+	            android:text="默认分享方式" />
+	        <RadioButton
+	            android:id="@+id/radio1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="分享到微信朋友圈" />
+	        <RadioButton
+	            android:id="@+id/radio2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="分享到微信好友" />
+	        <RadioButton
+	            android:id="@+id/radio3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="分享到QQ空间"/>
+	        <RadioButton
+	            android:id="@+id/radio4"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="分享到QQ好友"/>
+	        <RadioButton
+	            android:id="@+id/radio6"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="分享到复制链接"/>  
+    	</RadioGroup>
+    	
+    	<RadioGroup
+	        android:id="@+id/radioGroup2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" 
+	        android:layout_marginTop="20dp">
+	        <RadioButton
+	            android:id="@+id/radio20"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:checked="true"
+	            android:text="链接分享方式" />
+	        <RadioButton
+	            android:id="@+id/radio21"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="图片分享方式" />
+    	</RadioGroup>
+    	
+
+            <EditText
+                android:id="@+id/edit_share_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/share_title"
+                android:textColor="@android:color/black"
+                android:textColorHint="#ff999999" >
+                <requestFocus />
+            </EditText>
+            
+            <EditText
+                android:id="@+id/edit_share_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/share_desc"
+                android:textColor="@android:color/black"
+                android:textColorHint="#ff999999" />
+            
+            <EditText
+                android:id="@+id/edit_share_img"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/share_img"
+                android:textColor="@android:color/black"
+                android:textColorHint="#ff999999" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/edit_share_icon"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/share_icon"
+                android:textColor="@android:color/black"
+                android:textColorHint="#ff999999" />
+
+            <EditText
+                android:id="@+id/edit_share_url"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/share_url"
+                android:textColor="@android:color/black"
+                android:textColorHint="#ff999999" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    
+</LinearLayout>

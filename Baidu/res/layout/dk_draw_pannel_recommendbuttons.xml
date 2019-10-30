@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/dk_dialog_btn1"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/dk_btn_pointer_game_selector"
+        android:gravity="center"
+        android:text="@string/dk_draw_more_games"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/dk_dialog_btn2"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/dk_btn_confirm_quit_selector"
+        android:gravity="center"
+        android:text="@string/dk_btn_string_back"
+        android:textColor="@color/dk_color_333333"
+        android:textSize="16sp" />
+
+</LinearLayout>

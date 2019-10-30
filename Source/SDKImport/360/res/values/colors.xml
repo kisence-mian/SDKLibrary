@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="demo_base_info">#FFFF0000</color>
+    <color name="demo_btn_text">#FFFFA500</color>
+
+</resources>

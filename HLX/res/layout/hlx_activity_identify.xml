@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    android:fillViewport="true"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/hlx_bg_dialog"
+        android:baselineAligned="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hlx_bg_dialog_upcorner">
+
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/hlx_btn_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:clickable="false"
+                android:gravity="center"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:text="实名认证"
+                android:textColor="#52ae38"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#dddddd" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/hlx_bg_input"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:duplicateParentState="true"
+                android:hint="请输入姓名"
+                android:imeOptions="flagNoExtractUi"
+                android:maxLength="4"
+                android:paddingBottom="8.0dip"
+                android:paddingLeft="8.0dip"
+                android:paddingTop="8.0dip"
+                android:singleLine="true"
+                android:textColor="#ff000000"
+                android:textColorHint="#ffa0a0a0"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/login_edit_txt_fnt" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#dddddd"
+                />
+
+
+            <EditText
+                android:id="@+id/tv_num"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:drawablePadding="20dp"
+                android:duplicateParentState="true"
+                android:hint="请输入身份证号码"
+                android:imeOptions="flagNoExtractUi|actionSend"
+                android:digits="1234567890Xx"
+                android:maxLength="32"
+                android:paddingBottom="8.0dip"
+                android:paddingLeft="8.0dip"
+                android:paddingTop="8.0dip"
+                android:singleLine="true"
+                android:textColor="#ff000000"
+                android:textColorHint="#ffa0a0a0"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/login_edit_txt_fnt" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/message_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#FFFF8900"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="请填写您的真实资料。未成年用户请在监护人的陪同下健康游戏，理性消费。"
+            />
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/hlx_btn_green_selector"
+            android:gravity="center"
+            android:paddingBottom="14dp"
+            android:paddingTop="14dp"
+            android:text="提交"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</ScrollView>

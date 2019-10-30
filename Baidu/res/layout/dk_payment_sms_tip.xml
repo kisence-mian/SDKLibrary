@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dkTipSMS"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:background="@android:color/transparent"
+    android:gravity="left"
+    android:minHeight="90dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dkTxtGoodsTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="@string/dialog_purchaseinfo"
+        android:textColor="@color/dk_color_666666"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/dkMainHeadClose"
+        android:layout_margin="2dp"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/pay_purchase_item"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/dkTxtGoodsName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="15dp"
+            android:paddingRight="2dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_margin="2dp"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_gamemname"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/dkTxtGameName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:marqueeRepeatLimit="1"
+            android:paddingLeft="15dp"
+            android:paddingRight="2dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_margin="2dp"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/pay_payamount"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/dkTxtGoodsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="15dp"
+            android:paddingRight="2dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@string/tip_card_recharge_price"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_margin="2dp"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
+
+        <TextView
+            android:id="@+id/dkTxtPayMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:text="@string/dialog_paymethods"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="15sp" />
+
+        <include
+            android:id="@+id/dk_pay_dropdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            layout="@layout/dk_new_payment_dropdown" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_margin="2dp"
+        android:background="#cccccc" />
+
+    <TextView
+        android:id="@+id/dkTxtWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:singleLine="true"
+        android:text="@string/dialog_paymoney"
+        android:textColor="@color/dk_color_d0d0d0"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/dkBtnConfirmPay"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/dk_btn_pointer_game_selector"
+        android:text="@string/dk_payment_channel_confirm"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

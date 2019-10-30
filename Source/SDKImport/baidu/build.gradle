@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile project(path: ':sdkinterface')
+    implementation files('libs/alipaySdk-20160809.jar')
+    implementation files('libs/android-support-v4.jar')
+    implementation files('libs/async-httpclient-1.6.0.jar')
+    implementation files('libs/Baidu_Mobstat_Android_FOR_GAME_SDK_1.4.jar')
+    implementation files('libs/BDGame_Login_SDK_V4.1.0.jar')
+    implementation files('libs/commons-io-1.4.jar')
+    implementation files('libs/dk_game_sdk_1_1.jar')
+    implementation files('libs/dkdllib-1.0.jar')
+    implementation files('libs/galaxy-lite-2.0.0.jar')
+    implementation files('libs/httpclient-1.0.0.jar')
+    implementation files('libs/mid-sdk-3.73.jar')
+    implementation files('libs/mta-android-sdk-3.3.1.jar')
+    implementation files('libs/need_lib.jar')
+    implementation files('libs/pushservice-5.5.0.50.jar')
+    implementation files('libs/sapi-core-7.2.2.jar')
+    implementation files('libs/singlesdk3.1.5.jar')
+    implementation files('libs/sofire-sdk-3.1.0.jar')
+    implementation files('libs/universal-image-loader-1.9.2.jar')
+}

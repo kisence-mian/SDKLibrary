@@ -21,17 +21,18 @@ public class SDKBase {
     public String SDKName = "";
 
     public void Init(JSONObject json) {
+
     }
 
     public void OnAppplicationQuit(JSONObject json) { }
-
-    public void OnDestory() { }
 
     public void OnCreate() { }
 
     public void OnResume() { }
 
     public void OnPause() { }
+
+    public void OnDestory() { }
 
     public void CallBack(String content) {
         SdkInterface.SendMessage(content);

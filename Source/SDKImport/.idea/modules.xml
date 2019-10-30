@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/360/360.iml" filepath="$PROJECT_DIR$/360/360.iml" />
       <module fileurl="file://$PROJECT_DIR$/Clipboard/Clipboard.iml" filepath="$PROJECT_DIR$/Clipboard/Clipboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/DeviceLogin/DeviceLogin.iml" filepath="$PROJECT_DIR$/DeviceLogin/DeviceLogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hotupdate/Hotupdate.iml" filepath="$PROJECT_DIR$/Hotupdate/Hotupdate.iml" />
@@ -10,9 +11,12 @@
       <module fileurl="file://$PROJECT_DIR$/admob/admob.iml" filepath="$PROJECT_DIR$/admob/admob.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/autoupdate/autoupdate.iml" filepath="$PROJECT_DIR$/autoupdate/autoupdate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baidu/baidu.iml" filepath="$PROJECT_DIR$/baidu/baidu.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataeyes/dataeyes.iml" filepath="$PROJECT_DIR$/dataeyes/dataeyes.iml" />
       <module fileurl="file://$PROJECT_DIR$/huawei/huawei.iml" filepath="$PROJECT_DIR$/huawei/huawei.iml" />
+      <module fileurl="file://$PROJECT_DIR$/huluxia/huluxia.iml" filepath="$PROJECT_DIR$/huluxia/huluxia.iml" />
       <module fileurl="file://$PROJECT_DIR$/iapppay/iapppay.iml" filepath="$PROJECT_DIR$/iapppay/iapppay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/meizu/meizu.iml" filepath="$PROJECT_DIR$/meizu/meizu.iml" />
       <module fileurl="file://$PROJECT_DIR$/migusdk/migusdk.iml" filepath="$PROJECT_DIR$/migusdk/migusdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppo/oppo.iml" filepath="$PROJECT_DIR$/oppo/oppo.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppoSingle/oppoSingle.iml" filepath="$PROJECT_DIR$/oppoSingle/oppoSingle.iml" />
@@ -26,6 +30,7 @@
       <module fileurl="file://$PROJECT_DIR$/vivo/vivo.iml" filepath="$PROJECT_DIR$/vivo/vivo.iml" />
       <module fileurl="file://$PROJECT_DIR$/vivoSingle/vivoSingle.iml" filepath="$PROJECT_DIR$/vivoSingle/vivoSingle.iml" />
       <module fileurl="file://$PROJECT_DIR$/weixinlogin/weixinlogin.iml" filepath="$PROJECT_DIR$/weixinlogin/weixinlogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xgpush/xgpush.iml" filepath="$PROJECT_DIR$/xgpush/xgpush.iml" />
       <module fileurl="file://$PROJECT_DIR$/xiaomi/xiaomi.iml" filepath="$PROJECT_DIR$/xiaomi/xiaomi.iml" />
     </modules>
   </component>

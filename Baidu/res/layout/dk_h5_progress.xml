@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<RelativeLayout  
+    xmlns:android="http://schemas.android.com/apk/res/android"  
+  	android:layout_width="wrap_content"  
+  	android:layout_height="wrap_content"  
+  	android:background="@drawable/dk_h5_progress_shape">
+
+ 		<ProgressBar  
+	        android:id="@+id/loadingImageView"  
+	        android:layout_width="32dp"  
+	        android:layout_height="32dp"  
+	        android:indeterminate="false"  
+	        android:indeterminateDrawable="@drawable/dk_h5_progress_loading"
+	        android:layout_gravity="center_horizontal"
+	        />
+
+</RelativeLayout>

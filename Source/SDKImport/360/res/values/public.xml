@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <public id="0x7f040000" name="activity_close_enter" type="anim" />
+    <public id="0x7f040001" name="activity_close_exit" type="anim" />
+    <public id="0x7f040002" name="activity_open_enter" type="anim" />
+    <public id="0x7f040003" name="activity_open_exit" type="anim" />
+
+</resources>

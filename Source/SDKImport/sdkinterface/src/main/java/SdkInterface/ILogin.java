@@ -9,4 +9,6 @@ import org.json.JSONObject;
 public interface ILogin
 {
     void Login(JSONObject json);
+
+    void LoginOut(JSONObject json);
 }

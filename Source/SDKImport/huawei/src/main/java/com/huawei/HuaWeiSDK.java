@@ -159,6 +159,12 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
     }
 
     @Override
+    public void LoginOut(JSONObject json)
+    {
+
+    }
+
+    @Override
     public void Pay(JSONObject json)
     {
         try
@@ -202,6 +208,16 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
         {
             SendError("HuaWei Pay Exception " + e,e);
         }
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        return false;
     }
 
     void GetOrderDetail(String orderID)

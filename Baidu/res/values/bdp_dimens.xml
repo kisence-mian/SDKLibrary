@@ -1,0 +1,16 @@
+<resources>
+
+    <dimen name="bdp_dialog_width_offset">40dp</dimen>
+    <dimen name="bdp_dialog_login_height">175dp</dimen>
+    <dimen name="bdp_dialog_login_padding">10dip</dimen>
+    <dimen name="bdp_dialog_login_margin_top">25dip</dimen>
+    <dimen name="bdp_dialog_login_margin">15dip</dimen>
+    <dimen name="bdp_dailog_login_text_size_17_sp">17sp</dimen>
+
+    <!-- account -->
+    <dimen name="bdp_account_welcome_top">15dip</dimen>
+    <dimen name="bdp_account_autocomplete_drop_height">120dip</dimen>
+    <dimen name="bdp_account_activity_land_padding">120dip</dimen>
+    <dimen name="bdp_account_activity_height_padding">10dip</dimen>
+
+</resources>

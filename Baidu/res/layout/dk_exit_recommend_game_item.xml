@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:layout_height="135dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/dk_recommend_game_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/dk_recommend_game_bg_default" />
+        <TextView
+            android:id="@+id/dk_recommend_game_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="35dp"
+            android:maxLines="1"
+            android:textColor="#333333"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/dk_recommend_game_num_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dk_recommend_game_title"
+            android:layout_alignLeft="@id/dk_recommend_game_title"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textSize="10sp"
+            android:textColor="#333333" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/gamebigimg"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/dk_pointer_game_recommend_bg_default"
+        android:scaleType="fitXY"
+        android:visibility="visible"/>
+
+</LinearLayout>

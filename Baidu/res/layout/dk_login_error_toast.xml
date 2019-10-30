@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     	android:layout_width="253dp"
+        android:layout_height="56dp"
+        android:background="@drawable/dk_bg_loading"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+
+        
+         <TextView
+            android:id="@+id/dk_toast_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:textSize="13sp" 
+			android:textColor="#cccccc"
+			android:text="欢迎你回来哦的的"
+            android:singleLine="true"/>
+
+</LinearLayout>

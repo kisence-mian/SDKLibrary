@@ -124,6 +124,11 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
         });
     }
 
+    @Override
+    public void LoginOut(JSONObject json) {
+
+    }
+
     void SendLoginCakkBack(boolean success,String UID,String Session)
     {
         try {
@@ -155,7 +160,7 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
 
             MiBuyInfo miBuyInfo = new MiBuyInfo();
             miBuyInfo.setCpOrderId(orderID); //订单号唯⼀（不为空）
-            miBuyInfo.setCpUserInfo(payInfo.userID); //此参数在⽤⼾⽀付成功后会透传给CP的服务器
+            miBuyInfo.setCpUserInfo( payInfo.goodsID + "|" + payInfo.userID); //此参数在⽤⼾⽀付成功后会透传给CP的服务器
             miBuyInfo.setAmount((int)payInfo.price); //必须是⼤于1的整数，10代表10⽶币，即10元⼈⺠币（不为空）                                  //⽤⼾信息，⽹游必须设置、单机游戏或应⽤可选
 
             Bundle mBundle = new Bundle();
@@ -209,6 +214,11 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
             e.printStackTrace();
             SendError("XiaoMi Pay Error",e);
         }
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
     }
 
     void SendPayCallBack(boolean success,int errorCode)

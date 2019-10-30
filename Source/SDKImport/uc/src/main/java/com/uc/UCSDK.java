@@ -27,10 +27,11 @@ public class UCSDK extends SDKBase implements ILogin, IPay
 {
     public static PayInfo payInfo;
     int AppID;
-    int cpID;
+    String accountID;
 
     UCOrientation landscape; //横屏还是竖屏
 
+    boolean payFlag = false; //支付标记
 
     private SDKEventReceiver eventReceiver = new SDKEventReceiver()
     {    @Subscribe(event = SDKEventKey.ON_INIT_SUCC)
@@ -94,21 +95,13 @@ public class UCSDK extends SDKBase implements ILogin, IPay
                 sb.append(String.format("'payWayName':'%s'", orderInfo.getPayWayName()));
                 SdkInterface.SendLog( "此处为订单生成回调，客户端无支付成功回调，订单是否成功以 服务端回调为准: callback orderInfo = " + sb);
 
-                try
-                {
-                    JSONObject jo = new JSONObject();
-                    jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
-                    jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,orderInfo.getOrderId());
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.UC.toString());
+                payFlag = true;
+            }
+            else
+            {
+                SdkInterface.SendLog( " 支付完成，无订单");
 
-                    payInfo.ToJson(jo);
-                    SdkInterface.SendMessage(jo);
-                }
-                catch (Exception e)
-                {
-                    SendError("UCSDK onCreateOrderSucc Exception " +e,e);
-                }
+                PayCallBack(false,"");
             }
         }
         @Subscribe(event = SDKEventKey.ON_PAY_USER_EXIT)
@@ -122,24 +115,38 @@ public class UCSDK extends SDKBase implements ILogin, IPay
                 sb.append(String.format("'payWayName':'%s'", orderInfo.getPayWayName()));
                 SdkInterface.SendLog("支付界面关闭: callback orderInfo = " + sb);
 
-                try
+                if(!payFlag) //如果没有收到订单成功，则返回一个支付失败
                 {
-                    JSONObject jo = new JSONObject();
-                    jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
-                    jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,orderInfo.getOrderId());
-                    jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.UC.toString());
+                    PayCallBack(false,"");
+                }
+            }
+            else
+            {
+                SdkInterface.SendLog( " 支付退出，无订单");
 
-                    payInfo.ToJson(jo);
-                    SdkInterface.SendMessage(jo);
-                }
-                catch (Exception e)
-                {
-                    SendError("UCSDK onPayUserExit Exception " + e,e);
-                }
+                PayCallBack(false,"");
             }
         }
     };
+
+    void PayCallBack(boolean success,String orderID)
+    {
+        try
+        {
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,orderID);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.UC.toString());
+
+            payInfo.ToJson(jo);
+            SdkInterface.SendMessage(jo);
+        }
+        catch (Exception e)
+        {
+            SendError("UCSDK onPayUserExit Exception " + e,e);
+        }
+    }
 
     @Override
     public void Init(JSONObject json)
@@ -165,6 +172,7 @@ public class UCSDK extends SDKBase implements ILogin, IPay
 
     @Override
     public void OnDestory() {
+
         UCGameSdk.defaultSdk().unregisterSDKEventReceiver(eventReceiver);
     }
 
@@ -181,19 +189,38 @@ public class UCSDK extends SDKBase implements ILogin, IPay
     }
 
     @Override
+    public void LoginOut(JSONObject json) {
+
+    }
+
+    @Override
     public void Pay(JSONObject json)
     {
         try
         {
-            payInfo = PayInfo.FromJson(json);
+            SendLog("UC Pay " + json);
 
+            payInfo = PayInfo.FromJson(json);
+            payFlag = false; //重置支付标记
             String[] tags = payInfo.tag.split("\\|");
 
             SDKParams sdkParams = new SDKParams();
-            sdkParams.put(SDKParamKey.AMOUNT, payInfo.price);
-            sdkParams.put(SDKParamKey.ACCOUNT_ID, tags[0]); //Tag传用户ID
+
+            sdkParams.put(SDKParamKey.ACCOUNT_ID , tags[0]); //服务器发来用户ID
+            sdkParams.put(SDKParamKey.AMOUNT, tags[1]);  //服务器发来价格
+            sdkParams.put(SDKParamKey.NOTIFY_URL , tags[2]);  //服务器发来回调地址
+            sdkParams.put(SDKParamKey.CP_ORDER_ID , payInfo.orderID);  //服务器发来订单号
+            sdkParams.put(SDKParamKey.CALLBACK_INFO, payInfo.userID +"|" + payInfo.goodsID); //Tag传用户ID + goodsID
             sdkParams.put(SDKParamKey.SIGN_TYPE, "MD5");
-            sdkParams.put(SDKParamKey.SIGN, tags[1]);
+            sdkParams.put(SDKParamKey.SIGN, tags[3]); //服务器发来签名
+
+            SendLog("UC Pay ACCOUNT_ID " + sdkParams.get(SDKParamKey.ACCOUNT_ID ,""));
+            SendLog("UC Pay AMOUNT " + sdkParams.get(SDKParamKey.AMOUNT ,""));
+            SendLog("UC Pay NOTIFY_URL " + sdkParams.get(SDKParamKey.NOTIFY_URL ,""));
+            SendLog("UC Pay CP_ORDER_ID " + sdkParams.get(SDKParamKey.CP_ORDER_ID ,""));
+            SendLog("UC Pay SIGN_TYPE " + sdkParams.get(SDKParamKey.SIGN_TYPE ,""));
+            SendLog("UC Pay CALLBACK_INFO " + sdkParams.get(SDKParamKey.CALLBACK_INFO ,""));
+            SendLog("UC Pay SIGN " + sdkParams.get(SDKParamKey.SIGN ,""));
 
             UCGameSdk.defaultSdk().pay(GetCurrentActivity(),sdkParams);
         }catch (Exception e)
@@ -201,5 +228,17 @@ public class UCSDK extends SDKBase implements ILogin, IPay
             SendError("UCSDK Pay Exception " + e.toString(),e);
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        SendLog("UC IsPrePay false" );
+        return true;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        SendLog("UC IsReSendPay false");
+        return false;
     }
 }

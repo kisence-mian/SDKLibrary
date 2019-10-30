@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/360" />
             <option value="$PROJECT_DIR$/Clipboard" />
             <option value="$PROJECT_DIR$/DeviceLogin" />
             <option value="$PROJECT_DIR$/Hotupdate" />
@@ -15,9 +16,12 @@
             <option value="$PROJECT_DIR$/admob" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/autoupdate" />
+            <option value="$PROJECT_DIR$/baidu" />
             <option value="$PROJECT_DIR$/dataeyes" />
             <option value="$PROJECT_DIR$/huawei" />
+            <option value="$PROJECT_DIR$/huluxia" />
             <option value="$PROJECT_DIR$/iapppay" />
+            <option value="$PROJECT_DIR$/meizu" />
             <option value="$PROJECT_DIR$/migusdk" />
             <option value="$PROJECT_DIR$/oppo" />
             <option value="$PROJECT_DIR$/oppoSingle" />
@@ -31,6 +35,7 @@
             <option value="$PROJECT_DIR$/vivo" />
             <option value="$PROJECT_DIR$/vivoSingle" />
             <option value="$PROJECT_DIR$/weixinlogin" />
+            <option value="$PROJECT_DIR$/xgpush" />
             <option value="$PROJECT_DIR$/xiaomi" />
           </set>
         </option>

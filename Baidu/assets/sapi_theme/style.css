@@ -1,0 +1,88 @@
+/*
+ * 以下的样式是供产品线自定义的全集，如果不需要修改某些样式的，可以去掉对应的样式
+ * 只支持背景色，字体颜色，边框颜色的设置，不支持修改width,height,font-size,margin,padding此类的值
+ *
+ * 免责声明：产品线自定义皮肤时，必须严格按照以下的使用方式，如果产品线没有按照以下方式使用，PASS在升级时导致产品线页面错位，PASS不负责通知和技术支持
+ * 参考文档：http://fe.baidu.com/ss/doc/passport/wapcustomskin.text
+ */
+
+/*顶部*/
+.pass-header{
+    background: #fff;/*背景色*/
+    border-bottom:1px solid #ccc;/*1像素的下边框*/
+}
+/*顶部右边的按钮，如果不需要右边按钮可以在这个类中将display设为none*/
+.pass-header-links{
+    border: 1px solid #fff;/*边框*/
+    background: #fff;/*背景色*/
+    color:#666;/*字体的颜色*/
+}
+/*顶部title字体的设置*/
+.pass-header-title{
+    color:#000;/*字体的颜色*/
+}
+/*顶部logo图片设置，登录界面logo为公司统一要求，可根据产品线UI风格提供合适的logo图片，但不能隐藏*/
+.pass_header_logo {
+    background: url(logo.png) no-repeat 0 50%;/*logo图片,height不能超过40px*/
+    -webkit-background-size: 18px 20px;
+}
+/*顶部返回按钮的设置*/
+.pass-header-back{
+    background: url(btn_back.png) no-repeat 15px 13px;
+    -webkit-background-size: 19px 18px;
+}
+/*以上为顶部css设置*/
+
+/*一级button,例如，submit,找回密码页面的按钮*/
+/*一级button可点击状态*/
+.pass-button-full{
+    background: #488ee7;/*背景色*/
+    border: 1px solid #488ee7;/*边框*/
+    color:#fff;/*字体的颜色*/
+}
+
+/*一级button被禁用状态*/
+.pass-button-full-disabled{
+    background: #a4c7f3;/*背景色*/
+    border: 1px solid #a4c7f3;/*边框*/
+    color:#fff;/*字体的颜色*/
+}
+
+/*一级button,touch down效果*/
+.pass-button-full-active{
+    background: #2375de;/*背景色*/
+    border: 1px solid #2375de;/*边框*/
+    color:#fff;/*字体的颜色*/
+}
+/*以上为一级button css设置*/
+
+/*二级button,例如，发送验证码*/
+/*二级button,默认效果*/
+.pass-button-auto{
+    border:1px solid #ddd;/*边框*/
+    background: #f1f1f1;/*背景色*/
+    color:#666;/*字体的颜色*/
+}
+
+/*二级button,touch down效果*/
+.pass-button-auto-active{
+    background: #eee;/*边框*/
+    border: 1px solid #ddd;/*背景色*/
+    color:#666;/*字体的颜色*/
+}
+
+/*三级button效果,例如：登录页面手机一键注册的btn*/
+/*三级button,默认效果*/
+.pass-button-minor{
+    background: #e1e1e1;/*边框*/
+    border: 1px solid #d5d5d5;/*背景色*/
+    color:#666;/*字体的颜色*/
+}
+
+/*倒计时状态*/
+.pass-button-disabled{
+    border: 1px solid #ebebeb;/*边框*/
+    background: #f7f7f7;/*背景色*/
+    color:#666;/*字体的颜色*/
+}
+/*以上为二级button css设置*/

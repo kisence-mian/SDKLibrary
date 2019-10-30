@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="email_suffix">
+        <item>\@163.com</item>
+        <item>\@qq.com</item>
+        <item>\@gmail.com</item>
+        <item>\@sohu.com</item>
+        <item>\@126.com</item>
+        <item>\@sina.com</item>
+        <item>\@hotmail.com</item>
+    </string-array>
+</resources>

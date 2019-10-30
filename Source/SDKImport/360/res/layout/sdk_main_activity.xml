@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:baselineAligned="false"
+        android:orientation="vertical" >
+
+        <CheckBox
+            android:id="@+id/isRightToLoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="游戏初始化回调成功时立即调用登录"
+            android:textColor="#000000"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+        
+         <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+            
+            <LinearLayout style="@style/demo_layout" >
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="设置浮窗位置"
+                    android:textColor="@android:color/black" />
+                
+                <EditText 
+                    android:id="@+id/plugin_position_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="左上(value:1),左下(value:2),右上(value:3),右下(value:4)"
+                    android:layout_marginTop="6dp"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:layout_marginBottom="6dp"
+                    android:textSize="10sp"/>
+
+                <Button
+                    android:id="@+id/btn_setpluginposition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="设置浮窗位置"
+                    android:textColor="@android:color/black" 
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="@string/portrait_game_entrance"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_portrait_game"
+                    style="@style/demo_btn"
+                    android:text="@string/click_go"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="@string/landscape_game_entrance"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_landscape_game"
+                    style="@style/demo_btn"
+                    android:text="@string/click_go"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="@string/portrait_flow_test"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_portrait_flow_test"
+                    style="@style/demo_btn"
+                    android:text="@string/flow_test"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="@string/landscape_flow_test"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_landscape_flow_test"
+                    style="@style/demo_btn"
+                    android:text="@string/flow_test"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

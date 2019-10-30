@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp"
+    android:gravity="center"
+    android:background="@drawable/btn_background_pay_selector_bottom"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal" >
+<!--     android:background="@color/dk_transparent" -->
+<!--     android:gravity="center_vertical" -->
+    <!-- android:layout_centerInParent="true" -->
+    <!-- android:layout_gravity="center_horizontal" -->
+
+   
+
+    <TextView
+        android:id="@+id/loadmore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:textColor="#666666"
+        android:text="显示更多   ∨" />
+
+
+
+   
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string name="dk_downloadmanager">下载管理</string>
+    <string name="dk_downloadmanage_newr">我的下载</string>
+    <!-- Manager Title of tabs  start -->
+    <string name="dk_dl_update">更新</string>
+    <string name="dk_dl_install">安装</string>
+    <string name="dk_dl_checking">检查中</string>
+    <string name="dk_dl_label_waiting">等待</string>
+    <string name="dk_dl_label_waiting_state">等待中</string>
+    <string name="dk_dl_label_download_begin">开始</string>
+    <string name="dk_dl_label_pause">暂停</string>
+    <string name="dk_dl_label_pausing">已暂停</string>
+    <string name="dk_dl_label_try_again">重试</string>
+    <string name="dk_dl_label_resume">继续</string>
+    <string name="dk_dl_label_open">打开</string>
+    <string name="dk_dl_label_installed">已安装</string>
+    <string name="dk_dl_label_pre_install">待安装</string>
+    <string name="dk_dl_label_uninstall">你有%d个已下载的游戏未安装</string>
+    <string name="dk_dl_label_redownload">应用已经被卸载，开始重新下载</string>
+    <string name="dk_dl_label_resume_mobile">使用流量继续下载</string>
+    <string name="dk_dl_label_stop">停止</string>
+    <string name="dk_dl_label_stop_all">停止所有下载</string>
+    <string name="dk_dl_label_failed">下载失败</string>
+    <string name="dk_dl_label_complete">下载完成</string>
+    <string name="dk_dl_label_downloading">下载中</string>
+    <string name="dk_tab_download_manager_update">游戏更新</string>
+    <string name="dk_tab_download_manager_installed">游戏卸载</string>
+    <string name="dk_dl_label_download_all_resume">全部开始</string>
+    <string name="dk_dl_label_download_all_cancel">全部取消</string>
+    <string name="dk_dl_label_download_tips">温馨提示</string>
+    <string name="dk_dl_label_download_tips_delete">确认要删除下载任务吗?</string>
+    <string name="dk_dl_label_download_back_cancel">取消</string>
+    <string name="dk_dl_label_download_back_exit">确认</string>
+    <string name="dk_dl_label_hint_download_null">没有正在下载的任务</string>
+    <string name="dk_dl_label_home_loading_tip">正在努力加载&#8230;</string>
+    <!-- download manager error start -->
+    <string name="dk_dl_label_sdcard_unmounted">SD卡已经拔出或者不可访问，无法下载!</string>
+    <string name="dk_dl_label_alert_network_inavailble">网络不给力,请稍后再试!</string>
+    <string name="dk_dl_label_sdcard_lack_space">SD卡存储空间不足!</string>
+    <string name="dk_notification_download_complete" msgid="840713937779273632">"下载完成"</string>
+    <string name="dk_notification_download_failed" msgid="5343637375905111462">"下载失败,点击重试"</string>
+    <string name="dk_notification_download_failed2" msgid="5343637375905111462">"下载失败"</string>
+    <!-- 网络对话框提示 -->
+    <string name="dk_dl_label_check_network">当前无网络，请检查网络连接</string>
+    <string name="dk_no_network_dialog_hint">当前网络非wifi环境，是否继续下载？</string>
+    <string name="dk_no_network_dialog_confirm">继续下载</string>
+    <string name="dk_no_network_dialog_cancel">取消</string>
+    <string name="dk_no_network_dialog_title">2G/3G下载提示</string>
+    <string name="dk_network_changed_to_mobile">网络已切换至非wifi，注意流量噢！ </string>
+    <string name="dk_network_tips_to_mobile">当前网络：非wifi网络</string>
+    <string name="dk_uninstall_is_ongoing">正在卸载请稍候。。。</string>
+    <string name="dk_download_no_application_title" msgid="3501359021635168387">"无法打开文件"</string>
+    <!-- download manager error end -->
+
+    <string name="error_entity_null">下载实体不能为空</string>
+    <string name="error_download_url_null">下载链接不能为空</string>
+    <string name="error_download_path_null">存储地址不能为空</string>
+    <string name="error_file_name_null">文件名不能为空</string>
+</resources>

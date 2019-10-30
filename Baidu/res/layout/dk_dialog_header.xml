@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="54dp"
+    android:layout_alignParentTop="true"
+    android:minWidth="280dp" >
+
+    <ImageView
+        android:id="@+id/dkMainHeadBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:padding="12dp"
+        android:src="@drawable/alonesdk_return" />
+
+    <ImageView
+        android:id="@+id/dkMainHeadClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:padding="12dp"
+        android:src="@drawable/alonesdk_down"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/iv_exit_dl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:padding="12dp"
+        android:src="@drawable/alonesdk_download"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/iv_download_hint"
+        android:layout_margin="5dp"
+        android:layout_alignEnd="@+id/iv_exit_dl"
+        android:layout_alignRight="@+id/iv_exit_dl"
+        android:layout_alignTop="@+id/iv_exit_dl"
+        android:src="@drawable/dk_shape_dot_6dp_red"
+        android:layout_width="6dp"
+        android:layout_height="6dp"/>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/dkMainHeadClose"
+        android:layout_marginTop="5dp"
+        android:background="#cccccc"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="65dp"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/dkMainHeadTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/dk_payment_dialog_title"
+            android:textColor="@color/dk_color_newtitle"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/dkNoticeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:gravity="left|center_vertical"
+            android:singleLine="true"
+            android:drawableLeft="@drawable/dk_icon_broadcast"
+            android:textColor="#FF9249"
+            android:textSize="14sp" />
+
+    </FrameLayout>
+
+</RelativeLayout>

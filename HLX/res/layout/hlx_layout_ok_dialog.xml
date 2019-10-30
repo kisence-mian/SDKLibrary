@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:minHeight="156dp"
+        android:maxHeight="400dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/hlx_dialog_background"
+        android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:visibility="gone"
+                  android:id="@+id/title_container"
+                  android:orientation="vertical">
+        <TextView
+                android:id="@+id/title"
+                android:textSize="18sp"
+                android:padding="15dp"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"/>
+
+        <View
+                android:id="@+id/title_div"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f2dcdcdc"/>
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_msg"
+            android:text=""
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/DialogMsgText"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:visibility="gone"
+                  android:layout_marginLeft="13dp"
+                  android:layout_marginRight="13dp"
+                  android:paddingTop="3dp"
+                  android:orientation="horizontal"
+                  android:id="@+id/custom_container"
+                  android:minHeight="123dp"
+                  android:paddingBottom="15dp"></LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="#f2dcdcdc"/>
+    <TextView
+            android:id="@+id/btn_ok"
+            android:gravity="center"
+            android:text="确定"
+            android:textSize="@dimen/dialog_btn_text_fnt"
+            android:textColor="@drawable/hlx_dialog_btn_color"
+            android:layout_height="43dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+</LinearLayout>

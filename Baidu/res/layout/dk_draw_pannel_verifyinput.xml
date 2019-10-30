@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/dk_dialog_tv_drawtype_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/dialog_phonenowrite"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="14sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/dk_dialog_et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/dk_payment_edittext_selector"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="@string/dialog_smsphoneno"
+                android:inputType="phone"
+                android:nextFocusDown="@+id/dk_et_debit_password"
+                android:paddingLeft="7dp"
+                android:paddingRight="20dp"
+                android:textColor="#333333"
+                android:textSize="16sp" >
+
+                <requestFocus />
+            </EditText>
+
+            <ImageView
+                android:id="@+id/dk_dialog_cleartext_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:padding="10dp"
+                android:src="@drawable/dk_draw_cleartext_selector"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/dk_dialog_et_verifycode"
+                android:layout_width="0dp"
+                android:layout_height="37dp"
+                android:layout_weight="3"
+                android:background="@drawable/dk_payment_edittext_selector"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:hint="@string/dk_hint_mobile_message_validate"
+                android:inputType="number"
+                android:paddingLeft="7dp"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/dk_dialog_btn_getverify"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="2"
+                android:background="@drawable/dk_payment_dialog_getmsg_selector"
+                android:gravity="center"
+                android:text="@string/dk_btn_string_get_verify_code"
+                android:textColor="@color/dk_color_0066cc"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/dk_dialog_btn1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/dk_btn_confirm_quit_selector"
+                android:gravity="center"
+                android:maxEms="5"
+                android:text="@string/Cancel"
+                android:textColor="@color/dk_color_333333"
+                android:textColorHint="@color/dk_chess_rankdate_text_color"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/dk_dialog_btn2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/dk_btn_pointer_game_selector"
+                android:gravity="center"
+                android:text="@string/Ensure"
+                android:textColor="@color/dk_color_ffffff"
+                android:textSize="18sp" />
+        </LinearLayout>
+</LinearLayout>

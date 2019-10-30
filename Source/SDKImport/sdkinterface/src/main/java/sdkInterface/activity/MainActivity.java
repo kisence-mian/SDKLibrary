@@ -17,15 +17,15 @@ public class MainActivity extends UnityPlayerActivity
     }
 
     @Override
-    protected void onDestroy() {
-        SdkInterface.OnDestroy();
-        super.onDestroy();
-    }
-
-    @Override
     protected void onCreate(Bundle bundle) {
         SdkInterface.OnCreate();
         super.onCreate(bundle);
+    }
+
+    @Override
+    protected void onPause() {
+        SdkInterface.OnPause();
+        super.onPause();
     }
 
     @Override
@@ -35,8 +35,9 @@ public class MainActivity extends UnityPlayerActivity
     }
 
     @Override
-    protected void onPause() {
-        SdkInterface.OnPause();
-        super.onPause();
+    protected void onDestroy() {
+
+        SdkInterface.OnDestroy();
+        super.onDestroy();
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- regist & login start -->
+    <color name="sapi_background_color">#F7F7F7</color>
+    <color name="sapi_title_text_color">#ffffff</color>
+    <color name="sapi_btn_text_color">#ffffff</color>
+    <color name="sapi_tab_pressed_color">#3289cb</color>
+    <color name="sapi_tab_normal_color">#333333</color>
+    <color name="sapi_error_text_color">#e00000</color>
+    <color name="sapi_tip_text_color">#333333</color>
+    <color name="sapi_edit_text_color">#333333</color>
+    <color name="sapi_edit_hint_color">#dddddd</color>
+    <color name="sapi_edit_neting_color">#888888</color>
+    <color name="sapi_show_text_color">#333333</color>
+    <color name="sapi_show_text_color_disabled">#c6c9cd</color>
+    <color name="sapi_qr_scan_tip_text_color">#b2b6ba</color>
+    <!-- regist & login end -->
+
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_points">#c099cc00</color> <!-- Android standard ICS color -->
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#b0000000</color>
+    
+    <color name="sapi_qr_tips_background">#30FFFFFF</color>
+    <color name="sapi_voice_pwd_intro_text_color">#666666</color>
+
+    <color name="sapi_image_recommend_background_grey">#FFF1F1F1</color>
+    <color name="sapi_image_recommend_background_white">#FFFFFFFF</color>
+
+    <color name="sapi_image_recommend_list_scroll_bar">#FFCECECE</color>
+
+    <color name="sapi_alert_dialog_bg_white">#FFF0F0F0</color>
+    <color name="sapi_alert_dialog_btn_pressed_bg">#FFDEDEDE</color>
+    <color name="sapi_alert_dialog_bg_grey">#FFDDDDDD</color>
+
+    <color name="sapi_transparent">#00000000</color>
+
+    <color name="sapi_alert_dialog_btn_text">#FF2E82FF</color>
+    <color name="sapi_alert_dialog_content_text">#FF333333</color>
+    <color name="sapi_alert_dialog_title_text">#FF666666</color>
+
+    <color name="sapi_tab_item_background_color_unchecked">#3c66a7</color>
+    <color name="sapi_tab_item_background_color_checked">#4674b2</color>
+    <!--帐号中心-->
+    <color name="sapi_account_center_title_bg_color">#4787ff</color>
+    <!--适配手百夜间模式-->
+    <color name="sapi_night_mode_color">#7f000000</color>
+    <color name="sapi_sdk_background_color">#F5F5F5</color>
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="290dp"
+    android:layout_height="181dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:gravity="center">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_banner_insert_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter" >
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="12dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="10dp"
+            android:background="#00000000"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom|center_horizontal" >
+
+                <View
+                    android:id="@+id/v_dot0"
+                    style="@style/dot_style"
+                    android:background="@drawable/dk_suspension_item_circle_select" />
+
+                <View
+                    android:id="@+id/v_dot1"
+                    style="@style/dot_style"
+                    android:background="@drawable/dk_suspension_item_circle_normal" />
+
+                <View
+                    android:id="@+id/v_dot2"
+                    style="@style/dot_style"
+                    android:background="@drawable/dk_suspension_item_circle_normal" />
+
+                <View
+                    android:id="@+id/v_dot3"
+                    style="@style/dot_style"
+                    android:background="@drawable/dk_suspension_item_circle_normal" />
+
+                <View
+                    android:id="@+id/v_dot4"
+                    style="@style/dot_style"
+                    android:background="@drawable/dk_suspension_item_circle_normal" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_banner_insert_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vp_banner_insert_icon"
+        android:src="@drawable/alonesdk_notice_close"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+</LinearLayout>

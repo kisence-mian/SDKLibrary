@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="1" >
+
+    <RelativeLayout
+        android:layout_width="295dp"
+        android:layout_height="467dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_real_name_vertify" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/dk_real_name_vertify_bg" >
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/title_icon"
+            android:layout_width="147dp"
+            android:layout_height="93dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/dk_real_name_vertify_pic_title" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="@string/dk_safe_real_name_vertify"
+            android:textColor="@color/dk_color_333333"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/dk_content1"
+            android:textColor="@color/dk_color_999999"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:text="@string/dk_content2"
+            android:textColor="@color/dk_color_999999"
+            android:textSize="10sp" />
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="247dp"
+            android:layout_height="42dp"
+            android:layout_below="@id/tv2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@color/dk_color_f4f4f4"
+            android:paddingLeft="12dp" >
+
+            <ImageView
+                android:id="@+id/star_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/dk_real_name_vertify_star_icon" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/star_icon"
+                android:text="@string/dk_real_name"
+                android:textColor="@color/dk_color_555555"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/ed1"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/textView1"
+                android:background="@color/dk_color_f4f4f4"
+                android:hint="@string/dk_input_real_name"
+                android:maxLength="20"
+                android:textColorHint="@color/dk_color_999999"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl2"
+            android:layout_width="247dp"
+            android:layout_height="42dp"
+            android:layout_below="@id/rl1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:background="@color/dk_color_f4f4f4"
+            android:paddingLeft="12dp" >
+
+            <ImageView
+                android:id="@+id/star_icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/dk_real_name_vertify_star_icon" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/star_icon2"
+                android:text="@string/dk_idcard_num"
+                android:textColor="@color/dk_color_555555"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/ed2"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/textView2"
+                android:background="@color/dk_color_f4f4f4"
+                android:digits="0123456789Xx"
+                android:hint="@string/dk_input_idcard_num"
+                android:maxLength="18"
+                android:textColorHint="@color/dk_color_999999"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl3"
+            android:layout_width="247dp"
+            android:layout_height="42dp"
+            android:layout_below="@id/rl2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:background="@color/dk_color_f4f4f4"
+            android:paddingLeft="12dp" >
+
+            <ImageView
+                android:id="@+id/star_icon3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/dk_real_name_vertify_star_icon" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/star_icon3"
+                android:text="@string/dk_phone_num"
+                android:textColor="@color/dk_color_555555"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/ed3"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/textView3"
+                android:background="@color/dk_color_f4f4f4"
+                android:hint="@string/dk_input_phone_num"
+                android:inputType="number"
+                android:maxLength="11"
+                android:textColorHint="@color/dk_color_999999"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl4"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/rl3"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/tip_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:src="@drawable/dk_real_name_vertify_icon_tip" />
+
+            <TextView
+                android:id="@+id/tv_warn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/tip_icon"
+                android:text="@string/dk_tip_msg"
+                android:textColor="@color/dk_color_f96246"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/commit_btn"
+            android:layout_width="175dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/rl4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_commit_btn"
+            android:text="@string/dk_commit"
+            android:textColor="@color/dk_color_ffffff"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/commit_close"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_commit_por_close_selector"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

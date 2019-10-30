@@ -78,6 +78,11 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
     }
 
     @Override
+    public void LoginOut(JSONObject json) {
+
+    }
+
+    @Override
     public void Pay(JSONObject json)  {
         SendLog("WX Pay " + json.toString());
         try {
@@ -99,6 +104,16 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
         } catch (Exception e) {
             SendError("WX Pay Error " + e.toString(),e);
         }
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        return false;
     }
 
     @Override

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/dk_viewcontainer"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:id="@+id/dkMainViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_real_name_vertify"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/hintContainer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dk_dialog_tv_main"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="left"
+                    android:layout_gravity="center"
+                    android:text="@string/dialog_checkIdverify"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/dk_color_000000" />
+
+                <LinearLayout
+                    android:id="@+id/btnContainer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/dk_dialog_btn1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@drawable/dk_btn_verifyid_shape_back"
+                        android:gravity="center"
+                        android:maxEms="5"
+                        android:text="@string/dk_btn_string_back"
+                        android:textColor="@color/dk_color_297bfb"
+                        android:textColorHint="@color/dk_chess_rankdate_text_color"
+                        android:textSize="16sp"
+                        android:layout_marginRight="5dp"
+                        android:visibility="visible" />
+
+                    <Button
+                        android:id="@+id/dk_dialog_btn2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_commit_btn"
+                        android:gravity="center"
+                        android:text="@string/dk_dialog_string_rewrite"
+                        android:textColor="@color/dk_color_ffffff"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.duoku.platform.single.suspend.DKSuspensionView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="234dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dk_bg_suspention"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="234dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center">-->
+
+        <!--<Button-->
+            <!--android:id="@+id/dk_suspension_new_bt"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="36dp"-->
+            <!--android:text="@string/su_newgame"-->
+            <!--android:textColor="@android:color/white" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/dk_suspension_good_bt"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="36dp"-->
+            <!--android:text="@string/su_hotgame" />-->
+    <!--</LinearLayout>-->
+    <View
+        android:background="@color/dk_color_d8d8d8"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/dk_suspension_progress"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/dk_loadingImageView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:indeterminate="false"
+                android:indeterminateDrawable="@drawable/dk_bg_progress_loading" />
+
+            <TextView
+                android:id="@+id/dk_tv_loading_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/dk_gamesdk_white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/dk_suspension_item_lv"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:listSelector="@drawable/dk_suspension_item_bg_selector"
+            android:scrollbars="none"/>
+
+        <ListView
+            android:id="@+id/dk_suspension_item_lv2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:listSelector="@drawable/dk_suspension_item_bg_selector"
+            android:scrollbars="none"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</com.duoku.platform.single.suspend.DKSuspensionView>

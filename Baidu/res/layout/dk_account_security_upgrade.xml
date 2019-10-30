@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center">
+	
+    <ImageView 
+        android:id="@+id/dk_upgrade_title_bg"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@drawable/dk_upgrade_title"/>
+
+
+
+      <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="14dp">
+         
+         <ImageView 
+	        android:id="@+id/btn_close"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginRight="14dp"
+	        android:background="@drawable/btn_upgrade_close_selector"
+        />
+    </LinearLayout>
+
+    <LinearLayout 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/dk_upgrade_title_bg"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:background="@drawable/dk_account_bg_bottom">
+		
+        <TextView 
+            android:id="@+id/dk_upgrade_title"
+            android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="28dp"
+			android:textSize="18sp"
+			android:text="账号安全升级"
+			android:textColor="#333333"
+			android:textStyle="bold"
+            />
+        
+        <TextView 
+            android:id="@+id/dk_upgrade_content"
+            android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="12dp"
+			android:layout_marginLeft="20dp"
+			android:layout_marginRight="20dp"
+			android:gravity="center"
+			android:textSize="14sp"
+			android:lineSpacingExtra="6dp"
+			android:text="当前账号为游客账号，为了您的账号安全，请升级至百度账号，升级后还可体验更多精彩服务哦~"
+			android:textColor="#666666"
+			android:textStyle="bold"
+            />
+        
+        <Button
+            android:id="@+id/btn_upgrade"
+			android:layout_width="153dp"
+        	android:layout_height="36dp"
+			android:background="@drawable/dk_user_login_bg_selector"
+			android:layout_marginTop="6dp"
+			android:layout_marginBottom="21dp"
+			android:text="立即升级"
+			android:textColor="#ffffff"
+			android:textSize="18sp"
+            />
+    
+    </LinearLayout>
+    
+   
+        
+    <ImageView 
+        android:id="@+id/dk_upgrade_icon"
+        android:layout_width="122dp"
+		android:layout_height="81dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+
+        android:background="@drawable/dk_upgrade_icon"/>
+
+    "
+    
+</RelativeLayout>

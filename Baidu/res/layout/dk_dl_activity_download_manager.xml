@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dk_transparent_88"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/dk_bg_new"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/dk_head"
+            layout="@layout/dk_load_header" />
+        <LinearLayout
+            android:id="@+id/dk_tabs"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/dk_load_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/dk_color_d8d8d8" />
+
+        </LinearLayout>
+        <FrameLayout
+            android:paddingBottom="15dp"
+            android:id="@+id/dk_load_pages"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</RelativeLayout>

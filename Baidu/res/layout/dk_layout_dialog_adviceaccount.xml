@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:background="@drawable/dk_account_bg"
+    android:orientation="vertical" >
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_marginTop="20dp"
+    	>
+        
+        <TextView 
+            android:id="@+id/tv_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:text="@string/dk_tv_text_adv"
+            android:textColor="@color/dk_color_666666"
+            android:textSize="13sp"/>
+        
+        <ImageButton
+            android:id="@+id/bd_dialog_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:background="@null"
+            android:src="@drawable/dk_payment_btn_close_selector_2" />
+         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/bd_dialog_text1"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/dk_color_297bf6"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/dk_adv_username_bg"
+             />
+        
+        <TextView 
+            android:id="@+id/dk_divide1"
+            android:layout_width="260dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/dk_color_eeeeee"/>
+        
+        <TextView
+            android:id="@+id/bd_dialog_text2"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/dk_color_297bf6"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/dk_adv_username_bg"
+             />
+        
+        <TextView 
+            android:id="@+id/dk_divide2"
+            android:layout_width="260dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/dk_color_eeeeee"/>
+
+        <TextView
+            android:id="@+id/bd_dialog_text3"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:textColor="@color/dk_color_297bf6"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/dk_adv_username_bg"
+             />
+
+</LinearLayout>

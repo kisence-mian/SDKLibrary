@@ -9,4 +9,8 @@ import org.json.JSONObject;
 public interface IPay
 {
     void Pay(JSONObject json) ;
+
+    boolean IsPrePay();
+
+    boolean IsReSendPay();
 }

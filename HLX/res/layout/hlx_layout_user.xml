@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="480dp"
+                android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rly_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/hlx_round_corner">
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="90dp"
+            android:gravity="center"
+            android:text="用户"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/hlx_iv_close_selector"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_gift_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="18dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/hlx_user_logo"/>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:background="@android:color/transparent"
+        android:layout_below="@id/rly_title"
+        android:layout_width="wrap_content"
+        android:layout_height="348dp"
+        android:layout_marginBottom="3dp"
+        android:overScrollMode="never"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="账号:"
+            android:textColor="@color/hlx_gift_text"
+            android:textSize="18sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/hlx_list_view_bg"/>
+
+
+        <TextView
+            android:id="@+id/tv_vip"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:visibility="gone"
+            android:background="@drawable/hlx_bg_user_selector"
+            android:drawableLeft="@drawable/hlx_vip_main"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="星悦会员"
+            android:textColor="@color/hlx_gift_text"
+            android:textSize="15sp"/>
+
+        <View
+            android:id="@+id/v_vip_split"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/hlx_split_color"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_sysmsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hlx_bg_user_selector"
+            >
+            <TextView
+                android:id="@+id/tv_sysmsg"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_toLeftOf="@+id/iv_dot"
+                android:drawableLeft="@drawable/hlx_sysmsg"
+                android:drawablePadding="20dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="系统消息"
+                android:textColor="@color/hlx_gift_text"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:id="@id/iv_dot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/hlx_reddot"
+                android:visibility="invisible"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/tv_sysmsg"
+                android:background="@color/hlx_split_color"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/tv_bind"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/hlx_bg_user_selector"
+            android:drawableLeft="@drawable/hlx_bind"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="安全绑定"
+            android:textColor="@color/hlx_gift_text"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/hlx_split_color"/>
+
+        <TextView
+            android:id="@+id/tv_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/hlx_bg_user_selector"
+            android:drawableLeft="@drawable/hlx_change_password"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="修改密码"
+            android:textColor="@color/hlx_gift_text"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/hlx_split_color"/>
+
+        <TextView
+            android:id="@+id/tv_find_password"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/hlx_bg_user_selector"
+            android:drawableLeft="@drawable/hlx_find_password"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="找回密码"
+            android:textColor="@color/hlx_gift_text"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/hlx_split_color"/>
+
+        <TextView
+            android:id="@+id/tv_identify"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/hlx_bg_user_selector"
+            android:drawableLeft="@drawable/hlx_identify"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="实名认证"
+            android:textColor="@color/hlx_gift_text"
+            android:textSize="15sp"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/hlx_split_color"/>
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/hlx_bg_user_selector"
+            android:drawableLeft="@drawable/hlx_egg"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="版本号"
+            android:textColor="@color/hlx_gift_text"
+            android:textSize="15sp"
+            android:visibility="gone"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/hlx_list_view_round"/>
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

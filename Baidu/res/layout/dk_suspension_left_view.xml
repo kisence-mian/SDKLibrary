@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.duoku.platform.single.suspend.DKSuspensionView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="242dp"
+    android:layout_height="100dp"
+    android:gravity="center"
+    android:background="@drawable/dk_suspend_bg">
+
+     <FrameLayout
+        android:id="@+id/dk_suspension_hlv"
+        android:layout_width="242dp"
+        android:layout_height="100dp" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/dk_suspension_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:id="@+id/dk_suspension_circle_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="bottom|center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </FrameLayout>
+
+</com.duoku.platform.single.suspend.DKSuspensionView>

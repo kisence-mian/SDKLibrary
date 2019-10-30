@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="sapi_app_name">SAPI V7</string>
+
+    <!-- Sapi组件相关 -->
+    <string name="sapi_back">返回</string>
+    <string name="sapi_regist">注册</string>
+    <string name="sapi_registing">注册中…</string>
+    <string name="sapi_regist_btn_text">注　册</string>
+    <string name="sapi_login">登录</string>
+    <string name="sapi_logining">加载中…</string>
+    <string name="sapi_login_baidu_account">登录百度帐号</string>
+    <string name="sapi_regist_baidu_account">注册百度帐号</string>
+    <string name="sapi_normal_login">普通登录</string>
+    <string name="sapi_email_login">邮箱登录</string>
+    <string name="sapi_phone_login">手机登录</string>
+    <string name="sapi_username_tip">用户名</string>
+    <string name="sapi_account_tip">帐　号</string>
+    <string name="sapi_email_tip">邮　箱</string>
+    <string name="sapi_phone_tip">手机号</string>
+    <string name="sapi_password_tip">密　码</string>
+    <string name="sapi_verifycode_tip">验证码</string>
+    <string name="sapi_phone_hint">请输入手机号</string>
+    <string name="sapi_username_email">邮箱地址/用户名</string>
+    <string name="sapi_account_hint">手机号/邮箱/用户名</string>
+    <string name="sapi_email">邮箱地址</string>
+    <string name="sapi_password_limit">6–14位，字母区分大小写</string>
+    <string name="sapi_verifycode_hint">请输入验证码</string>
+    <string name="sapi_network_fail">网络不通，请稍候再试</string>
+    <string name="sapi_show">显示</string>
+    <string name="sapi_hide">隐藏</string>
+    <string name="sapi_change">换一换</string>
+    <string name="sapi_error_text">相关错误提示文案</string>
+    <string name="sapi_forget_password">忘记密码？</string>
+    <string name="sapi_forget_password_title">找回密码</string>
+    <string name="sapi_modify_password_title">修改密码</string>
+    <string name="sapi_operation_record_title">帐号操作记录</string>
+    <string name="sapi_login_success">登录成功</string>
+    <string name="sapi_regist_success">注册成功</string>
+    <string name="sapi_change_pwd_success">密码修改成功</string>
+    <string name="sapi_password_wrong">密码错误，请重新输入</string>
+    <string name="sapi_password_format_error">密码格式错误，请重新输入</string>
+    <string name="sapi_username_not_exists">用户名不存在</string>
+    <string name="sapi_username_not_support">请使用邮箱登录</string>
+    <string name="sapi_username_format_error">用户名格式错误，请重新输入</string>
+    <string name="sapi_username_format_error2">用户名仅支持中英文、数字和下划线</string>
+    <string name="sapi_account_not_activate">帐号未激活，请查收验证邮件</string>
+    <string name="sapi_verifycode_input_error">验证码输入错误</string>
+    <string name="sapi_verifycode_input_error2">验证码输入错误，请重新输入</string>
+    <string name="sapi_cannot_login">对不起，您现在无法登录</string>
+    <string name="sapi_email_format_error">邮箱格式错误</string>
+    <string name="sapi_phone_format_error">手机号格式错误</string>
+    <string name="sapi_phone_not_exists">手机号未注册</string>
+    <string name="sapi_unknown_error">未知错误</string>
+    <string name="sapi_female">女</string>
+    <string name="sapi_male">男</string>
+    <string name="sapi_sex_tip">性　别</string>
+    <string name="sapi_agree_tip">点击注册表示已阅读并同意</string>
+    <string name="sapi_agree_link">用户服务协议</string>
+    <string name="sapi_username_limit">仅支持中英文、数字和下划线</string>
+    <string name="sapi_username_registed">用户名已被注册</string>
+    <string name="sapi_username_over_length">用户名不能超过7个汉字或14个字符</string>
+    <string name="sapi_username_cannot_use">此用户名不可用</string>
+    <string name="sapi_password_over_length">密码必须由6–14个字符组成</string>
+    <string name="sapi_password_format_error2">密码仅支持数字、字母和下划线</string>
+    <string name="sapi_weak_password">密码过于简单，请更换复杂密码</string>
+    <string name="sapi_phone_registed">手机号已被注册</string>
+    <string name="sapi_phone_format_error2">手机号码格式不正确</string>
+    <string name="sapi_smscode_sent_again">激活码已重发，请查收短信</string>
+    <string name="sapi_smscode_error">短信激活码错误，请重新输入</string>
+    <string name="sapi_smscode_expired">短信激活码过期，请重新获取</string>
+    <string name="sapi_smscode_too_much">发送短信过多，请24小时后再试</string>
+    <string name="sapi_smscode_over_buget">暂时无法注册</string>
+    <string name="sapi_smscode_error_too_much">激活码错误次数过多</string>
+    <string name="sapi_cheat">请求频度过快</string>
+    <string name="sapi_username_exist">用户名已存在</string>
+    <string name="sapi_user_has_username">该用户已有用户名</string>
+    <string name="sapi_user_offline">登录状态已失效，请重新登录</string>
+    <string name="sapi_smscode_sent_to">短信激活码已发送至：</string>
+    <string name="sapi_smscode">激活码</string>
+    <string name="sapi_smscode_tip">请输入6位激活码</string>
+    <string name="sapi_done">完成</string>
+    <string name="sapi_smscode_resent">点击重发激活码</string>
+    <string name="sapi_smscode_resent_after_60s">在<xliff:g>%s</xliff:g>秒后点击重发激活码</string>
+    <string name="sapi_not_get_smscode">没有收到激活码？</string>
+    <string name="sapi_getting_smscode">下发激活码中…</string>
+    <string name="sapi_cannot_regist">暂时无法注册</string>
+    <string name="sapi_login_account_tip">登录帐号：</string>
+    <string name="sapi_login_phone_tip">登录手机号：</string>
+    <string name="sapi_filluname_tip">此用户名用于展示，填写后无法修改。</string>
+    <string name="sapi_sure">确定</string>
+    <string name="sapi_filluname">填写用户名</string>
+    <string name="sapi_filluprofile">完善百度帐号</string>
+    <string name="sapi_unite_verify">帐号绑定</string>
+    <string name="sapi_unite_bind">帐号绑定</string>
+    <string name="sapi_bind_finish">操作成功</string>
+    <string name="sapi_filling">补填中…</string>
+    <string name="sapi_force_offline_failed">强制下线失败</string>
+    <string name="sapi_relogin_failed">重新登录失败</string>
+    <string name="sapi_tpl_not_permit">tpl和appid未被loga授权</string>
+    <string name="sapi_version_too_old">版本太老</string>
+    <string name="sapi_check_token_fail">token验证失败</string>
+    <string name="sapi_login_fail_over_limit">安全认证登陆失败次数超过上限</string>
+    <string name="sapi_digits">._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
+    <string name="sapi_status_title">登录状态：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_displayname_title">显示名：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_username_title">用户名：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_email_title">邮箱：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_phoneNumber_title">手机号：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_password_title">密码：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_bduss_title">bduss：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_ptoken_title">ptoken：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_stoken_title">stoken：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_uid_title">uid：<xliff:g>%s</xliff:g></string>
+    <string name="sapi_status_logon">状态：已登录上</string>
+    <string name="sapi_status_unlogin">状态：未登录</string>
+    <string name="sapi_status_regist">状态：已注册</string>
+    <string name="sapi_status_unregist">状态：未注册</string>
+    <string name="sapi_logout">退出</string>
+    <string name="sapi_suggest_title">用户名</string>
+    <string name="sapi_getSuggestName">GetSuggestName</string>
+    <string name="sapi_loga">loga</string>
+    <string name="sapi_share_label">读取您的百度帐号登录信息</string>
+    <string name="sapi_share_description">读取您的百度帐号登录信息</string>
+    <string name="sapi_social_other_login_ways">使用合作网站登录</string>
+    <string name="sapi_social_loading">加载中#8230;</string>
+    <string name="sapi_social_loading_web">正在加载 %s</string>
+    <string name="sapi_social_start_title">%s授权登录</string>
+    <string name="sapi_social_fillprofile_start_title">补填用户信息</string>
+    <string name="sapi_social_desc">desc</string>
+    <string name="sapi_social_loading_refresh">点击刷新</string>
+    <string name="sapi_social_loading_error_refresh">页面加载失败，点击刷新</string>
+
+    <string name="sapi_user_profile_title_label">我的资料</string>
+    <string name="sapi_user_profile_downloading">正在下载头像，请稍后…</string>
+    <string name="sapi_user_profile_no_network">网络不可用，头像下载失败</string>
+    <string name="sapi_user_profile_download_failed">头像下载失败</string>
+    <string name="sapi_user_profile_upload_no_network">网络不可用，头像上传失败</string>
+    <string name="sapi_user_profile_uploading">正在上传头像，请稍后…</string>
+    <string name="sapi_user_profile_upload_success">头像上传成功</string>
+    <string name="sapi_user_profile_portrait_li_title">头像</string>
+    <string name="sapi_user_profile_username_li_title">用户名</string>
+    <string name="sapi_user_profile_voice_li_title">声纹密码</string>
+    <string name="sapi_user_profile_face_li_title">人脸信息</string>
+    <string name="sapi_user_profile_portrait_info_unavailable">未获取到用户头像信息</string>
+    <string name="sapi_user_profile_click_to_fill_username">点击填写用户名</string>
+    <string name="sapi_user_profile_fill_username_success">补填成功：</string>
+    <string name="sapi_user_profile_failed_pick_portrait">获取头像失败</string>
+    <string name="sapi_user_profile_sdcard_unavailable">存储卡不可用</string>
+
+    <string name="sapi_image_picker_btn_popular_photo_text">热门头像推荐</string>
+    <string name="sapi_image_picker_btn_take_photo_text">拍照</string>
+    <string name="sapi_image_picker_btn_pick_photo_text">从相册选择</string>
+    <string name="sapi_image_picker_btn_cancel_text">取消</string>
+    <string name="sapi_image_picker_title_text">更换头像</string>
+    <string name="sapi_image_picker_recommend_photo_text">热门头像推荐</string>
+    <string name="sapi_image_picker_take_photo_text">拍照</string>
+    <string name="sapi_image_picker_pick_photo_text">从相册选择</string>
+
+    <string name="sapi_image_recommend_title_text">热门头像推荐</string>
+    <string name="sapi_image_recommend_right_button_text">保存</string>
+    <string name="sapi_image_recommend_default_text">推荐头像</string>
+    <string name="sapi_image_recommend_dialog_negative_button_text">不保存</string>
+    <string name="sapi_image_recommend_dialog_positive_button_text">保存</string>
+    <string name="sapi_image_recommend_dialog_content_text">保存选择头像吗？</string>
+    <string name="sapi_image_recommend_network_unavailable">网络不可用</string>
+
+    <string name="sapi_image_crop_btn_cancel">取消</string>
+    <string name="sapi_image_crop_btn_select">选择</string>
+
+    <string name="sapi_account_mgr_title_label">帐号管理</string>
+    <string name="sapi_account_mgr_add_account">添加帐号</string>
+    <string name="sapi_account_mgr_edit_btn_label">编辑</string>
+    <string name="sapi_account_mgr_finish_btn_label">完成</string>
+    <string name="sapi_account_mgr_btn_unbind">删除</string>
+
+    <string name="sapi_common_network_unavailable">网络未连接，请稍后重试</string>
+    <string name="sapi_common_loading_timeout">网络连接失败，请稍后重试</string>
+    <string name="sapi_common_invalid_params">参数错误</string>
+    <string name="sapi_common_setting_btn_text">设置</string>
+    <string name="sapi_common_retry_btn_text">重试</string>
+    <string name="sapi_common_back_btn_text">返回</string>
+
+    <!-- Login Dialog -->
+    <string name="sapi_alert_dialog_default_msg_text">提示</string>
+    <string name="sapi_alert_dialog_change_environment">切换环境：</string>
+    <string name="sapi_login_dialog_delete_account_message">确定删除百度帐号%s</string>
+	<string name="sapi_login_dialog_delete_account_btn_cancel">取消</string>
+	<string name="sapi_login_dialog_delete_account_btn_ok">确定</string>
+    
+    <!-- Device -->
+    <string name="sapi_device_login_title">设备号登录</string>
+    
+    <string name="sapi_device_login_error">设备号登录异常，请选择其他方式进行登录</string>
+    
+    <!-- QR -->
+    <string name="button_ok">OK</string>
+    <string name="msg_camera_framework_bug">frame work bug</string>
+    <string name="sapi_zxing_title">扫描二维码</string>
+    
+    <string name="sapi_QR_no_account_error">未登录状态无法使用此功能</string>
+    <string name="sapi_QR_has_account_error">登录状态无法使用此功能</string>
+    
+    <string name="sapi_QR_from_tips">请用电脑访问百度首页获取登录二维码</string>
+    <string name="sapi_QR_capture_tips">将二维码放在取景框内，即可自动扫描成功</string>
+    
+    <string name="sapi_QR_use_account_login_title">二维码登录</string>
+    <string name="sapi_QR_use_account_login_tips">确定使用%s帐号进行登录？</string>
+    
+	<string name="sapi_QR_error_qr_invalid">二维码已过期，请重新生成二维码</string>
+    <string name="sapi_QR_error_bduss_invalid">用户登录状态异常，请重新登录</string>
+    <string name="sapi_QR_error_normalize_invalid">用户尚未正常化，无法使用此功能</string>
+    
+    <string name="sapi_QR_error_qr_info_error">二维码信息异常</string>
+    <string name="sapi_QR_error_cannot_login">您的帐号无法使用二维码登录</string>
+    <string name="sapi_QR_error_qr_bduss_empty">用户登录信息失效，请重新登录</string>
+    
+    <string name="sapi_QR_btn_retry">重新扫描</string>
+
+    <string name="sapi_QR_scan_qrcode_image_tip">请扫描下方二维码，完成登录授权</string>
+
+    <!-- FastReg -->
+    <string name="sapi_Fastreg_SIM_absent">无SIM卡,无法使用此功能</string>
+    <string name="sapi_Fastreg_SIM_unknown">未知状态,请检查SIM卡</string>
+    <string name="sapi_Fastreg_SIM_locked">SIM已锁,请先解锁</string>
+    
+    <string name="sapi_Fastreg_permission_deny">应用无权限访问此功能</string>
+    
+	<string name="sapi_FastReg_main_tips">不需要繁琐输入，一条短信搞定注册</string>
+	<string name="sapi_FastReg_other_tips">(运营商可能会收取0.1元的短信费用)</string>
+	<string name="sapi_FastReg_btn_reg">快速注册</string>
+	<string name="sapi_FastReg_agree_baidu_rules">我已阅读并接受《百度用户协议》</string>
+	<string name="sapi_FastReg_overseas_reg">海外用户注册点击这里>></string>
+	
+	<string name="sapi_FastReg_not_agree_rules">请同意百度用户协议</string>
+	
+	<string name="sapi_FastReg_sms_reg_error">注册失败</string>
+	<string name="sapi_FastReg_sms_format_error">短信格式错误，请重新发送</string>
+	<string name="sapi_FastReg_sms_not_exist_error">短信不存在，请重新发送</string>
+	<string name="sapi_FastReg_sms_mobile_exist_error">手机号已存在，请直接登录</string>
+	<string name="sapi_FastReg_sms_frequently">短信请求频繁</string>
+	<string name="sapi_FastReg_sms_ask_frequently">申请登录次数过多，请24小时后再试</string>
+
+    <string name="sapi_username_login_link">使用用户名登录</string>
+	<!-- 动态密码登录 -->
+	<string name="sapi_dynamic_login_link">通过短信登录</string>
+	<string name="sapi_dynamic_login_title">手机验证码登录</string>
+	<string name="sapi_dynamic_login_btn_sendsms">发送</string>
+	
+	<string name="sapi_dynamic_phone_empty_error">手机号不能为空</string>
+	<string name="sapi_dynamic_smscode_empty_error">验证码不能为空</string>
+	
+	<string name="sapi_dynamic_smscode_hint">请输入验证码</string>
+	
+	<string name="sapi_dynamic_pwd_sms_send_success">下发验证码成功</string>
+	<string name="sapi_dynamic_pwd_phone_format_error">手机格式错误</string>
+	<string name="sapi_dynamic_pwd_phone_empty_error">手机号码为空，请输入手机号码</string>
+    <string name="sapi_dynamic_pwd_expired_error">动态密码不存在或已过期</string>
+	<string name="sapi_dynamic_pwd_sms_ask_frequently">验证码请求频繁</string>
+
+    <string name="sapi_capture_title_text">二维码</string>
+    <string name="sapi_capture_tip_text">请将二维码放在取景框内，系统将自动扫描</string>
+    <string name="sapi_capture_turn_on_flash_light">开灯</string>
+    <string name="sapi_capture_turn_off_flash_light">关灯</string>
+
+    <string name="sapi_voice_pwd_check_title_text">百度语音登录</string>
+    <string name="sapi_voice_pwd_check_account_input_hint">请输入您要登录的百度帐号：</string>
+    <string name="sapi_voice_pwd_check_btn_finish_text">下一步</string>
+    <string name="sapi_voice_pwd_check_guide_dialog_msg_text">该帐号尚未注册语音密码</string>
+    <string name="sapi_voice_pwd_check_guide_dialog_negative_btn_text">其他登录方式</string>
+    <string name="sapi_voice_pwd_check_guide_dialog_positive_btn_text">注册语音密码</string>
+    <string name="sapi_voice_pwd_check_confirm_account_dialog_msg_text">为了您的帐号安全，请确认您输入的是用户名还是手机号。</string>
+    <string name="sapi_voice_pwd_check_confirm_account_dialog_negative_btn_text">用户名</string>
+    <string name="sapi_voice_pwd_check_confirm_account_dialog_positive_btn_text">手机号</string>
+    <string name="sapi_voice_pwd_check_username_not_exist_tip">您输入的用户名不存在</string>
+    <string name="sapi_voice_pwd_check_detect_noisy_msg_text">环境噪音过大，可能影响正常登录</string>
+    <string name="sapi_voice_pwd_check_op_label">请根据如下说明进行操作：</string>
+    <string name="sapi_voice_pwd_check_op_desc">在安静环境中录入语音可登录成功</string>
+
+    <string name="sapi_face_check_guide_dialog_msg_text">该帐号尚未注册人脸</string>
+    <string name="sapi_face_check_guide_dialog_negative_btn_text">其他登录方式</string>
+    <string name="sapi_face_check_guide_dialog_positive_btn_text">注册人脸</string>
+
+    <string name="sapi_voice_pwd_intro_title_text">语音密码介绍</string>
+    <string name="sapi_voice_pwd_intro_desc_1">语音密码是用您独一无二的声音特征\n生成的密保措施</string>
+    <string name="sapi_voice_pwd_intro_desc_2">按提示录入三段声音\n您的语音密码就生成了</string>
+    <string name="sapi_voice_pwd_intro_desc_3">登录也是照着念\n再也不怕忘记密码了</string>
+
+    <string name="sapi_voice_pwd_guide_title_text">百度语音密码</string>
+    <string name="sapi_voice_pwd_guide_right_title_btn_text">介绍</string>
+    <string name="sapi_voice_pwd_guide_account_label">当前登录的百度帐号是：</string>
+    <string name="sapi_voice_pwd_guide_op_label">请根据如下说明进行操作：</string>
+    <string name="sapi_voice_pwd_guide_op_desc">1.在安静环境中按照提示录入3段语音\n2.了解详情请参照右上角的介绍</string>
+    <string name="sapi_voice_pwd_guide_btn_setup_text">注册语音密码</string>
+    <string name="sapi_voice_pwd_guide_noise_detecting_text">正在检测环境…</string>
+    <string name="sapi_voice_pwd_guide_dialog_btn_confirm">确定</string>
+    <string name="sapi_voice_pwd_guide_detect_noisy_msg_text">您当前的环境过于嘈杂\n请在安静的环境进入语音密码注册</string>
+    <string name="sapi_voice_pwd_guide_license_btn_text">百度语音用户使用协议</string>
+
+    <string name="sapi_voice_pwd_setup_title_text">注册语音密码</string>
+    <string name="sapi_voice_pwd_setup_voice_desc">无需记忆下列数字，语音密码是您的声音特征</string>
+    <string name="sapi_voice_pwd_setup_op_hint">请长按录音按钮并读出如下数字</string>
+    <string name="sapi_voice_pwd_setup_btn_recording_text">按住说话</string>
+    <string name="sapi_voice_pwd_setup_btn_recording_pressed_text">松开结束</string>
+    <string name="sapi_voice_pwd_setup_success_dialog_msg_text">语音密码创建成功</string>
+    <string name="sapi_voice_pwd_setup_auth_expired">验证信息已过期</string>
+    <string name="sapi_voice_pwd_setup_success_dialog_btn_text">确定</string>
+    <string name="sapi_voice_pwd_setup_loading_dialog_msg_text">语音录入中…</string>
+    <string name="sapi_voice_pwd_setup_upload_progress_msg_text">开始第%1$d段语音录入</string>
+    <string name="sapi_voice_pwd_setup_quit_confirm_dialog_msg_text">您已经录入了%1$d段，还有%2$d段即可完成注册，确定要放弃吗？</string>
+    <string name="sapi_voice_pwd_setup_quit_confirm_dialog_negative_btn_text">确定</string>
+    <string name="sapi_voice_pwd_setup_quit_confirm_dialog_positive_btn_text">继续录入</string>
+    <string name="sapi_voice_pwd_setup_reg_loading_msg_text">正在完成注册…</string>
+    <string name="sapi_voice_pwd_setup_reg_failure">很遗憾，语音密码创建失败(%s)</string>
+    <string name="sapi_voice_pwd_setup_reg_failure_dialog_negative_btn_text">取消</string>
+    <string name="sapi_voice_pwd_setup_reg_failure_dialog_positive_btn_text">重试</string>
+
+    <string name="sapi_voice_pwd_login_title_text">百度语音登录</string>
+    <string name="sapi_voice_pwd_login_loading_dialog_msg_text">语音录入中…</string>
+    <string name="sapi_voice_pwd_login_login_failure">登录失败(%d)</string>
+    <string name="sapi_voice_pwd_login_verify_failed">再试一次</string>
+    <string name="sapi_voice_pwd_login_login_success">登录成功</string>
+    <string name="sapi_voice_pwd_login_login_loading_msg_text">登录中…</string>
+
+    <string name="sapi_voice_pwd_license_title_text">百度语音用户协议</string>
+
+    <string name="sapi_face_login_reg_title">人脸注册</string>
+    <string name="sapi_face_login_login_title">人脸登录</string>
+    <string name="sapi_face_login_modify_title">人脸修改</string>
+
+    <string name="sapi_recording_btn_up_tip_text">松开手指，取消录入</string>
+    <string name="sapi_recording_btn_move_tip_text">手指上滑，取消录入</string>
+
+    <string name="sapi_voice_upload_success_msg">录入成功</string>
+    <string name="sapi_voice_upload_failure_msg">录入失败</string>
+    <string name="sapi_voice_upload_failure_speech_text_not_match">语音与文本不匹配</string>
+    <string name="sapi_voice_upload_failure_server_error">服务器繁忙(%d)</string>
+    <string name="sapi_voice_upload_failure_speech_too_short">时间太短，请重新录入</string>
+
+    <string name="sapi_auth_widget_title_text">安全验证</string>
+
+    <string name="sapi_main_activity_tab_title_login">登录</string>
+    <string name="sapi_main_activity_tab_title_register">注册</string>
+    <string name="sapi_main_activity_tab_title_account_manager">帐号管理</string>
+    <string name="sapi_main_activity_tab_title_portrait">头像需求</string>
+    <string name="sapi_main_activity_title_display_name">未登录</string>
+    <string name="sapi_main_activity_title_about">关于</string>
+
+    <!--实名认证-->
+    <string name="sapi_realname_authenticate_success">实名认证成功</string>
+    <string name="sapi_realname_authenticate_failure">实名认证失败</string>
+
+    <!--帐号中心-->
+    <string name="sapi_account_center_webview_title_online_service">在线客服</string>
+    <string name="sapi_account_center_webview_title_common_problem">常见问题</string>
+    <string name="sapi_account_center_voice_reg_after_face_verify">注册声纹前，请先完成刷脸认证</string>
+    <string name="sapi_account_center_ok">确定</string>
+    <string name="sapi_account_center_cancel">取消</string>
+    <string name="sapi_account_center_passport">帐号管理</string>
+    <string name="sapi_account_center_set_time_cancle">取消</string>
+    <string name="sapi_account_center_set_time_ok">确定</string>
+    <string name="sapi_account_center_year">年</string>
+    <string name="sapi_account_center_month">月</string>
+    <string name="sapi_account_center_day">日</string>
+    <string name="sapi_account_center_voice_close">您的声纹已关闭</string>
+    <string name="sapi_account_center_voice_freeze">您的声纹已冻结,请稍候重试</string>
+    <string name="sapi_account_center_voice_pending">你存在带审核的声纹,请稍候重试</string>
+    <string name="sapi_account_center_please_relogin">请重新登录</string>
+
+    <!--permission_moudle-->
+    <string name="sapi_permission_ok">确定</string>
+    <string name="sapi_permission_cancel">取消</string>
+    <string name="sapi_permission_camera_get_camera_permission_title">获取相机权限</string>
+    <string name="sapi_permission_camera_get_camera_permission_msg">需获得拍照和录像权限来实现扫描二维码功能</string>
+    <string name="sapi_permission_camera_get_face_check_permission_msg">需获得拍照和录像功能来识别人脸信息</string>
+    <string name="sapi_permission_camera_permission_refuse">您已禁止拍照和录像权限</string>
+
+    <string name="sapi_permission_voice_get_record_voice_permission_title">获取录制音频权限</string>
+    <string name="sapi_permission_voice_get_record_voice_permission_msg">需获得录制音频权限实现语音登录功能</string>
+    <string name="sapi_permission_voice_permission_refuse">您已禁止录制语音权限</string>
+
+    <string name="sapi_permission_sms_get_receive_sms_permission_title">获取接收短信权限</string>
+    <string name="sapi_permission_sms_get_receive_sms_permission_msg">需获得接受短信权限读取验证码</string>
+    <string name="sapi_permission_sms_receive_sms_permission_refuse">您已禁止接收短信权限,需手动输入验证码</string>
+
+    <string name="sapi_permission_phone_state_get_permission_title">获取读取手机状态权限</string>
+    <string name="sapi_permission_phone_state_get_permission_msg">需获取读取手机状态权限获取本机号码</string>
+    <string name="sapi_permission_phone_state_permission_refuse">您已禁止获取手机状态权限</string>
+    
+    <string name="sapi_permission_send_sms_get_permission_title">获取发送短信权限</string>
+    <string name="sapi_permission_send_sms_get_permission_msg">需获取发送短信权限来发送验证短信</string>
+    <string name="sapi_permission_send_sms_permission_refuse">您已禁止发送短信权限</string>
+
+
+</resources>

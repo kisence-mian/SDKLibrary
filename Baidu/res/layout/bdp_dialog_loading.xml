@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bdp_dk_loading_bj"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="27dip"
+        android:layout_height="27dip"
+        android:layout_marginLeft="27dip"
+        android:layout_marginRight="27dip"
+        android:indeterminateDrawable="@drawable/bdp_progress_loading_xml" />
+
+    <TextView
+        android:id="@+id/txtDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/bdp_dialog_loading"
+        android:textColor="#999999"
+        android:textSize="12sp" />
+
+</LinearLayout>

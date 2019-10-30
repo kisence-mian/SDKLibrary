@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dk_chess_rankdate_text_color">#898989</color>
+    <color name="dk_transparent">#00000000</color>
+    <color name="dk_color_000000">#000000</color>
+    <color name="dk_color_fcfcfc">#FCFCFC</color>
+
+    <!-- quickpay start -->
+    <color name="dk_gamesdk_gray">#DBDBDB</color>
+    <color name="dk_color_d0d0d0">#D0D0D0</color>
+    <color name="dk_color_838383">#838383</color>
+    <color name="dk_color_ff3300">#ff3300</color>
+    <color name="dk_color_61B11F">#61B11F</color>
+    <color name="dk_color_fd711d">#fd711d</color>
+    <color name="dk_color_ff6e04">#ff6e04</color>
+    <color name="dk_color_CEF6FE">#CEF6FE</color>
+    <!-- quickpay end -->
+
+    <color name="background_tab_pressed">#8833B5E5</color>
+    <color name="dk_color_f0f0f0">#f0f0f0</color>
+    <color name="dk_color_888888">#888888</color>
+    <color name="dk_color_297bf6">#297bf6</color>
+    <color name="dk_color_217ac7">#217ac7</color>
+    <color name="dk_color_bbbbbb">#bbbbbb</color>
+    <color name="dk_color_2472d2">#2472d2</color>
+    <color name="dk_color_222222">#222222</color>
+    <color name="dk_color_427acd">#427acd</color>
+    <color name="login_unclickable">#e1b24e</color>
+    <color name="pop_item_bg_normal">#ffffff</color>
+    <color name="pop_item_bg_pressed">#f0f0f0</color>
+    <color name="dk_color_297bfb">#297bfb</color>
+    <color name="dk_color_eeeeee">#eeeeee</color>
+ 
+    <!-- real name vertify -->
+    <color name="dk_color_f96246">#f96246</color>
+    <color name="dk_color_555555">#555555</color>
+    <color name="dk_color_f4f4f4">#f4f4f4</color>
+    <color name="dk_color_9dc4ff">#9dc4ff</color>
+    <color name="dk_color_cde2ff">#cde2ff</color>
+    <color name="dk_color_link_parents_normal">#1f8cf8</color>
+
+    <color name="dk_networktoast_bg">#DD000000</color>
+
+    <color name="dk_dark_gray">#ff333333</color>
+    <color name="dk_deep_gray">#ff666666</color>
+
+    <color name="dk_color_ff999999">#ff999999</color>
+    <color name="dk_color_ffe40096">#ffE40096</color>
+    <color name="dk_color_ffcccccc">#ffCCCCCC</color>
+    <color name="dk_username_text_ff4a90e2">#ff4a90e2</color>
+    <color name="dk_username_text_ff235cb2">#FF235CB2</color>
+    <color name="dk_logo_bg">#FF26282c</color>
+
+    <color name="dk_color_titlebg">#FFFCFCFC</color>
+    <color name="dk_color_newtitle">#FF333333</color>
+
+    <color name="dk_color_f70468">#FFF70468</color>
+</resources>

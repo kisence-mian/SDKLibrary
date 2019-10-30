@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@id/dk_id_item_flip_download_pb">
+	    <clip android:clipOrientation="horizontal"
+	        android:drawable="@drawable/dk_btn_download_progressbar_shape_green"
+	        android:gravity="left"/>
+	</item>
+</layer-list>

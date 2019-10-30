@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+     <!-- http://androidxref.com/4.4.4_r1/xref/frameworks/base/core/res/res/layout/status_bar_latest_event_content.xml -->
+  <!--   <style name="notification_main_text" parent="@android:style/TextAppearance.StatusBar.EventContent.Title">
+        <item name="android:textSize">16dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_gravity">center_vertical|left</item>
+    </style>
+    <style name="notification_sub_text" parent="@android:style/TextAppearance.StatusBar.EventContent">
+        <item name="android:textSize">14dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_gravity">center_vertical|left</item>
+    </style> -->
+
+    <style name="demo_layout">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:background">@drawable/layout_border</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="demo_btn">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="flow_test_pay_layout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="flow_test_pay_border_layout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/layout_border</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="flow_test_pay_textview">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="flow_test_pay_edittext">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>
