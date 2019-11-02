@@ -2,6 +2,7 @@ package com.meizu;
 
 import android.os.Bundle;
 
+import com.meizu.gamesdk.model.callback.MzExitListener;
 import com.meizu.gamesdk.model.callback.MzLoginListener;
 import com.meizu.gamesdk.model.callback.MzPayListener;
 import com.meizu.gamesdk.model.model.LoginResultCode;
@@ -28,6 +29,7 @@ public class Meizu extends SDKBase implements ILogin, IPay {
     String appkey;
 
     String mUid;
+
     @Override
     public void OnCreate() {
 
@@ -46,37 +48,54 @@ public class Meizu extends SDKBase implements ILogin, IPay {
 
     @Override
     public void Login(JSONObject json) {
-        MzGameCenterPlatform.login(GetCurrentActivity(), new MzLoginListener() {
-            @Override
-            public void onLoginResult(int code, MzAccountInfo accountInfo, String errorMsg) {
-                // TODO 登录结果回调。注意，该回调跑在应用主线程，不能在这里做耗时操作
-                switch (code) {
-                    case LoginResultCode.LOGIN_SUCCESS:
-                        // TODO 登录成功，拿到uid 和 session到自己的服务器去校验session合法性
-                        mUid = accountInfo.getUid();
-                        SendLog("登录成功！\r\n 用户名：" + accountInfo.getName() + "\r\n Uid：" +
-                                accountInfo.getUid() + "\r\n session：" + accountInfo.getSession());
 
-                        LoginCallBack(true, mUid);
-                        break;
-                    case LoginResultCode.LOGIN_ERROR_CANCEL:
-                        // TODO 用户取消登陆操作
-                        LoginCallBack(false, "");
-                        break;
-                    default:
-                        // TODO 登陆失败，包含错误码和错误消息。
-                        // TODO 注意，错误消息(errorMsg)需要由游戏展示给用户，提示失败原因
-                        SendLog("登录失败 : " + errorMsg + " , code = " + code);
-                        LoginCallBack(false, "");
-                        break;
-                }
+        SendLog("Meizu Login ");
+
+        GetCurrentActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                SendLog("UI主线程去执行 ");
+
+                MzGameCenterPlatform.login(GetCurrentActivity(), new MzLoginListener() {
+                    @Override
+                    public void onLoginResult(int code, MzAccountInfo accountInfo, String errorMsg) {
+                        // TODO 登录结果回调。注意，该回调跑在应用主线程，不能在这里做耗时操作
+                        switch (code) {
+                            case LoginResultCode.LOGIN_SUCCESS:
+                                // TODO 登录成功，拿到uid 和 session到自己的服务器去校验session合法性
+                                mUid = accountInfo.getUid();
+                                SendLog("登录成功！\r\n 用户名：" + accountInfo.getName() + "\r\n Uid：" +
+                                        accountInfo.getUid() + "\r\n session：" + accountInfo.getSession());
+
+                                LoginCallBack(true, mUid);
+                                break;
+                            case LoginResultCode.LOGIN_ERROR_CANCEL:
+                                // TODO 用户取消登陆操作
+                                LoginCallBack(false, "");
+                                break;
+                            default:
+                                // TODO 登陆失败，包含错误码和错误消息。
+                                // TODO 注意，错误消息(errorMsg)需要由游戏展示给用户，提示失败原因
+                                SendLog("登录失败 : " + errorMsg + " , code = " + code);
+                                LoginCallBack(false, "");
+                                break;
+                        }
+                    }
+                });
+
             }
         });
     }
 
     @Override
     public void LoginOut(JSONObject json) {
-
+        MzGameCenterPlatform.logout(GetCurrentActivity()
+                , new MzLoginListener() {
+                    @Override
+                    public void onLoginResult(int code, MzAccountInfo mzAccountInfo, String msg) {
+                        //T在这里处理登出逻辑
+                    }
+                });
     }
 
     @Override
@@ -94,7 +113,7 @@ public class Meizu extends SDKBase implements ILogin, IPay {
                     String sign = info[2];                                         //  sign (不能为空)
                     String signType = "md5";                                     //  sign_type (不能为空)
                     int buyCount = 1;                                          //   buy_amount
-                    String cpUserInfo = payInfo.userID+"|"+payInfo.goodsID;    //   user_info
+                    String cpUserInfo = payInfo.userID + "|" + payInfo.goodsID;    //   user_info
                     String amount = info[0];// total_price
                     String productId = payInfo.goodsID;                                    //   product_id
                     String productSubject = payInfo.goodsID;                                //   product_subject
@@ -121,16 +140,16 @@ public class Meizu extends SDKBase implements ILogin, IPay {
                                 case PayResultCode.PAY_SUCCESS:    // TODO 如果成功，接下去需要到自己的服务器查询订单结果
                                     MzBuyInfo payInfo = MzBuyInfo.fromBundle(info);
                                     SendLog("支付成功 : " + payInfo.getOrderId());
-                                    PayCallBack(true,"");
+                                    PayCallBack(true, "");
                                     break;
                                 case PayResultCode.PAY_ERROR_CANCEL:    // TODO 用户主动取消支付操作，不需要提示用户失败
-                                    PayCallBack(false,"");
+                                    PayCallBack(false, "");
                                     break;
                                 default:
                                     // TODO 支付失败，包含错误码和错误消息。
                                     // TODO 注意，错误消息(errorMsg)需要由游戏展示给用户，提示失败原因
                                     SendLog("支付失败 : " + errorMsg + " , code = " + code);
-                                    PayCallBack(false,"");
+                                    PayCallBack(false, "");
                                     break;
                             }
                         }
@@ -183,4 +202,21 @@ public class Meizu extends SDKBase implements ILogin, IPay {
             SendError("UCSDK onCreateOrderSucc Exception " + e, e);
         }
     }
+
+    @Override
+    public void OnAppplicationQuit(JSONObject json) {
+        MzGameCenterPlatform.exitSDK(GetCurrentActivity(), new MzExitListener() {
+            public void callback(int code, String msg) {
+                if (code == MzExitListener.CODE_SDK_EXIT) {
+                    //在这里处理退出逻辑
+                    GetCurrentActivity().finish();
+                    System.exit(0);
+                } else if (code == MzExitListener.CODE_SDK_CONTINUE) {
+                    //继续游戏
+                }
+            }
+        });
+    }
+
+
 }
