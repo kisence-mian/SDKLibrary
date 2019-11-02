@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="480dp">
+
+    <RelativeLayout
+        android:id="@+id/rly_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/hlx_round_corner">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="90dp"
+            android:gravity="center"
+            android:text="礼包"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/hlx_iv_close_selector" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_gift_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="18dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/hlx_gift_logo" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rly_title"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_gift_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="礼包列表"
+                android:textColor="@color/hlx_gift_text"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/hlx_split_color" />
+
+            <RadioButton
+                android:id="@+id/rb_gift_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:button="@null"
+                android:gravity="center"
+                android:text="存号箱"
+                android:textColor="@color/hlx_gift_text"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_split"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@id/radio_group">
+
+                <View
+                    android:id="@+id/split_left"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/hlx_gift_bg" />
+
+                <View
+                    android:id="@+id/split_right"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/hlx_gift_bg"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/split"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/hlx_split_color" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:background="@drawable/hlx_list_view_round">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_empty_tip"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:text="很快就有新的礼包发放了,请耐心等待下."
+                android:textColor="@color/hlx_gift_text"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_empty_tip"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                android:scrollbarThumbVertical="@drawable/hlx_scrollbar_vertical_thumb" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

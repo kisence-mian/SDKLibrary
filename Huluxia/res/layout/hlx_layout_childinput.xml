@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="248dp"
+    android:layout_height="wrap_content"
+    android:background="#fff8f8f8"
+    android:paddingTop="3dp" >
+
+    <TextView
+        android:id="@+id/ChildInputTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="center|left"
+        android:text="app_text"
+        android:textColor="#ff333333"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/ChildInputBackBtn"
+        style="@style/value_button_keybroad"
+        android:layout_width="65dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="3dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:text="返回"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/ChildInputMenuBtnLayout"
+        android:padding="0dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" >
+        <Button
+            android:id="@+id/ChildInputCurMenuBtn"
+            style="@style/value_button_menukey"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:paddingLeft="5dp"
+            android:text="app_text"/>
+        <ImageView
+            android:contentDescription="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/ChildInputCurMenuBtn"
+            android:layout_alignBottom="@+id/ChildInputCurMenuBtn"
+            android:src="@drawable/hlx_ic_small_menu" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignBottom="@+id/ChildInputCurMenuBtn"
+            android:background="#ffcccccc" />
+    </RelativeLayout>  
+    
+    <LinearLayout 
+        android:id="@+id/ChildInputKeybroadLayout"
+        android:layout_below="@+id/ChildInputTitleText"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="3dp"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:id="@+id/ChildInputSignleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <EditText
+                android:id="@+id/ChildSingleInputEditWnd"
+                style="@style/value_edit_readonly"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"  />
+
+            <CheckBox
+                android:id="@+id/ChildInputLockCheckbox"
+                style="@style/value_checkbox_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:text="锁定" />
+        </RelativeLayout>
+        
+        <LinearLayout
+            android:id="@+id/ChildInputRangeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"  >
+            <EditText
+                android:id="@+id/ChildInputRangeMinEdit"
+                style="@style/value_edit_readonly"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:hint="最小值" />
+            <TextView
+                android:id="@+id/ChildInputRangeSegment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="#ff000000" 
+                android:text="-" />
+            <EditText
+                android:id="@+id/ChildInputRangeMaxEdit"
+                style="@style/value_edit_readonly"        
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:hint="最大值" />
+        </LinearLayout>
+    
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1dp">
+            <TextView
+                android:id="@+id/kb_split_v_line1"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/KeyboardOptMinus"
+                android:layout_toRightOf="@+id/KeyboardNumber1Btn"
+                android:background="#ffd8dddb" />
+    
+            <TextView
+                android:id="@+id/kb_split_v_line2"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/KeyboardOptMinus"
+                android:layout_toRightOf="@+id/KeyboardNumber2Btn"
+                android:background="#ffd8dddb" />
+    
+            <TextView
+                android:id="@+id/kb_split_v_line3"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/KeyboardOptMinus"
+                android:layout_toRightOf="@+id/KeyboardNumber3Btn"
+                android:background="#ffd8dddb" />
+    
+            <TextView
+                android:id="@+id/kb_split_v_line4"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/KeyboardNumber6Btn"
+                android:layout_toRightOf="@+id/KeyboardNumber4Btn"
+                android:background="#ffd8dddb" />
+    
+            <TextView
+                android:id="@+id/kb_split_v_line5"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/KeyboardNumber1Btn"
+                android:background="#ffd8dddb" />
+    
+            <TextView
+                android:id="@+id/kb_split_v_line6"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/KeyboardNumber6Btn"
+                android:background="#ffd8dddb" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber1Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="1" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber2Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber1Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line1"
+                android:text="2" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber3Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber1Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line2"
+                android:text="3" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber4Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber1Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line3"
+                android:text="4" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber5Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber1Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line4"
+                android:text="5" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber6Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/kb_split_v_line5"
+                android:text="6" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber7Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber6Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line1"
+                android:text="7" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber8Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber6Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line2"
+                android:text="8" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber9Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber6Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line3"
+                android:text="9" />
+    
+            <Button
+                android:id="@+id/KeyboardNumber0Btn"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardNumber6Btn"
+                android:layout_toRightOf="@+id/kb_split_v_line4"
+                android:text="0" />
+    
+            <Button
+                android:id="@+id/KeyboardOptMinus"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/kb_split_v_line6"
+                android:text="-/+" />
+    
+            <Button
+                android:id="@+id/KeyboardOptSepr"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/kb_split_v_line6"
+                android:text="；" />
+    
+            <Button
+                android:id="@+id/KeyboardPoint"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardOptMinus"
+                android:layout_toRightOf="@+id/kb_split_v_line1"
+                android:text="." />
+    
+            <Button
+                android:id="@+id/KeyboardOptDelete"
+                style="@style/value_button_keybroad"
+                android:layout_width="48dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardOptMinus"
+                android:layout_toRightOf="@+id/kb_split_v_line2"
+                android:text="删" />
+    
+            <Button
+                android:id="@+id/KeyboardOptEnter"
+                style="@style/value_button_keybroad"
+                android:layout_width="98dp"
+                android:layout_height="42dp"
+                android:layout_alignTop="@+id/KeyboardOptMinus"
+                android:layout_toRightOf="@+id/kb_split_v_line3"
+                android:text="搜索" />
+        </RelativeLayout>    
+    </LinearLayout>
+
+    
+    <RelativeLayout
+        android:id="@+id/ChildInputMenuKeyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ChildInputTitleText"
+        android:layout_alignBottom="@+id/ChildInputKeybroadLayout"
+        android:clickable="true"
+        android:background="#11333333">
+        <LinearLayout
+            android:background="@drawable/hlx_style_bg_white_0p"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical" >
+            <Button
+                android:id="@+id/ChildInputMenuValueBtn"
+                style="@style/value_button_menukey"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="普通搜索" />
+            <TextView android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#ffe0e0e0" />
+    
+            <Button
+                android:id="@+id/ChildInputMenuUniteBtn"
+                style="@style/value_button_menukey"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="联合搜索" />
+            <TextView android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#ffe0e0e0" />
+            
+            <Button
+                android:id="@+id/ChildInputMenuEncodeBtn"
+                style="@style/value_button_menukey"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="加密搜索" />
+            <TextView android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#ffe0e0e0" />
+    
+            <Button
+                android:id="@+id/ChildInputMenuMoniqiBtn"
+                style="@style/value_button_menukey"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="模拟器搜索" />
+        </LinearLayout>
+    </RelativeLayout>
+        
+</RelativeLayout>

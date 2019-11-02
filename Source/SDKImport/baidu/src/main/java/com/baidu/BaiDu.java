@@ -14,12 +14,16 @@ import com.duoku.platform.single.item.DKCMYBKData;
 import com.duoku.platform.single.item.GamePropsInfo;
 import com.duoku.platform.single.util.SharedUtil;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import sdkInterface.IPay;
 import sdkInterface.SDKBase;
 import sdkInterface.ILogin;
+import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.activity.MainActivity;
+import sdkInterface.define.LoginPlatform;
+import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
 
 public class BaiDu extends SDKBase implements ILogin, IPay
@@ -108,20 +112,27 @@ public class BaiDu extends SDKBase implements ILogin, IPay
                      Toast.makeText(GetCurrentActivity(),  "道具购买成功!\n金额:"+mOrderPrice+"元",  Toast.LENGTH_LONG).show();
                  }else if(mStatusCode == DkErrorCode.BDG_RECHARGE_USRERDATA_ERROR){
                      Toast.makeText(GetCurrentActivity(), "用户透传数据不合法",  Toast.LENGTH_LONG).show();
+
+                     SendPayCallBack(false,"",mStatusCode+"");
                  }else if(mStatusCode == DkErrorCode.BDG_RECHARGE_ACTIVITY_CLOSED){
                      // 返回玩家手动关闭支付中心的状态码，开发者可以在此处理相应的逻辑
                      Toast.makeText(GetCurrentActivity(), "玩家关闭支付中心",  Toast.LENGTH_LONG).show();
+                     SendPayCallBack(false,"",mStatusCode+"");
                  }else if(mStatusCode == DkErrorCode.BDG_RECHARGE_FAIL){
                      // 返回支付失败的状态码，开发者可以在此处理相应的逻辑
                      Toast.makeText(GetCurrentActivity(), "购买失败", Toast.LENGTH_LONG).show();
+                     SendPayCallBack(false,"",mStatusCode+"");
                  } else if(mStatusCode == DkErrorCode.BDG_RECHARGE_EXCEPTION){
                      //返回支付出现异常的状态码，开发者可以在此处理相应的逻辑
                      Toast.makeText(GetCurrentActivity(), "购买出现异常",  Toast.LENGTH_LONG).show();
+                     SendPayCallBack(false,"",mStatusCode+"");
                  } else if(mStatusCode == DkErrorCode.BDG_RECHARGE_CANCEL){
                      //返回取消支付的状态码，开发者可以在此处理相应的逻辑
                      Toast.makeText(GetCurrentActivity(), "玩家取消支付",  Toast.LENGTH_LONG).show();
+                     SendPayCallBack(false,"",mStatusCode+"");
                  } else {
                      Toast.makeText(GetCurrentActivity(), "未知情况", Toast.LENGTH_LONG).show();
+                     SendPayCallBack(false,"",mStatusCode+"");
                  }
              }
              catch (Exception e)
@@ -140,35 +151,42 @@ public class BaiDu extends SDKBase implements ILogin, IPay
 
             landScape = Boolean.parseBoolean( GetProperties().getProperty("landScape"));
 
-            //回调函数
-            IDKSDKCallBack initcompletelistener = new IDKSDKCallBack(){
+            //交给主线程去执行
+            GetCurrentActivity().runOnUiThread(new Runnable() {
                 @Override
-                public void onResponse(String paramString) {
-                    SendLog("GameMainActivity "+ paramString);
-                    try {
-                        JSONObject jsonObject = new JSONObject(paramString);
-                        // 返回的操作状态码
-                        int mFunctionCode = jsonObject.getInt(DkProtocolKeys.FUNCTION_CODE);
+                public void run() {
+                    SendLog("Baidu Init Start " );
 
-                        //初始化完成
-                        if(mFunctionCode == DkErrorCode.BDG_CROSSRECOMMEND_INIT_FINSIH){
-                            // 返回的百度uid，供cp绑定使用
-                            String bduid = jsonObject.getString(DkProtocolKeys.BD_UID);
-                            String bdtoken = jsonObject.getString(DkProtocolKeys.BD_TOKEN);
-                            String bdoauthid = jsonObject.getString(DkProtocolKeys.BD_OAUTHID);
-                            Toast.makeText(GetCurrentActivity(), "初始化成功", Toast.LENGTH_SHORT).show();
-                            initLogin();
-//                            initAds(); //调用品宣接口会崩溃
+                    //回调函数
+                    IDKSDKCallBack initcompletelistener = new IDKSDKCallBack(){
+                        @Override
+                        public void onResponse(String paramString) {
+                            SendLog("GameMainActivity "+ paramString);
+                            try {
+                                JSONObject jsonObject = new JSONObject(paramString);
+                                // 返回的操作状态码
+                                int mFunctionCode = jsonObject.getInt(DkProtocolKeys.FUNCTION_CODE);
+
+                                //初始化完成
+                                if(mFunctionCode == DkErrorCode.BDG_CROSSRECOMMEND_INIT_FINSIH){
+                                    // 返回的百度uid，供cp绑定使用
+                                    String bduid = jsonObject.getString(DkProtocolKeys.BD_UID);
+                                    String bdtoken = jsonObject.getString(DkProtocolKeys.BD_TOKEN);
+                                    String bdoauthid = jsonObject.getString(DkProtocolKeys.BD_OAUTHID);
+                                    Toast.makeText(GetCurrentActivity(), "初始化成功", Toast.LENGTH_SHORT).show();
+                                    initLogin();
+                                    initAds(); //调用品宣接口会崩溃
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    };
+                    //初始化函数
+                    DKPlatform.getInstance().init(GetCurrentActivity(), landScape, DKPlatformSettings.SdkMode.SDK_PAY,initcompletelistener);
+                    SendLog("Baidu Init finsih  " );
                 }
-            };
-
-		//初始化函数
-		DKPlatform.getInstance().init(GetCurrentActivity(), landScape, DKPlatformSettings.SdkMode.SDK_PAY,initcompletelistener);
-
+            });
         }catch (Exception e)
         {
             SendError("BaiDu Init Error" + e,e);
@@ -177,6 +195,8 @@ public class BaiDu extends SDKBase implements ILogin, IPay
 
     @Override
     public void Login(JSONObject json) {
+
+        SendLog("BaiDu Login " + json);
         try
         {
             DKPlatform.getInstance().invokeBDLogin(GetCurrentActivity(), loginlistener );
@@ -188,24 +208,47 @@ public class BaiDu extends SDKBase implements ILogin, IPay
     }
 
     @Override
+    public void OnAppplicationQuit(JSONObject json) {
+        super.OnAppplicationQuit(json);
+
+        SendLog("BaiDu OnAppplicationQuit " + json);
+
+        DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
+            @Override
+            public void onResponse(String paramString) {
+                Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
+                GetCurrentActivity().finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        });
+    }
+
+    @Override
     public void LoginOut(JSONObject json) {
 
+        SendLog("BaiDu LoginOut " + json);
+
+        DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
+            @Override
+            public void onResponse(String paramString) {
+                Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
+                GetCurrentActivity().finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        });
     }
 
     @Override
     public void Pay(JSONObject json)
     {
+        SendLog("BaiDu Pay " + json);
+
         try {
             payInfo = PayInfo.FromJson(json);
 
             //百度游戏计费数据
-            GamePropsInfo propsSecond =  new GamePropsInfo("1064", "2", "血瓶","userdata");
+            GamePropsInfo propsSecond =  new GamePropsInfo(payInfo.tag, payInfo.price+"", payInfo.goodsName,payInfo.userID+"|"+payInfo.goodsID);
 
-//            //MDO计费数据
-//            DKCMMdoData mdoData =  new DKCMMdoData("1064","2","YX,253436,1,e8ad,1822026", "10658077016622","622001"); //棋牌类游戏设置此标志 //DKCMMdoData.setCardgameFlag(true);
-//
-//            //MCP融合计费
-//            DKCMYBKData ybkData = new DKCMYBKData("ca0c4ff0d57b3344285e9187", "022114000");
             // 支付接口
             DKPlatform.getInstance().invokePayCenterActivity(GetCurrentActivity(),  propsSecond,null,null,RechargeCallback);
         }
@@ -217,7 +260,7 @@ public class BaiDu extends SDKBase implements ILogin, IPay
 
     @Override
     public boolean IsPrePay() {
-        return false;
+        return true;
     }
 
     @Override
@@ -233,26 +276,26 @@ public class BaiDu extends SDKBase implements ILogin, IPay
     @Override
     public void OnPause() {
 
-        DKPlatform.getInstance().pauseBaiduMobileStatistic(GetCurrentActivity());
-        DKPlatform.getInstance().bdgamePause(GetCurrentActivity(), new IDKSDKCallBack()
-        {
-            @Override
-            public void onResponse(String paramString) {
-                SendLog("bggamePause success"); }
-            });
+       DKPlatform.getInstance().pauseBaiduMobileStatistic(GetCurrentActivity());
+//        DKPlatform.getInstance().bdgamePause(GetCurrentActivity(), new IDKSDKCallBack()
+//        {
+//            @Override
+//            public void onResponse(String paramString) {
+//                SendLog("bggamePause success"); }
+//            });
     }
 
     @Override
     public void OnDestory() {
-        DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
-            @Override
-            public void onResponse(String paramString)
-            {
-                Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
-                GetCurrentActivity().finish();
-                android.os.Process.killProcess(android.os.Process.myPid());
-            }
-    });
+//        DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
+//            @Override
+//            public void onResponse(String paramString)
+//            {
+//                Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
+//                GetCurrentActivity().finish();
+//                android.os.Process.killProcess(android.os.Process.myPid());
+//            }
+//    });
     }
 
 
@@ -280,19 +323,24 @@ public class BaiDu extends SDKBase implements ILogin, IPay
                         //隐藏登陆按钮，显示修改密码和切换账号按钮
                         Toast.makeText(GetCurrentActivity(), "登录成功", Toast.LENGTH_LONG).show();
                         SendLog("BaiDu 登陆成功  " + paramString);
+                        LoginCallBack(true,bduid);
                     }else if(mFunctionCode == DkErrorCode.DK_ACCOUNT_LOGIN_FAIL){
                         //登陆失败
                         //显示登陆按钮，隐藏修改密码和切换账号按钮
                         SendLog("BaiDu 登陆失败  " + paramString);
+                        LoginCallBack(false,bduid);
                         //快速注册成功
                     }else if(mFunctionCode == DkErrorCode.DK_ACCOUNT_QUICK_REG_SUCCESS){
                         //快速试玩登陆成功，都需要隐藏
                         SendLog("BaiDu 快速试玩登陆成功  " + paramString);
+                        LoginCallBack(true,bduid);
                     }else {
                         SendLog("BaiDu 其他情况  " + paramString);
+                        LoginCallBack(false,bduid);
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    SendError("loginlistener onResponse error " + e,e);
+                    LoginCallBack(false,"");
                 }
             }
         };
@@ -316,11 +364,47 @@ public class BaiDu extends SDKBase implements ILogin, IPay
 
     void LoginCallBack(Boolean success,String userID)
     {
+        try {
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,userID );
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.Baidu.toString());
 
+            CallBack(jo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            SendError("BaiDu onLoginSucc",e);
+        }
+    }
+
+    void SendPayCallBack(boolean success,String transNo,String errorCode)
+    {
+        try {
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,transNo);
+            jo.put(SDKInterfaceDefine.ParameterName_Error,errorCode);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.Baidu.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt,transNo);
+
+            payInfo.ToJson(jo);
+            sdkInterface.SdkInterface.SendMessage(jo);
+        }
+        catch (JSONException e)
+        {
+            SendError("SendPayCallBack Error " + e,e);
+        }
     }
 
     @Override
     public void OnCreate() {
+
+        SendLog("BaiDu OnCreate");
         DKPlatform.getInstance().invokeBDInitApplication(GetCurrentActivity().getApplication());
+        SendLog("BaiDu OnCreate finish");
     }
+
+
 }

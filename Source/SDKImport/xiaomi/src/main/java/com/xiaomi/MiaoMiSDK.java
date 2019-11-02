@@ -221,6 +221,11 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
         return false;
     }
 
+    @Override
+    public boolean IsReSendPay() {
+        return false;
+    }
+
     void SendPayCallBack(boolean success,int errorCode)
     {
         try {

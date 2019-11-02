@@ -56,6 +56,7 @@ public class SDKInterfaceDefine {
     public static final String Pay_ParameterName_GoodsType = "GoodsType";
     public static final String Pay_ParameterName_Count = "Count";
     public static final String Pay_ParameterName_GoodsName = "GoodsName";
+    public static final String Pay_ParameterName_GoodsDescription = "GoodsDescription";
     public static final String Pay_ParameterName_CallBackUrl = "CallBackUrl";
     public static final String Pay_ParameterName_CpOrderID = "CpOrderID";//第三方支付ID
     public static final String Pay_ParameterName_OrderID = "OrderID";  //我们自己的支付ID

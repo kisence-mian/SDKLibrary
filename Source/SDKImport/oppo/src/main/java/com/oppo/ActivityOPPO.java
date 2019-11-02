@@ -65,6 +65,11 @@ public class ActivityOPPO extends SDKBase implements ILogin, IPay {
         });
     }
 
+    @Override
+    public void LoginOut(JSONObject json) {
+
+    }
+
     void GetToken() {
         GameCenterSDK.getInstance().doGetTokenAndSsoid(new ApiCallback() {
                @Override
@@ -180,6 +185,16 @@ public class ActivityOPPO extends SDKBase implements ILogin, IPay {
             SendError("OPPO Pay Error " + e, e);
             SendPayCallBack(false, payInfo);
         }
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        return false;
     }
 
     private void InitSDK() {

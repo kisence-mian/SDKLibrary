@@ -28,11 +28,21 @@ public class SDKBase {
 
     public void OnCreate() { }
 
+    public void OnStart() { }
+
+    public void OnRestart() { }
+
     public void OnResume() { }
 
     public void OnPause() { }
 
+    public void OnStop() { }
+
+    public void OnNewIntent(Intent intent) { }
+
     public void OnDestory() { }
+
+    public void OnActivityResult(int requestCode, int resultCode, Intent data){}
 
     public void CallBack(String content) {
         SdkInterface.SendMessage(content);

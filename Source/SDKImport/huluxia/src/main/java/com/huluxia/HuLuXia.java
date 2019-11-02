@@ -31,6 +31,7 @@ import sdkInterface.SDKBase;
 import sdkInterface.ILogin;
 import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.SdkInterface;
+import sdkInterface.activity.MainActivity;
 import sdkInterface.define.LoginPlatform;
 import sdkInterface.define.StoreName;
 
@@ -46,12 +47,12 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
     private HlxFloatManager mHlxFloatManager;
 
     @Override
-    public void Init(JSONObject json) {
-        super.Init(json);
-
+    public void OnCreate() {
         try
         {
+            SendLog("HuLuXia Oncreate " );
             SendLog("葫芦侠 初始化");
+            SendLog("葫芦侠 getPackageName" +  GetCurrentActivity().getApplication().getPackageName());
 
             apkID = Integer.parseInt(GetProperties().getProperty("AppID"));
             callBackUrl = GetProperties().getProperty("CallBackUrl");
@@ -61,25 +62,45 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
             SendLog("葫芦侠 callBackUrl " + callBackUrl);
             SendLog("葫芦侠 oriention " + oriention);
 
-            EventNotifyCenter.add(SdkEvent.class, mLoginCallbak);
+            //交给主线程去执行
+            GetCurrentActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    SendLog("UI主线程去执行 " );
 
-            SdkConfig.getInstance()
-                    .setApkId(apkID) //葫芦侠为每个游戏分配了一个ID；测试ID为1000；具体游戏ID请向葫芦侠商务获取。
-                    .setActivityName("sdkInterface.activity.MainActivity") //请填入游戏主Activity名称, 此处提供范例。该字段用于判定游戏Activity是否可见，从而统计在线时长。
-                    .setNotifyUrl(callBackUrl) //该url由游戏方填写，此处提供范例
-                    .setOriention(oriention);//设置横屏(ORIENTATION_LANDSCAPE)或竖屏(ORIENTATION_PORTRAIT)，根据游戏实际情况填写，默认是竖屏
+                    EventNotifyCenter.add(SdkEvent.class, mLoginCallbak);
 
-            String apk_id = SdkConfig.getInstance().getApkId();
-            String ativity_name = SdkConfig.getInstance().getActivityName();
-            String HLX_SDK_DB = "Hlx_" + apk_id + ".db";
+                    SdkConfig.getInstance()
+                            .setApkId(apkID) //葫芦侠为每个游戏分配了一个ID；测试ID为1000；具体游戏ID请向葫芦侠商务获取。
+                            .setActivityName("sdkInterface.activity.MainActivity") //请填入游戏主Activity名称, 此处提供范例。该字段用于判定游戏Activity是否可见，从而统计在线时长。
+                            .setNotifyUrl(callBackUrl) //该url由游戏方填写，此处提供范例
+                            .setOriention(oriention);//设置横屏(ORIENTATION_LANDSCAPE)或竖屏(ORIENTATION_PORTRAIT)，根据游戏实际情况填写，默认是竖屏
 
-            AppConfig.getInstance().initApp(GetCurrentActivity().getApplication(), apk_id);
-            String appName = UtilsAndroid.getApplicationName();
-            AppConfig.getInstance().setAppName(appName);
-            DbManager.init(HLX_SDK_DB);//初始化数据库
-            logServiceDaemon = new LogServiceDaemon(GetCurrentActivity().getApplication(), ativity_name);
+                    String apk_id = SdkConfig.getInstance().getApkId();
+                    String ativity_name = SdkConfig.getInstance().getActivityName();
+                    String HLX_SDK_DB = "Hlx_" + apk_id + ".db";
+
+                    AppConfig.getInstance().initApp(GetCurrentActivity().getApplication(), apk_id);
+                    String appName = UtilsAndroid.getApplicationName();
+                    AppConfig.getInstance().setAppName(appName);
+                    DbManager.init(HLX_SDK_DB);//初始化数据库
+                    logServiceDaemon = new LogServiceDaemon(GetCurrentActivity().getApplication(), ativity_name);
+                }
+            });
 
             SendLog("葫芦侠 初始化完成");
+        }catch (Exception e)
+        {
+            SendError("HuLuXia error " + e,e);
+        }
+    }
+
+    @Override
+    public void Init(JSONObject json) {
+        super.Init(json);
+
+        try
+        {
         }catch (Exception e)
         {
             SendError("Huluxia Init error"+ e,e);
@@ -91,7 +112,22 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
 
         try {
             SendLog("葫芦侠 登陆 " + json);
-            AccountMgr.getInstance().goToLoginActivity(GetCurrentActivity(),false);
+
+            //交给主线程去执行
+            GetCurrentActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+                    SendLog("葫芦侠 登陆 run " );
+                    /**
+                     *  调用登录框
+                     * 第二个参数控制登录框显示
+                     * true: 点击登录框外部，登录框消失（适合游戏自身有登录按钮的场景）; false: 点击登录框外部， 登录框不会消失
+                     */
+                    AccountMgr.getInstance().
+                            goToLoginActivity(GetCurrentActivity(), false);
+                }
+            });
 
         }catch (Exception e)
         {
@@ -114,7 +150,6 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
                 return;
             }
 
-            AccountMgr.getInstance().goToLoginActivity(GetCurrentActivity(),false);
             payInfo = sdkInterface.module.PayInfo.FromJson(json);
 
             String money = payInfo.price+"";
@@ -173,7 +208,6 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
 
                 LoginCallBack(true,hlxToken.uid + "");
 
-
             }  else if (!fromLoginActivity) {  //如果 LoginActivity未显示
                 if (!UtilsNetwork.isNetworkConnected(GetCurrentActivity())) {
                     UIHelper.toast(GetCurrentActivity(), "网络异常");
@@ -192,6 +226,12 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
         public void onPay(PayCode code, String orderNo) {
             SendLog("pay result "+code.getCode().Value()+", orderNo("+orderNo+") msg("+code.getMessage()+")");
             if (code.isSucc()){//此判断为true表示支付成功；失败时code.getMessage()是具体的错误内容
+
+                PayCallBack(true,orderNo);
+            }
+            else
+            {
+                PayCallBack(false,"");
             }
         }
 
@@ -238,15 +278,16 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
         }
     }
 
-    void PayCallBack(String orderID)
+    void PayCallBack(Boolean success,String orderID)
     {
         try
         {
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
-            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,true);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,orderID);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.UC.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt,orderID);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.Huluxia.toString());
 
             payInfo.ToJson(jo);
             SdkInterface.SendMessage(jo);

@@ -23,7 +23,7 @@ public class SdkInterface
 {
     static final String CallBackFuntionName = "OnSDKCallBack";
     static boolean isInit = false;
-    static boolean isLog = false;
+    static boolean isLog = true;
 
     static Properties SdkManifest;
     static String CallBackObjectName;
@@ -139,6 +139,11 @@ public class SdkInterface
         }
     }
 
+    public static boolean IsDebug()
+    {
+        return isLog;
+    }
+
     public static void SendLog(String LogContent)
     {
         if(isLog)
@@ -173,15 +178,17 @@ public class SdkInterface
             try
             {
                 CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
-                SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
-                isLog = GetIsLog();
 
-                //加载当前环境下有的SDK放入SDK接口内
-                InitLoginSDK(json);
-                InitLog(json);
-                InitPay(json);
-                InitAD(json);
-                InitOther(json);
+                for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+                {
+                    try {
+                        entry.getValue().Init(json);
+                    }
+                    catch (Exception e)
+                    {
+                        SendError(entry.getKey() + "Init Error:" + e.toString(),e);
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -599,7 +606,7 @@ public class SdkInterface
             Class cla = Class.forName(className);
             SDKBase sdk = (SDKBase)cla.newInstance();
             sdk.SDKName = SdkManifest.getProperty(className,className);
-            sdk.Init(json);
+//            sdk.Init(json);
             allClass.put(className,sdk);
 
             return sdk;
@@ -639,6 +646,79 @@ public class SdkInterface
         if (callback != null) {
             callback.onActivityResult(requestCode,resultCode, data);
         }
+
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnActivityResult(requestCode,resultCode, data);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onActivityResult Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnCreate()
+    {
+        try
+        {
+            SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
+            isLog = GetIsLog();
+
+            SendLog("SDKInterBase OnCreate " );
+
+            //加载当前环境下有的SDK放入SDK接口内
+            InitLoginSDK(null);
+            InitLog(null);
+            InitPay(null);
+            InitAD(null);
+            InitOther(null);
+        }catch (Exception e)
+        {
+            SendError("OnCreate Error " + e,e);
+        }
+
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnCreate();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("OnCreate Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnStart()
+    {
+        SendLog("SDKInterBase OnStart " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnStart();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnRestart()
+    {
+        SendLog("SDKInterBase OnStart " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnRestart();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
     }
 
     public static void OnDestroy()
@@ -648,21 +728,6 @@ public class SdkInterface
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
                 entry.getValue().OnDestory();;
-            }
-        }
-        catch (Exception e)
-        {
-            SendError("Other Error:" + e.toString(),e);
-        }
-    }
-
-    public static void OnCreate()
-    {
-        SendLog("SDKInterBase OnCreate " );
-        try {
-            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
-            {
-                entry.getValue().OnCreate();
             }
         }
         catch (Exception e)
@@ -682,7 +747,22 @@ public class SdkInterface
         }
         catch (Exception e)
         {
-            SendError("Other Error:" + e.toString(),e);
+            SendError("OnPause Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnStop()
+    {
+        SendLog("SDKInterBase OnStop " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnStop();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("OnStop Error:" + e.toString(),e);
         }
     }
 
@@ -697,7 +777,22 @@ public class SdkInterface
         }
         catch (Exception e)
         {
-            SendError("Other Error:" + e.toString(),e);
+            SendError("OnResume Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnNewIntent(Intent intent)
+    {
+        SendLog("SDKInterBase OnNewIntent " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnNewIntent(intent);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("OnNewIntent Error:" + e.toString(),e);
         }
     }
 

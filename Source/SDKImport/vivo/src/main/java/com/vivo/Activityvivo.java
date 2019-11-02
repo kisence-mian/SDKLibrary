@@ -58,6 +58,11 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
     }
 
     @Override
+    public void LoginOut(JSONObject json) {
+
+    }
+
+    @Override
     public void Pay(JSONObject json) {
 
         String name = "";
@@ -104,6 +109,16 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
                 SendPayCallBack(success,transNo,errorCode);
             }
         });
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        return false;
     }
 
     private void InitSDK()
