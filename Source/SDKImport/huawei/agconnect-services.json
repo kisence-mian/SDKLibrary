@@ -1,0 +1,11 @@
+{
+	"client":{
+		"cp_id":"70086000317166946",
+		"product_id":"9105385871708320380",
+		"client_id":"253297968503849984",
+		"client_secret":"D36F2D22E9CED74CFB7E4900A449388F588DD6CFB8C5DC777134435C8DAFC209",
+		"app_id":"101495095",
+		"package_name":"com.sghd.ellrland"
+	},
+	"configuration_version":"1.0"
+}

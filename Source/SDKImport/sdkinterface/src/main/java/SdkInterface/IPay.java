@@ -13,4 +13,7 @@ public interface IPay
     boolean IsPrePay();
 
     boolean IsReSendPay();
+
+    void GetGoodsInfo(JSONObject json) ;
+
 }

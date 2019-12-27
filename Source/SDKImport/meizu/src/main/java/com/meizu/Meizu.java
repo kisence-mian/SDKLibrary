@@ -82,7 +82,6 @@ public class Meizu extends SDKBase implements ILogin, IPay {
                         }
                     }
                 });
-
             }
         });
     }
@@ -116,9 +115,9 @@ public class Meizu extends SDKBase implements ILogin, IPay {
                     String cpUserInfo = payInfo.userID + "|" + payInfo.goodsID;    //   user_info
                     String amount = info[0];// total_price
                     String productId = payInfo.goodsID;                                    //   product_id
-                    String productSubject = payInfo.goodsID;                                //   product_subject
-                    String productBody = payInfo.goodsID;                                 //   product_body
-                    String productUnit = payInfo.goodsID;                                 //   product_unit
+                    String productSubject = "";                                //   product_subject
+                    String productBody = "";                                 //   product_body
+                    String productUnit = "";                                 //   product_unit
                     String app_id = appid;                                       //   app_id (不能为空)
                     String uid = mUid;                                         // uid (不能为空)flyme账号用户ID
                     String perPrice = info[0];                                      //   product_per_price
@@ -140,7 +139,7 @@ public class Meizu extends SDKBase implements ILogin, IPay {
                                 case PayResultCode.PAY_SUCCESS:    // TODO 如果成功，接下去需要到自己的服务器查询订单结果
                                     MzBuyInfo payInfo = MzBuyInfo.fromBundle(info);
                                     SendLog("支付成功 : " + payInfo.getOrderId());
-                                    PayCallBack(true, "");
+                                    PayCallBack(true, payInfo.getOrderId());
                                     break;
                                 case PayResultCode.PAY_ERROR_CANCEL:    // TODO 用户主动取消支付操作，不需要提示用户失败
                                     PayCallBack(false, "");
@@ -178,7 +177,7 @@ public class Meizu extends SDKBase implements ILogin, IPay {
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
             jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId, userID);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, true);
-            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.Huluxia.toString());
+            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.Meizu.toString());
 
             CallBack(jo);
         } catch (Exception e) {
@@ -194,7 +193,7 @@ public class Meizu extends SDKBase implements ILogin, IPay {
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, orderID);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, orderID);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.Huluxia.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.Meizu.toString());
 
             payInfo.ToJson(jo);
             SdkInterface.SendMessage(jo);

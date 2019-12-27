@@ -86,7 +86,7 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
         }
     }
 
-    @Override
+  //  @Override
     public void OnDestory() {
         HMSAgent.destroy();
     }
@@ -162,6 +162,10 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
     public void LoginOut(JSONObject json)
     {
 
+    }
+    @Override
+    public void GetGoodsInfo(JSONObject json)
+    {
     }
 
     @Override

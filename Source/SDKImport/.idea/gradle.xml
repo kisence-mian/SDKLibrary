@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/baidu" />
             <option value="$PROJECT_DIR$/dataeyes" />
             <option value="$PROJECT_DIR$/huawei" />
+            <option value="$PROJECT_DIR$/huawei3" />
             <option value="$PROJECT_DIR$/huluxia" />
             <option value="$PROJECT_DIR$/iapppay" />
             <option value="$PROJECT_DIR$/meizu" />
@@ -37,6 +38,7 @@
             <option value="$PROJECT_DIR$/weixinlogin" />
             <option value="$PROJECT_DIR$/xgpush" />
             <option value="$PROJECT_DIR$/xiaomi" />
+            <option value="$PROJECT_DIR$/ysdk" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

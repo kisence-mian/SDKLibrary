@@ -1,0 +1,5 @@
+package com.tencent.tmgp.yybtestsdk.wxapi;
+
+import com.tencent.ysdk.module.user.impl.wx.YSDKWXEntryActivity;
+
+public class WXEntryActivity extends com.tencent.ysdk.module.user.impl.wx.YSDKWXEntryActivity { }

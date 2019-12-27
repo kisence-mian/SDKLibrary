@@ -50,7 +50,7 @@ public class TalkingData extends SDKBase implements ILog
 
     @Override
     public void LogPay(JSONObject json) {
-
+        SdkInterface.SendLog("---------TalkingData LogPay 1" );
         try {
             String orderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_OrderID);
             String goodsID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
@@ -60,7 +60,7 @@ public class TalkingData extends SDKBase implements ILog
             int count =  Integer.parseInt( json.getString(SDKInterfaceDefine.Pay_ParameterName_Count));
 
             TDGAVirtualCurrency.onChargeRequest(orderID,goodsID,price,currency,count,payment);
-
+            SdkInterface.SendLog("---------TalkingData LogPay orderID" +  orderID);
             //直接认为充值成功
             TDGAVirtualCurrency.onChargeSuccess(orderID);
 
@@ -180,10 +180,11 @@ class ReportThread implements Runnable {
     }
 
     public void start () {
+        SdkInterface.SendLog("---------TalkingData LogPay ReportThread Start111" );
         if (t == null) {
+            SdkInterface.SendLog("---------TalkingData LogPay ReportThread Start222" );
             t = new Thread (this, "ReportThread");
             t.start ();
-
             SdkInterface.SendLog("ReportThread start " + orderID);
         }
     }

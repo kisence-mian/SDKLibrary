@@ -40,7 +40,9 @@ public class SDKBase {
 
     public void OnNewIntent(Intent intent) { }
 
-    public void OnDestory() { }
+    public void HandleIntent(Intent intent) { }
+
+    public void OnDestroy() { }
 
     public void OnActivityResult(int requestCode, int resultCode, Intent data){}
 

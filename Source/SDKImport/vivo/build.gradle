@@ -32,4 +32,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('libs/org.apache.http.legacy.jar')
     compile project(path: ':sdkinterface')
+    implementation files('libs/vivounionsdk_v4.4.2.0.jar')
 }

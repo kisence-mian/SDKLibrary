@@ -727,7 +727,7 @@ public class SdkInterface
         try {
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
-                entry.getValue().OnDestory();;
+                entry.getValue().OnDestroy();
             }
         }
         catch (Exception e)
@@ -795,6 +795,8 @@ public class SdkInterface
             SendError("OnNewIntent Error:" + e.toString(),e);
         }
     }
+
+
 
     static boolean GetIsLog()  {
 

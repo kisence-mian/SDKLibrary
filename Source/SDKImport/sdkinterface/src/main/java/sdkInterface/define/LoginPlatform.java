@@ -47,6 +47,10 @@ public enum LoginPlatform {
     /// </summary>
     HuaWei,
     /// <summary>
+    /// 华为3.0
+    /// </summary>
+    HuaWei3,
+    /// <summary>
     /// UC
     /// </summary>
     UC,
@@ -88,5 +92,10 @@ public enum LoginPlatform {
     /// <summary>
     /// 葫芦侠
     /// </summary>
-    Huluxia
+    Huluxia,
+
+    /// <summary>
+    /// 应用宝
+    /// </summary>
+    YSDK
 }

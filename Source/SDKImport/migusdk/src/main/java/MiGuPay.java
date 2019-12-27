@@ -219,4 +219,5 @@ public class MiGuPay extends SDKBase implements IPay , IOther
         }
 
     }
+
 }

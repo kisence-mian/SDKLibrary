@@ -1,18 +1,14 @@
 package com.baidu;
 
-import android.content.Intent;
-import android.view.View;
 import android.widget.Toast;
 
+import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.duoku.platform.single.DKPlatform;
 import com.duoku.platform.single.DKPlatformSettings;
 import com.duoku.platform.single.DkErrorCode;
 import com.duoku.platform.single.DkProtocolKeys;
 import com.duoku.platform.single.callback.IDKSDKCallBack;
-import com.duoku.platform.single.item.DKCMMdoData;
-import com.duoku.platform.single.item.DKCMYBKData;
 import com.duoku.platform.single.item.GamePropsInfo;
-import com.duoku.platform.single.util.SharedUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +17,6 @@ import sdkInterface.IPay;
 import sdkInterface.SDKBase;
 import sdkInterface.ILogin;
 import sdkInterface.SDKInterfaceDefine;
-import sdkInterface.activity.MainActivity;
 import sdkInterface.define.LoginPlatform;
 import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
@@ -175,7 +170,7 @@ public class BaiDu extends SDKBase implements ILogin, IPay
                                     String bdoauthid = jsonObject.getString(DkProtocolKeys.BD_OAUTHID);
                                     Toast.makeText(GetCurrentActivity(), "初始化成功", Toast.LENGTH_SHORT).show();
                                     initLogin();
-                                    initAds(); //调用品宣接口会崩溃
+                                    initAds(); //调用品宣接口
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -212,15 +207,26 @@ public class BaiDu extends SDKBase implements ILogin, IPay
         super.OnAppplicationQuit(json);
 
         SendLog("BaiDu OnAppplicationQuit " + json);
+        SendLog("BaiDu OnAppplicationQuit GetCurrentActivity() " + GetCurrentActivity().getLocalClassName());
 
-        DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
+        GetCurrentActivity().runOnUiThread(new Runnable() {
             @Override
-            public void onResponse(String paramString) {
-                Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
-                GetCurrentActivity().finish();
-                android.os.Process.killProcess(android.os.Process.myPid());
-            }
-        });
+            public void run() {
+
+                SendLog("BaiDu OnAppplicationQuit run" );
+
+                DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
+                    @Override
+                    public void onResponse(String paramString) {
+
+                        SendLog("BaiDu OnAppplicationQuit callback  " + paramString);
+
+                        Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
+                        GetCurrentActivity().finish();
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                    }
+                });
+            }});
     }
 
     @Override
@@ -228,14 +234,21 @@ public class BaiDu extends SDKBase implements ILogin, IPay
 
         SendLog("BaiDu LoginOut " + json);
 
-        DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
+        GetCurrentActivity().runOnUiThread(new Runnable() {
             @Override
-            public void onResponse(String paramString) {
-                Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
-                GetCurrentActivity().finish();
-                android.os.Process.killProcess(android.os.Process.myPid());
-            }
-        });
+            public void run() {
+
+                DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
+                    @Override
+                    public void onResponse(String paramString) {
+
+
+                        Toast.makeText(GetCurrentActivity(), "退出游戏", Toast.LENGTH_LONG).show();
+                        GetCurrentActivity().finish();
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                    }
+                });
+            }});
     }
 
     @Override
@@ -269,6 +282,11 @@ public class BaiDu extends SDKBase implements ILogin, IPay
     }
 
     @Override
+    public void GetGoodsInfo() {
+
+    }
+
+    @Override
     public void OnResume() {
         DKPlatform.getInstance().resumeBaiduMobileStatistic(GetCurrentActivity());
     }
@@ -285,7 +303,7 @@ public class BaiDu extends SDKBase implements ILogin, IPay
 //            });
     }
 
-    @Override
+   // @Override
     public void OnDestory() {
 //        DKPlatform.getInstance().bdgameExit(GetCurrentActivity(), new IDKSDKCallBack() {
 //            @Override
@@ -405,6 +423,4 @@ public class BaiDu extends SDKBase implements ILogin, IPay
         DKPlatform.getInstance().invokeBDInitApplication(GetCurrentActivity().getApplication());
         SendLog("BaiDu OnCreate finish");
     }
-
-
 }

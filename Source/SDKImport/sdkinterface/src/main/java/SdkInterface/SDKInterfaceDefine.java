@@ -37,6 +37,7 @@ public class SDKInterfaceDefine {
     public static final String FunctionName_OnLogin = "OnLogin";
     public static final String FunctionName_OnLogout = "OnLogout";
     public static final String FunctionName_OnPay = "OnPay";
+    public static final String Pay_FunctionName_GetGoodsInfo = "GetGoodsInfo";//获取商品信息回调
     public static final String FunctionName_OnOther = "OnOther";
 
     //LifeCycle 相关参数
@@ -64,6 +65,7 @@ public class SDKInterfaceDefine {
     public static final String Pay_ParameterName_Currency = "Currency";  //货币
     public static final String Pay_ParameterName_Payment = "Payment";   //支付途径
     public static final String Pay_ParameterName_Receipt = "Receipt";   //支付回执
+    public static final String Pay_ParameterName_LocalizedPriceString = "localizedPriceString";//本地货币类型与数目
 
     public static final String Pay_GoodsTypeEnum_ONCE_ONLY = "ONCE_ONLY";
     public static final String Pay_GoodsTypeEnum_NORMAL = "NORMAL";

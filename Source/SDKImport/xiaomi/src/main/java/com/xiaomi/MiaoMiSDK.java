@@ -71,7 +71,7 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
     }
 
     @Override
-    public void OnDestory() {
+    public void OnDestroy() {
         MiCommplatform.getInstance().onMainActivityDestory(GetCurrentActivity());
     }
 

@@ -67,6 +67,10 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
         });
     }
 
+    @Override
+    public void LoginOut(JSONObject json) {
+
+    }
 
 
     @Override
@@ -74,13 +78,16 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
         String mark = "";
         String price = "";
         String productName ="";
+        String orderID = "";
         try {
 
             payInfo = PayInfo.FromJson(json);
-            //orderID = "od_4399_"+ new Date().getTime() + new Random().nextInt(1000);
+            orderID = "od_4399_" + new Date().getTime() + "_"+new Random().nextInt(1000);
             mark = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
             price = json.getString(SDKInterfaceDefine.Pay_ParameterName_Price);
             productName = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsName);
+
+            payInfo.orderID = orderID;
         }
         catch (Exception e)
         {
@@ -90,7 +97,7 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
 
         mOpeCenter.recharge(GetCurrentActivity() ,
                 Integer.parseInt(price),             //充值金额（元）
-                mark,           //游戏方订单号
+                orderID,           //游戏方订单号
                 productName,    //商品名称
                 new OperateCenter.OnRechargeFinishedListener() {
 
@@ -110,6 +117,16 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
                         }
                     }
                 });
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        return false;
     }
 
     OperateCenter mOpeCenter;
@@ -175,6 +192,7 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,GoodsID);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt,payInfo.orderID);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
             jo.put(SDKInterfaceDefine.ParameterName_Content,info);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.m4399.toString());
@@ -191,6 +209,11 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
     @Override
     public void Other(JSONObject json)
     {
+    }
+
+    public String GenerateOrderID()
+    {
+        return "od_4399" + new Date().getTime() + "_" + new Random().nextInt()%1000;
     }
 
     @Override

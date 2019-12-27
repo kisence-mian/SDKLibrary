@@ -20,6 +20,7 @@ public enum StoreName
     OPPO,
     VIVO,
     HuaWei,
+    HuaWei3,
     UC,
     Baidu,
     m360,
@@ -28,5 +29,6 @@ public enum StoreName
     Coolpad,//  酷派
     Lenovo,// 联想
     Gionee,// 金立
-    Huluxia// 葫芦侠
+    Huluxia,// 葫芦侠
+    YSDK,// 应用宝
 }

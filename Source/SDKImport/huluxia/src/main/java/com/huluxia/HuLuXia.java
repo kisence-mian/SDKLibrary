@@ -177,11 +177,11 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
 
     @Override
     public boolean IsReSendPay() {
-        return false;
+        return true;
     }
 
     @Override
-    public void OnDestory() {
+    public void OnDestroy() {
         EventNotifyCenter.remove(mLoginCallbak);
     }
 
@@ -301,5 +301,10 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
     @Override
     public void OnResume() {
         super.OnResume();
+    }
+
+    @Override
+    public void OnAppplicationQuit(JSONObject json) {
+        super.OnAppplicationQuit(json);
     }
 }
