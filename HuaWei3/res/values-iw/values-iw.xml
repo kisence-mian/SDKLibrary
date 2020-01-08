@@ -1,50 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hms_abort" priority="translator">"עצור"</string>
-    <string name="hms_abort_message" priority="translator">"להפסיק את ההורדה?"</string>
-    <string name="hms_bindfaildlg_message" priority="translator">"%1$s לא יכול להשתמש בשירותים הניידים של Huawei. הפעל את מנהל הטלפון או עבור אל \'הגדרות\', הפעל את כל ההרשאות עבור %2$s (כולל הפעלה אוטומטית והפעלה משנית), ונסה שוב."</string>
-    <string name="hms_cancel" priority="translator">"ביטול"</string>
-    <string name="hms_check_failure" priority="translator">"חיפוש העדכונים נכשל."</string>
-    <string name="hms_check_no_update" priority="translator">"הגרסה שלך מעודכנת."</string>
-    <string name="hms_checking" priority="translator">"מחפש עדכונים…"</string>
-    <string name="hms_confirm" priority="translator">"אישור"</string>
-    <string name="hms_download_failure" priority="translator">"נכשלה ההורדה של חבילת Huawei Mobile Services."</string>
-    <string name="hms_download_no_space" priority="translator">"אין מספיק מקום פנוי. אין אפשרות להשלים את ההורדה."</string>
-    <string name="hms_download_retry" priority="translator">"ההורדה נכשלה. האם לנסות שנית?"</string>
-    <string name="hms_downloading" priority="translator">"מוריד את Huawei Mobile Services | התקדמות: ‪‎%d%%‬"</string>
-    <string name="hms_downloading_loading" priority="LT">"מוריד"</string>
-    <string name="hms_downloading_new" priority="LT">"הורדת HMS"</string>
-    <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
-    <string name="hms_install" priority="translator">"התקן"</string>
-    <string name="hms_install_message" priority="translator">"יש להתקין את השירותים הניידים של Huawei כדי להשתמש בתכונה זו. להתקין?"</string>
-    <string name="hms_retry" priority="translator">"נסה שוב"</string>
-    <string name="hms_update" priority="translator">"עדכון"</string>
-    <string name="hms_update_continue" priority="LT">"הורד"</string>
-    <string name="hms_update_message" priority="translator">"עדכן לגרסה העדכנית ביותר של Huawei Mobile Services כדי להשתמש בתכונה זו. לעדכן עכשיו?"</string>
-    <string name="hms_update_message_new" priority="LT">"לשירות זה דרושה הגרסה האחרונה של היישום:\n\n%1$s"</string>
-    <string name="hms_update_nettype" priority="LT">"אין חיבור Wi-Fi. להוריד באמצעות נתונים סלולריים?"</string>
-    <string name="hms_update_title" priority="translator">"Huawei Mobile Services"</string>
-    <string name="upsdk_app_dl_installing" priority="LT">"מוריד את AppGallery"</string>
-    <string name="upsdk_app_download_info_new" priority="translator">"התקן"</string>
-    <string name="upsdk_app_size" priority="translator">"גודל"</string>
-    <string name="upsdk_app_version" priority="translator">"גרסה"</string>
-    <string name="upsdk_cancel" priority="translator">"ביטול"</string>
-    <string name="upsdk_checking_update_prompt" priority="translator">"מחפש עדכונים…"</string>
-    <string name="upsdk_choice_update" priority="LT">"קיים עדכון. הורד והתקן את הגרסה העדכנית ביותר."</string>
-    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"אין אפשרות להתחבר לשרת. נסה שוב מאוחר יותר."</string>
-    <string name="upsdk_detail" priority="translator">"פרטים"</string>
-    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"אין אפשרות לאחזר מידע. נסה שוב מאוחר יותר."</string>
-    <string name="upsdk_install" priority="LT">"התקן את AppGallery כדי לעדכן. להתקין כעת?"</string>
-    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"אין חיבור אינטרנט. בדוק את הגדרות הרשת."</string>
-    <string name="upsdk_ota_app_name" priority="LT">"יישום"</string>
-    <string name="upsdk_ota_cancel" priority="translator">"מאוחר יותר"</string>
-    <string name="upsdk_ota_force_cancel_new" priority="LT">"יציאה"</string>
-    <string name="upsdk_ota_notify_updatebtn" priority="translator">"עדכן"</string>
-    <string name="upsdk_ota_title" priority="translator">"גרסה חדשה"</string>
-    <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"לבטל את ההתקנה?"</string>
-    <string name="upsdk_third_app_dl_install_failed" priority="translator">"ההתקנה נכשלה."</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"כן"</string>
-    <string name="upsdk_update_check_no_new_version" priority="translator">"הגרסה שלך מעודכנת."</string>
-    <string name="upsdk_updating" priority="translator">"מעדכן"</string>
+  <string name="hms_abort" priority="translator">"עצור"</string>
+  <string name="hms_abort_message" priority="translator">"להפסיק את ההורדה?"</string>
+  <string name="hms_bindfaildlg_message" priority="translator">"%1$s לא יכול להשתמש בשירותים הניידים של Huawei. הפעל את מנהל הטלפון או עבור אל \'הגדרות\', הפעל את כל ההרשאות עבור %2$s (כולל הפעלה אוטומטית והפעלה משנית), ונסה שוב."</string>
+  <string name="hms_cancel" priority="translator">"ביטול"</string>
+  <string name="hms_check_failure" priority="translator">"חיפוש העדכונים נכשל."</string>
+  <string name="hms_check_no_update" priority="translator">"הגרסה שלך מעודכנת."</string>
+  <string name="hms_checking" priority="translator">"מחפש עדכונים…"</string>
+  <string name="hms_confirm" priority="translator">"אישור"</string>
+  <string name="hms_download_failure" priority="translator">"נכשלה ההורדה של חבילת Huawei Mobile Services."</string>
+  <string name="hms_download_no_space" priority="translator">"אין מספיק מקום פנוי. אין אפשרות להשלים את ההורדה."</string>
+  <string name="hms_download_retry" priority="translator">"ההורדה נכשלה. האם לנסות שנית?"</string>
+  <string name="hms_downloading" priority="translator">"מוריד את Huawei Mobile Services | התקדמות: ‪‎%d%%‬"</string>
+  <string name="hms_downloading_loading" priority="LT">"מוריד"</string>
+  <string name="hms_downloading_new" priority="LT">"הורדת HMS"</string>
+  <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+  <string name="hms_install" priority="translator">"התקן"</string>
+  <string name="hms_install_message" priority="translator">"יש להתקין את השירותים הניידים של Huawei כדי להשתמש בתכונה זו. להתקין?"</string>
+  <string name="hms_retry" priority="translator">"נסה שוב"</string>
+  <string name="hms_update" priority="translator">"עדכון"</string>
+  <string name="hms_update_continue" priority="LT">"הורד"</string>
+  <string name="hms_update_message" priority="translator">"עדכן לגרסה העדכנית ביותר של Huawei Mobile Services כדי להשתמש בתכונה זו. לעדכן עכשיו?"</string>
+  <string name="hms_update_message_new" priority="LT">"לשירות זה דרושה הגרסה האחרונה של היישום:\n\n%1$s"</string>
+  <string name="hms_update_nettype" priority="LT">"אין חיבור Wi-Fi. להוריד באמצעות נתונים סלולריים?"</string>
+  <string name="hms_update_title" priority="translator">"Huawei Mobile Services"</string>
+  <string name="upsdk_app_dl_installing" priority="LT">"מוריד את AppGallery"</string>
+  <string name="upsdk_app_download_info_new" priority="translator">"התקן"</string>
+  <string name="upsdk_app_size" priority="translator">"גודל"</string>
+  <string name="upsdk_app_version" priority="translator">"גרסה"</string>
+  <string name="upsdk_cancel" priority="translator">"ביטול"</string>
+  <string name="upsdk_checking_update_prompt" priority="translator">"מחפש עדכונים…"</string>
+  <string name="upsdk_choice_update" priority="LT">"קיים עדכון. הורד והתקן את הגרסה העדכנית ביותר."</string>
+  <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"אין אפשרות להתחבר לשרת. נסה שוב מאוחר יותר."</string>
+  <string name="upsdk_detail" priority="translator">"פרטים"</string>
+  <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"אין אפשרות לאחזר מידע. נסה שוב מאוחר יותר."</string>
+  <string name="upsdk_install" priority="LT">"התקן את AppGallery כדי לעדכן. להתקין כעת?"</string>
+  <string name="upsdk_no_available_network_prompt_toast" priority="translator">"אין חיבור אינטרנט. בדוק את הגדרות הרשת."</string>
+  <string name="upsdk_ota_app_name" priority="LT">"יישום"</string>
+  <string name="upsdk_ota_cancel" priority="translator">"מאוחר יותר"</string>
+  <string name="upsdk_ota_force_cancel_new" priority="LT">"יציאה"</string>
+  <string name="upsdk_ota_notify_updatebtn" priority="translator">"עדכן"</string>
+  <string name="upsdk_ota_title" priority="translator">"גרסה חדשה"</string>
+  <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+  <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"לבטל את ההתקנה?"</string>
+  <string name="upsdk_third_app_dl_install_failed" priority="translator">"ההתקנה נכשלה."</string>
+  <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"כן"</string>
+  <string name="upsdk_update_check_no_new_version" priority="translator">"הגרסה שלך מעודכנת."</string>
+  <string name="upsdk_updating" priority="translator">"מעדכן"</string>
+  <string name="c_buoycircle_abort" priority="translator">"כן"</string>
+  <string name="c_buoycircle_abort_message" priority="translator">"להפסיק את ההורדה?"</string>
+  <string name="c_buoycircle_appmarket_name" priority="translator">"HUAWEI AppGallery"</string>
+  <string name="c_buoycircle_auto_hide_notice" priority="translator">"גרור לכאן כדי להסתיר"</string>
+  <string name="c_buoycircle_cancel" priority="translator">"בטל"</string>
+  <string name="c_buoycircle_check_failure" priority="translator">"בדיקת העדכון נכשלה."</string>
+  <string name="c_buoycircle_checking" priority="translator">"מחפש עדכונים…"</string>
+  <string name="c_buoycircle_confirm" priority="translator">"אישור"</string>
+  <string name="c_buoycircle_download_failure" priority="translator">"לא ניתן להוריד את HUAWEI AppGallery."</string>
+  <string name="c_buoycircle_download_no_space" priority="translator">"אין מספיק מקום פנוי. אין אפשרות להוריד."</string>
+  <string name="c_buoycircle_download_retry" priority="translator">"ההורדה נכשלה. לנסות שוב?"</string>
+  <string name="c_buoycircle_downloading_loading" priority="translator">"מוריד…"</string>
+  <string name="c_buoycircle_floatwindow_click_fail_toast" priority="translator">"אפשר את ההפעלה המשנית של HUAWEI AppGallery במנהל הטלפון או בהגדרות."</string>
+  <string name="c_buoycircle_hide_guide_btn_cancel" priority="translator">"בטל"</string>
+  <string name="c_buoycircle_hide_guide_btn_confirm" priority="translator">"הסתר"</string>
+  <string name="c_buoycircle_hide_guide_content_nosensor" priority="translator">"לאחר הסתרת הבלונים, יהיה עליך להפעיל מחדש את היישום כדי להציגם שוב."</string>
+  <string name="c_buoycircle_hide_guide_content_sensor" priority="translator">"לאחר הסתרת הבלונים, הפוך את ההתקן כדי להציג אותם שוב."</string>
+  <string name="c_buoycircle_hide_guide_noremind" priority="translator">"אל תזכיר לי שוב"</string>
+  <string name="c_buoycircle_hide_guide_title" priority="translator">"הסתר בלונים"</string>
+  <string name="c_buoycircle_install" priority="translator">"התקן"</string>
+  <string name="c_buoycircle_no" priority="translator">"לא"</string>
+  <string name="c_buoycircle_retry" priority="translator">"נסה שוב"</string>
+  <string name="c_buoycircle_update_message_new" priority="translator">"לשימוש בשירות זה, נדרשת הגרסה העדכנית של היישום:\n\n%1$s"</string>
+  <string name="hms_game_achievement_finish_notice" priority="LT">"בוטלה הנעילה של %1$s"</string>
+  <string name="hms_game_check_update_failed_content" priority="LT">"לא ניתן לגשת. שירות זה זקוק לגרסה האחרונה של AppAssistant."</string>
+  <string name="hms_game_check_update_success_content" priority="LT">"כדי להשתמש בשירות זה, התקן את הגרסה האחרונה של AppAssistant‏ (%1$s MB)."</string>
+  <string name="hms_game_login_notice" priority="LT">"%1$s‬, ברוך הבא"</string>
 </resources>

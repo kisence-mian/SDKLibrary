@@ -168,7 +168,6 @@ public class SdkInterface
     }
 
     //endregion
-
     //region Init
     static void Init(JSONObject json)
     {

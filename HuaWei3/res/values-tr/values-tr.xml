@@ -1,50 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hms_abort" priority="translator">"Durdur"</string>
-    <string name="hms_abort_message" priority="translator">"İndirme durdurulsun mu?"</string>
-    <string name="hms_bindfaildlg_message" priority="translator">"%1$s Huawei Mobil Hizmetleri\’ni kullanamıyor. Lütfen Telefon Yöneticisi\’ni başlatın veya Ayarlar\’a gidin, %2$s için tüm izinleri (otomatik başlatma ve ikincil başlatma dahil) etkinleştirin ve tekrar deneyin."</string>
-    <string name="hms_cancel" priority="translator">"İptal"</string>
-    <string name="hms_check_failure" priority="translator">"Güncelleme kontrolü gerçekleştirilemedi."</string>
-    <string name="hms_check_no_update" priority="translator">"Sürümünüz güncel."</string>
-    <string name="hms_checking" priority="translator">"Güncellemeler kontrol ediliyor..."</string>
-    <string name="hms_confirm" priority="translator">"Tamam"</string>
-    <string name="hms_download_failure" priority="translator">"Huawei Mobil Hizmetleri paketi indirilemedi."</string>
-    <string name="hms_download_no_space" priority="translator">"Yeterli boş alan yok. İndirme işlemi tamamlanamıyor."</string>
-    <string name="hms_download_retry" priority="translator">"İndirme başarısız. Tekrar denensin mi?"</string>
-    <string name="hms_downloading" priority="translator">"Huawei Mobil Hizmetleri indiriliyor | ilerleme: %d%%"</string>
-    <string name="hms_downloading_loading" priority="LT">"İndiriliyor"</string>
-    <string name="hms_downloading_new" priority="LT">"HMS indiriliyor"</string>
-    <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
-    <string name="hms_install" priority="translator">"Yükle"</string>
-    <string name="hms_install_message" priority="translator">"Bu özelliği kullanmak için Huawei Mobil Hizmetleri yüklü olmalıdır. Yüklensin mi?"</string>
-    <string name="hms_retry" priority="translator">"Tekrar dene"</string>
-    <string name="hms_update" priority="translator">"Güncelle"</string>
-    <string name="hms_update_continue" priority="LT">"İndir"</string>
-    <string name="hms_update_message" priority="translator">"Bu özelliği kullanmak için Huawei Mobil Hizmetlerini son sürümüne güncelleyin. Şimdi güncellensin mi?"</string>
-    <string name="hms_update_message_new" priority="LT">"Bu hizmet için şu uygulamanın son sürümü gerekmektedir:\n\n%1$s"</string>
-    <string name="hms_update_nettype" priority="LT">"Wi-Fi bağlantısı yok. Mobil veri kullanarak indirilsin mi?"</string>
-    <string name="hms_update_title" priority="translator">"Huawei Mobil Hizmetleri"</string>
-    <string name="upsdk_app_dl_installing" priority="LT">"AppGallery indiriliyor"</string>
-    <string name="upsdk_app_download_info_new" priority="translator">"Yükle"</string>
-    <string name="upsdk_app_size" priority="translator">"Boyut"</string>
-    <string name="upsdk_app_version" priority="translator">"Sürüm"</string>
-    <string name="upsdk_cancel" priority="LT">"İptal"</string>
-    <string name="upsdk_checking_update_prompt" priority="translator">"Güncellemeler denetleniyor…"</string>
-    <string name="upsdk_choice_update" priority="LT">"Güncelleme mevcut. Lütfen en son sürümü indirin ve yükleyin."</string>
-    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Sunucuya bağlanamadı. Lütfen daha sonra tekrar deneyin."</string>
-    <string name="upsdk_detail" priority="translator">"Ayrıntılar"</string>
-    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Bilgiler alınamıyor. Lütfen daha sonra tekrar deneyin."</string>
-    <string name="upsdk_install" priority="LT">"Güncellemek için AppGallery\'yi yükleyin. Şimdi yüklensin mi?"</string>
-    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"İnternet bağlantısı yok. Lütfen ağ ayarlarınızı kontrol edin."</string>
-    <string name="upsdk_ota_app_name" priority="LT">"Uygulama"</string>
-    <string name="upsdk_ota_cancel" priority="translator">"Sonra"</string>
-    <string name="upsdk_ota_force_cancel_new" priority="LT">"Çıkış"</string>
-    <string name="upsdk_ota_notify_updatebtn" priority="translator">"Güncelle"</string>
-    <string name="upsdk_ota_title" priority="translator">"Yeni sürüm"</string>
-    <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Yükleme iptal edilsin mi?"</string>
-    <string name="upsdk_third_app_dl_install_failed" priority="translator">"Yüklenemedi."</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Evet"</string>
-    <string name="upsdk_update_check_no_new_version" priority="translator">"Sürümünüz güncel."</string>
-    <string name="upsdk_updating" priority="translator">"Güncelleniyor"</string>
+  <string name="hms_abort" priority="translator">"Durdur"</string>
+  <string name="hms_abort_message" priority="translator">"İndirme durdurulsun mu?"</string>
+  <string name="hms_bindfaildlg_message" priority="translator">"%1$s Huawei Mobil Hizmetleri\’ni kullanamıyor. Lütfen Telefon Yöneticisi\’ni başlatın veya Ayarlar\’a gidin, %2$s için tüm izinleri (otomatik başlatma ve ikincil başlatma dahil) etkinleştirin ve tekrar deneyin."</string>
+  <string name="hms_cancel" priority="translator">"İptal"</string>
+  <string name="hms_check_failure" priority="translator">"Güncelleme kontrolü gerçekleştirilemedi."</string>
+  <string name="hms_check_no_update" priority="translator">"Sürümünüz güncel."</string>
+  <string name="hms_checking" priority="translator">"Güncellemeler kontrol ediliyor..."</string>
+  <string name="hms_confirm" priority="translator">"Tamam"</string>
+  <string name="hms_download_failure" priority="translator">"Huawei Mobil Hizmetleri paketi indirilemedi."</string>
+  <string name="hms_download_no_space" priority="translator">"Yeterli boş alan yok. İndirme işlemi tamamlanamıyor."</string>
+  <string name="hms_download_retry" priority="translator">"İndirme başarısız. Tekrar denensin mi?"</string>
+  <string name="hms_downloading" priority="translator">"Huawei Mobil Hizmetleri indiriliyor | ilerleme: %d%%"</string>
+  <string name="hms_downloading_loading" priority="LT">"İndiriliyor"</string>
+  <string name="hms_downloading_new" priority="LT">"HMS indiriliyor"</string>
+  <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+  <string name="hms_install" priority="translator">"Yükle"</string>
+  <string name="hms_install_message" priority="translator">"Bu özelliği kullanmak için Huawei Mobil Hizmetleri yüklü olmalıdır. Yüklensin mi?"</string>
+  <string name="hms_retry" priority="translator">"Tekrar dene"</string>
+  <string name="hms_update" priority="translator">"Güncelle"</string>
+  <string name="hms_update_continue" priority="LT">"İndir"</string>
+  <string name="hms_update_message" priority="translator">"Bu özelliği kullanmak için Huawei Mobil Hizmetlerini son sürümüne güncelleyin. Şimdi güncellensin mi?"</string>
+  <string name="hms_update_message_new" priority="LT">"Bu hizmet için şu uygulamanın son sürümü gerekmektedir:\n\n%1$s"</string>
+  <string name="hms_update_nettype" priority="LT">"Wi-Fi bağlantısı yok. Mobil veri kullanarak indirilsin mi?"</string>
+  <string name="hms_update_title" priority="translator">"Huawei Mobil Hizmetleri"</string>
+  <string name="upsdk_app_dl_installing" priority="LT">"AppGallery indiriliyor"</string>
+  <string name="upsdk_app_download_info_new" priority="translator">"Yükle"</string>
+  <string name="upsdk_app_size" priority="translator">"Boyut"</string>
+  <string name="upsdk_app_version" priority="translator">"Sürüm"</string>
+  <string name="upsdk_cancel" priority="LT">"İptal"</string>
+  <string name="upsdk_checking_update_prompt" priority="translator">"Güncellemeler denetleniyor…"</string>
+  <string name="upsdk_choice_update" priority="LT">"Güncelleme mevcut. Lütfen en son sürümü indirin ve yükleyin."</string>
+  <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Sunucuya bağlanamadı. Lütfen daha sonra tekrar deneyin."</string>
+  <string name="upsdk_detail" priority="translator">"Ayrıntılar"</string>
+  <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Bilgiler alınamıyor. Lütfen daha sonra tekrar deneyin."</string>
+  <string name="upsdk_install" priority="LT">"Güncellemek için AppGallery\'yi yükleyin. Şimdi yüklensin mi?"</string>
+  <string name="upsdk_no_available_network_prompt_toast" priority="translator">"İnternet bağlantısı yok. Lütfen ağ ayarlarınızı kontrol edin."</string>
+  <string name="upsdk_ota_app_name" priority="LT">"Uygulama"</string>
+  <string name="upsdk_ota_cancel" priority="translator">"Sonra"</string>
+  <string name="upsdk_ota_force_cancel_new" priority="LT">"Çıkış"</string>
+  <string name="upsdk_ota_notify_updatebtn" priority="translator">"Güncelle"</string>
+  <string name="upsdk_ota_title" priority="translator">"Yeni sürüm"</string>
+  <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+  <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Yükleme iptal edilsin mi?"</string>
+  <string name="upsdk_third_app_dl_install_failed" priority="translator">"Yüklenemedi."</string>
+  <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Evet"</string>
+  <string name="upsdk_update_check_no_new_version" priority="translator">"Sürümünüz güncel."</string>
+  <string name="upsdk_updating" priority="translator">"Güncelleniyor"</string>
+  <string name="c_buoycircle_abort" priority="translator">"EVET"</string>
+  <string name="c_buoycircle_abort_message" priority="translator">"İndirme işlemi durdurulsun mu?"</string>
+  <string name="c_buoycircle_appmarket_name" priority="translator">"HUAWEI AppGallery"</string>
+  <string name="c_buoycircle_auto_hide_notice" priority="translator">"Gizlemek için buraya sürükleyin"</string>
+  <string name="c_buoycircle_cancel" priority="translator">"İPTAL"</string>
+  <string name="c_buoycircle_check_failure" priority="translator">"Güncelleme kontrolü yapılamadı."</string>
+  <string name="c_buoycircle_checking" priority="translator">"Güncellemeler kontrol ediliyor…"</string>
+  <string name="c_buoycircle_confirm" priority="translator">"TAMAM"</string>
+  <string name="c_buoycircle_download_failure" priority="translator">"HUAWEI AppGallery indirilemedi."</string>
+  <string name="c_buoycircle_download_no_space" priority="translator">"Yeterli boş alan yok. İndirilemiyor."</string>
+  <string name="c_buoycircle_download_retry" priority="translator">"İndirilemedi. Tekrar denensin mi?"</string>
+  <string name="c_buoycircle_downloading_loading" priority="translator">"İndiriliyor…"</string>
+  <string name="c_buoycircle_floatwindow_click_fail_toast" priority="translator">"Telefon Yöneticisi veya Ayarlar bölümünden HUAWEI AppGallery için İkincil başlatmayı etkinleştirin."</string>
+  <string name="c_buoycircle_hide_guide_btn_cancel" priority="translator">"İPTAL"</string>
+  <string name="c_buoycircle_hide_guide_btn_confirm" priority="translator">"GİZLE"</string>
+  <string name="c_buoycircle_hide_guide_content_nosensor" priority="translator">"Balonlar gizlendikten sonra tekrar görüntülemek için uygulamayı yeniden başlatmanız gerekmektedir."</string>
+  <string name="c_buoycircle_hide_guide_content_sensor" priority="translator">"Balonlar gizlendikten sonra tekrar görüntülemek için cihazınızı çevirin."</string>
+  <string name="c_buoycircle_hide_guide_noremind" priority="translator">"Tekrar hatırlatma"</string>
+  <string name="c_buoycircle_hide_guide_title" priority="translator">"Balonları gizle"</string>
+  <string name="c_buoycircle_install" priority="translator">"YÜKLE"</string>
+  <string name="c_buoycircle_no" priority="translator">"HAYIR"</string>
+  <string name="c_buoycircle_retry" priority="translator">"TEKRAR DENE"</string>
+  <string name="c_buoycircle_update_message_new" priority="translator">"Bu servis aşağıdaki uygulamanın en son sürümünü gerektirmektedir:\n\n%1$s"</string>
+  <string name="hms_game_achievement_finish_notice" priority="LT">"%1$s kilidi açıldı"</string>
+  <string name="hms_game_check_update_failed_content" priority="LT">"Erişilemiyor. Bu servis için AppAssistant\'ın en son sürümü gerekir."</string>
+  <string name="hms_game_check_update_success_content" priority="LT">"Bu servisi kullanmak için AppAssistant\'ın en son sürümünü (%1$s MB) yükleyin."</string>
+  <string name="hms_game_login_notice" priority="LT">"Hoş geldin %1$s"</string>
 </resources>

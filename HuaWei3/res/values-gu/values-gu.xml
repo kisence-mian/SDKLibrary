@@ -1,50 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hms_abort" priority="translator">"રોકો"</string>
-    <string name="hms_abort_message" priority="translator">"ડાઉનલોડ કરવાનું રોકીએ?"</string>
-    <string name="hms_bindfaildlg_message" priority="translator">"%1$s Huawei Mobile Services ઉપયોગ કરવા અસમર્થ છે. કૃપા કરીને ફોન મેનેજર લોંચ કરો અથવા સેટિંગ્સ પર જાઓ, %2$s માટે તમામ પરવાનગીઓ (સ્વતઃ-લોન્ચ કરો અને સેકંડરી લોંચ સહિત) સક્ષમ કરો અને ફરીથી પ્રયાસ કરો."</string>
-    <string name="hms_cancel" priority="translator">"રદ કરો"</string>
-    <string name="hms_check_failure" priority="translator">"અપડેટ્સ માટે તપાસ કરવામાં નિષ્ફળ."</string>
-    <string name="hms_check_no_update" priority="translator">"તમારું સંસ્કરણ અપ ટુ ડેટ છે."</string>
-    <string name="hms_checking" priority="translator">"અપડેટ માટે તપાસી રહ્યું છે..."</string>
-    <string name="hms_confirm" priority="translator">"ઑકે"</string>
-    <string name="hms_download_failure" priority="translator">"Huawei Mobile Services નું પૅકેજ ડાઉનલોડ કરવામાં નિષ્ફળ."</string>
-    <string name="hms_download_no_space" priority="translator">"પુરતા પ્રમાણમાં ખાલી જગ્યા નથી. ડાઉનલોડ પૂર્ણ કરી શકાતુ નથી."</string>
-    <string name="hms_download_retry" priority="translator">"ડાઉનલોડ નિષ્ફળ. ફરીથી પ્રયત્ન કરવો છે?"</string>
-    <string name="hms_downloading" priority="translator">"Huawei Mobile Services \nપ્રગતિ ડાઉનલોડ કરી રહ્યું છે: %d%%"</string>
-    <string name="hms_downloading_loading" priority="LT">"ડાઉનલોડ થઇ રહ્યું છે"</string>
-    <string name="hms_downloading_new" priority="translator">"HMS ડાઉનલોડ કરાઇ રહ્યું છે"</string>
-    <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
-    <string name="hms_install" priority="translator">"ઇન્સ્ટોલ કરો"</string>
-    <string name="hms_install_message" priority="translator">"આ સુવિધાનો ઉપયોગ કરવા માટે Huawei Mobile Services ઇન્સ્ટોલ કરવી અનિવાર્ય છે. ઇન્સ્ટોલ કરવું છે?"</string>
-    <string name="hms_retry" priority="translator">"પુન:પ્રયાસ કરો"</string>
-    <string name="hms_update" priority="translator">"અપડેટ કરો"</string>
-    <string name="hms_update_continue" priority="LT">"ડાઉનલોડ કરો"</string>
-    <string name="hms_update_message" priority="translator">"આ સુવિધાનો ઉપયોગ કરવા માટે Huawei Mobile Services અદ્યતન સંસ્કરણ પર અપડેટ કરો. અત્યારે અપડેટ કરવું છે?"</string>
-    <string name="hms_update_message_new" priority="translator">"આ સેવાને નીચેની એપના લેટેસ્ટ સંસ્કરણ ની જરૂર છે:\n\n%1$s"</string>
-    <string name="hms_update_nettype" priority="LT">"કોઇ Wi-Fi કનેક્શન નથી. મોબાઇલ ડેટાના ઉપયોગથી ડાઉનલોડ કરવું છે?"</string>
-    <string name="hms_update_title" priority="translator">"Huawei Mobile Services"</string>
-    <string name="upsdk_app_dl_installing" priority="translator">"AppGallery ડાઉનલોડ કરી રહ્યું છે"</string>
-    <string name="upsdk_app_download_info_new" priority="translator">"ઇન્સ્ટોલ કરો"</string>
-    <string name="upsdk_app_size" priority="translator">"કદ"</string>
-    <string name="upsdk_app_version" priority="translator">"સંસ્કરણ"</string>
-    <string name="upsdk_cancel" priority="translator">"રદ કરો"</string>
-    <string name="upsdk_checking_update_prompt" priority="translator">"અપડેટ માટે તપાસી રહ્યું છે..."</string>
-    <string name="upsdk_choice_update" priority="translator">"અપડેટ ઉપલબ્ધ. કૃપા કરીને નવું સંસ્કરણ ડાઉનલોડ કરીને ઇન્સ્ટોલ કરો."</string>
-    <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"સર્વર સાથે કનેક્ટ કરવામાં અસમર્થ. કૃપા કરી પછી ફરી પ્રયત્ન કરો."</string>
-    <string name="upsdk_detail" priority="translator">"વિગતો"</string>
-    <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"માહિતી પુનઃપ્રાપ્ત કરવામાં અસમર્થ. કૃપા કરી પછી ફરી પ્રયત્ન કરો."</string>
-    <string name="upsdk_install" priority="translator">"અપડેટ કરવા માટે AppGallery ઇન્સ્ટોલ કરો. અત્યારે ઇન્સ્ટોલ કરીએ?"</string>
-    <string name="upsdk_no_available_network_prompt_toast" priority="translator">"કોઈ ઇન્ટરનેટ કનેક્શન નથી. કૃપા કરી તમારા નેટવર્ક સેટિંગ્સ તપાસો."</string>
-    <string name="upsdk_ota_app_name" priority="translator">"એપ"</string>
-    <string name="upsdk_ota_cancel" priority="translator">"પછી"</string>
-    <string name="upsdk_ota_force_cancel_new" priority="translator">"બહાર નીકળો"</string>
-    <string name="upsdk_ota_notify_updatebtn" priority="translator">"અપડેટ કરો"</string>
-    <string name="upsdk_ota_title" priority="translator">"નવું સંસ્કરણ"</string>
-    <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"શું ઇન્સ્ટોલેશન રદ કરીએ?"</string>
-    <string name="upsdk_third_app_dl_install_failed" priority="translator">"ઇન્સ્ટોલેશન નિષ્ફળ."</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"હા"</string>
-    <string name="upsdk_update_check_no_new_version" priority="translator">"તમારું સંસ્કરણ અપ ટુ ડેટ છે."</string>
-    <string name="upsdk_updating" priority="translator">"અપડેટ થઈ રહ્યું છે"</string>
+  <string name="hms_abort" priority="translator">"રોકો"</string>
+  <string name="hms_abort_message" priority="translator">"ડાઉનલોડ કરવાનું રોકીએ?"</string>
+  <string name="hms_bindfaildlg_message" priority="translator">"%1$s Huawei Mobile Services ઉપયોગ કરવા અસમર્થ છે. કૃપા કરીને ફોન મેનેજર લોંચ કરો અથવા સેટિંગ્સ પર જાઓ, %2$s માટે તમામ પરવાનગીઓ (સ્વતઃ-લોન્ચ કરો અને સેકંડરી લોંચ સહિત) સક્ષમ કરો અને ફરીથી પ્રયાસ કરો."</string>
+  <string name="hms_cancel" priority="translator">"રદ કરો"</string>
+  <string name="hms_check_failure" priority="translator">"અપડેટ્સ માટે તપાસ કરવામાં નિષ્ફળ."</string>
+  <string name="hms_check_no_update" priority="translator">"તમારું સંસ્કરણ અપ ટુ ડેટ છે."</string>
+  <string name="hms_checking" priority="translator">"અપડેટ માટે તપાસી રહ્યું છે..."</string>
+  <string name="hms_confirm" priority="translator">"ઑકે"</string>
+  <string name="hms_download_failure" priority="translator">"Huawei Mobile Services નું પૅકેજ ડાઉનલોડ કરવામાં નિષ્ફળ."</string>
+  <string name="hms_download_no_space" priority="translator">"પુરતા પ્રમાણમાં ખાલી જગ્યા નથી. ડાઉનલોડ પૂર્ણ કરી શકાતુ નથી."</string>
+  <string name="hms_download_retry" priority="translator">"ડાઉનલોડ નિષ્ફળ. ફરીથી પ્રયત્ન કરવો છે?"</string>
+  <string name="hms_downloading" priority="translator">"Huawei Mobile Services \nપ્રગતિ ડાઉનલોડ કરી રહ્યું છે: %d%%"</string>
+  <string name="hms_downloading_loading" priority="LT">"ડાઉનલોડ થઇ રહ્યું છે"</string>
+  <string name="hms_downloading_new" priority="translator">"HMS ડાઉનલોડ કરાઇ રહ્યું છે"</string>
+  <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+  <string name="hms_install" priority="translator">"ઇન્સ્ટોલ કરો"</string>
+  <string name="hms_install_message" priority="translator">"આ સુવિધાનો ઉપયોગ કરવા માટે Huawei Mobile Services ઇન્સ્ટોલ કરવી અનિવાર્ય છે. ઇન્સ્ટોલ કરવું છે?"</string>
+  <string name="hms_retry" priority="translator">"પુન:પ્રયાસ કરો"</string>
+  <string name="hms_update" priority="translator">"અપડેટ કરો"</string>
+  <string name="hms_update_continue" priority="LT">"ડાઉનલોડ કરો"</string>
+  <string name="hms_update_message" priority="translator">"આ સુવિધાનો ઉપયોગ કરવા માટે Huawei Mobile Services અદ્યતન સંસ્કરણ પર અપડેટ કરો. અત્યારે અપડેટ કરવું છે?"</string>
+  <string name="hms_update_message_new" priority="translator">"આ સેવાને નીચેની એપના લેટેસ્ટ સંસ્કરણ ની જરૂર છે:\n\n%1$s"</string>
+  <string name="hms_update_nettype" priority="LT">"કોઇ Wi-Fi કનેક્શન નથી. મોબાઇલ ડેટાના ઉપયોગથી ડાઉનલોડ કરવું છે?"</string>
+  <string name="hms_update_title" priority="translator">"Huawei Mobile Services"</string>
+  <string name="upsdk_app_dl_installing" priority="translator">"AppGallery ડાઉનલોડ કરી રહ્યું છે"</string>
+  <string name="upsdk_app_download_info_new" priority="translator">"ઇન્સ્ટોલ કરો"</string>
+  <string name="upsdk_app_size" priority="translator">"કદ"</string>
+  <string name="upsdk_app_version" priority="translator">"સંસ્કરણ"</string>
+  <string name="upsdk_cancel" priority="translator">"રદ કરો"</string>
+  <string name="upsdk_checking_update_prompt" priority="translator">"અપડેટ માટે તપાસી રહ્યું છે..."</string>
+  <string name="upsdk_choice_update" priority="translator">"અપડેટ ઉપલબ્ધ. કૃપા કરીને નવું સંસ્કરણ ડાઉનલોડ કરીને ઇન્સ્ટોલ કરો."</string>
+  <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"સર્વર સાથે કનેક્ટ કરવામાં અસમર્થ. કૃપા કરી પછી ફરી પ્રયત્ન કરો."</string>
+  <string name="upsdk_detail" priority="translator">"વિગતો"</string>
+  <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"માહિતી પુનઃપ્રાપ્ત કરવામાં અસમર્થ. કૃપા કરી પછી ફરી પ્રયત્ન કરો."</string>
+  <string name="upsdk_install" priority="translator">"અપડેટ કરવા માટે AppGallery ઇન્સ્ટોલ કરો. અત્યારે ઇન્સ્ટોલ કરીએ?"</string>
+  <string name="upsdk_no_available_network_prompt_toast" priority="translator">"કોઈ ઇન્ટરનેટ કનેક્શન નથી. કૃપા કરી તમારા નેટવર્ક સેટિંગ્સ તપાસો."</string>
+  <string name="upsdk_ota_app_name" priority="translator">"એપ"</string>
+  <string name="upsdk_ota_cancel" priority="translator">"પછી"</string>
+  <string name="upsdk_ota_force_cancel_new" priority="translator">"બહાર નીકળો"</string>
+  <string name="upsdk_ota_notify_updatebtn" priority="translator">"અપડેટ કરો"</string>
+  <string name="upsdk_ota_title" priority="translator">"નવું સંસ્કરણ"</string>
+  <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+  <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"શું ઇન્સ્ટોલેશન રદ કરીએ?"</string>
+  <string name="upsdk_third_app_dl_install_failed" priority="translator">"ઇન્સ્ટોલેશન નિષ્ફળ."</string>
+  <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"હા"</string>
+  <string name="upsdk_update_check_no_new_version" priority="translator">"તમારું સંસ્કરણ અપ ટુ ડેટ છે."</string>
+  <string name="upsdk_updating" priority="translator">"અપડેટ થઈ રહ્યું છે"</string>
+  <string name="c_buoycircle_abort" priority="translator">"હા"</string>
+  <string name="c_buoycircle_abort_message" priority="translator">"ડાઉનલોડ કરવાનું રોકીએ?"</string>
+  <string name="c_buoycircle_appmarket_name" priority="translator">"HUAWEI AppGallery"</string>
+  <string name="c_buoycircle_auto_hide_notice" priority="translator">"છુપાવવા માટે અહીં ખેંચો"</string>
+  <string name="c_buoycircle_cancel" priority="translator">"રદ કરો"</string>
+  <string name="c_buoycircle_check_failure" priority="translator">"અપડેટ તપાસ નિષ્ફળ રહી."</string>
+  <string name="c_buoycircle_checking" priority="translator">"અપડેટ માટે તપાસી રહ્યું છે..."</string>
+  <string name="c_buoycircle_confirm" priority="translator">"ઑકે"</string>
+  <string name="c_buoycircle_download_failure" priority="translator">"HUAWEI AppGallery ડાઉનલોડ કરી શકાતી નથી."</string>
+  <string name="c_buoycircle_download_no_space" priority="translator">"પુરતા પ્રમાણમાં ખાલી જગ્યા નથી. ડાઉનલોડ કરવામાં અસમર્થ."</string>
+  <string name="c_buoycircle_download_retry" priority="translator">"ડાઉનલોડ નિષ્ફળ. ફરીથી પ્રયત્ન કરવો છે?"</string>
+  <string name="c_buoycircle_downloading_loading" priority="translator">"ડાઉનલોડ કરી રહ્યું છે..."</string>
+  <string name="c_buoycircle_floatwindow_click_fail_toast" priority="translator">"ફોન મેનેજર અથવા સેટિંગ્સમાં HUAWEI AppGallery માટે ગૌણ લૉન્ચ સક્ષમ કરો."</string>
+  <string name="c_buoycircle_hide_guide_btn_cancel" priority="translator">"રદ કરો"</string>
+  <string name="c_buoycircle_hide_guide_btn_confirm" priority="translator">"છુપાવો"</string>
+  <string name="c_buoycircle_hide_guide_content_nosensor" priority="translator">"બલૂન છુપાવ્યા પછી, તેમને ફરીથી બતાવવા માટે તમારે એપ્લિકેશન ફરીથી લોંચ કરવાની જરૂર પડશે."</string>
+  <string name="c_buoycircle_hide_guide_content_sensor" priority="translator">"બલૂન્સ છુપાવ્યા પછી, તેમને ફરીથી બતાવવા માટે તમારા ઉપકરણને ફ્લિપ કરો."</string>
+  <string name="c_buoycircle_hide_guide_noremind" priority="translator">"મને ફરીથી યાદ અપાવશો નહીં"</string>
+  <string name="c_buoycircle_hide_guide_title" priority="translator">"બલૂન છુપાવો"</string>
+  <string name="c_buoycircle_install" priority="translator">"ઇન્સ્ટોલ કરો"</string>
+  <string name="c_buoycircle_no" priority="translator">"ના"</string>
+  <string name="c_buoycircle_retry" priority="translator">"ફરી પ્રયાસ કરો"</string>
+  <string name="c_buoycircle_update_message_new" priority="translator">"આ સેવાને નીચેની એપ્લિકેશનના નવીનતમ સંસ્કરણની જરૂર છે:\n\n%1$s"</string>
+  <string name="hms_game_achievement_finish_notice" priority="LT">"%1$s અનલૉક કર્યું"</string>
+  <string name="hms_game_check_update_failed_content" priority="LT">"ઍક્સેસ કરવામાં અસમર્થ. આ સેવાને AppAssistant ના નવીનતમ સંસ્કરણની જરૂર છે."</string>
+  <string name="hms_game_check_update_success_content" priority="LT">"આ સેવાનો ઉપયોગ કરવા માટે, AppAssistant ના નવીનતમ સંસ્કરણ (%1$s MB)ને ઇન્સ્ટોલ કરો."</string>
+  <string name="hms_game_login_notice" priority="LT">"%1$s, સ્વાગત છે"</string>
 </resources>

@@ -1,5 +1,6 @@
 package sdkInterface;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -14,6 +15,8 @@ public interface IPay
 
     boolean IsReSendPay();
 
-    void GetGoodsInfo(JSONObject json) ;
+    void GetGoodsInfo(JSONObject json) ; //查询商品信息
+
+    void ClearPurchase(JSONObject json);//清除（已经发放过的商品）的记录
 
 }

@@ -38,6 +38,7 @@ public class SDKInterfaceDefine {
     public static final String FunctionName_OnLogout = "OnLogout";
     public static final String FunctionName_OnPay = "OnPay";
     public static final String Pay_FunctionName_GetGoodsInfo = "GetGoodsInfo";//获取商品信息回调
+    public static final String Pay_FunctionName_ClearPurchase = "ClearPurchase";//擦除购买记录（已正常发货）
     public static final String FunctionName_OnOther = "OnOther";
 
     //LifeCycle 相关参数

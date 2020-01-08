@@ -9,12 +9,12 @@
       <module fileurl="file://$PROJECT_DIR$/SDKImport.iml" filepath="$PROJECT_DIR$/SDKImport.iml" />
       <module fileurl="file://$PROJECT_DIR$/Umeng/Umeng.iml" filepath="$PROJECT_DIR$/Umeng/Umeng.iml" />
       <module fileurl="file://$PROJECT_DIR$/admob/admob.iml" filepath="$PROJECT_DIR$/admob/admob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admopub/admopub.iml" filepath="$PROJECT_DIR$/admopub/admopub.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/autoupdate/autoupdate.iml" filepath="$PROJECT_DIR$/autoupdate/autoupdate.iml" />
       <module fileurl="file://$PROJECT_DIR$/baidu/baidu.iml" filepath="$PROJECT_DIR$/baidu/baidu.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataeyes/dataeyes.iml" filepath="$PROJECT_DIR$/dataeyes/dataeyes.iml" />
       <module fileurl="file://$PROJECT_DIR$/huawei/huawei.iml" filepath="$PROJECT_DIR$/huawei/huawei.iml" />
-      <module fileurl="file://$PROJECT_DIR$/huawei3/huawei3.iml" filepath="$PROJECT_DIR$/huawei3/huawei3.iml" />
       <module fileurl="file://$PROJECT_DIR$/huluxia/huluxia.iml" filepath="$PROJECT_DIR$/huluxia/huluxia.iml" />
       <module fileurl="file://$PROJECT_DIR$/iapppay/iapppay.iml" filepath="$PROJECT_DIR$/iapppay/iapppay.iml" />
       <module fileurl="file://$PROJECT_DIR$/meizu/meizu.iml" filepath="$PROJECT_DIR$/meizu/meizu.iml" />

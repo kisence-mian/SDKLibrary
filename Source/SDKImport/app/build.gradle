@@ -5,7 +5,7 @@ android {
     buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId 'Sdk.MyFrameWork.com.SDKImport'
-        minSdkVersion 14
+        minSdkVersion 26
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
