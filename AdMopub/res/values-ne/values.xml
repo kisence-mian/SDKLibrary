@@ -1,12 +1,18 @@
-<?xml version="1.0" encoding='utf-8' standalone='no'?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-<!-- blaze-out/k8-opt/genfiles/java/com/google/android/gmscore/integ/client/admob-impl/res/values-ne/strings.xml -->
-<eat-comment/>
-<string name="s1" msgid="368094699078615544">"छविलाई सुरक्षित गर्नुहोस्"</string>
-<string name="s2" msgid="4550830452390689489">"विज्ञापनलाई तस्बिरको ग्यालरीमा छवि भण्डारण गर्न अनुमति दिने हो?"</string>
-<string name="s3" msgid="2435407834265420668">"स्वीकार गर्नुहोस्"</string>
-<string name="s4" msgid="9167523597401839819">"अस्वीकार गर्नुहोस्"</string>
-<string name="s5" msgid="1566682516266724847">"पात्रोमा कार्यक्रम सिर्जना गर्नुहोस्"</string>
-<string name="s6" msgid="5996672174517137271">"विज्ञापनलाई पात्रोमा कार्यक्रम सिर्जना गर्न अनुमति दिने हो?"</string>
-<string name="s7" msgid="7163549807207034258">"परीक्षण विज्ञापन"</string>
+  <!-- blaze-out/k8-opt/genfiles/java/com/google/android/gmscore/integ/client/admob-impl/res/values-ne/strings.xml -->
+  <eat-comment />
+  <string name="s1" msgid="368094699078615544">"छविलाई सुरक्षित गर्नुहोस्"</string>
+  <string name="s2" msgid="4550830452390689489">"विज्ञापनलाई तस्बिरको ग्यालरीमा छवि भण्डारण गर्न अनुमति दिने हो?"</string>
+  <string name="s3" msgid="2435407834265420668">"स्वीकार गर्नुहोस्"</string>
+  <string name="s4" msgid="9167523597401839819">"अस्वीकार गर्नुहोस्"</string>
+  <string name="s5" msgid="1566682516266724847">"पात्रोमा कार्यक्रम सिर्जना गर्नुहोस्"</string>
+  <string name="s6" msgid="5996672174517137271">"विज्ञापनलाई पात्रोमा कार्यक्रम सिर्जना गर्न अनुमति दिने हो?"</string>
+  <string name="s7" msgid="7163549807207034258">"परीक्षण विज्ञापन"</string>
+  <!-- blaze-out/k8-opt/genfiles/java/com/google/android/gmscore/integ/client/common/res/values-ne/strings.xml -->
+  <string name="common_google_play_services_unknown_issue" msgid="2518680582564677258">"<xliff:g id="APP_NAME" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s</xliff:g> लाई Google Play services सँग सहकार्य गर्न समस्या भइरहेको छ। कृपया फेरि प्रयास गर्नुहोस्।"</string>
+  <!-- blaze-out/k8-opt/genfiles/java/com/google/android/gmscore/integ/client/common/res/values-ne/strings.xml -->
+  <!-- blaze-out/k8-opt/genfiles/java/com/google/android/gmscore/integ/client/common/res/values-ne/strings.xml -->
+  <!-- blaze-out/k8-opt/genfiles/java/com/google/android/gmscore/integ/client/common/res/values-ne/strings.xml -->
+  <!-- blaze-out/k8-opt/genfiles/java/com/google/android/gmscore/integ/client/common/res/values-ne/strings.xml -->
 </resources>

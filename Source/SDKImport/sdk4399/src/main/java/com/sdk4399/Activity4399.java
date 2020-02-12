@@ -38,13 +38,30 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
             SdkInterface.SendError("4399SDK Init Error" + e.toString(),e);
         }
     }
+
     @Override
-    public void OnAppplicationQuit(JSONObject json) {
+    public void OnAppplicationQuit(JSONObject json)
+    {
+        mOpeCenter.shouldQuitGame(GetCurrentActivity(), new OperateCenter.OnQuitGameListener() {
 
+            @Override
+            public void onQuitGame(boolean shouldQuit) {
+                // 点击“退出游戏”时，shouldQuit为true，游戏处理自己的退出业务逻辑
+                // 点击“前往游戏圈”时，shouldQuit为false，SDK会进入游戏圈或者下载
+                //  游戏盒子界面，游戏可以不做处理。
+                // 点击“留在游戏”时，shouldQuit为false，SDK和游戏都不做任何处理
+                // 点击右上角的关闭图标，shouldQuit为false，SDK和游戏都不做任何处理
 
+                if(shouldQuit)
+                {
+                    GetCurrentActivity().finish();
+                }
+            }
+        });
     }
+
     @Override
-    public void OnDestory() {
+    public void OnDestroy() {
         SdkInterface.SendLog("4399SDK Quit Ready");
         if (mOpeCenter != null) {
             mOpeCenter.destroy();
@@ -77,14 +94,13 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
     public void Pay(JSONObject json) {
         String mark = "";
         String price = "";
-        String productName ="";
-        String orderID = "";
-        try {
-
-            payInfo = PayInfo.FromJson(json);
-            orderID = "od_4399_" + new Date().getTime() + "_"+new Random().nextInt(1000);
-            mark = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
-            price = json.getString(SDKInterfaceDefine.Pay_ParameterName_Price);
+        String productName ="";eterName_GoodsID);
+            price = json.getString(SDKIn
+                    String orderID = "";
+            try {
+                payInfo = PayInfo.FromJson(json);
+                orderID = "od_4399_" + new Date().getTime() + "_"+new Random().nextInt(1000);
+                mark = json.getString(SDKInterfaceDefine.Pay_ParamterfaceDefine.Pay_ParameterName_Price);
             productName = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsName);
 
             payInfo.orderID = orderID;
@@ -97,7 +113,7 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
 
         mOpeCenter.recharge(GetCurrentActivity() ,
                 Integer.parseInt(price),             //充值金额（元）
-                orderID,           //游戏方订单号
+                mark,           //mark
                 productName,    //商品名称
                 new OperateCenter.OnRechargeFinishedListener() {
 
@@ -127,6 +143,16 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
     @Override
     public boolean IsReSendPay() {
         return false;
+    }
+
+    @Override
+    public void GetGoodsInfo(JSONObject json) {
+
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
     }
 
     OperateCenter mOpeCenter;

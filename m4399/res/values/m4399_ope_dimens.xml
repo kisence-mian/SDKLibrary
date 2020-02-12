@@ -142,4 +142,12 @@
     <dimen name="m4399_ope_verify_dialog_buttons_height_dimen">45dp</dimen>
     <dimen name="m4399_ope_verify_dialog_confirm_loading_size">20dp</dimen>
     <dimen name="m4399_ope_verify_dialog_image_width_dimen">92dp</dimen>
+
+    <!--通用大弹窗-横屏-->
+    <dimen name="m4399_ope_dialog_width_big">403dp</dimen>
+    <dimen name="m4399_ope_dialog_width_560">560dp</dimen>
+    <dimen name="m4399_ope_dialog_width_403">403dp</dimen>
+    <dimen name="m4399_ope_dialog_width_304">304dp</dimen>
+    <dimen name="m4399_ope_banner_width">252dp</dimen>
+    <dimen name="m4399_ope_name_auth_dialog_width">560dp</dimen>
 </resources>

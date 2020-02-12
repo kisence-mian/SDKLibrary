@@ -14,28 +14,28 @@
             insLink="m4399_rec_ins_link_wx"
             insTitle="m4399_rec_ins_link_wx_title" />
     </paytype>
-    <paytype id="72">
+    <paytype id="160">
         <shortname>m4399_rec_junka</shortname>
         <page title="m4399_rec_junkacz" />
         <instructiron
             insLink="m4399_rec_ins_link_junka"
             insTitle="m4399_rec_ins_junka_title" />
     </paytype>
-    <paytype id="73">
+    <paytype id="161">
         <shortname>m4399_rec_yidongka</shortname>
         <page title="m4399_rec_mobilecardcz" />
         <instructiron
             insLink="m4399_rec_ins_link_yidongka"
             insTitle="m4399_rec_ins_yidongka_title" />
     </paytype>
-    <paytype id="74">
+    <paytype id="162">
         <shortname>m4399_rec_liantong</shortname>
         <page title="m4399_rec_mobilecardcz" />
         <instructiron
             insLink="m4399_rec_ins_link_liantongka"
             insTitle="m4399_rec_ins_liantongka_title" />
     </paytype>
-    <paytype id="75">
+    <paytype id="163">
         <shortname>m4399_rec_dianxin</shortname>
         <page title="m4399_rec_mobilecardcz" />
         <instructiron

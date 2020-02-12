@@ -16,12 +16,13 @@
     <color name="m4399_rec_color_dash_line">#bbbbbb</color>
 
     <color name="m4399_rec_color_gray_bbbbbb">#bbbbbb</color>
+    <color name="m4399_rec_color_gray_e5e5e5">#e5e5e5</color>
     <color name="m4399_rec_color_black_333333">#333333</color>
     <color name="m4399_rec_color_blue_33bdfc">#33bdfc</color>
+    <color name="m4399_rec_color_blue_c4e4fd">#50c4e4fd</color>
     <color name="m4399_rec_color_black_f6f6f6">#f6f6f6</color>
     <color name="m4399_rec_color_green_36c100">#36c100</color>
     <color name="m4399_rec_color_orange_ff9515">#ff9515</color>
     <color name="m4399_rec_color_red_ff2c2c">#ff2c2c</color>
-
 
 </resources>

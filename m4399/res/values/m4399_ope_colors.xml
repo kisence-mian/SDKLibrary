@@ -18,6 +18,7 @@
     <color name="m4399_ope_bind_white">#ffffff</color>
     <color name="m4399_ope_bind_title_black">#333333</color>
     <color name="m4399_ope_bind_label_gray">#666666</color>
+    <color name="m4399_ope_bind_label_gray_888888">#888888</color>
     <color name="m4399_ope_bind_code_gray">#f4f4f4</color>
     <color name="m4399_ope_bind_input_frame">#e6e6e6</color>
     <color name="m4399_ope_bind_send_frame">#c8c8c8</color>

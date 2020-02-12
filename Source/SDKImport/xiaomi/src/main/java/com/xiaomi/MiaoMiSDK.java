@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.xiaomi.gamecenter.sdk.GameInfoField;
 import com.xiaomi.gamecenter.sdk.MiCommplatform;
 import com.xiaomi.gamecenter.sdk.MiErrorCode;
+import com.xiaomi.gamecenter.sdk.OnExitListner;
 import com.xiaomi.gamecenter.sdk.OnInitProcessListener;
 import com.xiaomi.gamecenter.sdk.OnLoginProcessListener;
 import com.xiaomi.gamecenter.sdk.OnPayProcessListener;
@@ -147,6 +148,21 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
     }
 
     @Override
+    public void OnAppplicationQuit(JSONObject json) {
+        MiCommplatform.getInstance().miAppExit( GetCurrentActivity(), new OnExitListner()
+        {
+            @Override
+            public void onExit( int code )
+            {
+                if ( code == MiErrorCode.MI_XIAOMI_EXIT )
+                {
+                    android.os.Process.killProcess( android.os.Process.myPid() );
+                }
+            }
+        } );
+    }
+
+    @Override
     public void Pay(JSONObject json) {
 
         try {
@@ -224,6 +240,16 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
     @Override
     public boolean IsReSendPay() {
         return false;
+    }
+
+    @Override
+    public void GetGoodsInfo(JSONObject json) {
+
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
     }
 
     void SendPayCallBack(boolean success,int errorCode)

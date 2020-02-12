@@ -21,12 +21,12 @@ import sdkInterface.tool.PropertieTool;
 
 public class SdkInterface
 {
+    static final String CallBackObjectName = "CallBackObject";
     static final String CallBackFuntionName = "OnSDKCallBack";
     static boolean isInit = false;
     static boolean isLog = true;
 
     static Properties SdkManifest;
-    static String CallBackObjectName;
 
     //用于接收onActivityResult回调
     public static ActResultRequest actResultRequest;
@@ -118,6 +118,11 @@ public class SdkInterface
     {
         try
         {
+            if(isLog)
+            {
+                Log.e("Unity", "SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
+            }
+
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
             jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
@@ -132,11 +137,6 @@ public class SdkInterface
                 Log.e("Unity", "SendError Exception ->" + ex.toString() + "\n" + GetCallStrack(ex) + "<-");
             }
         }
-
-        if(isLog)
-        {
-            Log.e("Unity", "SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
-        }
     }
 
     public static boolean IsDebug()
@@ -148,6 +148,8 @@ public class SdkInterface
     {
         if(isLog)
         {
+            Log.d("Unity","SendLog ->" + LogContent + "<-");
+
             try
             {
                 JSONObject jo = new JSONObject();
@@ -162,8 +164,6 @@ public class SdkInterface
             {
                 Log.e("Unity","SendLog Exception ->" + e.toString() + "<-");
             }
-
-            Log.d("Unity","SendLog ->" + LogContent + "<-");
         }
     }
 
@@ -174,9 +174,11 @@ public class SdkInterface
         if(!isInit)
         {
             isInit = true;
+
+            SendLog("SDKManager Init " );
             try
             {
-                CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
+//                CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
 
                 for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
                 {
@@ -311,7 +313,22 @@ public class SdkInterface
             IPay pay =(IPay)GetSDK(json,paySDKList);
             if(pay != null)
             {
-                pay.Pay(json);
+                String function = json.getString(SDKInterfaceDefine.FunctionName);
+
+                switch (function)
+                {
+                    case SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo:
+                        pay.GetGoodsInfo(json);
+                        break;
+                    case  SDKInterfaceDefine.Pay_FunctionName_ClearPurchase:
+                        pay.ClearPurchase(json);
+                        break;
+                    case  SDKInterfaceDefine.FunctionName_OnPay:
+                        pay.Pay(json);
+                        break;
+                    default:
+                        SendLog("dont find pay function " + function + " json " + json);
+                }
             }
         }
         catch (Exception e)
@@ -386,7 +403,19 @@ public class SdkInterface
         try {
             IAD ad = (IAD) GetSDK(json, adSDKList);
             if (ad != null) {
-                ad.AD(json);
+
+                String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.AD_FunctionName_PlayAD:
+                        ad.PlayAD(json);break;
+                    case SDKInterfaceDefine.AD_FunctionName_CloseAD:
+                        ad.CloseAD(json);break;
+                    case SDKInterfaceDefine.AD_FunctionName_LoadAD:
+                        ad.LoadAD(json);
+                    default:
+                        SendError("Not find AD Function " + functionName,null);
+                }
             }
             else
             {
@@ -394,10 +423,29 @@ public class SdkInterface
             }
         }
         catch (Exception e) {
-            e.printStackTrace();
+            SendError("SDKInterface AD json:  " + json + " e:" + e ,e);
         }
     }
 
+    public static boolean ADIsLoad(String content)
+    {
+        try {
+            JSONObject json = new JSONObject(content);
+
+            IAD ad = (IAD) GetSDK(json, adSDKList);
+            if (ad != null) {
+                return ad.IsLoaded(json);
+            }
+            else
+            {
+                SendError("Not find AD Class -> " + json.toString(),null);
+            }
+        }
+        catch (Exception e) {
+            SendError("SDKInterface ADIsLoad error: " + e ,e);
+        }
+        return false;
+    }
     //endregion
 
     //region 事件上报
@@ -616,6 +664,11 @@ public class SdkInterface
 
     public static String GetCallStrack(Exception e) {
 
+        if(e == null)
+        {
+            return "";
+        }
+
         String content = "";
 
         StackTraceElement[] stackElements = e.getStackTrace();
@@ -794,8 +847,6 @@ public class SdkInterface
             SendError("OnNewIntent Error:" + e.toString(),e);
         }
     }
-
-
 
     static boolean GetIsLog()  {
 

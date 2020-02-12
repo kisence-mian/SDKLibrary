@@ -25,15 +25,27 @@
         <attr name="m4399_ope_spb_gradients" format="boolean" />
     </declare-styleable>
 
+    <attr name="text" format="string" />
+    <attr name="textColor" format="color" />
     <declare-styleable name="TextSeekBar">
-        <attr name="text" format="string" />
+        <attr name="text" />
         <attr name="progressColor" format="color" />
         <attr name="progressFailColor" format="color" />
         <attr name="indeterminateColor" format="color" />
         <attr name="thumb" format="reference" />
         <attr name="thumbStart" format="reference" />
         <attr name="thumbFail" format="reference" />
-        <attr name="textColor" format="color" />
+        <attr name="textColor" />
         <attr name="indeterminateRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AlignTextView">
+        <attr name="text" />
+        <attr name="textColor" />
+        <attr name="paddingHori" format="dimension" />
+        <attr name="paddingVert" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textPadding" format="dimension" />
+        <attr name="lineSpacing" format="dimension" />
     </declare-styleable>
 </resources>

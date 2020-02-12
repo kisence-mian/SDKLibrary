@@ -7,16 +7,16 @@ import sdkInterface.define.GoodsType;
 
 public class PayInfo
 {
-    public String userID;
-    public String goodsID;
-    public String goodsName;
-    public String goodsDescription;
+    public String userID= "";
+    public String goodsID= "";
+    public String goodsName= "";
+    public String goodsDescription= "";
     public GoodsType goodsType ;
-    public String orderID ;
+    public String orderID = "";
     public float price ;
-    public String currency;   //货币类型
+    public String currency = "";   //货币类型
 
-    public String tag;
+    public String tag = "";
 
     public static PayInfo FromJson(JSONObject json)
     {

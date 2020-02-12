@@ -17,6 +17,7 @@
     <string name="m4399_rec_qq_wallet">QQ钱包</string>
     <string name="m4399_rec_good_subject">（%s）</string>
     <string name="m4399_rec_acount">账号</string>
+    <string name="m4399_rec_card_warm_tip">请核对卡面值与选择的面值是否一致，当卡面值大于选择的面值时，您将损失差额。</string>
     <string name="m4399_rec_other_sum">其他金额</string>
     <string name="m4399_rec_input_cash_hint">请输入你要充值的金额</string>
     <string name="m4399_rec_confirm_pay">确认充值</string>
