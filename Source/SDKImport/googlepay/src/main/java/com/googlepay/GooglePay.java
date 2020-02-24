@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.Nullable;
@@ -199,7 +200,7 @@ public class GooglePay extends SDKBase implements IPay {
             return;
         } else {
 
-            final String finalGoodsID = goodsID;
+            final String finalGoodsID = GoodsKeyToGoogle(goodsID);;
             //String finalGoodsID =testGoodsID;//测试id
             SendLog("Google pay == " + finalGoodsID);
 
@@ -292,6 +293,7 @@ public class GooglePay extends SDKBase implements IPay {
         String goodsID = "";
         try {
             goodsID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            goodsID =GoodsKeyToGoogle(goodsID);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -371,7 +373,7 @@ public class GooglePay extends SDKBase implements IPay {
             SendLog("google pay GetGoodsInfo success == id :" + result.getSku() + "======= price:" + result.getPrice());
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, result.getSku());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, GoodsKeyToUnity(result.getSku()));
             jo.put(SDKInterfaceDefine.Pay_ParameterName_LocalizedPriceString, result.getPrice());
             sdkInterface.SdkInterface.SendMessage(jo);
 
@@ -424,8 +426,6 @@ public class GooglePay extends SDKBase implements IPay {
                 }
             }
         }
-
-
     }
 
     //支付结构回调C#
@@ -450,7 +450,7 @@ public class GooglePay extends SDKBase implements IPay {
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, sku);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, GoodsKeyToUnity(sku));
             jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, "");
             jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.GooglePlay.toString());
@@ -470,4 +470,55 @@ public class GooglePay extends SDKBase implements IPay {
             SendError("SendPayCallBack Error " + e, e);
         }
     }
+
+    //region  google 物品ID大小写 转换工具
+
+    private static HashMap<String, String> goodsIDKeys = new HashMap<String, String>(); //key=原物品id  ，value = 物品id 小写（符合google 要求）
+
+    //获取原物品id 对应的 符合google要求的id
+    private String GoodsKeyToGoogle(String goodsKeyFromUnity)
+    {
+        if(goodsKeyFromUnity.isEmpty())
+        {
+            SendLog("Google pay GoodsKeyToGoogle key is null");
+            return "";
+        }
+
+        for (HashMap.Entry<String, String> entry : goodsIDKeys.entrySet()) {
+            String key = entry.getKey();
+            String val = entry.getValue();
+            if(key.equals(goodsKeyFromUnity))
+            {
+                SendLog("Google pay GoodsKeyToGoogle key is " + key + "===value===" + val);
+                return val;
+            }
+        }
+        String putValue = goodsKeyFromUnity.toLowerCase();
+        goodsIDKeys.put(goodsKeyFromUnity,putValue);
+
+        return  putValue;
+    }
+
+    //获取符合google要求的id 对应的原Unity 物品id
+    private String GoodsKeyToUnity(String goodsKeyFromGoogle)
+    {
+        if(goodsKeyFromGoogle.isEmpty())
+        {
+            SendLog("Google pay GoodsKeyToUnity key is null");
+            return "";
+        }
+        for (HashMap.Entry<String, String> entry : goodsIDKeys.entrySet()) {
+            String key = entry.getKey();
+            String val = entry.getValue();
+            if(val.equals(goodsKeyFromGoogle))
+            {
+                SendLog("Google pay GoodsKeyToUnity key is " + key + "===value===" + val);
+                return key;
+            }
+        }
+
+        SendLog("Google pay GoodsKeyToUnity key is not found :goodsKeyFromGoogle" );
+        return goodsKeyFromGoogle;
+    }
+    //endregion
 }

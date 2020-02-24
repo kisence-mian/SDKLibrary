@@ -31,6 +31,10 @@ public enum LoginPlatform {
     /// </summary>
     Apple,
     /// <summary>
+    /// 脸书
+    /// </summary>
+    FaceBook,
+    /// <summary>
     /// 4399
     /// </summary>
     m4399,

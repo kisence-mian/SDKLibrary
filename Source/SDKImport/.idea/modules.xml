@@ -14,6 +14,8 @@
       <module fileurl="file://$PROJECT_DIR$/autoupdate/autoupdate.iml" filepath="$PROJECT_DIR$/autoupdate/autoupdate.iml" />
       <module fileurl="file://$PROJECT_DIR$/baidu/baidu.iml" filepath="$PROJECT_DIR$/baidu/baidu.iml" />
       <module fileurl="file://$PROJECT_DIR$/dataeyes/dataeyes.iml" filepath="$PROJECT_DIR$/dataeyes/dataeyes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facebook/facebook.iml" filepath="$PROJECT_DIR$/facebook/facebook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/googlelogin/googlelogin.iml" filepath="$PROJECT_DIR$/googlelogin/googlelogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/googlepay/googlepay.iml" filepath="$PROJECT_DIR$/googlepay/googlepay.iml" />
       <module fileurl="file://$PROJECT_DIR$/huawei/huawei.iml" filepath="$PROJECT_DIR$/huawei/huawei.iml" />
       <module fileurl="file://$PROJECT_DIR$/huluxia/huluxia.iml" filepath="$PROJECT_DIR$/huluxia/huluxia.iml" />
