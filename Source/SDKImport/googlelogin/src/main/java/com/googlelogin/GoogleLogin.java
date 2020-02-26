@@ -23,30 +23,22 @@ import sdkInterface.define.LoginPlatform;
 
 public class GoogleLogin extends SDKBase implements ILogin  {
 
-    private static final String WebClientID = "WebClientID"; //从 google API Console 中获得 （web 类型）
-    public static String LogTag = "GoogleSignIn=====";
+    private static String WebClientID = ""; //从 google API Console 中获得 （web 类型）
     public static int RC_SIGN_IN = 9001;
-
-    static GoogleLogin instance;
-
-    public static GoogleLogin GetInstance()
-    {
-        if(instance == null)
-        {
-            instance = new GoogleLogin();
-        }
-        return instance;
-    }
 
     @Override
     public void Init(JSONObject jsonObject)
     {
-        Log.d(LogTag,"InitGoogleSignIn ====== Init");
+        SendLog("Google Init");
         try {
-            InitGoogleSignIn(GetProperties().getProperty(WebClientID));
+
+            WebClientID = GetProperties().getProperty("WebClientID");
+            SendLog("Google Init WebClientID >" + WebClientID + "<");
+
+            InitGoogleSignIn(WebClientID);
         } catch (IOException e) {
             SignResultResultCallBack(false,"","GetWebClientID Error");
-            e.printStackTrace();
+            SendError("GoogleLogin Init Error " +  e,e);
         }
     }
 
@@ -65,9 +57,9 @@ public class GoogleLogin extends SDKBase implements ILogin  {
     //初始化谷歌登陆
     public void InitGoogleSignIn( String requestIdToken)
     {
-        Log.d(LogTag,"InitGoogleSignIn ====== start");
+        SendLog("InitGoogleSignIn ====== start");
         GoogleSignInOptions.Builder builder = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN);
-        Log.d(LogTag,"InitGoogleSignIn ======"+ requestIdToken);
+        SendLog("InitGoogleSignIn ======"+ requestIdToken);
         GoogleSignInOptions gso = builder
                 .requestIdToken(requestIdToken)
                 .requestEmail()
@@ -81,7 +73,7 @@ public class GoogleLogin extends SDKBase implements ILogin  {
     {
         if(mGoogleSignInClient == null)
         {
-            Log.e(LogTag,"InitGoogleSignIn fail == mGoogleSignInClient is null ");
+            SendLog("InitGoogleSignIn fail == mGoogleSignInClient is null ");
             SignResultResultCallBack(false,"","mGoogleSignInClient is null ");
         }
         else
@@ -95,10 +87,10 @@ public class GoogleLogin extends SDKBase implements ILogin  {
     //谷歌登出
     public  void GoogleSignOut()
     {
-        Log.e(LogTag,"GoogleSignOut Start ");
+        SendLog("GoogleSignOut Start ");
         if(mGoogleSignInClient == null)
         {
-            Log.e(LogTag,"InitGoogleSignOut fail == mGoogleSignInClient is null ");
+            SendLog("InitGoogleSignOut fail == mGoogleSignInClient is null ");
             SignOutResultResultCallBack(false,"mGoogleSignInClient is null");
         }
         else
@@ -108,7 +100,7 @@ public class GoogleLogin extends SDKBase implements ILogin  {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             //成功登出
-                            Log.e(LogTag,"GoogleSignOut Success ");
+                            SendLog("GoogleSignOut Success ");
                             SignOutResultResultCallBack(true,"0");
                         }
                     });
@@ -120,12 +112,12 @@ public class GoogleLogin extends SDKBase implements ILogin  {
     @Override
     public void OnActivityResult(int requestCode, int resultCode,@Nullable Intent data) {
         super.OnActivityResult(requestCode, resultCode, data);
-        Log.d(LogTag,"InitGoogleSignIn onActivityResult" + requestCode + "=resultCode=" + resultCode);
+        SendLog("InitGoogleSignIn onActivityResult" + requestCode + "=resultCode=" + resultCode);
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach
             // a listener.
-            Log.d(LogTag,"InitGoogleSignIn result==" + resultCode);
+            SendLog("InitGoogleSignIn result==" + resultCode);
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
@@ -138,14 +130,14 @@ public class GoogleLogin extends SDKBase implements ILogin  {
             String id = account.getId();
             String EMail = account.getEmail();
             String IdToken = account.getIdToken();
-            Log.d(LogTag,"InitGoogleSignIn result is success ==id==" + id + "==EMail=="+ EMail+ "==IdToken==" +IdToken );
+            SendLog("InitGoogleSignIn result is success ==id==" + id + "==EMail=="+ EMail+ "==IdToken==" +IdToken );
             SignResultResultCallBack(true,IdToken,"0");
             // Signed in successfully, show authenticated UI.
 
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w(LogTag, "signInResult:failed code=" + e.getStatusCode());
+            SendLog( "signInResult:failed code=" + e.getStatusCode());
             SignResultResultCallBack(false,"",e.getStatusCode()+"");
         }
     }
@@ -169,7 +161,7 @@ public class GoogleLogin extends SDKBase implements ILogin  {
         }
         catch (Exception e) {
             e.printStackTrace();
-            SendError("Google onLoginErroe", e);
+            SendError("Google onLogin Error", e);
         }
 
     }
@@ -189,7 +181,7 @@ public class GoogleLogin extends SDKBase implements ILogin  {
         }
         catch (Exception e) {
             e.printStackTrace();
-            SendError("Google onLoginErroe", e);
+            SendError("Google onLogin Error", e);
         }
     }
 }

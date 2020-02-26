@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
     Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
 
@@ -18,12 +18,7 @@
     IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
-
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@android:color/white" />
-    <corners
-        android:bottomLeftRadius="@dimen/com_facebook_auth_dialog_corner_radius"
-        android:bottomRightRadius="@dimen/com_facebook_auth_dialog_corner_radius"
-        android:topLeftRadius="@dimen/com_facebook_auth_dialog_corner_radius_oversized"
-        android:topRightRadius="@dimen/com_facebook_auth_dialog_corner_radius_oversized" />
+  <solid android:color="@android:color/white" />
+  <corners android:bottomLeftRadius="@dimen/com_facebook_auth_dialog_corner_radius" android:bottomRightRadius="@dimen/com_facebook_auth_dialog_corner_radius" android:topLeftRadius="@dimen/com_facebook_auth_dialog_corner_radius_oversized" android:topRightRadius="@dimen/com_facebook_auth_dialog_corner_radius_oversized" />
 </shape>

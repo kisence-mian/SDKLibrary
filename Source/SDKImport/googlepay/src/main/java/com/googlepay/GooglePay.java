@@ -14,7 +14,6 @@ import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -347,8 +346,6 @@ public class GooglePay extends SDKBase implements IPay {
                             SendLog("GooglePay  GetGoodsInfo getResponseCode == " + billingResult.getResponseCode() + "----skuDetailsList===" + l_skuDetailsList);
                         }
                     }
-
-
                 }
         );
     }
