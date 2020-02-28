@@ -3,7 +3,7 @@ package sdkInterface.define;
 public enum StoreName
 {
     None,
-    GooglePlay ,
+    GooglePay,
     AmazonAppStore,
     CloudMoolah,
     SamsungApps,

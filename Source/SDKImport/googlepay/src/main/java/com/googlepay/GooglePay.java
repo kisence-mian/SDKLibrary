@@ -23,15 +23,9 @@ import java.util.List;
 
 import androidx.annotation.Nullable;
 
-import sdkInterface.IAD;
 import sdkInterface.IPay;
 import sdkInterface.SDKBase;
 import sdkInterface.SDKInterfaceDefine;
-import sdkInterface.SdkInterface;
-import sdkInterface.define.ADResult;
-import sdkInterface.define.ADType;
-
-import androidx.core.util.Pair;
 
 import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
@@ -102,13 +96,13 @@ public class GooglePay extends SDKBase implements IPay {
             @Override
             public void onBillingSetupFinished(BillingResult billingResult) {
                 if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-// The BillingClient is ready. You can query purchases here.
-//初始化成功，可以请求商品数据
+                    // The BillingClient is ready. You can query purchases here.
+                    //初始化成功，可以请求商品数据
+                    SendLog("GooglePay  Init success ");
+
                     isBillingServiceSonnect = true;
-                    SendLog("GooglePay  Init success " + isBillingServiceSonnect);
 
                     RePurchasesResult();
-
                     for (JSONObject goodsJSONObject : waitAskGoodsJSONObject) {
                         GetGoodsInfo(goodsJSONObject);
                     }
@@ -118,23 +112,37 @@ public class GooglePay extends SDKBase implements IPay {
                     skuList.add(testGoodsID);
                     GetGoodsInfoFromGoogle(skuList);
                 }
+                else
+                {
+                    SendLog("GooglePay Init failure " + billingResult.getResponseCode());
+                }
             }
 
             @Override
             public void onBillingServiceDisconnected() {
-// Try to restart the connection on the next request to
-// Google Play by calling the startConnection() method.
+
+                SendLog("GooglePay onBillingServiceDisconnected ");
+
+                // Try to restart the connection on the next request to
+                // Google Play by calling the startConnection() method.
                 isBillingServiceSonnect = false;
                 RestartInitGooglePay();
             }
-
         };
 
 //初始化 确认发放
         acknowledgePurchaseResponseListener = new AcknowledgePurchaseResponseListener() {
             @Override
             public void onAcknowledgePurchaseResponse(BillingResult billingResult) {
-                SendLog("GooglePay  onAcknowledgePurchaseResponse ==== " + billingResult.getResponseCode());
+
+                if(billingResult != null)
+                {
+                    SendLog("GooglePay  onAcknowledgePurchaseResponse " + billingResult.getResponseCode());
+                }
+                else
+                {
+                    SendLog("GooglePay  onConsumeResponse " );
+                }
             }
         };
 
@@ -142,15 +150,22 @@ public class GooglePay extends SDKBase implements IPay {
         consumeResponseListener = new ConsumeResponseListener() {
             @Override
             public void onConsumeResponse(BillingResult billingResult, String purchaseToken) {
-                SendLog("GooglePay  onConsumeResponse ==== " + billingResult.getResponseCode());
+
+                if(billingResult != null)
+                {
+                    SendLog("GooglePay  onConsumeResponse " + billingResult.getResponseCode());
+                }
+                else
+                {
+                    SendLog("GooglePay  onConsumeResponse " );
+                }
             }
         };
 
         billingClient = builder.build();
-        SendLog("GooglePay  Init startConnection");
-//开始初始化
+        SendLog("GooglePay  Init startConnection >" + billingClient + "<");
+        //开始初始化
         billingClient.startConnection(initCallback);
-
     }
 
     @Override
@@ -167,15 +182,20 @@ public class GooglePay extends SDKBase implements IPay {
     //检查所有已购买物品，是否正常发放、否则补发
     private void RePurchasesResult() {
         SendLog("GooglePay  RePurchasesResult");
-        Purchase.PurchasesResult purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
-        List<Purchase> allPurchase = purchasesResult.getPurchasesList();
-        if (allPurchase != null) {
-            for (Purchase purchase : allPurchase) {
-                handlePurchase(purchase);
+        if(billingClient != null)
+        {
+            Purchase.PurchasesResult purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
+            List<Purchase> allPurchase = purchasesResult.getPurchasesList();
+            if (allPurchase != null) {
+                for (Purchase purchase : allPurchase) {
+                    handlePurchase(purchase);
+                }
             }
         }
-
-
+        else
+        {
+            SendLog("RePurchasesResult billingClient is null");
+        }
     }
 
     @Override
@@ -185,52 +205,45 @@ public class GooglePay extends SDKBase implements IPay {
         try {
             goodsID = jsonObject.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
             payInfo = PayInfo.FromJson(jsonObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return;
-        }
 
+            if (isBillingServiceSonnect == false) {
+                SendLog("GooglePay  Pay isBillingServiceSonnect == " + isBillingServiceSonnect);
+                SendPayCallBack(false, null, "GooglePay  Pay isBillingServiceSonnect == " + isBillingServiceSonnect);
+                return;
+            } else {
 
-        if (isBillingServiceSonnect == false) {
-            SendLog("GooglePay  Pay isBillingServiceSonnect == " + isBillingServiceSonnect);
+               final String finalGoodsID = GoodsKeyToGoogle(goodsID);
+                //final  String finalGoodsID =testGoodsID;//测试id
 
+                SendLog("Google pay == " + finalGoodsID);
 
-            SendPayCallBack(false, null, "GooglePay  Pay isBillingServiceSonnect == " + isBillingServiceSonnect);
-            return;
-        } else {
-
-            final String finalGoodsID = GoodsKeyToGoogle(goodsID);;
-            //String finalGoodsID =testGoodsID;//测试id
-            SendLog("Google pay == " + finalGoodsID);
-
-            payInfo.goodsID = goodsID;
-            GetCurrentActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    SendLog("GooglePay  Pay  界面 线程去执行 ");
-                    SkuDetails skuDetails = GetSkuDetails(finalGoodsID);
-                    if (skuDetails != null) {
-                        BillingFlowParams flowParams = BillingFlowParams.newBuilder()
-                                .setSkuDetails(skuDetails)
-                                .build();
-                        BillingResult billingResult = billingClient.launchBillingFlow(GetCurrentActivity(), flowParams);
-                        SendLog("GooglePay  Pay  reusltCode == " + billingResult.getResponseCode());
-                    } else {
-                        SendPayCallBack(false, null, "GooglePay  Pay No Goods: " + finalGoodsID);
+                payInfo.goodsID = goodsID;
+                GetCurrentActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        SendLog("GooglePay  Pay  界面 线程去执行 ");
+                        SkuDetails skuDetails = GetSkuDetails(finalGoodsID);
+                        if (skuDetails != null) {
+                            BillingFlowParams flowParams = BillingFlowParams.newBuilder()
+                                    .setSkuDetails(skuDetails)
+                                    .build();
+                            BillingResult billingResult = billingClient.launchBillingFlow(GetCurrentActivity(), flowParams);
+                            SendLog("GooglePay  Pay  reusltCode == " + billingResult.getResponseCode());
+                        } else {
+                            SendPayCallBack(false, null, "GooglePay  Pay No Goods: " + finalGoodsID);
+                        }
                     }
-                }
-            });
-
-
+                });
+            }
+        } catch (Exception e) {
+            SendError("Google Pay Error " + e,e);
         }
-
     }
-
 
     //支付成功，发往服务器验证
     void handlePurchase(Purchase purchase) {
         if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
-// Grant entitlement to the user. 授予用户权限。 发往服务器发道具
+            // Grant entitlement to the user. 授予用户权限。 发往服务器发道具
             payInfo.goodsID = purchase.getSku();
             payInfo.orderID = purchase.getOrderId();
 
@@ -254,8 +267,6 @@ public class GooglePay extends SDKBase implements IPay {
 //                                    .build();
 //                    billingClient.acknowledgePurchase(acknowledgePurchaseParams, acknowledgePurchaseResponseListener);
 //                }
-//
-//
 //            }
         }
     }
@@ -280,8 +291,6 @@ public class GooglePay extends SDKBase implements IPay {
         }
 
         SendLog("GooglePay GetSkuDetails size===" + skuDetailsList.size() + "==key=is null==" + key);
-
-
         return null;
     }
 
@@ -403,7 +412,7 @@ public class GooglePay extends SDKBase implements IPay {
             SendLog("GooglePay  ClearPurchase ==for goods id==" + goodsID + "-----------" + purchase.getSku() + "==equals==" + goodsID.equals(purchase.getSku()));
             if (goodsID.equals(purchase.getSku())) {
                 SendLog("GooglePay  ClearPurchase ====" + goodsID + "===" + purchase.isAcknowledged());
-// Acknowledge the purchase if it hasn't already been acknowledged. 确认购买，如果它还没有被确认。
+                // Acknowledge the purchase if it hasn't already been acknowledged. 确认购买，如果它还没有被确认。
 
                 SendLog("GooglePay  ClearPurchase ==222==" + purchase.getSku());
                 if (true)//消耗型，不知道咋判断
@@ -450,7 +459,7 @@ public class GooglePay extends SDKBase implements IPay {
             jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, GoodsKeyToUnity(sku));
             jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, "");
             jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.GooglePlay.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.GooglePay.toString());
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, packageName + "|" + purchaseToken + "|" + orderID);
 
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency, "");
@@ -458,8 +467,8 @@ public class GooglePay extends SDKBase implements IPay {
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Price, "0");
             jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsType, "NORMAL");
             payInfo.ToJson(jo);
-//            SendLog(" SendPayCallBack   1============ " + jo);
-//            jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,"");
+            //            SendLog(" SendPayCallBack   1============ " + jo);
+            //            jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,"");
 
             SendLog(" SendPayCallBack  =============" + jo);
             sdkInterface.SdkInterface.SendMessage(jo);
