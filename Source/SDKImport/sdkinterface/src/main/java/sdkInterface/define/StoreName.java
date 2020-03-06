@@ -31,4 +31,5 @@ public enum StoreName
     Gionee,// 金立
     Huluxia,// 葫芦侠
     YSDK,// 应用宝
+    Payssion,
 }

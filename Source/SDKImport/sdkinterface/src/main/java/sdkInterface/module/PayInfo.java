@@ -8,6 +8,7 @@ import sdkInterface.define.GoodsType;
 public class PayInfo
 {
     public String userID= "";
+    public  String prepayID ="";
     public String goodsID= "";
     public String goodsName= "";
     public String goodsDescription= "";
@@ -34,6 +35,7 @@ public class PayInfo
             info.tag = json.getString(SDKInterfaceDefine.Tag);
 
             info.userID = json.getString(SDKInterfaceDefine.ParameterName_UserID);
+            info.prepayID = json.getString(SDKInterfaceDefine.Pay_ParameterName_PrepayID);
 
             return info;
         }
@@ -76,6 +78,11 @@ public class PayInfo
             if(!json.has(SDKInterfaceDefine.Pay_ParameterName_Currency))
             {
                 json.put(SDKInterfaceDefine.Pay_ParameterName_Currency,currency);
+            }
+
+            if(!json.has(SDKInterfaceDefine.Pay_ParameterName_PrepayID))
+            {
+                json.put(SDKInterfaceDefine.Pay_ParameterName_PrepayID,prepayID);
             }
 
             //防止出错

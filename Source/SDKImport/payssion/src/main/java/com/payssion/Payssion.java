@@ -1,7 +1,9 @@
 package com.payssion;
 
+import android.Manifest;
 import android.content.Intent;
-import android.util.Log;
+import android.content.pm.PackageManager;
+import android.os.Build;
 
 import com.payssion.android.sdk.PayssionActivity;
 import com.payssion.android.sdk.PayssionBaseActivity;
@@ -15,6 +17,7 @@ import androidx.annotation.Nullable;
 import sdkInterface.IPay;
 import sdkInterface.SDKBase;
 import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
 
 public class Payssion extends SDKBase implements IPay {
@@ -37,6 +40,10 @@ public class Payssion extends SDKBase implements IPay {
                 pmId = GetProperties().getProperty("PmId");
                 apiKey = GetProperties().getProperty("ApiKey");
                 SendLog("payssion Init resulet: currencyKey" + currencyKey +"  pmId"+ pmId + " apiKey" + apiKey );
+
+                PayssionBaseActivity pba = new PayssionBaseActivity();
+                SendLog("PayssionBaseActivity " + pba);
+
             } catch (IOException e) {
                 SendError("Payssion init error " + e ,e);
             }
@@ -57,9 +64,10 @@ public class Payssion extends SDKBase implements IPay {
             description = jsonObject.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsName);
             amount =   Double.valueOf(jsonObject.getString(SDKInterfaceDefine.Pay_ParameterName_Price));
             payerName = jsonObject.getString(SDKInterfaceDefine.ParameterName_UserID);
+            pmId = jsonObject.getString(SDKInterfaceDefine.Tag);
             payInfo = PayInfo.FromJson(jsonObject);
         } catch (JSONException e) {
-            e.printStackTrace();
+            SendError("Pay error " + e,e);
             return;
         }
         StartPayssionPay(description,payerName,payerEmail,amount,currency,orderId);
@@ -183,7 +191,6 @@ public class Payssion extends SDKBase implements IPay {
     //支付结构回调C#
     void SendPayCallBack(boolean success, PayResponse response, String errorCode)
     {
-
         String packageName ="";
         String sku=payInfo.goodsID;
         if(sku ==null)
@@ -197,7 +204,28 @@ public class Payssion extends SDKBase implements IPay {
         }
         SendLog("GooglePay  SendPayCallBack ===="  +success + "==sku==" +sku + "==errorCode==" + errorCode);
 
-        //以服务器为准，无需发送消息
+        try {
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,sku);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,"");
+            jo.put(SDKInterfaceDefine.ParameterName_Error,errorCode);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.Payssion.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt,"");
 
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,"");
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsName,"");
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Price,"0");
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsType,"NORMAL");
+            payInfo.ToJson(jo);
+
+            SendLog(" SendPayCallBack  =============" + jo);
+            sdkInterface.SdkInterface.SendMessage(jo);
+        }
+        catch (JSONException e)
+        {
+            SendError("SendPayCallBack Error " + e,e);
+        }
     }
 }

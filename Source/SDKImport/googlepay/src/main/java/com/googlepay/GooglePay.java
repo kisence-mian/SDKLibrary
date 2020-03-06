@@ -130,7 +130,7 @@ public class GooglePay extends SDKBase implements IPay {
             }
         };
 
-//初始化 确认发放
+        //初始化 确认发放
         acknowledgePurchaseResponseListener = new AcknowledgePurchaseResponseListener() {
             @Override
             public void onAcknowledgePurchaseResponse(BillingResult billingResult) {
@@ -146,7 +146,7 @@ public class GooglePay extends SDKBase implements IPay {
             }
         };
 
-//初始化 确认发放
+        //初始化 确认发放
         consumeResponseListener = new ConsumeResponseListener() {
             @Override
             public void onConsumeResponse(BillingResult billingResult, String purchaseToken) {
@@ -400,6 +400,7 @@ public class GooglePay extends SDKBase implements IPay {
         String goodsID = "";
         try {
             goodsID = jsonObject.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            goodsID = GoodsKeyToGoogle(goodsID);
             SendLog("GooglePay  ClearPurchase goodsID===" + goodsID);
 
         } catch (JSONException e) {
