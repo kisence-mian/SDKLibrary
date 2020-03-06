@@ -298,13 +298,14 @@ public class GooglePay extends SDKBase implements IPay {
     @Override
     public void GetGoodsInfo(JSONObject json) {
 
+        SendLog("GooglePay  GetGoodsInfo " + json);
         String goodsID = "";
         try {
             goodsID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
-            goodsID =GoodsKeyToGoogle(goodsID);
+            goodsID = GoodsKeyToGoogle(goodsID);
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            SendError("GetGoodsInfo error " + e,e);
             return;
         }
 

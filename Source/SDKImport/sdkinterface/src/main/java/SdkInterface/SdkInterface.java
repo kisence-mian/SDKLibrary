@@ -318,7 +318,13 @@ public class SdkInterface
                 switch (function)
                 {
                     case SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo:
-                        pay.GetGoodsInfo(json);
+                        //商品信息全部请求
+                        for (  int i =0;i<paySDKList.size();i++)
+                        {
+                            IPay tmp = (IPay)paySDKList.get(i);
+                            tmp.GetGoodsInfo(json);
+                        }
+//                        pay.GetGoodsInfo(json);
                         break;
                     case  SDKInterfaceDefine.Pay_FunctionName_ClearPurchase:
                         pay.ClearPurchase(json);
@@ -329,6 +335,9 @@ public class SdkInterface
                     default:
                         SendLog("dont find pay function " + function + " json " + json);
                 }
+            }else
+            {
+                SendLog("dont find pay  json " + json);
             }
         }
         catch (Exception e)

@@ -13,6 +13,8 @@ import com.payssion.android.sdk.model.PayResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.util.Date;
+
 import androidx.annotation.Nullable;
 import sdkInterface.IPay;
 import sdkInterface.SDKBase;
@@ -157,6 +159,10 @@ public class Payssion extends SDKBase implements IPay {
                             SendPayCallBack(true,response,"0");
                             //you will have to query the payment state with the transId or orderId from your server
                             //as we will notify you server whenever there is a payment state change
+
+                            //延迟10s 再发一个失败
+
+
                         } else {
                             //should never go here
                             SendLog("PayssionPay result== error: response == null"  );
@@ -200,7 +206,7 @@ public class Payssion extends SDKBase implements IPay {
         String orderID="";
         if(success && response != null)
         {
-            orderID = response.getOrderId();
+            orderID = response.getTransactionId();
         }
         SendLog("GooglePay  SendPayCallBack ===="  +success + "==sku==" +sku + "==errorCode==" + errorCode);
 
@@ -209,10 +215,10 @@ public class Payssion extends SDKBase implements IPay {
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,sku);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,"");
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,orderID);
             jo.put(SDKInterfaceDefine.ParameterName_Error,errorCode);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.Payssion.toString());
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt,"");
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt,orderID);
 
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Currency,"");
             jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsName,"");
@@ -228,4 +234,9 @@ public class Payssion extends SDKBase implements IPay {
             SendError("SendPayCallBack Error " + e,e);
         }
     }
+
+//    String GenerateOrder()
+//    {
+//        return "OD_payssion" + new Date().toString();
+//    }
 }
