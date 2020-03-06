@@ -8,13 +8,13 @@ import org.json.JSONObject;
 
 public interface IAD
 {
-    void AD(JSONObject json);
+//    void AD(JSONObject json);
 
-    void LoadAD(String adType,String tag );
+    void LoadAD(JSONObject json);
 
-    void PlayAD(String adType,String tag );
+    void PlayAD(JSONObject json);
 
-    void CloseAD(String adType,String tag );
+    void CloseAD(JSONObject json);
 
-    Boolean IsLoaded(String adType,String tag );
+    Boolean IsLoaded(JSONObject json);
 }

@@ -106,7 +106,7 @@ public class SdkInterface
             Log.d("Unity","SendMessage ->" + content + "<-");
         }
 
-        UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
+//        UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
     }
 
     public static void SendMessage(JSONObject json)
@@ -123,7 +123,7 @@ public class SdkInterface
             jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
             jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent+ "\n" + GetCallStrack(e));
 
-            UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString() );
+//            UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString() );
         }
         catch (Exception ex)
         {
@@ -156,7 +156,7 @@ public class SdkInterface
 
                 jo.put(SDKInterfaceDefine.ParameterName_Content, LogContent);
 
-                UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
+//                UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
             }
             catch (Exception e)
             {
@@ -311,7 +311,22 @@ public class SdkInterface
             IPay pay =(IPay)GetSDK(json,paySDKList);
             if(pay != null)
             {
-                pay.Pay(json);
+                String function = json.getString(SDKInterfaceDefine.FunctionName);
+
+                switch (function)
+                {
+                    case SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo:
+                        pay.GetGoodsInfo(json);
+                        break;
+                    case  SDKInterfaceDefine.Pay_FunctionName_ClearPurchase:
+                        pay.ClearPurchase(json);
+                        break;
+                    case  SDKInterfaceDefine.FunctionName_OnPay:
+                        pay.Pay(json);
+                        break;
+                    default:
+                        SendLog("dont find pay function " + function + " json " + json);
+                }
             }
         }
         catch (Exception e)
@@ -386,7 +401,19 @@ public class SdkInterface
         try {
             IAD ad = (IAD) GetSDK(json, adSDKList);
             if (ad != null) {
-                ad.AD(json);
+
+                String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.AD_FunctionName_PlayAD:
+                        ad.PlayAD(json);break;
+                    case SDKInterfaceDefine.AD_FunctionName_CloseAD:
+                        ad.CloseAD(json);break;
+                    case SDKInterfaceDefine.AD_FunctionName_LoadAD:
+                        ad.LoadAD(json);
+                    default:
+                        SendError("Not find AD Function " + functionName,null);
+                }
             }
             else
             {
@@ -394,10 +421,29 @@ public class SdkInterface
             }
         }
         catch (Exception e) {
-            e.printStackTrace();
+            SendError("SDKInterface AD json:  " + json + " e:" + e ,e);
         }
     }
 
+    public static boolean ADIsLoad(String content)
+    {
+        try {
+            JSONObject json = new JSONObject(content);
+
+            IAD ad = (IAD) GetSDK(json, adSDKList);
+            if (ad != null) {
+                return ad.IsLoaded(json);
+            }
+            else
+            {
+                SendError("Not find AD Class -> " + json.toString(),null);
+            }
+        }
+        catch (Exception e) {
+            SendError("SDKInterface ADIsLoad error: " + e ,e);
+        }
+        return false;
+    }
     //endregion
 
     //region 事件上报
@@ -616,6 +662,11 @@ public class SdkInterface
 
     public static String GetCallStrack(Exception e) {
 
+        if(e == null)
+        {
+            return "";
+        }
+
         String content = "";
 
         StackTraceElement[] stackElements = e.getStackTrace();
@@ -794,8 +845,6 @@ public class SdkInterface
             SendError("OnNewIntent Error:" + e.toString(),e);
         }
     }
-
-
 
     static boolean GetIsLog()  {
 

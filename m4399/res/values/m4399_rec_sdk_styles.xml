@@ -23,6 +23,7 @@
 
     <style name="m4399ActivityTheme" parent="android:Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@color/m4399_ope_transparent</item>
     </style>
 

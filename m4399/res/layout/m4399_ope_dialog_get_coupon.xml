@@ -2,7 +2,7 @@
 <cn.m4399.operate.ui.widget.HintBannerView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="40dp"
-    android:background="@drawable/m4399_ope_dialog_main_bg"
+    android:background="@drawable/m4399_ope_banner_bg"
     android:gravity="center"
     android:orientation="horizontal">
 

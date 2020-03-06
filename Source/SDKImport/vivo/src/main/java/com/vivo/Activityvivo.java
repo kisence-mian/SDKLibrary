@@ -187,6 +187,16 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
         return false;
     }
 
+    @Override
+    public void GetGoodsInfo(JSONObject json) {
+
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
+    }
+
     private void InitSDK()
     {
         VivoUnionSDK.initSdk(GetCurrentActivity(),AppID,false);

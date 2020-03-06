@@ -11,8 +11,7 @@
     <dimen name="m4399_ope_dialog_common_height">185dp</dimen>
 
     <dimen name="m4399_ope_page_width">300dp</dimen>
-    <dimen name="m4399_ope_page_height">250dp</dimen>
-    <dimen name="m4399_ope_page_phone_height">280dp</dimen>
+    <dimen name="m4399_ope_page_height">280dp</dimen>
     <dimen name="m4399_ope_bind_label_margin">0dp</dimen>
 
     <dimen name="m4399_ope_bind_input_margin">15dp</dimen>
@@ -76,4 +75,8 @@
 
     <!--          登录验证页面         -->
     <dimen name="m4399_ope_verify_sms_margin_hori_dimen">12dp</dimen>
+
+    <!--通用大弹窗-横屏-->
+    <dimen name="m4399_ope_dialog_width_big">304dp</dimen>
+    <dimen name="m4399_ope_name_auth_dialog_width">304dp</dimen>
 </resources>

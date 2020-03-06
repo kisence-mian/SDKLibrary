@@ -73,6 +73,12 @@ public class SDKInterfaceDefine {
     public static final String Pay_GoodsTypeEnum_RIGHTS = "RIGHTS";
 
     //AD相关参数
+    public static final String AD_ParameterName_ADType = "ADType";
+
+    public static final String AD_FunctionName_LoadAD = "LoadAD";
+    public static final String AD_FunctionName_PlayAD = "PlayAD";
+    public static final String AD_FunctionName_CloseAD = "CloseAD";
+    public static final String AD_FunctionName_ADIsLoaded = "ADIsLoaded";
 
     //Log相关参数
     public static final String Log_FunctionName_Login = "LogLogin";

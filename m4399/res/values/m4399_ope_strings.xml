@@ -142,7 +142,7 @@
 
     <!-- 身份验证，绑定手机，激活码-->
     <string name="m4399_ope_bind_id_title">身份证信息认证</string>
-    <string name="m4399_ope_bind_id_series">身份证号码</string>
+    <string name="m4399_ope_bind_id_series">身份证号</string>
     <string name="m4399_ope_bind_id_relogin">切换账号</string>
     <string name="m4399_ope_bind_id_msg_end">(仅自己可见)</string>
 
@@ -155,9 +155,11 @@
     <string name="m4399_ope_bind_id_real_name_max">最多能输入15个汉字</string>
 
     <string name="m4399_ope_bind_sure">立即认证</string>
-    <string name="m4399_ope_bind_realname">真实姓名　</string>
-    <string name="m4399_ope_bind_realname_hint">请输入你的真实姓名</string>
-    <string name="m4399_ope_bind_id_series_hint">请输入18位身份证号码</string>
+    <string name="m4399_ope_bind_realname_port">姓名\u3000\u3000</string>
+    <string name="m4399_ope_bind_realname">姓名</string>
+    <string name="m4399_ope_bind_realname_hint">请输入你的姓名</string>
+    <string name="m4399_ope_bind_id_series_hint">请输入18位身份证号</string>
+    <string name="m4399_ope_bind_id_series_error">您输入的身份证号格式有误</string>
     <string name="m4399_ope_bind_id_example">示例：350203199001014094</string>
     <string name="m4399_ope_bind_id_example_front">　　　　　</string>
     <string name="m4399_ope_bind_phone_number">手机号码</string>
@@ -184,9 +186,11 @@
     <string name="m4399_ope_bind_phone_failure">手机绑定失败，请检查网络</string>
     <string name="m4399_ope_bind_phone_number_no_null">手机号不能为空~</string>
 
-
     <string name="m4399_ope_bind_phone_request_state">正在请求中，请稍等</string>
     <string name="m4399_ope_bind_phone_sms_code_no_null">短信验证码不能为空~</string>
+
+    <string name="m4399_ope_name_auth_write_click">立即填写</string>
+    <string name="m4399_ope_copy_success">已复制</string>
 
     <!-- bind result-->
     <string name="m4399_ope_bind_phone_has_bound">您已绑定过手机了~</string>
@@ -202,12 +206,10 @@
     <string name="m4399_ope_bind_phone_check_state_failure">检查失败，请检查服务端接口</string>
     <string name="m4399_ope_bind_phone_check_state_failure_network">检查失败，请检查网络</string>
 
-
     <string name="m4399_ope_activation_get_failure">无法前往领取激活码页面，请检查网络~</string>
     <string name="m4399_ope_activation_activate_success">激活成功！</string>
     <string name="m4399_ope_activation_activate_failure">激活失败，请检查网络~</string>
     <string name="m4399_ope_activation_no_null">请输入激活码~</string>
-
 
     <string name="m4399_ope_network_no_network">网络连接异常，尝试点击屏幕重新加载！</string>
     <string name="m4399_ope_network_set_network">设置网络</string>
@@ -298,7 +300,8 @@
     <string name="m4399_ope_index_title">4399游戏助手</string>
     <string name="m4399_ope_setting_id_bind">身份证认证</string>
     <string name="m4399_ope_setting_has_checked">已认证</string>
-    <string name="m4399_ope_setting_click_upd">点击修改</string>
+    <string name="m4399_ope_setting_click_upd">已认证，点击修改</string>
+    <string name="m4399_ope_setting_click_perfect">点击完善</string>
     <string name="m4399_ope_index_gift">礼包</string>
     <string name="m4399_ope_index_website">官网</string>
     <string name="m4399_ope_index_game_circle">游戏圈</string>
@@ -395,4 +398,10 @@
     <string name="m4399_ope_account_abnormal">当前账号异常,请进行验证</string>
     <string name="m4399_ope_validate_code_loading">验证码加载中...</string>
     <string name="m4399_ope_validate_tip">拖动滑块,完成上方拼图</string>
+
+    <string name="m4399_ope_remain_time_check_detail">查看详情</string>
+    <string name="m4399_ope_web_error_title">找不到网页</string>
+    <string name="m4399_ope_name_auth_save_tip">为了安全，您的原身份信息已隐藏</string>
+    <string name="m4399_ope_name_auth_name_hint">请输入新的姓名</string>
+    <string name="m4399_ope_name_auth_id_hint">请输入新的身份证号码</string>
 </resources>

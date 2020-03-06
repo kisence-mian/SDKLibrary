@@ -117,6 +117,16 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
     }
 
     @Override
+    public void GetGoodsInfo(JSONObject json) {
+
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
+    }
+
+    @Override
     public void Other(JSONObject json) {
 
     }

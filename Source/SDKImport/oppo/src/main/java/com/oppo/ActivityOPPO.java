@@ -197,6 +197,16 @@ public class ActivityOPPO extends SDKBase implements ILogin, IPay {
         return false;
     }
 
+    @Override
+    public void GetGoodsInfo(JSONObject json) {
+
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
+    }
+
     private void InitSDK() {
         GameCenterSDK.init(AppKey, GetCurrentActivity());
     }

@@ -3,7 +3,8 @@
     android:id="@+id/verify_content"
     android:layout_width="304dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/m4399_ope_block_captcha_bg">
+    android:background="@drawable/m4399_ope_block_captcha_bg"
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/seek_captcha_title"
@@ -68,7 +69,6 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
         android:background="@drawable/m4399_ope_click_catpcha_text_bar_bg"
         android:gravity="center"
         android:textSize="12sp" />

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/m4399_ope_dialog_common_width"
     android:layout_height="@dimen/m4399_ope_dialog_common_height"
-    android:background="@drawable/m4399_ope_dialog_main_bg"
+    android:background="@drawable/m4399_ope_banner_bg"
     android:minHeight="180dp"
     android:minWidth="256dp"
     android:orientation="vertical"

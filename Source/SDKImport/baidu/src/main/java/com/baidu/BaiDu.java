@@ -2,7 +2,6 @@ package com.baidu;
 
 import android.widget.Toast;
 
-import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.duoku.platform.single.DKPlatform;
 import com.duoku.platform.single.DKPlatformSettings;
 import com.duoku.platform.single.DkErrorCode;
@@ -282,7 +281,12 @@ public class BaiDu extends SDKBase implements ILogin, IPay
     }
 
     @Override
-    public void GetGoodsInfo() {
+    public void GetGoodsInfo(JSONObject json) {
+
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
 
     }
 

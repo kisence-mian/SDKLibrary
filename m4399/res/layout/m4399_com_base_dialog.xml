@@ -15,7 +15,7 @@
         android:layout_marginLeft="@dimen/m4399_com_base_dialog_padding"
         android:layout_marginRight="@dimen/m4399_com_base_dialog_padding"
         android:layout_marginTop="@dimen/m4399_com_base_dialog_half_padding"
-        android:minHeight="24dp"></FrameLayout>
+        android:minHeight="24dp"/>
 
     <ImageView
         android:id="@+id/base_dialog_separator"
