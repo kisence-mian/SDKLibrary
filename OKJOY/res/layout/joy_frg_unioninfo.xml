@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/joy_base_width"
+            android:layout_height="330dp"
+            android:layout_gravity="center"
+            android:background="@drawable/joy_band_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/l_addunioncard_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="添加银行卡"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@+id/l_addunioncard_back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="15dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/joy_back_icon" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/l_addunioncard_close"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="47dp"
+                    android:layout_marginTop="15dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/joy_delete_icon" />
+                </FrameLayout>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <RelativeLayout
+                    android:id="@+id/addCardRlLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/joy_card_shape"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="-15dp"
+                        android:src="@drawable/joy_pay_type_unionpay" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="添加银行卡"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:id="@+id/image_arrow"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/joy_arrow_right_white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/image_arrow"
+                        android:gravity="center"
+                        android:paddingRight="5dp"
+                        android:text="未添加"
+                        android:textColor="@color/joygame_white"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/unionInfoLV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="65dp"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@color/joygame_background"
+                    android:dividerHeight="3dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

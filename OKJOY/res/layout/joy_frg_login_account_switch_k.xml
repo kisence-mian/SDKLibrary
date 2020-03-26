@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#22000000"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="@dimen/joy_base_width"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:background="@drawable/joy_first_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="75dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/joy_edit_height"
+                    android:background="@drawable/joy_edit_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/k_frg_login_account_switch_userImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:paddingLeft="5dp"
+                            android:src="@drawable/joy_user_name" />
+                    </LinearLayout>
+
+                    <com.JoyFramework.wight.SwitchAccountPopupEditText
+                        android:id="@+id/k_frg_login_account_switch_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="2dp"
+                        android:layout_marginTop="-2dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/k_frg_login_account_switch_enter_game"
+                    android:layout_width="180dp"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/joy_edit_height"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/joy_login_btn_bg1"
+                    android:gravity="center"
+                    android:text="进入游戏"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/k_frg_login_account_switch_login_other_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="登录其他账号"
+                android:textColor="@color/joy_base_color"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

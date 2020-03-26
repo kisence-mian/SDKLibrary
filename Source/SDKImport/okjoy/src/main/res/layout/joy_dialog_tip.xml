@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="260dp"
+        android:layout_height="200dp"
+        android:background="@drawable/joy_dialog_bg" />
+
+    <RelativeLayout
+        android:layout_width="260dp"
+        android:layout_height="200dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="153dp"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="153dp">
+
+                <TextView
+                    android:id="@+id/l_dialog_tip_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="153dp"
+                    android:ellipsize="middle"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="10dp"
+                    android:text="提示消息"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="260dp"
+            android:layout_height="42dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp">
+
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/l_dialog_tip_cancel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/l_dialog_tip_ensure"
+                android:layout_alignBottom="@+id/l_dialog_tip_ensure"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="取 消"
+                android:background="@drawable/joy_login_btn_bg1"
+                android:textColor="@color/joygame_black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@color/joygame_base_stroke_color" />
+
+            <TextView
+                android:layout_marginRight="5dp"
+                android:id="@+id/l_dialog_tip_ensure"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="确 定"
+                android:background="@drawable/joy_login_btn_bg1"
+                android:textColor="@color/joygame_black"
+                android:textSize="16sp"  />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

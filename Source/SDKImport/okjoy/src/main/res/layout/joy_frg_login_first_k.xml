@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/id_loginView"
+        android:layout_width="@dimen/joy_base_width"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:background="@drawable/joy_first_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/k_frg_login_first_back"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:paddingLeft="50dp">
+
+                <ImageView
+                    android:id="@+id/k_frg_login_first_back_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:padding="5dp"
+                    android:src="@drawable/joy_arrow_left_black" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_below="@id/k_frg_login_first_back"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <FrameLayout
+                    android:id="@+id/k_frg_login_first_fast_game"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_gravity="center|top"
+                        android:id="@+id/imageView"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/joy_fast_game" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-13dp"
+                        android:gravity="center"
+                        android:text="快速游戏"
+                        android:layout_gravity="center|bottom"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/k_frg_login_first_account_login"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_gravity="center|top"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/joy_account_login" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-13dp"
+                        android:gravity="center"
+                        android:text="账号登录"
+                        android:layout_gravity="center|bottom"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/k_frg_login_first_phone_login"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_gravity="center|top"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:src="@drawable/joy_phone_login" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="center|bottom"
+                        android:text="手机登录"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+                </FrameLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="5dp"/>
+    <solid android:color="@color/joygame_base_color"/>
+</shape>
+<!-- 添加银行卡 按钮样式 -->

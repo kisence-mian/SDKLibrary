@@ -94,6 +94,7 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
     public void Pay(JSONObject json) {
         String mark = "";
         String price = "";
+<<<<<<< HEAD
         String productName ="";
         String orderID = "";
         try {
@@ -101,6 +102,15 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
             orderID = "od_4399_" + new Date().getTime() + "_"+new Random().nextInt(1000);
             mark = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
             price = json.getString(SDKInterfaceDefine.Pay_ParameterName_Price);
+=======
+        String productName ="";eterName_GoodsID);
+            price = json.getString(SDKIn
+                    String orderID = "";
+            try {
+                payInfo = PayInfo.FromJson(json);
+                orderID = "od_4399_" + new Date().getTime() + "_"+new Random().nextInt(1000);
+                mark = json.getString(SDKInterfaceDefine.Pay_ParamterfaceDefine.Pay_ParameterName_Price);
+>>>>>>> 8c5537acd97d3721f6b4030ae56b10056d56547f
             productName = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsName);
 
             payInfo.orderID = orderID;

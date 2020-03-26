@@ -31,6 +31,10 @@ public enum LoginPlatform {
     /// </summary>
     Apple,
     /// <summary>
+    /// 脸书
+    /// </summary>
+    FaceBook,
+    /// <summary>
     /// 4399
     /// </summary>
     m4399,
@@ -50,6 +54,10 @@ public enum LoginPlatform {
     /// 华为3.0
     /// </summary>
     HuaWei3,
+    /// <summary>
+    /// 华为4.0
+    /// </summary>
+    HuaWei4,
     /// <summary>
     /// UC
     /// </summary>
@@ -97,5 +105,10 @@ public enum LoginPlatform {
     /// <summary>
     /// 应用宝
     /// </summary>
-    YSDK
+    YSDK,
+
+    /// <summary>
+    /// OkJoy
+    /// </summary>
+    OKJOY,
 }

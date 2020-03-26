@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="260dp"
+        android:layout_height="180dp"
+        android:background="@drawable/joy_dialog_bg" />
+
+    <RelativeLayout
+        android:layout_width="260dp"
+        android:layout_height="180dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="126dp"
+            android:ellipsize="middle"
+            android:gravity="center"
+            android:maxLines="3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:text="您确定退出游戏吗？"
+            android:textColor="@color/joygame_black"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="260dp"
+            android:layout_height="42dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/dialog_exit"
+                android:layout_width="118dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/joy_login_btn_bg1"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="确 定"
+                android:textColor="@color/joygame_black"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@color/joygame_base_stroke_color" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/dialog_cancel"
+                android:layout_width="118dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/joy_login_btn_bg1"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="取 消"
+                android:textColor="@color/joygame_black"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -261,7 +261,7 @@ public class HuaWei3SDK extends SDKBase implements ILogin, IPay {
                 Log.i(TAG, "getPlayerInfo Success, player info: " + player.toString());
                 try {
                     // String typeKey = userData.getPlayerId()+"|"+userData.getPlayerLevel()+"|"+userData.getGameAuthSign() +"|" + userData.getTs();
-                    String typeKey = player.getPlayerId() + "|" + player.getLevelInfo().getCurrentLevel()+ "|" +player.getPlayerSign() ;
+                    String typeKey = player.getPlayerId() + "|" + player.getLevelInfo().getCurrentLevel().getLevelNumber()+ "|" +player.getPlayerSign()  + "|" + player.getSignTs();
                     Log.i(TAG, "send typeKey to Unity :  " + typeKey);
                     JSONObject jo = new JSONObject();
                     jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);

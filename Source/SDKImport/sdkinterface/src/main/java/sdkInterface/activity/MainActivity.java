@@ -3,10 +3,11 @@ package sdkInterface.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.multidex.MultiDex;
+
 
 import com.unity3d.player.UnityPlayerActivity;
 
+import androidx.multidex.MultiDex;
 import sdkInterface.SdkInterface;
 
 public class MainActivity extends UnityPlayerActivity
@@ -24,7 +25,7 @@ public class MainActivity extends UnityPlayerActivity
         super.onCreate(bundle);
         instance = this;
         SdkInterface.OnCreate();
-//        MultiDex.install(this);
+        MultiDex.install(this);
     }
 
     @Override
@@ -66,5 +67,12 @@ public class MainActivity extends UnityPlayerActivity
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+    }
+
+    //适配安卓6.0动态权限的生命周期方法
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        SdkInterface.OnRequestPermissionsResult(requestCode,permissions,grantResults);
     }
 }

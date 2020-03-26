@@ -11,4 +11,6 @@ public interface IOther
    void Other(JSONObject json);
 
    String[] GetFunctionName();
+
+   
 }

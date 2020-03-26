@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/joy_base_width"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:background="@drawable/joy_find_back_bg"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:id="@+id/l_find_back_back"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="30dp"/>
+                <FrameLayout
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/l_find_back_back2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="30dp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <FrameLayout
+                    android:id="@+id/l_frg_find_back_account_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_above="@+id/l_center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|top"
+                        android:src="@drawable/joy_find_back_account" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="找回账号"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/l_frg_find_back_password_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_below="@+id/l_user_center_img_account"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center|top"
+                        android:layout_toRightOf="@+id/l_center"
+                        android:src="@drawable/joy_find_back_password" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="找回密码"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/l_frg_find_back_service_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_gravity="center|top"
+                        android:src="@drawable/joy_find_back_service" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="联系客服"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+                </FrameLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</FrameLayout>

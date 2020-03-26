@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/joygame_transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="@dimen/joy_base_width"
+                android:layout_height="330dp"
+                android:layout_gravity="center"
+                android:background="@drawable/joy_update_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/l_dialog_web_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="更 新"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_below="@+id/top"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/joy_inde_l_r_padding"
+                    android:layout_marginRight="@dimen/joy_inde_l_r_padding"
+                    android:layout_marginBottom="40dp"
+                    android:layout_weight="1">
+
+                    <WebView
+                        android:id="@+id/result_updata"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:id="@+id/l_dialog_update_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/next_button_updata"
+                            android:layout_width="80dp"
+                            android:layout_height="@dimen/joy_edit_height"
+                            android:background="@drawable/joy_login_btn_bg1"
+                            android:gravity="center"
+                            android:text="下次更新"
+                            android:textColor="@color/joygame_black"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/button_updata"
+                            android:layout_width="80dp"
+                            android:layout_height="@dimen/joy_edit_height"
+                            android:layout_marginLeft="80dp"
+                            android:background="@drawable/joy_login_btn_bg1"
+                            android:gravity="center"
+                            android:text="立即更新"
+                            android:textColor="@color/joygame_black"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

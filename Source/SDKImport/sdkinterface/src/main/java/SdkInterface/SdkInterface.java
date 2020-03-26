@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import sdkInterface.define.RealNameStatus;
 import sdkInterface.tool.ActResultRequest;
 import sdkInterface.tool.PropertieTool;
 
@@ -21,12 +22,12 @@ import sdkInterface.tool.PropertieTool;
 
 public class SdkInterface
 {
+    static final String CallBackObjectName = "CallBackObject";
     static final String CallBackFuntionName = "OnSDKCallBack";
     static boolean isInit = false;
     static boolean isLog = true;
 
     static Properties SdkManifest;
-    static String CallBackObjectName;
 
     //用于接收onActivityResult回调
     public static ActResultRequest actResultRequest;
@@ -54,16 +55,90 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_Pay:Pay(json);break;
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
                 case SDKInterfaceDefine.ModuleName_LifeCycle:LifeCycle(json);break;
+                case SDKInterfaceDefine.ModuleName_RealName:RealName(json);break;
                 default:SendError("UnityRequestFunction : not support function name ->" + content + "<-",null);
             }
 
-            InitActResultRequest();
+
         }
         catch (Exception e)
         {
             SendError("UnityRequestFunction Error  msg  -> " + content + "<- error: " + e.toString(),e);
         }
     }
+
+    //region 外部交互 (int 返回类型)
+    public static int UnityRequestFunctionInt(String content)
+    {
+        try
+        {
+            SendLog("SDKInterface UnityRequestFunctionInt receive ->"  + content + "<-");
+
+            JSONObject json = new JSONObject(content);
+            String functionName = json.getString(SDKInterfaceDefine.ModuleName);
+
+            switch(functionName)
+            {
+                case SDKInterfaceDefine.ModuleName_RealName:RealName(json); return 0;
+                default:SendError("UnityRequestFunctionInt : not support function name ->" + content + "<-",null);return 0;
+            }
+
+        }
+        catch (Exception e)
+        {
+            SendError("UnityRequestFunctionInt Error  msg  -> " + content + "<- error: " + e.toString(),e);
+            return 0;
+        }
+    }
+
+    //region 外部交互 (string 返回类型)
+    public static String UnityRequestFunctionString(String content)
+    {
+        try
+        {
+            SendLog("SDKInterface UnityRequestFunctionString receive ->"  + content + "<-");
+
+            JSONObject json = new JSONObject(content);
+            String functionName = json.getString(SDKInterfaceDefine.ModuleName);
+
+            switch(functionName)
+            {
+                case SDKInterfaceDefine.ModuleName_RealName:RealName(json); return RealNameString(json);
+                default:SendError("UnityRequestFunctionString : not support function name ->" + content + "<-",null);return "0";
+            }
+
+        }
+        catch (Exception e)
+        {
+            SendError("UnityRequestFunctionString Error  msg  -> " + content + "<- error: " + e.toString(),e);
+            return "0";
+        }
+    }
+
+    //region 外部交互 (bool 返回类型)
+    public static Boolean UnityRequestFunctionBool(String content)
+    {
+        try
+        {
+            SendLog("SDKInterface UnityRequestFunctionString receive ->"  + content + "<-");
+
+            JSONObject json = new JSONObject(content);
+            String functionName = json.getString(SDKInterfaceDefine.ModuleName);
+
+            switch(functionName)
+            {
+                case SDKInterfaceDefine.ModuleName_RealName:RealName(json); return RealNameBool(json);
+                default:SendError("UnityRequestFunctionString : not support function name ->" + content + "<-",null);return false;
+            }
+
+        }
+        catch (Exception e)
+        {
+            SendError("UnityRequestFunctionString Error  msg  -> " + content + "<- error: " + e.toString(),e);
+            return false;
+        }
+    }
+
 
     public static String GetProperties(String properties,String key,String defaultValue)
     {
@@ -106,7 +181,7 @@ public class SdkInterface
             Log.d("Unity","SendMessage ->" + content + "<-");
         }
 
-//        UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
+        UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
     }
 
     public static void SendMessage(JSONObject json)
@@ -118,6 +193,11 @@ public class SdkInterface
     {
         try
         {
+            if(isLog)
+            {
+                Log.e("Unity", "SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
+            }
+
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
             jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
@@ -132,11 +212,6 @@ public class SdkInterface
                 Log.e("Unity", "SendError Exception ->" + ex.toString() + "\n" + GetCallStrack(ex) + "<-");
             }
         }
-
-        if(isLog)
-        {
-            Log.e("Unity", "SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
-        }
     }
 
     public static boolean IsDebug()
@@ -148,6 +223,8 @@ public class SdkInterface
     {
         if(isLog)
         {
+            Log.d("Unity","SendLog ->" + LogContent + "<-");
+
             try
             {
                 JSONObject jo = new JSONObject();
@@ -162,8 +239,6 @@ public class SdkInterface
             {
                 Log.e("Unity","SendLog Exception ->" + e.toString() + "<-");
             }
-
-            Log.d("Unity","SendLog ->" + LogContent + "<-");
         }
     }
 
@@ -174,9 +249,11 @@ public class SdkInterface
         if(!isInit)
         {
             isInit = true;
+            InitActResultRequest();
+            SendLog("SDKManager Init " );
             try
             {
-                CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
+//                CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
 
                 for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
                 {
@@ -316,7 +393,14 @@ public class SdkInterface
                 switch (function)
                 {
                     case SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo:
-                        pay.GetGoodsInfo(json);
+
+                        //商品信息全部请求
+                        for (  int i =0;i<paySDKList.size();i++)
+                        {
+                            IPay tmp = (IPay)paySDKList.get(i);
+                            tmp.GetGoodsInfo(json);
+                        }
+
                         break;
                     case  SDKInterfaceDefine.Pay_FunctionName_ClearPurchase:
                         pay.ClearPurchase(json);
@@ -327,6 +411,10 @@ public class SdkInterface
                     default:
                         SendLog("dont find pay function " + function + " json " + json);
                 }
+            }else
+            {
+                SendLog("dont find pay  json " + json);
+
             }
         }
         catch (Exception e)
@@ -522,7 +610,126 @@ public class SdkInterface
     }
 
     //endregion
+    // region 实名制
+    static ArrayList<SDKBase> realNameSDKList;
 
+    static void RealName(JSONObject json) {
+        try {
+            IRealName realName = (IRealName) GetSDK(json, realNameSDKList);
+            if (realName != null) {
+
+                String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.RealName_FunctionName_StartRealNameAttestation:
+                        realName.StartRealNameAttestation();break;
+                    default:
+                        SendError("Not find RealName Function " + functionName,null);
+                }
+            }
+            else
+            {
+                SendError("Not find RealName Class -> " + json.toString(),null);
+            }
+        }
+        catch (Exception e) {
+            SendError("SDKInterface RealName json:  " + json + " e:" + e ,e);
+        }
+    }
+
+    static boolean RealNameBool(JSONObject json) {
+        try {
+            IRealName realName = (IRealName) GetSDK(json, realNameSDKList);
+            if (realName != null) {
+
+                String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.RealName_FunctionName_IsAdult:
+                        if(realName.GetRealNameType().equals(RealNameStatus.NotNeed))
+                        {
+                            //不需要实名认证，默认成年
+                            return true;
+                        }
+                        else
+                        {
+                            return realName.IsAdult();
+                        }
+
+                    default:
+                        SendError("Not find RealNameBool Function " + functionName,null);
+                        return true;
+                }
+            }
+            else
+            {
+                SendError("Not find RealNameBool Class -> " + json.toString(),null);
+                return true;
+            }
+        }
+        catch (Exception e) {
+            SendError("SDKInterface RealNameBool json:  " + json + " e:" + e ,e);
+            return true;
+        }
+    }
+
+    static String RealNameString(JSONObject json) {
+        try {
+            IRealName realName = (IRealName) GetSDK(json, realNameSDKList);
+            if (realName != null) {
+
+                String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.RealName_FunctionName_GetRealNameType:
+                        return realName.GetRealNameType().toString();
+
+                    default:
+                        SendError("Not find RealNameString Function " + functionName,null);
+                        return RealNameStatus.NotNeed.toString();
+                }
+            }
+            else
+            {
+                SendError("Not find RealNameString Class -> " + json.toString(),null);
+                return RealNameStatus.NotNeed.toString();
+            }
+        }
+        catch (Exception e) {
+            SendError("SDKInterface RealNameString json:  " + json + " e:" + e ,e);
+            return RealNameStatus.NotNeed.toString();
+        }
+    }
+
+    static int RealNameInt(JSONObject json) {
+        try {
+            IRealName realName = (IRealName) GetSDK(json, realNameSDKList);
+            if (realName != null) {
+
+                String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.RealName_FunctionName_GetTodayOnlineTime:
+                        return realName.GetTodayOnlineTime();
+
+                    default:
+                        SendError("Not find RealNameInt Function " + functionName,null);
+                        return -1;
+                }
+            }
+            else
+            {
+                SendError("Not find RealNameInt Class -> " + json.toString(),null);
+                return -1;
+            }
+        }
+        catch (Exception e) {
+            SendError("SDKInterface RealNameInt json:  " + json + " e:" + e ,e);
+            return -1;
+        }
+    }
+
+    //endregion
     //region 其他接口
 
     static ArrayList<SDKBase> otherSDKList;
@@ -544,6 +751,32 @@ public class SdkInterface
                     SDKBase ins =  GetClass(className,json);
 
                     otherSDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
+            }
+        }
+    }
+
+    static void InitRealName(JSONObject json)
+    {
+        realNameSDKList = new ArrayList<>();
+
+        String realNameeClassNameConfig = SdkManifest.getProperty("RealName");
+        String[] realNameClassNameList = realNameeClassNameConfig.split("\\|");
+
+        SendLog("RealName Init ->" + realNameeClassNameConfig);
+
+        for (int i = 0; i < realNameClassNameList.length; i++) {
+            //加载对应类，并放入realNameSDKList
+
+            if (realNameClassNameList[i] != null
+                    && realNameClassNameList[i] != "") {
+                try {
+                    String className = realNameClassNameList[i];
+                    SDKBase ins =  GetClass(className,json);
+
+                    realNameSDKList.add(ins);
                 } catch (Exception e) {
                     SendError(e.toString(), e);
                 }
@@ -724,6 +957,7 @@ public class SdkInterface
             InitPay(null);
             InitAD(null);
             InitOther(null);
+            InitRealName(null);
         }catch (Exception e)
         {
             SendError("OnCreate Error " + e,e);
@@ -828,6 +1062,21 @@ public class SdkInterface
         catch (Exception e)
         {
             SendError("OnResume Error:" + e.toString(),e);
+        }
+    }
+
+    public static void OnRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+        SendLog("SDKInterBase OnRequestPermissionsResult " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnRequestPermissionsResult(requestCode,permissions,grantResults);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("OnRequestPermissionsResult Error:" + e.toString(),e);
         }
     }
 

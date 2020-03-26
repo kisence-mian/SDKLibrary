@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/l_fl_view"
+        android:layout_width="55dp"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:id="@+id/l_float_view_icon_imageView"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/joy_float_img" />
+
+    </FrameLayout>
+
+</FrameLayout>

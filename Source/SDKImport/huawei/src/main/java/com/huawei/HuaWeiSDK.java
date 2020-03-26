@@ -5,22 +5,16 @@ import android.widget.Toast;
 import com.huawei.android.hms.agent.HMSAgent;
 import com.huawei.android.hms.agent.common.handler.CheckUpdateHandler;
 import com.huawei.android.hms.agent.common.handler.ConnectHandler;
-import com.huawei.android.hms.agent.game.GameLoginSignUtil;
-import com.huawei.android.hms.agent.game.handler.ICheckLoginSignHandler;
 import com.huawei.android.hms.agent.game.handler.LoginHandler;
 import com.huawei.android.hms.agent.pay.PaySignUtil;
 import com.huawei.android.hms.agent.pay.handler.GetOrderHandler;
 import com.huawei.android.hms.agent.pay.handler.PayHandler;
-import com.huawei.android.hms.agent.pay.handler.ProductPayHandler;
 import com.huawei.hms.support.api.entity.game.GameUserData;
 import com.huawei.hms.support.api.entity.pay.OrderRequest;
 import com.huawei.hms.support.api.entity.pay.PayReq;
 import com.huawei.hms.support.api.entity.pay.PayStatusCodes;
-import com.huawei.hms.support.api.entity.pay.ProductPayRequest;
 import com.huawei.hms.support.api.pay.OrderResult;
 import com.huawei.hms.support.api.pay.PayResultInfo;
-import com.huawei.hms.support.api.pay.ProductPayResultInfo;
-import com.huawei.updatesdk.UpdateSdkAPI;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -166,6 +160,11 @@ public class HuaWeiSDK extends SDKBase implements ILogin, IPay {
     @Override
     public void GetGoodsInfo(JSONObject json)
     {
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
     }
 
     @Override

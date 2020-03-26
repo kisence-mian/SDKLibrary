@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="3dp"/>
+    <solid android:color="@color/joy_base_color"/>
+</shape>
+<!-- 对话框的 ‘确定’ 按钮背景样式 -->

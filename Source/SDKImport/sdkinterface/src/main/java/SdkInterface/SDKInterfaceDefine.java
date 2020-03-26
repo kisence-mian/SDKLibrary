@@ -28,6 +28,7 @@ public class SDKInterfaceDefine {
     public static final String ModuleName_Other = "Other";
     public static final String ModuleName_Log = "Log";
     public static final String ModuleName_LifeCycle = "LifeCycle";
+    public static final String ModuleName_RealName= "RealName";
 
     //回调方法
     public static final String FunctionName_OnError = "OnError";
@@ -62,6 +63,7 @@ public class SDKInterfaceDefine {
     public static final String Pay_ParameterName_CallBackUrl = "CallBackUrl";
     public static final String Pay_ParameterName_CpOrderID = "CpOrderID";//第三方支付ID
     public static final String Pay_ParameterName_OrderID = "OrderID";  //我们自己的支付ID
+    public static final String Pay_ParameterName_PrepayID    = "PrepayID "; //预支付订单id
     public static final String Pay_ParameterName_Price = "Price";  //价格
     public static final String Pay_ParameterName_Currency = "Currency";  //货币
     public static final String Pay_ParameterName_Payment = "Payment";   //支付途径
@@ -73,12 +75,17 @@ public class SDKInterfaceDefine {
     public static final String Pay_GoodsTypeEnum_RIGHTS = "RIGHTS";
 
     //AD相关参数
-    public static final String AD_ParameterName_ADType = "ADType";
 
     public static final String AD_FunctionName_LoadAD = "LoadAD";
     public static final String AD_FunctionName_PlayAD = "PlayAD";
     public static final String AD_FunctionName_CloseAD = "CloseAD";
     public static final String AD_FunctionName_ADIsLoaded = "ADIsLoaded";
+
+    public static final String AD_FunctionName_OnAD = "OnAD";
+
+    public static final String AD_ParameterName_ADType = "ADType";
+    public static final String AD_ParameterName_ADResult = "ADResult";   //广告播放结果
+
 
     //Log相关参数
     public static final String Log_FunctionName_Login = "LogLogin";
@@ -105,6 +112,15 @@ public class SDKInterfaceDefine {
 
     //Other相关参数
     public static final String Other_FunctionName_Exit = "Exit";
+
+    //RealName 实名制相关
+    public static final String RealName_FunctionName_RealNameCallBack="RealNameCallBack";//实名认证完成后的回调
+    public static final String RealName_FunctionName_GetRealNameType ="GetRealNameType";//获得实名认证状态
+    public static final String RealName_FunctionName_IsAdult ="IsAdult";//是否成年
+    public static final String RealName_FunctionName_GetTodayOnlineTime ="GetTodayOnlineTime";//获取今日在线时长
+    public static final String RealName_FunctionName_StartRealNameAttestation = "StartRealNameAttestation";//开始实名认证
+    public static final String RealName_ParameterName_RealNameStatus="RealNameStatus";//实名认证的状态
+    public static final String RealName_ParameterName_IsAdult = "IsAdult";//是否是成年人
 
     //Other -> 剪贴板
     public static final String Other_FunctionName_CopyToClipboard = "CopyToClipboard";

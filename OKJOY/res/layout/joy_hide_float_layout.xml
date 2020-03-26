@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/joy_hide_layout_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp">
+
+    <ImageView
+        android:id="@+id/l_hide_float_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/joy_hide_float_normal" />
+
+    <TextView
+        android:id="@+id/l_hide_float_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:text="拖动到此隐藏浮点"
+        android:textColor="@color/joygame_light_black" />
+</LinearLayout>

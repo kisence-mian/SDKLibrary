@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="@dimen/joy_base_width"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:background="@drawable/joy_account_login_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/k_frg_login_account_pwd_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:paddingTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:background="@drawable/joy_edit_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        android:src="@drawable/joy_user_name" />
+                    <com.JoyFramework.wight.ClearEditText
+                        android:id="@+id/k_frg_login_account_pwd_account_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="请输入账号"
+                        android:paddingLeft="5dp"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/k_frg_login_account_pwd_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/joy_verify_bg"
+                        android:text="注册账号"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:textColor="@color/joy_base_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/joy_edit_bg">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:src="@drawable/joy_password" />
+
+                    <com.JoyFramework.wight.ClearEditText
+                        android:id="@+id/k_frg_login_account_pwd_password_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="请输入密码"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/joygame_black"
+                        android:textColorHint="@color/joygame_high_light_grey"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/k_frg_login_account_pwd_forget_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/joy_verify_bg"
+                        android:text="忘记密码"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:textColor="@color/joy_base_color" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/k_frg_login_account_pwd_login"
+                    android:layout_width="180dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/joy_login_btn_bg1"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="登  录"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:paddingTop="5dp"
+                    android:id="@+id/k_frg_login_account_pwd_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:text="登录账号即已阅读并同意服务协议和隐私声明"
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

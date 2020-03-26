@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/joy_base_width"
+            android:layout_height="360dp"
+            android:layout_gravity="center"
+            android:background="@drawable/joy_band_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/l_unioncard_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="银行卡"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@+id/l_unioncard_back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="15dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/joy_back_icon" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/l_unioncard_close"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="46dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/joy_delete_icon" />
+                </FrameLayout>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:paddingTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|top"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:background="@color/joygame_white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="卡    号"
+                            android:textSize="13sp"
+                            android:textColor="@color/joygame_black" />
+
+
+                        <com.JoyFramework.wight.ClearEditText
+                            android:id="@+id/unioncardET"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:background="@null"
+                            android:digits="0123456789"
+                            android:hint="银行卡号"
+                            android:inputType="number"
+                            android:textColor="@color/joygame_black"
+                            android:textColorHint="@color/joygame_light_grey"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/joygame_white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="卡类型"
+                            android:textSize="13sp"
+                            android:textColor="@color/joygame_black" />
+
+                        <RadioGroup
+                            android:id="@+id/typeRG"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/cardRB"
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:button="@drawable/joy_radiobutton_selector"
+                                android:gravity="center"
+                                android:text="储蓄卡"
+                                android:textColor="@color/joygame_light_grey"
+                                android:textSize="12sp" />
+
+                            <RadioButton
+                                android:layout_width="90dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:button="@drawable/joy_radiobutton_selector"
+                                android:gravity="center"
+                                android:text="信用卡"
+                                android:textColor="@color/joygame_light_grey"
+                                android:textSize="12sp" />
+                        </RadioGroup>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/joygame_white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="持卡人"
+                            android:textSize="13sp"
+                            android:textColor="@color/joygame_black" />
+
+
+                        <com.JoyFramework.wight.ClearEditText
+                            android:id="@+id/userNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:background="@null"
+                            android:hint="持卡人姓名"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/joygame_black"
+                            android:textColorHint="@color/joygame_light_grey"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/joygame_white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="身份证"
+                            android:textSize="12sp"
+                            android:textColor="@color/joygame_black" />
+
+
+                        <com.JoyFramework.wight.ClearEditText
+                            android:id="@+id/idcardET"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:background="@null"
+                            android:digits="0123456789Xx"
+                            android:hint="请输入证件号码"
+                            android:textColor="@color/joygame_black"
+                            android:textColorHint="@color/joygame_light_grey"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/joygame_white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="有效期"
+                            android:textSize="13sp"
+                            android:textColor="@color/joygame_black" />
+
+
+                        <com.JoyFramework.wight.ClearEditText
+                            android:id="@+id/timeET"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:background="@null"
+                            android:digits="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                            android:hint="卡正面有效期，月份/年份"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:textColor="@color/joygame_black"
+                            android:textColorHint="@color/joygame_light_grey"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/joygame_white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="手机号"
+                            android:textSize="13sp"
+                            android:textColor="@color/joygame_black" />
+
+
+                        <com.JoyFramework.wight.ClearEditText
+                            android:id="@+id/phoneET"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
+                            android:background="@null"
+                            android:hint="银行预留手机号"
+                            android:inputType="phone"
+                            android:maxLength="13"
+                            android:textColor="@color/joygame_black"
+                            android:textColorHint="@color/joygame_light_grey"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/AddBtn"
+                        android:layout_width="180dp"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/joy_login_btn_bg1"
+                        android:gravity="center"
+                        android:text="确 定"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

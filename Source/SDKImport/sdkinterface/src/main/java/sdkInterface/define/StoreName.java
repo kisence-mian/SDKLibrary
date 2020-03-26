@@ -3,7 +3,7 @@ package sdkInterface.define;
 public enum StoreName
 {
     None,
-    GooglePlay ,
+    GooglePay,
     AmazonAppStore,
     CloudMoolah,
     SamsungApps,
@@ -21,6 +21,7 @@ public enum StoreName
     VIVO,
     HuaWei,
     HuaWei3,
+    HuaWei4,
     UC,
     Baidu,
     m360,
@@ -31,4 +32,6 @@ public enum StoreName
     Gionee,// 金立
     Huluxia,// 葫芦侠
     YSDK,// 应用宝
+    Payssion,
+    OKJOY,
 }

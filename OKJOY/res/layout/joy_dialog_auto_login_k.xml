@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="@dimen/joy_base_width"
+        android:layout_height="185dp"
+        android:layout_gravity="center"
+        android:background="@drawable/joy_first_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:paddingTop="25dp"
+                android:id="@+id/k_dialog_auto_login_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="5dp"
+                android:text="账号14445455785785登录中"
+                android:textColor="@color/joygame_light_grey"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/k_dialog_auto_login_switch_account"
+                android:layout_width="220dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/joy_login_btn_bg1"
+                android:gravity="center"
+                android:text="切换账号"
+                android:textColor="@color/joygame_black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+</FrameLayout>

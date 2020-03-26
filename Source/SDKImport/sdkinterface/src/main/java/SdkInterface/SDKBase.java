@@ -38,6 +38,8 @@ public class SDKBase {
 
     public void OnStop() { }
 
+    public void OnRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){}
+
     public void OnNewIntent(Intent intent) { }
 
     public void HandleIntent(Intent intent) { }

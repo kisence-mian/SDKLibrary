@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/joy_base_width"
+            android:layout_height="260dp"
+            android:layout_gravity="center"
+            android:background="@drawable/joy_pay_record_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <FrameLayout
+                    android:id="@+id/l_pay_record_back"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="30dp"/>
+
+                <FrameLayout
+                    android:id="@+id/l_pay_record_close"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"/>
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/joy_inde_l_r_padding"
+                android:layout_marginRight="@dimen/joy_inde_l_r_padding"
+                android:paddingTop="5dp"
+                android:paddingBottom="40dp">
+
+                <com.JoyFramework.wight.PullToRefresh.RefreshListView
+                    android:id="@+id/payRecordListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@color/joygame_background"
+                    android:dividerHeight="2dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                </com.JoyFramework.wight.PullToRefresh.RefreshListView>
+
+                <TextView
+                    android:id="@+id/payRecord_noRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="18sp" />
+
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>
