@@ -1,4 +1,6 @@
 package sdkInterface;
+import org.json.JSONObject;
+
 import sdkInterface.define.RealNameStatus;
 
 /**
@@ -15,4 +17,7 @@ public interface IRealName
 
     int GetTodayOnlineTime();//获取今日在线时长  -1表示获取不到
 
+    boolean CheckPayLimit(JSONObject json);//检测是否支付受限制
+
+    void LogPayAmount(JSONObject json);//上报支付金额
 }

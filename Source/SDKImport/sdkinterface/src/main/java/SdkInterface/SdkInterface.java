@@ -58,8 +58,6 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_RealName:RealName(json);break;
                 default:SendError("UnityRequestFunction : not support function name ->" + content + "<-",null);
             }
-
-
         }
         catch (Exception e)
         {
@@ -250,6 +248,7 @@ public class SdkInterface
         {
             isInit = true;
             InitActResultRequest();
+
             SendLog("SDKManager Init " );
             try
             {
@@ -393,7 +392,6 @@ public class SdkInterface
                 switch (function)
                 {
                     case SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo:
-
                         //商品信息全部请求
                         for (  int i =0;i<paySDKList.size();i++)
                         {
@@ -414,7 +412,6 @@ public class SdkInterface
             }else
             {
                 SendLog("dont find pay  json " + json);
-
             }
         }
         catch (Exception e)
@@ -623,6 +620,8 @@ public class SdkInterface
                 {
                     case SDKInterfaceDefine.RealName_FunctionName_StartRealNameAttestation:
                         realName.StartRealNameAttestation();break;
+                    case SDKInterfaceDefine.RealName_FunctionName_LogPayAmount:
+                        realName.LogPayAmount(json);break;
                     default:
                         SendError("Not find RealName Function " + functionName,null);
                 }
@@ -655,7 +654,16 @@ public class SdkInterface
                         {
                             return realName.IsAdult();
                         }
-
+                    case SDKInterfaceDefine.RealName_FunctionName_CheckPayLimit:
+                        if(realName.GetRealNameType().equals(RealNameStatus.NotNeed) ||realName.IsAdult() )
+                        {
+                            //不需要实名认证，或者成年,则无限制
+                            return false;
+                        }
+                        else
+                        {
+                            return realName.CheckPayLimit(json);
+                        }
                     default:
                         SendError("Not find RealNameBool Function " + functionName,null);
                         return true;
@@ -663,6 +671,19 @@ public class SdkInterface
             }
             else
             {
+                String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.RealName_FunctionName_IsAdult:
+                        SendLog("Not find RealNameBool Class+ RealName_FunctionName_IsAdult is true" );
+                        return true;
+                    case SDKInterfaceDefine.RealName_FunctionName_CheckPayLimit:
+                        //没实现接口，默认无购买限制
+                        SendLog("Not find RealNameBool Class+ RealName_FunctionName_CheckPayLimit is false" );
+                        return false;
+                }
+
+
                 SendError("Not find RealNameBool Class -> " + json.toString(),null);
                 return true;
             }

@@ -22,6 +22,7 @@
       <module fileurl="file://$PROJECT_DIR$/iapppay/iapppay.iml" filepath="$PROJECT_DIR$/iapppay/iapppay.iml" />
       <module fileurl="file://$PROJECT_DIR$/meizu/meizu.iml" filepath="$PROJECT_DIR$/meizu/meizu.iml" />
       <module fileurl="file://$PROJECT_DIR$/migusdk/migusdk.iml" filepath="$PROJECT_DIR$/migusdk/migusdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okjoy/okjoy.iml" filepath="$PROJECT_DIR$/okjoy/okjoy.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppo/oppo.iml" filepath="$PROJECT_DIR$/oppo/oppo.iml" />
       <module fileurl="file://$PROJECT_DIR$/oppoSingle/oppoSingle.iml" filepath="$PROJECT_DIR$/oppoSingle/oppoSingle.iml" />
       <module fileurl="file://$PROJECT_DIR$/payssion/payssion.iml" filepath="$PROJECT_DIR$/payssion/payssion.iml" />

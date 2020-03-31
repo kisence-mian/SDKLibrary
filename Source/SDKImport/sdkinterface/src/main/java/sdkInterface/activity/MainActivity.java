@@ -3,8 +3,6 @@ package sdkInterface.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-
 import com.unity3d.player.UnityPlayerActivity;
 
 import androidx.multidex.MultiDex;
@@ -26,6 +24,7 @@ public class MainActivity extends UnityPlayerActivity
         instance = this;
         SdkInterface.OnCreate();
         MultiDex.install(this);
+
     }
 
     @Override

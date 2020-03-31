@@ -10,7 +10,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -19,13 +18,18 @@ android {
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
-
     implementation files('libs/classes.jar')
     implementation files('libs/android-support-multidex.jar')
-    compile "com.android.support:multidex"
+    implementation files('libs/javassist.jar')
+    compile 'com.android.support:multidex'
+
 }

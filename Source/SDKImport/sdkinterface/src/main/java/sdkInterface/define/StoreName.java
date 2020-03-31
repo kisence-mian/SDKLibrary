@@ -34,4 +34,5 @@ public enum StoreName
     YSDK,// 应用宝
     Payssion,
     OKJOY,
+
 }

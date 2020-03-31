@@ -17,16 +17,14 @@ import com.JoyFramework.common.LoginListener;
 import com.JoyFramework.common.LoginMessageInfo;
 import com.JoyFramework.common.PaymentInfo;
 import com.JoyFramework.common.UserApiListenerInfo;
+import com.JoyFramework.module.BaseActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.security.Key;
-import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
-
 import sdkInterface.IAD;
 import sdkInterface.ILog;
 import sdkInterface.ILogin;
@@ -41,6 +39,7 @@ import sdkInterface.define.LoginPlatform;
 import sdkInterface.define.RealNameStatus;
 import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
+import sdkInterface.tool.JavaUtils;
 
 public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName, ILog {
 
@@ -56,19 +55,23 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     private static String appkey = "";
     PayInfo payInfo = new PayInfo();
 
-    final String Tag = "======OkJoyGame======";
+    final String Tag = "Unity";
     boolean openDebug = true; //展示打印
     public String userCode = ""; // 玩家唯一OkJoy id  登陆成功后获得
-    boolean isRealName = false;//已实名认证
-    boolean isAdult = false;// 是成年 （检测实名认证后获得）
+    boolean isRealName = false;  //已实名认证
+    boolean isAdult = false;     // 是成年 （检测实名认证后获得）
 
-
-    public  boolean initSuccess = false;//是否完成了初始化
-
+    public boolean initSuccess = false;//是否完成了初始化
     public boolean adLoadSuccess = false;//广告加载成功
+
     //初始化SDK
     public void InitOkJoy()
     {
+        Log.d(Tag,"test start");
+        JavaUtils.VerifyClass("androidx.fragment.app.FragmentActivity");
+
+        Log.d(Tag,"InitOkJoy");
+
         JoyGame.init(GetCurrentActivity(), appid, appkey,
             new InitListener() {
                 @Override
@@ -460,8 +463,15 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         } catch (IOException e) {
             e.printStackTrace();
         }
-        InitOkJoy();
 
+        //交给主线程去执行
+        GetCurrentActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                SendLog("UI主线程去执行 " );
+                InitOkJoy();
+            }
+        });
     }
 
     @Override
@@ -581,6 +591,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         return isAdult;
     }
 
+
     //获得当天在线时长
     @Override
     public int GetTodayOnlineTime() {
@@ -592,6 +603,21 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     public void StartRealNameAttestation() {
         ShowRealName();
     }
+
+    //检测支付是否受限
+    @Override
+    public boolean CheckPayLimit(JSONObject json)
+    {
+        return false;
+    }
+    //上报sdk 支付金额
+    @Override
+    public void LogPayAmount(JSONObject json)
+    {
+
+    }
+
+
     //endregion 实名制
 
     //region 上报
@@ -753,4 +779,13 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         onActivityResultOkJoy(requestCode,resultCode,data);
     }
 
+}
+
+class OkJoyGameTest extends BaseActivity
+{
+
+    @Override
+    public int getContentViewId() {
+        return 0;
+    }
 }

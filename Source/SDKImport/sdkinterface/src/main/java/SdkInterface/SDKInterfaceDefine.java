@@ -75,17 +75,14 @@ public class SDKInterfaceDefine {
     public static final String Pay_GoodsTypeEnum_RIGHTS = "RIGHTS";
 
     //AD相关参数
-
     public static final String AD_FunctionName_LoadAD = "LoadAD";
     public static final String AD_FunctionName_PlayAD = "PlayAD";
     public static final String AD_FunctionName_CloseAD = "CloseAD";
     public static final String AD_FunctionName_ADIsLoaded = "ADIsLoaded";
-
     public static final String AD_FunctionName_OnAD = "OnAD";
 
     public static final String AD_ParameterName_ADType = "ADType";
     public static final String AD_ParameterName_ADResult = "ADResult";   //广告播放结果
-
 
     //Log相关参数
     public static final String Log_FunctionName_Login = "LogLogin";
@@ -117,10 +114,13 @@ public class SDKInterfaceDefine {
     public static final String RealName_FunctionName_RealNameCallBack="RealNameCallBack";//实名认证完成后的回调
     public static final String RealName_FunctionName_GetRealNameType ="GetRealNameType";//获得实名认证状态
     public static final String RealName_FunctionName_IsAdult ="IsAdult";//是否成年
+    public static final String RealName_FunctionName_LogPayAmount ="LogPayAmount";//上报支付金额
+    public static final String RealName_FunctionName_CheckPayLimit="CheckPayLimit";//是否支付受限制
     public static final String RealName_FunctionName_GetTodayOnlineTime ="GetTodayOnlineTime";//获取今日在线时长
     public static final String RealName_FunctionName_StartRealNameAttestation = "StartRealNameAttestation";//开始实名认证
     public static final String RealName_ParameterName_RealNameStatus="RealNameStatus";//实名认证的状态
     public static final String RealName_ParameterName_IsAdult = "IsAdult";//是否是成年人
+    public static final String RealName_ParameterName_PayAmount = "PayAmount";//支付金额
 
     //Other -> 剪贴板
     public static final String Other_FunctionName_CopyToClipboard = "CopyToClipboard";
