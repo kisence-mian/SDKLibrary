@@ -5,12 +5,12 @@
 	},
 	"client":{
 		"cp_id":"890852000000003075",
-		"product_id":"9105385871708421154",
-		"client_id":"276564584247067712",
-		"client_secret":"FA1B77F2C1CF28B5055A82012B9EF05CE9289B54A939FE037B273AB9BE46BBC5",
-		"app_id":"101650925",
-		"package_name":"com.ellrland.huawei",
-		"api_key":"CV5I23K+xI+laLh7eLm15vNAnlEpcUiyDvzUIWcP4ztl4eBUejg52Xd/smRuOAEgE1e5ro3kY8D9NMclbTFh7vVuVbG/"
+		"product_id":"736430079244471737",
+		"client_id":"370826320503899328",
+		"client_secret":"A5A513B440BE1E1DCD9BF3FAB2F5D5E52C3728CDD99F174DFC80947DFE7B1562",
+		"app_id":"102283409",
+		"package_name":"com.ellrlandnew.huawei",
+		"api_key":"CV73ER6ZcsNoRdLtAKPuY9ylUYvpjSCTo+5/oGpg0tNgcslacz7SxUJYXBltSzUyr/9FsV0/+U1RO49mHACUsXh2j5R2"
 	},
 	"service":{
 		"analytics":{

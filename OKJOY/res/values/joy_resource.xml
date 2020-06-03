@@ -70,7 +70,7 @@
     <string name="just_now">刚刚</string>
     <string name="minutes_ago">%d分钟前</string>
 
-    <!--<string name="app_name">独立游戏Joy-SDK</string> -->
+
 
     <!-- ==========================  字符资源 end   ========================== -->
 
@@ -84,10 +84,6 @@
     <dimen name="joy_base_width">360dp</dimen>
     <dimen name="joy_base_height">200dp</dimen>
 
-<!--     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
-    <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
-    <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
-    <item name="item_touch_helper_previous_elevation" type="id" /> -->
 
     <!-- ==========================  尺寸资源 end   ========================== -->
 

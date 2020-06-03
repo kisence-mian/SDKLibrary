@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="570dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll_real_container"
+        android:layout_width="300dp"
+        android:layout_height="278dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:ignore="MissingDefaultResource">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_auth_back"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/tv_real_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="游戏实名登记"
+                android:textColor="#a37d79"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_auth_close"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/close" />
+
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="225dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="33dp"
+            android:background="@null"
+            android:drawableBottom="@drawable/bottom_line"
+            android:hint="真实姓名"
+            android:imeOptions="flagNoFullscreen|flagNavigateNext"
+            android:textColorHint="#bbbbbb"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_identify"
+            android:layout_width="225dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:drawableBottom="@drawable/bottom_line"
+            android:ems="18"
+            android:hint="身份证"
+            android:imeOptions="flagNoFullscreen|flagNavigateNext"
+            android:textColorHint="#bbbbbb"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="225dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:drawableBottom="@drawable/bottom_line"
+            android:hint="手机号"
+            android:imeOptions="flagNoFullscreen|flagNavigateNext"
+            android:textColorHint="#bbbbbb"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/bt_submit"
+            android:layout_width="225dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="20dp"
+            android:padding="0dp"
+            android:text="提交"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_auth_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/auth_tip_button" />
+
+            <TextView
+                android:id="@+id/tv_real_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="关于游戏实名登记"
+                android:textColor="#bbbbbb"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

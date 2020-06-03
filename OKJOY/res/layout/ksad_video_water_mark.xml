@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ksad_video_water_mark_logo"
+        android:layout_width="100.8dp"
+        android:layout_height="36dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ksad_video_water_mark_icon"/>
+
+    <TextView
+        android:id="@+id/ksad_video_water_mark_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:textColor="#fff"
+        android:textSize="14dp"
+        android:shadowDy="1.0"
+        android:shadowRadius="1.0"
+        android:shadowColor="#4d000000"
+        />
+</FrameLayout>

@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="用户ID："
+                    android:text="用户编号："
                     android:textColor="@color/joygame_light_grey"
                     android:textSize="12sp" />
 
@@ -144,7 +144,7 @@
         android:gravity="center"
         android:minWidth="80dp"
         android:padding="5dp"
-        android:text="复制用户ID"
+        android:text="复制用户编号"
         android:textColor="@color/joygame_white"
         android:textSize="16sp" />
 

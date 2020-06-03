@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="24dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tool:ignore="SpUsage,RtlHardcoded">
+
+    <TextView
+        android:id="@+id/ksad_h5_desc"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center|left"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="#9C9C9C"
+        android:textSize="11dp"
+        tool:text="快手广告快手广告快手广告快手广告快手广告快手广告" />
+
+    <FrameLayout
+        android:layout_width="64dp"
+        android:layout_height="24dp">
+
+        <TextView
+            android:id="@+id/ksad_h5_open_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ksad_feed_app_download_before_bg"
+            android:gravity="center"
+            android:textColor="#168FFF"
+            android:textSize="11dp"
+            tool:text="查看详情" />
+
+        <View
+            android:id="@+id/ksad_h5_open_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ksad_video_actionbar_cover_bg" />
+    </FrameLayout>
+
+</LinearLayout>

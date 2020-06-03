@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left">
+
+        <ImageView
+            android:id="@+id/ksad_photo_bottom_author_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/ksad_photo_bottom_author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="45dp"
+            android:textColor="#fffad700"
+            android:textSize="15dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/ksad_photo_bottom_photo_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:textColor="#efffffff"
+        android:textSize="14dp"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+</FrameLayout>

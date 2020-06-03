@@ -111,7 +111,11 @@ public class SDKInterfaceDefine {
     public static final String Other_FunctionName_Exit = "Exit";
 
     //RealName 实名制相关
+    public static final String RealName_FunctionName_OnLogin = "OnLogin";//登录
+    public static final String RealName_FunctionName_OnLogout = "OnLogout";//登出
     public static final String RealName_FunctionName_RealNameCallBack="RealNameCallBack";//实名认证完成后的回调
+    public static final String RealName_FunctionName_PayLimitCallBack = "PayLimitCallBack";//询问支付限制的回调
+    public static final String RealName_FunctionName_RealNameLogout ="RealNameLogout";//实名系统 通知逻辑层退出登录
     public static final String RealName_FunctionName_GetRealNameType ="GetRealNameType";//获得实名认证状态
     public static final String RealName_FunctionName_IsAdult ="IsAdult";//是否成年
     public static final String RealName_FunctionName_LogPayAmount ="LogPayAmount";//上报支付金额
@@ -121,6 +125,7 @@ public class SDKInterfaceDefine {
     public static final String RealName_ParameterName_RealNameStatus="RealNameStatus";//实名认证的状态
     public static final String RealName_ParameterName_IsAdult = "IsAdult";//是否是成年人
     public static final String RealName_ParameterName_PayAmount = "PayAmount";//支付金额
+    public static final String RealName_ParameterName_IsPayLimit = "IsPayLimit";//是否被限制支付
 
     //Other -> 剪贴板
     public static final String Other_FunctionName_CopyToClipboard = "CopyToClipboard";
@@ -147,4 +152,9 @@ public class SDKInterfaceDefine {
     public static final String PropertiesKey_NetworkID = "NetworkID";                   //服务器选择
     public static final String PropertiesKey_QQGroup = "QQGroup";                     //玩家QQ群
     public static final String PropertiesKey_DirectlyLogin = "DirectlyLogin";           //是否直接登录，不选择登录模式
+    public static final String PropertiesKey_OpenRealName = "OpenRealName";           //打开实名认证
+    public static final String PropertiesKey_IsExamine = "IsExamine";                    //审核版本
+    public static final String PropertiesKey_RedeemCode = "RedeemCode";                  //兑换码
+    public static final String PropertiesKey_HideAllAD = "HideAllAD";                    //隐藏所有广告按钮
+    public static final String PropertiesKey_CloseGuide = "CloseGuide";                  //关闭新手引导
 }

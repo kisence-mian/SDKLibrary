@@ -584,7 +584,6 @@
   <item name="tag_unhandled_key_listeners" type="id" />
   <item name="text" type="id" />
   <item name="text2" type="id" />
-  <item name="title" type="id" />
   <integer name="status_bar_notification_info_maxnum">999</integer>
   <string name="status_bar_notification_info_overflow">999+</string>
   <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent" />

@@ -13,11 +13,15 @@ public interface IRealName
 
     boolean IsAdult();//是否是成年人
 
+    void OnLogin(JSONObject json);//登录后，传入信息
+
+    void OnLogout();//登出
+
     void StartRealNameAttestation(); //开始实名认证
 
     int GetTodayOnlineTime();//获取今日在线时长  -1表示获取不到
 
-    boolean CheckPayLimit(JSONObject json);//检测是否支付受限制
+    void CheckPayLimit(JSONObject json);//检测是否支付受限制
 
     void LogPayAmount(JSONObject json);//上报支付金额
 }

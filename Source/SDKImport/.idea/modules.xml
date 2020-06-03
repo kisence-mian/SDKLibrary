@@ -27,6 +27,7 @@
       <module fileurl="file://$PROJECT_DIR$/oppoSingle/oppoSingle.iml" filepath="$PROJECT_DIR$/oppoSingle/oppoSingle.iml" />
       <module fileurl="file://$PROJECT_DIR$/payssion/payssion.iml" filepath="$PROJECT_DIR$/payssion/payssion.iml" />
       <module fileurl="file://$PROJECT_DIR$/qqlogin/qqlogin.iml" filepath="$PROJECT_DIR$/qqlogin/qqlogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/readphonestatus/readphonestatus.iml" filepath="$PROJECT_DIR$/readphonestatus/readphonestatus.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdk4399/sdk4399.iml" filepath="$PROJECT_DIR$/sdk4399/sdk4399.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdk4399single/sdk4399single.iml" filepath="$PROJECT_DIR$/sdk4399single/sdk4399single.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdkinterface/sdkinterface.iml" filepath="$PROJECT_DIR$/sdkinterface/sdkinterface.iml" />

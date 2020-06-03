@@ -22,7 +22,7 @@ public class MainActivity extends UnityPlayerActivity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         instance = this;
-        SdkInterface.OnCreate();
+        SdkInterface.OnCreate(bundle);
         MultiDex.install(this);
 
     }

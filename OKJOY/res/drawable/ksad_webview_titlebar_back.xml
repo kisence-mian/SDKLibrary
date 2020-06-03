@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="false">
+        <bitmap android:alpha="60" android:dither="true" android:src="@drawable/ksad_webview_titlebar_back_normal" />
+    </item>
+
+    <item android:state_pressed="true">
+        <bitmap android:alpha="60" android:dither="true" android:src="@drawable/ksad_webview_titlebar_back_normal" />
+    </item>
+
+    <item android:drawable="@drawable/ksad_webview_titlebar_back_normal" />
+
+</selector>

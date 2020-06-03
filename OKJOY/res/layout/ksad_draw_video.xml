@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded">
+
+    <FrameLayout
+        android:id="@+id/ksad_video_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/ksad_video_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/ksad_draw_bottom_bg" />
+
+    <LinearLayout
+        android:id="@+id/ksad_ad_normal_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ksad_ad_normal_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#FAD700"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="广告名称"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ksad_ad_label_black" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ksad_ad_normal_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            tools:text="广告描述广告描述广告描述广告描述广告描述广告描述广告描述" />
+
+        <TextView
+            android:id="@+id/ksad_ad_normal_convert_btn"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ksad_draw_convert_normal_bg"
+            android:gravity="center"
+            android:text="立即下载"
+            android:textColor="#B3FFFFFF"
+            android:textSize="16dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <com.kwad.sdk.draw.view.DrawDownloadProgressBar
+            android:id="@+id/ksad_ad_light_convert_btn"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            tools:visibility="gone" />
+
+    </LinearLayout>
+
+    <com.kwad.sdk.draw.view.DrawCardApp
+        android:id="@+id/ksad_card_app_container"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+    <com.kwad.sdk.draw.view.DrawCardH5
+        android:id="@+id/ksad_card_h5_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+    <com.kwad.sdk.draw.view.DrawVideoTailFrame
+        android:id="@+id/ksad_video_tail_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+</FrameLayout>

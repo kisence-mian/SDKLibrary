@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.SdkInterface;
 import sdkInterface.define.GoodsType;
+import sdkInterface.define.StoreName;
 
 public class PayInfo
 {
@@ -96,4 +97,15 @@ public class PayInfo
             SdkInterface.SendError("PayInfo ToJson Error " + e + " json:" + json.toString(),e);
         }
     }
+
+    ///自己创造一个订单号
+    public static String CreatSelfReceipt(String playerID, StoreName storeName)
+    {
+
+       String result = playerID + "_" + storeName +"_"+ System.currentTimeMillis();
+
+       return result;
+
+    }
+
 }

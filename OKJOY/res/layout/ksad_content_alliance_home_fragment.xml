@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.core.view.KsAdBaseFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical">
+
+    <com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager
+        android:id="@+id/ksad_slide_play_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <com.kwad.sdk.contentalliance.refreshview.KsAdHotRefreshView
+        android:id="@+id/ksad_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.kwad.sdk.contentalliance.refreshview.KsAdHotRefreshView>
+
+    <include layout="@layout/ksad_content_alliance_loading" />
+
+    <include layout="@layout/ksad_content_alliance_guider" />
+
+</com.kwad.sdk.core.view.KsAdBaseFrameLayout>
