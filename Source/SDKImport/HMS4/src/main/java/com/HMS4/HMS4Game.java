@@ -43,7 +43,10 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.Nullable;
 import sdkInterface.ILogin;
@@ -60,7 +63,6 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
     public String TAG = "=====HuaweiGameLogin===";
 
     static public AuthHuaweiId huaweiAccount; //账号信息
-
 
     public void HMS4Init()
     {
@@ -80,6 +82,7 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
         }
 
     }
+
 
     public void HMS4Login() {
         Log.i(TAG, "Start Login");
@@ -142,7 +145,7 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
 
             @Override
             public void onFailure(Exception e) {
-                Log.e(TAG, "parseAuthResultFromIntent failed");
+                Log.e(TAG, "parseAuthResultFromIntent failed" + e);
                 LoginResult(false,null,"parseAuthResultFromIntent failed");
             }
         });
@@ -295,9 +298,17 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
 
     List<ProductInfo> productList = new ArrayList<ProductInfo>(); //从hms获取的物品信息，存在此处
     PayInfo payInfo = new PayInfo();
+
+
+    final String GoodsKey = "GoodsKey";
+    final String GoodsKeySplit = "->"; //分割 GoodsKey 所使用的分隔符
+    private static Map<String, String> goodsKeys = new HashMap<String, String>(); //商品键值对，来自于 GoodsKey
+
+
     //初始化HMS Pay
     public void InitHMS4Pay()
     {
+        InitGoodsKeys();
         Log.d(TAGPay,"StatInit");
         SendLog(TAGPay+ "StatInit unity");
         canPay = false;
@@ -343,7 +354,59 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
         });
     }
 
-    //从HMS 获取商品
+    //初始化商品映射键值对
+    private void InitGoodsKeys() {
+        try {
+            String keyString = GetProperties().getProperty(GoodsKey);
+            Log.d(TAG, "keyString: "+ keyString);
+            String[] keySplit = keyString.split("\\|");
+            for (int i = 0; (i) < keySplit.length; i++) {
+                Log.d(TAG, "InitGoodsKeys keySplit : "+ keySplit[i]);
+                if (!keySplit[i].isEmpty()) {
+                    String[] key_value = keySplit[i].split(GoodsKeySplit);
+                    Log.d(TAG, "InitGoodsKeys ready : " + key_value[0] + "=" + key_value[1]);
+                    if (!goodsKeys.containsKey(key_value[0])) {
+                        Log.d(TAG, "InitGoodsKeys: " + key_value[0] + "=" + key_value[1]);
+                        goodsKeys.put(key_value[0], key_value[1]);
+                    }
+                }
+
+            }
+            Log.d(TAG, "InitGoodsKeys success" + goodsKeys.size());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //根据数据表中的物品key获取 华为后台物品key
+    private String GetHWGoodsKey(String goodsKey) {
+        if (goodsKeys.containsKey(goodsKey)) {
+            Log.d(TAG, " get GetHWGoodsKey:" + goodsKey + "key:" + goodsKeys.get(goodsKey));
+            return goodsKeys.get(goodsKey);
+        }
+        Log.d(TAG, "can not get GetHWGoodsKey:" + goodsKey);
+        return goodsKey;
+    }
+
+    //根据 华为后台物品key 获取 数据表中的物品key
+    private String GetMyGoodsKey(String HWgoodsKey) {
+        Iterator<Map.Entry<String,String>> allInfo = goodsKeys.entrySet().iterator();
+        while (allInfo.hasNext())
+        {
+            Map.Entry<String,String> entry = allInfo.next();
+            if(entry.getValue().equals(HWgoodsKey))
+            {
+                Log.d(TAG, " get GetMyGoodsKey:" + HWgoodsKey + " MyKey:" + entry.getKey());
+                return  entry.getKey();
+            }
+        }
+        Log.d(TAG, "can not get GetMyGoodsKey:" + HWgoodsKey);
+        return HWgoodsKey;
+    }
+
+
+
+    //从HMS 获取商品 已经是华为后台key 了
     public void GetGoodsInfoFromHMS(String goodsID)
     {
         Log.d(TAGPay,"GetgoodsInfo"+ goodsID);
@@ -419,7 +482,7 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
         productList.add(productInfo);
     }
 
-    //调用HMS的支付
+    //调用HMS的支付 已经是华为后台key 了
     public  void PayToHMS(String goodsID )
     {
         if(!canPay)
@@ -590,6 +653,8 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
             if(data == null)
             {
                 SendLog(TAGPay +"Pay result: data is null");
+                SendPayCallBack(false,null,"Pay data is null："+ resultCode);
+                return;
             }
 
             PurchaseResultInfo purchaseResultInfo = Iap.getIapClient(GetCurrentActivity()).parsePurchaseResultInfoFromIntent(data);
@@ -661,6 +726,7 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
         try {
             payInfo = PayInfo.FromJson(jsonObject);
             String goodsID  = jsonObject.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            goodsID = GetHWGoodsKey(goodsID);//转化为后台配置的key
             SendLog(TAGPay +"StartPay goods" + goodsID);
             PayToHMS(goodsID);
         } catch (JSONException e) {
@@ -680,7 +746,7 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
                 goodsID = inAppPurchaseData.getProductId();
                 token = inAppPurchaseData.getPurchaseToken();
             }
-
+            goodsID = GetMyGoodsKey(goodsID);//从后台key 转换为游戏配置中的 key
 
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, goodsID);
@@ -723,6 +789,7 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
 
         try {
             String goodsID = jsonObject.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            goodsID = GetHWGoodsKey(goodsID);//转化为 后台key
             SendLog(TAGPay +"GetGoodsInfo" + goodsID);
             GetGoodsInfoFromHMS(goodsID);
 
@@ -744,7 +811,7 @@ public class HMS4Game extends SDKBase implements ILogin , IPay {
             SendLog(TAGPay + "GetGoodsInfo success == id :" + result.getProductId() + "======= price:" + result.getPrice());
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, result.getProductId());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, GetMyGoodsKey(result.getProductId())); //转化为游戏配置的key
             jo.put(SDKInterfaceDefine.Pay_ParameterName_LocalizedPriceString, result.getPrice());
             sdkInterface.SdkInterface.SendMessage(jo);
 

@@ -25,6 +25,7 @@ public class SDKInterfaceDefine {
     public static final String ModuleName_Login = "Login";
     public static final String ModuleName_Pay = "Pay";
     public static final String ModuleName_AD = "AD";
+    public static final String ModuleName_Share = "Share";
     public static final String ModuleName_Other = "Other";
     public static final String ModuleName_Log = "Log";
     public static final String ModuleName_LifeCycle = "LifeCycle";

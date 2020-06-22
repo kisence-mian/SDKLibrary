@@ -69,11 +69,12 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     public boolean initSuccess = false;//是否完成了初始化
     public boolean adLoadSuccess = false;//广告加载成功
 
+    public static OkJoyGame Instance;
+
     //初始化SDK
     public void InitOkJoy() {
-
-
-
+        Instance = this;
+        InitOkJoyAD();
         Log.d(Tag, "InitOkJoy");
         JoyGame.init(GetCurrentActivity(), appid, appkey,
                 new InitListener() {
@@ -83,7 +84,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
                         JoyGame.setWelcome(false); //要求关闭闪屏
                         //InitJoyListener();
                         InitPayCallback();
-                        InitOkJoyAD();
+                        //InitOkJoyAD();
                         initSuccess = true;
                         Log.d(Tag, "InitOkJoy success");
 
@@ -309,13 +310,14 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         @Override
         public void onAdError(Ad_Type ad_type, String s) {
             Log.d(Tag, ad_type + "广告加载错误");
-            adLoadSuccess = false;
+            //adLoadSuccess = false;
             switch (ad_type) {
                 case Ad_Type_Banner:
                     showToastWithMsg("Banner广告加载错误");
                     break;
                 case Ad_Type_Inspire:
                     showToastWithMsg("激励广告加载错误");
+                    AdRewardCallBack(ADType.Reward, ADResult.Show_Failed);
                     break;
                 case Ad_Type_Insert:
                     showToastWithMsg("插屏广告加载错误");
@@ -619,6 +621,26 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
     @Override
     public Boolean IsLoaded(JSONObject json) {
+        try {
+            String adTag = json.getString(SDKInterfaceDefine.Tag);
+            //根据tag，设置 id
+            String ADID = GetADKeyByTag(adTag);
+            if(ADID.equals(""))
+            {
+                SendError(Tag+"IsLoaded" +json.toString(),null);
+                return true;
+            }
+            else
+            {
+                boolean isReady = JoyGame.isReadyAtPlacementId(GetCurrentActivity(),ADID);
+                SendLog(Tag + ADID + "IsLoaded" + isReady);
+                return isReady;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            SendError(Tag + "IsLoaded" ,e );
+        }
+
         return adLoadSuccess;
     }
     //endregion
@@ -853,6 +875,14 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 //        }
     }
 
+    //打开taptap 社区页面
+    public void OpenTapTap()
+    {
+        SendLog(Tag + "OpenTapTap");
+        JoyGame.openTapTapForum(GetCurrentActivity());
+    }
+
+
     //适配安卓6.0动态权限的生命周期方法
     @Override
     public void OnRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -866,4 +896,52 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         onActivityResultOkJoy(requestCode,resultCode,data);
     }
 
+    @Override
+    public void OnCreate()
+    {
+        super.OnCreate();
+        JoyGame.onCreate(GetCurrentActivity());
+    }
+
+    @Override
+    public void OnStop() {
+        super.OnStop();
+        JoyGame.onStop(GetCurrentActivity());
+    }
+
+    @Override
+    public void OnStart() {
+        super.OnStart();
+        JoyGame.onStart(GetCurrentActivity());
+    }
+
+    @Override
+    public void OnRestart() {
+        super.OnRestart();
+        JoyGame.onRestart(GetCurrentActivity());
+    }
+
+    @Override
+    public void OnResume() {
+        super.OnResume();
+        JoyGame.onResume(GetCurrentActivity());
+    }
+
+    @Override
+    public void OnPause() {
+        super.OnPause();
+        JoyGame.onPause(GetCurrentActivity());
+    }
+
+    @Override
+    public void OnDestroy() {
+        super.OnDestroy();
+        JoyGame.onDestroy(GetCurrentActivity());
+    }
+
+    @Override
+    public void OnNewIntent(Intent intent){
+        super.OnNewIntent(intent);
+        JoyGame.onNewIntent(intent);
+    }
 }

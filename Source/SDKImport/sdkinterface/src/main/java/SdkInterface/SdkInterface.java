@@ -54,6 +54,7 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_Log:Log(json);break;
                 case SDKInterfaceDefine.ModuleName_AD:AD(json);break;
                 case SDKInterfaceDefine.ModuleName_Pay:Pay(json);break;
+                case SDKInterfaceDefine.ModuleName_Share:Share(json);break;
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
                 case SDKInterfaceDefine.ModuleName_LifeCycle:LifeCycle(json);break;
                 case SDKInterfaceDefine.ModuleName_RealName:RealName(json);break;
@@ -236,7 +237,6 @@ public class SdkInterface
                 JSONObject jo = new JSONObject();
                 jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
                 jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnLog);
-
                 jo.put(SDKInterfaceDefine.ParameterName_Content, LogContent);
 
                 UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
@@ -260,8 +260,6 @@ public class SdkInterface
             SendLog("SDKManager Init " );
             try
             {
-//                CallBackObjectName = json.getString(SDKInterfaceDefine.ListenerName);
-
                 for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
                 {
                     try {
@@ -284,9 +282,7 @@ public class SdkInterface
     {
         class StartThread implements Runnable{
             public void run(){
-                SendLog("Start InitActResultRequest Runnable");
                 actResultRequest = new ActResultRequest( UnityPlayer.currentActivity);
-                SendLog("Finish InitActResultRequest Runnable");
             }
         }
         UnityPlayer.currentActivity.runOnUiThread(new StartThread());
@@ -754,6 +750,76 @@ public class SdkInterface
 
     //endregion
 
+    //region 分享
+    static ArrayList<SDKBase> shareSDKList;
+
+    static void InitShare(JSONObject json) {
+        adSDKList = new ArrayList<>();
+
+        String shareClassNameConfig = SdkManifest.getProperty("Share");
+        String[] shareClassNameList = shareClassNameConfig.split("\\|");
+
+        SendLog("Share init ->" + shareClassNameConfig);
+
+        for (int i = 0; i < shareClassNameList.length; i++) {
+            //加载对应类，并放入loginSDKList
+
+            if (shareClassNameList[i] != null
+                    && shareClassNameList[i] != "") {
+                try {
+                    String className = shareClassNameList[i];
+                    SDKBase ins =  GetClass(className,json);
+
+                    shareSDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
+            }
+        }
+    }
+
+    static void Share(JSONObject json)
+    {
+        try {
+            IShare pay =(IShare)GetSDK(json,shareSDKList);
+            if(pay != null)
+            {
+                String function = json.getString(SDKInterfaceDefine.FunctionName);
+                pay.Share(json);
+
+//                switch (function)
+//                {
+//                    case SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo:
+//                        //商品信息全部请求
+//                        for (  int i =0;i<paySDKList.size();i++)
+//                        {
+//                            IPay tmp = (IPay)paySDKList.get(i);
+//                            tmp.GetGoodsInfo(json);
+//                        }
+//
+//                        break;
+//                    case  SDKInterfaceDefine.Pay_FunctionName_ClearPurchase:
+//                        pay.ClearPurchase(json);
+//                        break;
+//                    case  SDKInterfaceDefine.FunctionName_OnPay:
+//                        pay.Pay(json);
+//                        break;
+//                    default:
+//                        SendLog("dont find pay function " + function + " json " + json);
+//                }
+            }else
+            {
+                SendLog("dont find share json " + json);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Share Error" + e.toString(),e);
+        }
+    }
+
+    //endregion
+
     //region 其他接口
 
     static ArrayList<SDKBase> otherSDKList;
@@ -851,6 +917,17 @@ public class SdkInterface
         }
     }
 
+    static boolean IsSDKExist(String sdkName)
+    {
+        for (SDKBase temp: allClass.values()) {
+            if(temp.SDKName.equals(sdkName))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     //endregion
 
     //region 通用工具
@@ -909,9 +986,7 @@ public class SdkInterface
             Class cla = Class.forName(className);
             SDKBase sdk = (SDKBase)cla.newInstance();
             sdk.SDKName = SdkManifest.getProperty(className,className);
-//            sdk.Init(json);
             allClass.put(className,sdk);
-            Log.d("==GetClass===put2=",className);
             return sdk;
         }
     }
@@ -983,6 +1058,7 @@ public class SdkInterface
             InitLog(null);
             InitPay(null);
             InitAD(null);
+            InitShare(null);
             InitOther(null);
             InitRealName(null);
         }catch (Exception e)
