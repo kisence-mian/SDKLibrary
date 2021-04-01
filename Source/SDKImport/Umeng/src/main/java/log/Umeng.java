@@ -21,6 +21,7 @@ public class Umeng extends SDKBase implements ILog
     @Override
     public void Init(JSONObject json) {
         try {
+            SendLog("Umeng Init " + json);
             AppKey = GetProperties().getProperty("AppKey","");
             PushSecret =  GetProperties().getProperty("PushSecret","");
             Channel  = SdkInterface.GetProperties(SDKInterfaceDefine.FileName_ChannelProperties,SDKInterfaceDefine.PropertiesKey_ChannelName,"Android");
@@ -37,12 +38,14 @@ public class Umeng extends SDKBase implements ILog
     public void Login(JSONObject json) {
 
         try {
+            SendLog("Umeng Login " + json);
+
             String AccountId = json.getString(SDKInterfaceDefine.Log_ParameterName_AccountId);
             MobclickAgent.onProfileSignIn(AccountId);
         }
         catch (Exception e)
         {
-            SendError("TalkingData Login Error:" + e,e);
+            SendError("Umeng Login Error:" + e,e);
         }
     }
 
@@ -55,6 +58,9 @@ public class Umeng extends SDKBase implements ILog
     public void LogPay(JSONObject json) {
 
         try {
+
+            SendLog("Umeng LogPay " + json);
+
             String orderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_OrderID);
             String goodsID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
             double price = Double.parseDouble(json.getString(SDKInterfaceDefine.Pay_ParameterName_Price));
@@ -68,7 +74,7 @@ public class Umeng extends SDKBase implements ILog
         }
         catch (Exception e)
         {
-            SendError("TalkingData LogPay Error:" + e,e);
+            SendError("Umeng LogPay Error:" + e,e);
         }
     }
 
@@ -86,13 +92,16 @@ public class Umeng extends SDKBase implements ILog
 
     @Override
     public void LogPaySuccess(JSONObject json) {
-
+        SendLog("Umeng LogPaySuccess " + json);
     }
 
     @Override
     public void RewardVirtualCurrency(JSONObject json) {
 
         try {
+
+            SendLog("Umeng RewardVirtualCurrency " + json);
+
             double count = Double.parseDouble( json.getString(SDKInterfaceDefine.Pay_ParameterName_Count));
             String reason = json.getString(SDKInterfaceDefine.Log_ParameterName_RewardReason);
 
@@ -100,25 +109,28 @@ public class Umeng extends SDKBase implements ILog
         }
         catch (Exception e)
         {
-            SendError("TalkingData LogPay Error:" + e,e);
+            SendError("Umeng LogPay Error:" + e,e);
         }
     }
 
     @Override
     public void PurchaseVirtualCurrency(JSONObject json) {
-
+        SendLog("Umeng PurchaseVirtualCurrency " + json);
     }
 
     @Override
     public void UseItem(JSONObject json) {
         try {
+
+            SendLog("Umeng UseItem " + json);
+
             int num = Integer.parseInt( json.getString(SDKInterfaceDefine.Pay_ParameterName_Count));
             String goods = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
             UMGameAgent.use(goods, num , num);
         }
         catch (Exception e)
         {
-            SendError("TalkingData LogPay Error:" + e,e);
+            SendError("Umeng LogPay Error:" + e,e);
         }
     }
 
@@ -126,6 +138,9 @@ public class Umeng extends SDKBase implements ILog
     public void OnEvent(JSONObject json) {
 
         try {
+
+            SendLog("Umeng OnEvent " + json);
+
             HashMap<String,String> hashMap = new HashMap<String,String>();
 
             String eventID = json.getString(SDKInterfaceDefine.Log_ParameterName_EventID);

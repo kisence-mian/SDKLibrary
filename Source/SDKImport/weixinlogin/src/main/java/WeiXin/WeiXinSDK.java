@@ -15,7 +15,7 @@ import sdkInterface.define.LoginPlatform;
 import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.module.PayInfo;
 
-public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
+public class WeiXinSDK extends SDKBase implements ILogin,IPay,IShare,IOther
 {
     public static PayInfo payInfo;
     public static  String AppID = "";
@@ -82,24 +82,47 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 
     }
 
+    // region pay
+
     @Override
     public void Pay(JSONObject json)  {
         SendLog("WX Pay " + json.toString());
         try {
-            payInfo = PayInfo.FromJson(json);
-            orderID = payInfo.orderID;
+            //
+            if(!api.isWXAppInstalled())
+            {
+                Toast.makeText(GetCurrentActivity(), "WeChat Not Install~", Toast.LENGTH_LONG).show();
 
-            SendLog("WX Pay PrepayID :" +orderID);
+                SdkInterface.SendLog("Not Install WeChat !");
+                JSONObject jo = new JSONObject();
+                try {
+                    jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
+                    jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnPay);
+                    jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,false);
+                    jo.put(SDKInterfaceDefine.ParameterName_Error,"Not Install WeChat");
 
-            PayReq request = new PayReq();
-            request.appId = WeiXinSDK.AppID;
-            request.partnerId = MchID;
-            request.prepayId= orderID;
-            request.packageValue = "Sign=WXPay";
-            request.nonceStr= "111";
-            request.timeStamp= "222";
-            request.sign= "333";
-            api.sendReq(request);
+                    SdkInterface.SendMessage(jo);
+                }
+                catch (JSONException e) {
+                    SdkInterface.SendError("Login error:" + e.toString(),e);
+                }
+            }
+            else {
+                payInfo = PayInfo.FromJson(json);
+                orderID = payInfo.orderID;
+
+                SendLog("WX Pay PrepayID :" + orderID);
+
+                PayReq request = new PayReq();
+                request.appId = WeiXinSDK.AppID;
+                request.partnerId = MchID;
+                request.prepayId = orderID;
+                request.packageValue = "Sign=WXPay";
+                request.nonceStr = "111";
+                request.timeStamp = "222";
+                request.sign = "333";
+                api.sendReq(request);
+            }
 
         } catch (Exception e) {
             SendError("WX Pay Error " + e.toString(),e);
@@ -126,6 +149,13 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
 
     }
 
+    // endregion
+
+    @Override
+    public void Share(JSONObject json,String thumbImage,String image) {
+
+    }
+
     @Override
     public void Other(JSONObject json) {
 
@@ -135,4 +165,6 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IOther
     public String[] GetFunctionName() {
         return new String[]{};
     }
+
+
 }

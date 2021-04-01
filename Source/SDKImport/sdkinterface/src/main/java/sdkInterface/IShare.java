@@ -4,5 +4,5 @@ import org.json.JSONObject;
 
 public interface IShare {
 
-    void Share(JSONObject json);
+    void Share(JSONObject json,String thumbImage,String image);
 }

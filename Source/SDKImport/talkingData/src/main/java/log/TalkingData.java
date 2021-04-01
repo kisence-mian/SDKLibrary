@@ -2,6 +2,7 @@ package log;
 
 import com.tendcloud.tenddata.TDGAAccount;
 import com.tendcloud.tenddata.TDGAItem;
+import com.tendcloud.tenddata.TDGAMission;
 import com.tendcloud.tenddata.TDGAVirtualCurrency;
 import com.tendcloud.tenddata.TalkingDataGA;
 import org.json.JSONObject;
@@ -18,14 +19,24 @@ public class TalkingData extends SDKBase implements ILog
 {
     String AppID ;
     String Channel;
+
+    public static TalkingData Instance;
+
+    static TDGAAccount m_TDGAAccount;
+
     @Override
     public void Init(JSONObject json)
     {
+        Instance = this;
         try {
             AppID = GetProperties().getProperty("AppID");
             Channel = SdkInterface.GetProperties(SDKInterfaceDefine.FileName_ChannelProperties,SDKInterfaceDefine.PropertiesKey_ChannelName,"Android");
 
             TalkingDataGA.init(GetCurrentActivity(), AppID, Channel);
+            TalkingDataGA.onResume(GetCurrentActivity());
+
+
+
         } catch (Exception e) {
             SendError("TalkingData Init Error:" + e,e);
         }
@@ -36,12 +47,74 @@ public class TalkingData extends SDKBase implements ILog
     {
         try {
             String AccountId = json.getString(SDKInterfaceDefine.Log_ParameterName_AccountId);
-            TDGAAccount.setAccount(AccountId);
+            m_TDGAAccount = TDGAAccount.setAccount(AccountId);
+
+            OnSpecialEvent(json);
         } catch (Exception e)
         {
             SendError("TalkingData Login Error:" + e,e);
         }
     }
+
+    //某些特殊事件
+    public void OnSpecialEvent(JSONObject json)
+    {
+        try {
+            HashMap<String,String> hashMap = new HashMap<String,String>();
+            if(json.has(SDKInterfaceDefine.Log_ParameterName_EventMap)) {
+                String map = json.getString(SDKInterfaceDefine.Log_ParameterName_EventMap);
+                JSONObject jsonMap = new JSONObject(map);
+
+                Iterator iterator = jsonMap.keys();
+                while (iterator.hasNext()) {
+                    String key = (String) iterator.next();
+                    String value = jsonMap.getString(key);
+                    hashMap.put(key, value);
+                    SendLog("TalkingData OnSpecialEvent Get Info:" + key + " ==" + value);
+                }
+
+                if(hashMap.containsKey("setAccount"))
+                {
+                    m_TDGAAccount.setAccountType(TDGAAccount.AccountType.valueOf(hashMap.get("SetAccount")));
+                }
+                if(hashMap.containsKey("setAccountName"))
+                {
+                    m_TDGAAccount.setAccountName(hashMap.get("SetAccount"));
+                }
+
+                if(hashMap.containsKey("setGender"))
+                {
+                    m_TDGAAccount.setGender(TDGAAccount.Gender.valueOf(hashMap.get("setGender")));
+                }
+
+                if(hashMap.containsKey("setAge"))
+                {
+                    m_TDGAAccount.setAge(Integer.parseInt(hashMap.get("setAge")));
+                }
+
+                if(hashMap.containsKey("setGameServer"))
+                {
+                    m_TDGAAccount.setGameServer(hashMap.get("setGameServer"));
+                }
+
+                if(hashMap.containsKey("onBegin"))
+                {
+                    TDGAMission.onBegin(hashMap.get("onBegin"));
+                }
+
+                if(hashMap.containsKey("onCompleted"))
+                {
+                    TDGAMission.onCompleted(hashMap.get("onCompleted"));
+                }
+            }
+        } catch (Exception e)
+        {
+            SendError("TalkingData OnSpecialEvent Error:" + e,e);
+        }
+
+    }
+
+
 
     @Override
     public void LoginOut(JSONObject json) {
@@ -62,11 +135,11 @@ public class TalkingData extends SDKBase implements ILog
             TDGAVirtualCurrency.onChargeRequest(orderID,goodsID,price,currency,count,payment);
             SdkInterface.SendLog("---------TalkingData LogPay orderID" +  orderID);
             //直接认为充值成功
-            TDGAVirtualCurrency.onChargeSuccess(orderID);
+            //TDGAVirtualCurrency.onChargeSuccess(orderID);
 
             //开一个线程上报支付成功
-            ReportThread R1 = new ReportThread( orderID);
-            R1.start();
+            //ReportThread R1 = new ReportThread( orderID);
+            //R1.start();
 
             SdkInterface.SendLog("ReportThread finish report " + orderID);
         }
@@ -82,10 +155,11 @@ public class TalkingData extends SDKBase implements ILog
         try {
             String orderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_OrderID);
             TDGAVirtualCurrency.onChargeSuccess(orderID);
+            SendLog("TalkingData LogPaySuccess :" + orderID);
         }
         catch (Exception e)
         {
-            SendError("TalkingData LogPay Error:" + e,e);
+            SendError("TalkingData LogPaySuccess Error:" + e,e);
         }
     }
 

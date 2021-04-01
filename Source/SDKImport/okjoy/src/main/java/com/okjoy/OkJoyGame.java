@@ -1,9 +1,7 @@
 package com.okjoy;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.JoyFramework.common.ExitListener;
@@ -11,29 +9,25 @@ import com.JoyFramework.common.ExtraDataInfo;
 import com.JoyFramework.common.IOnAdListener;
 import com.JoyFramework.common.IPaymentCallback;
 import com.JoyFramework.common.IRealNameCallbackAdapter;
+import com.JoyFramework.common.IShareCallback;
 import com.JoyFramework.common.InitListener;
 import com.JoyFramework.common.JoyGame;
 import com.JoyFramework.common.LoginListener;
 import com.JoyFramework.common.LoginMessageInfo;
 import com.JoyFramework.common.PaymentInfo;
-import com.JoyFramework.common.UserApiListenerInfo;
-import com.JoyFramework.module.BaseActivity;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.security.Key;
-import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
 
 import sdkInterface.IAD;
 import sdkInterface.ILog;
 import sdkInterface.ILogin;
-import sdkInterface.IOther;
 import sdkInterface.IPay;
 import sdkInterface.IRealName;
+import sdkInterface.IShare;
 import sdkInterface.SDKBase;
 import sdkInterface.SDKCommunication;
 import sdkInterface.SDKInterfaceDefine;
@@ -45,7 +39,7 @@ import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
 import sdkInterface.tool.JavaUtils;
 
-public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName, ILog {
+public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IShare, IRealName, ILog {
 
     final String ADKey = "ADKey";
     final String ADKeySplit = "->"; //分割 ADKey 所使用的分隔符
@@ -60,7 +54,6 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     private static String appkey = "";
     PayInfo payInfo = new PayInfo();
 
-    final String Tag = "======OkJoyGame======";
     boolean openDebug = false; //展示打印
     public String userCode = ""; // 玩家唯一OkJoy id  登陆成功后获得
     boolean isRealName = false;//已实名认证
@@ -75,7 +68,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     public void InitOkJoy() {
         Instance = this;
         InitOkJoyAD();
-        Log.d(Tag, "InitOkJoy");
+        SendLog( "InitOkJoy");
         JoyGame.init(GetCurrentActivity(), appid, appkey,
                 new InitListener() {
                     @Override
@@ -86,7 +79,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
                         InitPayCallback();
                         //InitOkJoyAD();
                         initSuccess = true;
-                        Log.d(Tag, "InitOkJoy success");
+                        SendLog("InitOkJoy success");
 
                     }
 
@@ -95,7 +88,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
                         Toast.makeText(GetCurrentActivity(), msg,
                                 Toast.LENGTH_SHORT).show();
                         initSuccess = false;
-                        Log.d(Tag, "InitOkJoy fail");
+                        SendLog("InitOkJoy fail");
                     }
                 }
         );
@@ -104,14 +97,14 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     //登录
     public void OkJoyLogin() {
         if (!initSuccess) {
-            Log.d(Tag, "OkJoyLogin fail : initSuccess == false");
+            SendLog("OkJoyLogin fail : initSuccess == false");
             return;
         }
 
         JoyGame.login(GetCurrentActivity(), new LoginListener() {
             @Override
             public void loginSuccess(Object obj) {
-                Log.d(Tag, "OkJoyLogin success" + (obj != null));
+                SendLog( "OkJoyLogin success" + (obj != null));
                 if (obj != null) {
 
                     LoginMessageInfo data = (LoginMessageInfo) obj;
@@ -119,7 +112,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
                     String l_userCode = data.getUserCode();
                     userCode = l_userCode;
                     String token = data.getLoginToken();
-                    Log.d(Tag, "登录结果" + userName + "|userCode:"
+                    SendLog( "登录结果" + userName + "|userCode:"
                             + l_userCode + "|token:" + token);
                     LoginResult(true, data, "0");
                     OkJoyPlayerInfo();
@@ -130,7 +123,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
             @Override
             public void fail(String msg) {
 
-                Log.d(Tag, "OkJoyLogin failed" + msg);
+                SendLog("OkJoyLogin failed" + msg);
                 LoginResult(false, null, "OkJoyLogin failed");
 
             }
@@ -139,7 +132,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
     //登出
     public void OkJoyLogout() {
-        Log.d(Tag, "OkJoyLogout");
+        SendLog( "OkJoyLogout");
         JoyGame.logout(GetCurrentActivity());
         LogoutResult(true, "0");
     }
@@ -147,18 +140,18 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     //支付
     public void OkJoyPay(String productId, String playerId, String playerName) {
         if (!initSuccess) {
-            Log.d(Tag, "OkJoyPay fail :initSuccess == false ");
+            SendLog("OkJoyPay fail :initSuccess == false ");
             SendPayCallBack(false,"" ,"init fail");         //直接call 回调完成
             return;
         }
 
         if (userCode.equals("")) {
-            Log.d(Tag, "OkJoyPay fail :login == false ");
+            SendLog( "OkJoyPay fail :login == false ");
             SendPayCallBack(false, "","No login");         //直接call 回调完成
             return;
         }
 
-        Log.d(Tag, "OkJoyPay Start");
+        SendLog( "OkJoyPay Start");
         String billNo =  PayInfo.CreatSelfReceipt(playerId,StoreName.OKJOY);
         PaymentInfo payInfo = new PaymentInfo();
         payInfo.setBillNo(billNo);                  //订单id（必填）
@@ -184,7 +177,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
             @Override
             public void paySuccess(String billNo) {
                 Toast.makeText(GetCurrentActivity(), "支付完成", Toast.LENGTH_SHORT).show();
-                Log.d(Tag, "OkJoyPay Success" + billNo);
+                SendLog( "OkJoyPay Success" + billNo);
                 //经过测试，此回调不靠谱
             }
         });
@@ -192,7 +185,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
     //初始化广告
     public void InitOkJoyAD() {
-        Log.d(Tag, "InitOkJoyAD");
+        SendLog( "InitOkJoyAD");
         adLoadSuccess = true;
         InitADKeys();
         JoyGame.initAd(GetCurrentActivity(), mAdListener);
@@ -202,21 +195,21 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     private void InitADKeys() {
         try {
             String keyString = GetProperties().getProperty(ADKey);
-            Log.d(Tag, "keyString: "+ keyString);
+            SendLog("keyString: "+ keyString);
             String[] keySplit = keyString.split("\\|");
             for (int i = 0; (i) < keySplit.length; i++) {
-                Log.d(Tag, "InitADKeys keySplit : "+ keySplit[i]);
+                SendLog("InitADKeys keySplit : "+ keySplit[i]);
                 if (!keySplit[i].isEmpty()) {
                     String[] key_value = keySplit[i].split(ADKeySplit);
-                    Log.d(Tag, "InitADKeys ready : " + key_value[0] + "=" + key_value[1]);
+                    SendLog( "InitADKeys ready : " + key_value[0] + "=" + key_value[1]);
                     if (!adKeys.containsKey(key_value[0])) {
-                        Log.d(Tag, "InitADKeys: " + key_value[0] + "=" + key_value[1]);
+                        SendLog( "InitADKeys: " + key_value[0] + "=" + key_value[1]);
                         adKeys.put(key_value[0], key_value[1]);
                     }
                 }
 
             }
-            Log.d(Tag, "InitADKeys success" + adKeys.size());
+            SendLog( "InitADKeys success" + adKeys.size());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -225,10 +218,9 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     //根据tag获取广告key
     private String GetADKeyByTag(String tag) {
         if (adKeys.containsKey(tag)) {
-            Log.d(Tag, " get ADKeyByTag:" + tag + "key:" + adKeys.get(tag));
             return adKeys.get(tag);
         }
-        Log.d(Tag, "can not get ADKeyByTag:" + tag);
+        SendLog("can not get ADKeyByTag:" + tag);
         return "";
     }
 
@@ -236,7 +228,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     public void PlayOkJoyAD(final String ADID) {
         //检测
         //JavaUtils.VerifyClass("com.qq.e.comm.plugin.POFactoryImpl");
-        Log.d(Tag, "PlayOkJoyAD:" + ADID);
+        SendLog( "PlayOkJoyAD:" + ADID);
         nowADTag = ADID;
         //交给主线程去执行
         GetCurrentActivity().runOnUiThread(new Runnable() {
@@ -252,7 +244,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     private IOnAdListener mAdListener = new IOnAdListener() {
         @Override
         public void onAdShow(Ad_Type ad_type) {
-            Log.d(Tag, ad_type + "广告显示中");
+            SendLog(ad_type + "广告显示中");
             switch (ad_type) {
                 case Ad_Type_Banner:
                     showToastWithMsg("Banner广告显示中...");
@@ -271,7 +263,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
         @Override
         public void onAdClick(Ad_Type ad_type) {
-            Log.d(Tag, ad_type + "广告被点击了");
+            SendLog( ad_type + "广告被点击了");
             switch (ad_type) {
                 case Ad_Type_Banner:
                     showToastWithMsg("点击了Banner广告");
@@ -290,7 +282,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
         @Override
         public void onAdClose(Ad_Type ad_type) {
-            Log.d(Tag, ad_type + "广告关闭中");
+            SendLog(ad_type + "广告关闭中");
             switch (ad_type) {
                 case Ad_Type_Banner:
                     showToastWithMsg("关闭Banner广告");
@@ -309,7 +301,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
         @Override
         public void onAdError(Ad_Type ad_type, String s) {
-            Log.d(Tag, ad_type + "广告加载错误");
+            SendLog(ad_type + "广告加载错误");
             //adLoadSuccess = false;
             switch (ad_type) {
                 case Ad_Type_Banner:
@@ -332,7 +324,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         public void onStimulateSuccess(Ad_Type ad_type) {
             //该回调只用作判断是否该给用户激励的回调，只有在 ad_type = Ad_Type.Ad_Type_Inspire 的情况下才有可能回调
             if (ad_type == Ad_Type.Ad_Type_Inspire) {
-                Log.d(Tag, "激励广告成功，发放奖励");
+                SendLog( "激励广告成功，发放奖励");
                 showToastWithMsg("奖励玩家");
                 AdRewardCallBack(ADType.Reward, ADResult.Show_Finished);
             }
@@ -381,7 +373,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         //获取实名状态出错
         @Override
         public void fetchRealNameStatusError(String s) {
-            Log.d(Tag,"fetchRealNameStatusError:"+ s);
+            SendLog("fetchRealNameStatusError:"+ s);
             isRealName = false;
             RealNameCallBack();
             JoyGame.showRealNamePage(GetCurrentActivity(),"",RealNameCallBack);
@@ -389,7 +381,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         //当前登录的用户还没有实名认证
         @Override
         public void notRealName(String s) {
-            Log.d(Tag,"notRealName:"+ s);
+            SendLog("notRealName:"+ s);
             isRealName = false;
             RealNameCallBack();
             JoyGame.showRealNamePage(GetCurrentActivity(),"",RealNameCallBack);
@@ -399,7 +391,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         @Override
         public void realName(String userCode, int adult) {
             isRealName= true;
-            Log.d(Tag,"realName: "+ adult);
+            SendLog("realName: "+ adult);
             if(adult == 1)
             {
                 isAdult = false;
@@ -410,7 +402,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
             }
             else
             {
-                Log.d(Tag,"realName adult = " + adult);
+                SendLog("realName adult = " + adult);
             }
             RealNameCallBack();
         }
@@ -422,14 +414,14 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         //获取实名状态出错
         @Override
         public void fetchRealNameStatusError(String s) {
-            Log.d(Tag,"fetchRealNameStatusError:"+ s);
+            SendLog("fetchRealNameStatusError:"+ s);
             isRealName = false;
             RealNameCallBack();
         }
         //当前登录的用户还没有实名认证
         @Override
         public void notRealName(String s) {
-            Log.d(Tag,"notRealName:"+ s);
+            SendLog("notRealName:"+ s);
             isRealName = false;
             RealNameCallBack();
         }
@@ -438,7 +430,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         @Override
         public void realName(String userCode, int adult) {
             isRealName= true;
-            Log.d(Tag,"realName: "+ adult);
+            SendLog("realName: "+ adult);
             if(adult == 1)
             {
                 isAdult = false;
@@ -449,7 +441,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
             }
             else
             {
-                Log.d(Tag,"realName adult = " + adult);
+                SendLog("realName adult = " + adult);
             }
             RealNameCallBack();
         }
@@ -460,7 +452,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     {
         if(!initSuccess)
         {
-            Log.d(Tag,"OkJoyEit fail: initSuccess == false");
+            SendLog("OkJoyEit fail: initSuccess == false");
             return;
         }
 
@@ -468,12 +460,12 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
             @Override
             public void fail(String msg) {
-                Log.d(Tag,"OkJoyEit fail: "+ msg);
+                SendLog("OkJoyEit fail: "+ msg);
             }
 
             @Override
             public void ExitSuccess(String msg) {
-                Log.d(Tag,"OkJoyEit success: "+ msg);
+                SendLog("OkJoyEit success: "+ msg);
                 if ("exit".equals(msg)) {
                     //账号退出
                     GetCurrentActivity().finish();//销毁Activity
@@ -508,7 +500,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
     public void onActivityResultOkJoy(int requestCode, int resultCode, Intent data)
     {
-        Log.d(Tag,"onActivityResult" + requestCode +" resultCode" + resultCode);
+        SendLog("onActivityResult" + requestCode +" resultCode" + resultCode);
         JoyGame.onActivityResult(GetCurrentActivity(),requestCode,resultCode,data);
     }
 
@@ -553,6 +545,51 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     public void OnAppplicationQuit(JSONObject json) {
         OkJoyEit();
     }
+
+    //返回登陆结果
+    private void LoginResult(boolean success,LoginMessageInfo loginInfo ,String errorString)
+    {
+        SendLog("login result  " + success);
+        try {
+            String typeKey = "";
+            if(success && loginInfo != null)
+            {
+                typeKey = loginInfo.getUserCode() + "|" + loginInfo.getLoginToken();
+
+            }
+            SendLog( "send typeKey to Unity :  " + typeKey);
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
+            jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogin);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId, typeKey);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.OKJOY.toString());
+            jo.put(SDKInterfaceDefine.ParameterName_Error,errorString);
+            CallBack(jo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            SendError("HuaWei4 onLoginSuccess", e);
+        }
+    }
+
+    //返回登出结果
+    private void LogoutResult(boolean success,String errorString)
+    {
+        SendLog("logout result  " + success);
+        try {
+
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
+            jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogout);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.OKJOY.toString());
+            jo.put(SDKInterfaceDefine.ParameterName_Error,errorString);
+            CallBack(jo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            SendError("HuaWei4 onLoginSucc", e);
+        }
+    }
     //endregion
 
     //region 支付
@@ -563,12 +600,12 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
             String goodsID  = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
             String playerID = json.getString(SDKInterfaceDefine.ParameterName_UserID);
 
-            SendLog(Tag +"StartPay goods" + goodsID);
+            SendLog( "okjoy StartPay goods" + goodsID);
             OkJoyPay(goodsID,playerID,playerID);
 
         } catch (JSONException e) {
             e.printStackTrace();
-            SendError(Tag + "Pay" ,e );
+            SendError("okjoy  Pay" ,e );
             SendPayCallBack(false,"","Pay error");
         }
     }
@@ -592,6 +629,39 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     public void ClearPurchase(JSONObject json) {
 
     }
+
+    //返回支付结果 （OkJoy sdk 的回调不准确,必然成功）
+    void SendPayCallBack(boolean success,String token,String errorCode) {
+        try {
+            JSONObject jo = new JSONObject();
+            String goodsID = "";
+            if(payInfo != null)
+            {
+                goodsID = payInfo.goodsID;
+            }
+
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, goodsID);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, token);
+            jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.OKJOY.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, token);
+
+            SendLog( "PayInfo is null" + (payInfo == null) + "jo is null" + (jo == null));
+
+            if (payInfo == null) {
+                payInfo = new PayInfo();
+            }
+            payInfo.ToJson(jo);
+
+            SendLog( jo.toString());
+
+            sdkInterface.SdkInterface.SendMessage(jo);
+        } catch (JSONException e) {
+            SendError("SendPayCallBack Error " + e, e);
+        }
+    }
     //endregion
 
     //region 广告
@@ -610,7 +680,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
         } catch (JSONException e) {
             e.printStackTrace();
-            SendError(Tag + "PlayAD" ,e );
+            SendError("okjoy  PlayAD" ,e );
         }
     }
 
@@ -627,22 +697,70 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
             String ADID = GetADKeyByTag(adTag);
             if(ADID.equals(""))
             {
-                SendError(Tag+"IsLoaded" +json.toString(),null);
+                SendError("okjoy IsLoaded" +json.toString(),null);
                 return true;
             }
             else
             {
                 boolean isReady = JoyGame.isReadyAtPlacementId(GetCurrentActivity(),ADID);
-                SendLog(Tag + ADID + "IsLoaded" + isReady);
+//                SendLog(Tag + ADID + "IsLoaded" + isReady);
                 return isReady;
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            SendError(Tag + "IsLoaded" ,e );
+            SendError("okjoy IsLoaded" ,e );
         }
 
         return adLoadSuccess;
     }
+
+    //广告奖励回调
+    void AdRewardCallBack(ADType l_ADType, ADResult l_ADResult)
+    {
+        try {
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_AD);
+            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.AD_FunctionName_OnAD);
+            jo.put(SDKInterfaceDefine.AD_ParameterName_ADType, l_ADType);
+            jo.put(SDKInterfaceDefine.AD_ParameterName_ADResult,l_ADResult);
+            jo.put(SDKInterfaceDefine.Tag,nowADTag);
+
+            CallBack(jo);
+        } catch (JSONException e) {
+            SendError("SendPayCallBack Error " + e, e);
+        }
+    }
+    //endregion
+
+    //region 分享
+    @Override
+    public void Share(JSONObject json,String thumbImage,String image) {
+        SendLog("Share " + json);
+        JoyGame.share(GetCurrentActivity(), new IShareCallback() {
+            @Override
+            public void shared(Type type) {
+                SendLog("okjoy shared "  + type);
+                ShareCallBack();
+            }
+        });
+    }
+
+    void ShareCallBack()
+    {
+        try {
+            JSONObject jo = new JSONObject();
+
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Share);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, true);
+
+            SendLog(jo.toString());
+
+            sdkInterface.SdkInterface.SendMessage(jo);
+        } catch (JSONException e) {
+            SendError("ShareCallBack Error " + e, e);
+        }
+    }
+
     //endregion
 
     //region 实名制
@@ -705,7 +823,7 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     {
         try {
             String payAmount  = json.getString(SDKInterfaceDefine.RealName_ParameterName_PayAmount);
-            SDKCommunication.Send2C_PayLimitResult(OkJoyGame.this,false,Integer.parseInt(payAmount),Tag);
+            SDKCommunication.Send2C_PayLimitResult(OkJoyGame.this,false,Integer.parseInt(payAmount),"okJoy");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -720,6 +838,23 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
 
     }
 
+    //实名认证结果回调
+    void RealNameCallBack()
+    {
+        SDKCommunication.Send2C_RealNameResult(OkJoyGame.this,GetRealNameType(),IsAdult());
+
+//        try {
+//            JSONObject jo = new JSONObject();
+//            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_RealName);
+//            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.RealName_FunctionName_RealNameCallBack);
+//            jo.put(SDKInterfaceDefine.RealName_ParameterName_RealNameStatus, GetRealNameType());
+//            jo.put(SDKInterfaceDefine.RealName_ParameterName_IsAdult,IsAdult());
+//
+//            CallBack(jo);
+//        } catch (JSONException e) {
+//            SendError("SendPayCallBack Error " + e, e);
+//        }
+    }
 
     //endregion 实名制
 
@@ -760,128 +895,12 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
     }
     //endregion
 
-    //返回登陆结果
-    private void LoginResult(boolean success,LoginMessageInfo loginInfo ,String errorString)
-    {
-        Log.i(Tag, "login result  " + success);
-        try {
-            String typeKey = "";
-            if(success && loginInfo != null)
-            {
-                typeKey = loginInfo.getUserCode() + "|" + loginInfo.getLoginToken();
-
-            }
-            Log.i(Tag, "send typeKey to Unity :  " + typeKey);
-            JSONObject jo = new JSONObject();
-            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
-            jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogin);
-            jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId, typeKey);
-            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
-            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.OKJOY.toString());
-            jo.put(SDKInterfaceDefine.ParameterName_Error,errorString);
-            CallBack(jo);
-        } catch (Exception e) {
-            e.printStackTrace();
-            SendError("HuaWei4 onLoginSuccess", e);
-        }
-    }
-
-    //返回登出结果
-    private void LogoutResult(boolean success,String errorString)
-    {
-        Log.i(Tag, "logout result  " + success);
-        try {
-
-            JSONObject jo = new JSONObject();
-            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
-            jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogout);
-            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
-            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.OKJOY.toString());
-            jo.put(SDKInterfaceDefine.ParameterName_Error,errorString);
-            CallBack(jo);
-        } catch (Exception e) {
-            e.printStackTrace();
-            SendError("HuaWei4 onLoginSucc", e);
-        }
-    }
-
-
-
-    //返回支付结果 （OkJoy sdk 的回调不准确,必然成功）
-    void SendPayCallBack(boolean success,String token,String errorCode) {
-        try {
-            JSONObject jo = new JSONObject();
-            String goodsID = "";
-            if(payInfo != null)
-            {
-                goodsID = payInfo.goodsID;
-            }
-
-            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, goodsID);
-            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, token);
-            jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.OKJOY.toString());
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, token);
-
-            Log.d(Tag, "PayInfo is null" + (payInfo == null) + "jo is null" + (jo == null));
-
-            if (payInfo == null) {
-                payInfo = new PayInfo();
-            }
-            payInfo.ToJson(jo);
-
-            SendLog(Tag + jo.toString());
-
-            sdkInterface.SdkInterface.SendMessage(jo);
-        } catch (JSONException e) {
-            SendError("SendPayCallBack Error " + e, e);
-        }
-    }
-
-    //广告奖励回调
-    void AdRewardCallBack(ADType l_ADType, ADResult l_ADResult)
-    {
-        try {
-            JSONObject jo = new JSONObject();
-            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_AD);
-            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.AD_FunctionName_OnAD);
-            jo.put(SDKInterfaceDefine.AD_ParameterName_ADType, l_ADType);
-            jo.put(SDKInterfaceDefine.AD_ParameterName_ADResult,l_ADResult);
-            jo.put(SDKInterfaceDefine.Tag,nowADTag);
-
-            CallBack(jo);
-        } catch (JSONException e) {
-            SendError("SendPayCallBack Error " + e, e);
-        }
-    }
-
-    //实名认证结果回调
-    void RealNameCallBack()
-    {
-        SDKCommunication.Send2C_RealNameResult(OkJoyGame.this,GetRealNameType(),IsAdult());
-
-//        try {
-//            JSONObject jo = new JSONObject();
-//            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_RealName);
-//            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.RealName_FunctionName_RealNameCallBack);
-//            jo.put(SDKInterfaceDefine.RealName_ParameterName_RealNameStatus, GetRealNameType());
-//            jo.put(SDKInterfaceDefine.RealName_ParameterName_IsAdult,IsAdult());
-//
-//            CallBack(jo);
-//        } catch (JSONException e) {
-//            SendError("SendPayCallBack Error " + e, e);
-//        }
-    }
-
     //打开taptap 社区页面
     public void OpenTapTap()
     {
-        SendLog(Tag + "OpenTapTap");
+        SendLog( "OpenTapTap");
         JoyGame.openTapTapForum(GetCurrentActivity());
     }
-
 
     //适配安卓6.0动态权限的生命周期方法
     @Override
@@ -944,4 +963,6 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IRealName,
         super.OnNewIntent(intent);
         JoyGame.onNewIntent(intent);
     }
+
+
 }

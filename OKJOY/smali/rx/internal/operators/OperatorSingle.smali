@@ -1,0 +1,171 @@
+.class public final Lrx/internal/operators/OperatorSingle;
+.super Ljava/lang/Object;
+.source "OperatorSingle.java"
+
+# interfaces
+.implements Lrx/Observable$Operator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lrx/internal/operators/OperatorSingle$ParentSubscriber;,
+        Lrx/internal/operators/OperatorSingle$Holder;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lrx/Observable$Operator",
+        "<TT;TT;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final defaultValue:Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "TT;"
+        }
+    .end annotation
+.end field
+
+.field private final hasDefaultValue:Z
+
+
+# direct methods
+.method constructor <init>()V
+    .registers 3
+
+    .prologue
+    .line 53
+    .local p0, "this":Lrx/internal/operators/OperatorSingle;, "Lrx/internal/operators/OperatorSingle<TT;>;"
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, v1}, Lrx/internal/operators/OperatorSingle;-><init>(ZLjava/lang/Object;)V
+
+    .line 54
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/Object;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 57
+    .local p0, "this":Lrx/internal/operators/OperatorSingle;, "Lrx/internal/operators/OperatorSingle<TT;>;"
+    .local p1, "defaultValue":Ljava/lang/Object;, "TT;"
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0, p1}, Lrx/internal/operators/OperatorSingle;-><init>(ZLjava/lang/Object;)V
+
+    .line 58
+    return-void
+.end method
+
+.method private constructor <init>(ZLjava/lang/Object;)V
+    .registers 3
+    .param p1, "hasDefaultValue"    # Z
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(ZTT;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 60
+    .local p0, "this":Lrx/internal/operators/OperatorSingle;, "Lrx/internal/operators/OperatorSingle<TT;>;"
+    .local p2, "defaultValue":Ljava/lang/Object;, "TT;"
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 61
+    iput-boolean p1, p0, Lrx/internal/operators/OperatorSingle;->hasDefaultValue:Z
+
+    .line 62
+    iput-object p2, p0, Lrx/internal/operators/OperatorSingle;->defaultValue:Ljava/lang/Object;
+
+    .line 63
+    return-void
+.end method
+
+.method public static instance()Lrx/internal/operators/OperatorSingle;
+    .registers 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">()",
+            "Lrx/internal/operators/OperatorSingle",
+            "<TT;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 49
+    sget-object v0, Lrx/internal/operators/OperatorSingle$Holder;->INSTANCE:Lrx/internal/operators/OperatorSingle;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public bridge synthetic call(Ljava/lang/Object;)Ljava/lang/Object;
+    .registers 3
+    .param p1, "x0"    # Ljava/lang/Object;
+
+    .prologue
+    .line 31
+    .local p0, "this":Lrx/internal/operators/OperatorSingle;, "Lrx/internal/operators/OperatorSingle<TT;>;"
+    check-cast p1, Lrx/Subscriber;
+
+    .end local p1    # "x0":Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lrx/internal/operators/OperatorSingle;->call(Lrx/Subscriber;)Lrx/Subscriber;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public call(Lrx/Subscriber;)Lrx/Subscriber;
+    .registers 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lrx/Subscriber",
+            "<-TT;>;)",
+            "Lrx/Subscriber",
+            "<-TT;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 68
+    .local p0, "this":Lrx/internal/operators/OperatorSingle;, "Lrx/internal/operators/OperatorSingle<TT;>;"
+    .local p1, "child":Lrx/Subscriber;, "Lrx/Subscriber<-TT;>;"
+    new-instance v0, Lrx/internal/operators/OperatorSingle$ParentSubscriber;
+
+    iget-boolean v1, p0, Lrx/internal/operators/OperatorSingle;->hasDefaultValue:Z
+
+    iget-object v2, p0, Lrx/internal/operators/OperatorSingle;->defaultValue:Ljava/lang/Object;
+
+    invoke-direct {v0, p1, v1, v2}, Lrx/internal/operators/OperatorSingle$ParentSubscriber;-><init>(Lrx/Subscriber;ZLjava/lang/Object;)V
+
+    .line 70
+    .local v0, "parent":Lrx/internal/operators/OperatorSingle$ParentSubscriber;, "Lrx/internal/operators/OperatorSingle$ParentSubscriber<TT;>;"
+    invoke-virtual {p1, v0}, Lrx/Subscriber;->add(Lrx/Subscription;)V
+
+    .line 71
+    return-object v0
+.end method

@@ -85,6 +85,14 @@ public class SDKInterfaceDefine {
     public static final String AD_ParameterName_ADType = "ADType";
     public static final String AD_ParameterName_ADResult = "ADResult";   //广告播放结果
 
+    //Share相关参数
+    public static final String Share_FunctionName_Share = "Share";
+
+    public static final String Share_ParameterName_Title       = "Title";
+    public static final String Share_ParameterName_Description = "Description";
+    public static final String Share_ParameterName_ThumbImage  = "ThumbImage"; //缩略图
+    public static final String Share_ParameterName_Image       = "Image";
+
     //Log相关参数
     public static final String Log_FunctionName_Login = "LogLogin";
     public static final String Log_FunctionName_LoginOut = "LogLoginOut";

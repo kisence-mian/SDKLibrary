@@ -54,7 +54,7 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_Log:Log(json);break;
                 case SDKInterfaceDefine.ModuleName_AD:AD(json);break;
                 case SDKInterfaceDefine.ModuleName_Pay:Pay(json);break;
-                case SDKInterfaceDefine.ModuleName_Share:Share(json);break;
+//                case SDKInterfaceDefine.ModuleName_Share:Share(json);break;
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
                 case SDKInterfaceDefine.ModuleName_LifeCycle:LifeCycle(json);break;
                 case SDKInterfaceDefine.ModuleName_RealName:RealName(json);break;
@@ -113,7 +113,6 @@ public class SdkInterface
                     SendError("UnityRequestFunctionString : not support function name ->" + content + "<-",null);
                     return "0";
             }
-
         }
         catch (Exception e)
         {
@@ -249,6 +248,7 @@ public class SdkInterface
     }
 
     //endregion
+
     //region Init
     static void Init(JSONObject json)
     {
@@ -463,7 +463,7 @@ public class SdkInterface
         String adClassNameConfig = SdkManifest.getProperty("AD");
         String[] adClassNameList = adClassNameConfig.split("\\|");
 
-        SendLog("AD init ->" + adClassNameConfig);
+        SendLog("AD init ->" + adClassNameConfig + " adClassNameList length is " + adClassNameList.length);
 
         for (int i = 0; i < adClassNameList.length; i++) {
             //加载对应类，并放入loginSDKList
@@ -475,6 +475,7 @@ public class SdkInterface
                     SDKBase ins =  GetClass(className,json);
 
                     adSDKList.add(ins);
+                    SendLog("Put AD SDKName >" + ins.SDKName + "< adSDKList size is " + adSDKList.size());
                 } catch (Exception e) {
                     SendError(e.toString(), e);
                 }
@@ -521,7 +522,7 @@ public class SdkInterface
             }
             else
             {
-                SendError("Not find AD Class -> " + json.toString(),null);
+                SendError("Not find AD Class -> " + json.toString() + " adSDKList is " + adSDKList.size(),null);
             }
         }
         catch (Exception e) {
@@ -754,7 +755,7 @@ public class SdkInterface
     static ArrayList<SDKBase> shareSDKList;
 
     static void InitShare(JSONObject json) {
-        adSDKList = new ArrayList<>();
+        shareSDKList = new ArrayList<>();
 
         String shareClassNameConfig = SdkManifest.getProperty("Share");
         String[] shareClassNameList = shareClassNameConfig.split("\\|");
@@ -778,35 +779,14 @@ public class SdkInterface
         }
     }
 
-    static void Share(JSONObject json)
+    public static void Share(JSONObject json,String thumbImage,String image)
     {
         try {
-            IShare pay =(IShare)GetSDK(json,shareSDKList);
-            if(pay != null)
+            IShare share =(IShare)GetSDK(json,shareSDKList);
+            if(share != null)
             {
                 String function = json.getString(SDKInterfaceDefine.FunctionName);
-                pay.Share(json);
-
-//                switch (function)
-//                {
-//                    case SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo:
-//                        //商品信息全部请求
-//                        for (  int i =0;i<paySDKList.size();i++)
-//                        {
-//                            IPay tmp = (IPay)paySDKList.get(i);
-//                            tmp.GetGoodsInfo(json);
-//                        }
-//
-//                        break;
-//                    case  SDKInterfaceDefine.Pay_FunctionName_ClearPurchase:
-//                        pay.ClearPurchase(json);
-//                        break;
-//                    case  SDKInterfaceDefine.FunctionName_OnPay:
-//                        pay.Pay(json);
-//                        break;
-//                    default:
-//                        SendLog("dont find pay function " + function + " json " + json);
-//                }
+                share.Share(json,thumbImage,image);
             }else
             {
                 SendLog("dont find share json " + json);
@@ -818,177 +798,19 @@ public class SdkInterface
         }
     }
 
-    //endregion
-
-    //region 其他接口
-
-    static ArrayList<SDKBase> otherSDKList;
-    static void InitOther(JSONObject json) {
-        otherSDKList = new ArrayList<>();
-
-        String otherClassNameConfig = SdkManifest.getProperty("Other");
-        String[] otherClassNameList = otherClassNameConfig.split("\\|");
-
-        SendLog("Other Init ->" + otherClassNameConfig);
-
-        for (int i = 0; i < otherClassNameList.length; i++) {
-            //加载对应类，并放入loginSDKList
-
-            if (otherClassNameList[i] != null
-                    && otherClassNameList[i] != "") {
-                try {
-                    String className = otherClassNameList[i];
-                    SDKBase ins =  GetClass(className,json);
-
-                    otherSDKList.add(ins);
-                } catch (Exception e) {
-                    SendError(e.toString(), e);
-                }
-            }
-        }
-    }
-
-    static void InitRealName(JSONObject json)
+    public static String GetSupportSharePlatform()
     {
-        realNameSDKList = new ArrayList<>();
-
-        String realNameeClassNameConfig = SdkManifest.getProperty("RealName");
-        String[] realNameClassNameList = realNameeClassNameConfig.split("\\|");
-
-        SendLog("RealName Init ->" + realNameeClassNameConfig);
-
-        for (int i = 0; i < realNameClassNameList.length; i++) {
-            //加载对应类，并放入realNameSDKList
-
-            if (realNameClassNameList[i] != null
-                    && realNameClassNameList[i] != "") {
-                try {
-                    String className = realNameClassNameList[i];
-                    SDKBase ins =  GetClass(className,json);
-
-                    realNameSDKList.add(ins);
-                } catch (Exception e) {
-                    SendError(e.toString(), e);
-                }
-            }
-        }
-    }
-
-    static void Other(JSONObject json)
-    {
-        SendLog("SDKInterBase Other " + json.toString());
-        try {
-            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
-            for (int i = 0; i < otherSDKList.size(); i++) {
-                IOther other = (IOther) otherSDKList.get(i);
-                String[] fs = other.GetFunctionName();
-                for (int j = 0; j < fs.length; j++)
-                {
-                    SendLog(functionName+"=> fs[] "  + j + " "+ fs[j] + " ->" + fs[j].equals(functionName));
-
-                    if(fs[j].equals(functionName))
-                    {
-                        other.Other(json);
-                    }
-                }
-            }
-        } catch (Exception e)
+        String result = "";
+        for (int i = 0; i < shareSDKList.size(); i++)
         {
-            SendError("Other Error:" + e.toString(),e);
-        }
-    }
+            result += shareSDKList.get(i).SDKName;
 
-    static void LifeCycle(JSONObject json)
-    {
-        SendLog("SDKInterBase LifeCycle " + json.toString());
-        try {
-            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
-            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            if(i != shareSDKList.size() -1 )
             {
-                switch (functionName)
-                {
-                    case SDKInterfaceDefine.LifeCycle_FunctionName_OnApplicationQuit: entry.getValue().OnAppplicationQuit(json);
-                }
+                result +="|";
             }
         }
-        catch (Exception e)
-        {
-            SendError("Other Error:" + e.toString(),e);
-        }
-    }
-
-    static boolean IsSDKExist(String sdkName)
-    {
-        for (SDKBase temp: allClass.values()) {
-            if(temp.SDKName.equals(sdkName))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    //endregion
-
-    //region 通用工具
-
-    static SDKBase GetSDK(JSONObject json,ArrayList<SDKBase> list) throws Exception {
-
-        if(isInit)
-        {
-            if(json.has(SDKInterfaceDefine.SDKName))
-            {
-                String SDKName = json.getString(SDKInterfaceDefine.SDKName);
-                for (int i = 0; i < list.size(); i++)
-                {
-                    if(list.get(i).SDKName != null && list.get(i).SDKName.equals(SDKName))
-                    {
-                        return list.get(i);
-                    }
-                }
-
-                SendLog("GetSDK 找不到 SDKName ：" + SDKName );
-                return null;
-            }
-            else if(json.has(SDKInterfaceDefine.SDKIndex))
-            {
-                int index = json.getInt(SDKInterfaceDefine.SDKIndex);
-                return list.get(index);
-            }
-            else
-            {
-                return list.get(0);
-            }
-        }
-        else
-        {
-            SendLog("SDKManager尚未初始化！" );
-            return null;
-        }
-    }
-
-    public static Context GetContext()
-    {
-        return UnityPlayer.currentActivity.getApplicationContext();
-    }
-
-    static HashMap<String,SDKBase> allClass = new HashMap<String,SDKBase>() ;
-
-    public  static SDKBase GetClass(String className,JSONObject json) throws Exception
-    {
-        Log.d("==GetClass===put=",className);
-        if(allClass.containsKey(className))
-        {
-            return allClass.get(className);
-        }
-        else
-        {
-            Class cla = Class.forName(className);
-            SDKBase sdk = (SDKBase)cla.newInstance();
-            sdk.SDKName = SdkManifest.getProperty(className,className);
-            allClass.put(className,sdk);
-            return sdk;
-        }
+        return result;
     }
 
     //endregion
@@ -1200,6 +1022,114 @@ public class SdkInterface
 
     //endregion
 
+    //region 其他接口
+
+    static ArrayList<SDKBase> otherSDKList;
+    static void InitOther(JSONObject json) {
+        otherSDKList = new ArrayList<>();
+
+        String otherClassNameConfig = SdkManifest.getProperty("Other");
+        String[] otherClassNameList = otherClassNameConfig.split("\\|");
+
+        SendLog("Other Init ->" + otherClassNameConfig);
+
+        for (int i = 0; i < otherClassNameList.length; i++) {
+            //加载对应类，并放入loginSDKList
+
+            if (otherClassNameList[i] != null
+                    && otherClassNameList[i] != "") {
+                try {
+                    String className = otherClassNameList[i];
+                    SDKBase ins =  GetClass(className,json);
+
+                    otherSDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
+            }
+        }
+    }
+
+    static void InitRealName(JSONObject json)
+    {
+        realNameSDKList = new ArrayList<>();
+
+        String realNameeClassNameConfig = SdkManifest.getProperty("RealName");
+        String[] realNameClassNameList = realNameeClassNameConfig.split("\\|");
+
+        SendLog("RealName Init ->" + realNameeClassNameConfig);
+
+        for (int i = 0; i < realNameClassNameList.length; i++) {
+            //加载对应类，并放入realNameSDKList
+
+            if (realNameClassNameList[i] != null
+                    && realNameClassNameList[i] != "") {
+                try {
+                    String className = realNameClassNameList[i];
+                    SDKBase ins =  GetClass(className,json);
+
+                    realNameSDKList.add(ins);
+                } catch (Exception e) {
+                    SendError(e.toString(), e);
+                }
+            }
+        }
+    }
+
+    static void Other(JSONObject json)
+    {
+        SendLog("SDKInterBase Other " + json.toString());
+        try {
+            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+            for (int i = 0; i < otherSDKList.size(); i++) {
+                IOther other = (IOther) otherSDKList.get(i);
+                String[] fs = other.GetFunctionName();
+                for (int j = 0; j < fs.length; j++)
+                {
+                    SendLog(functionName+"=> fs[] "  + j + " "+ fs[j] + " ->" + fs[j].equals(functionName));
+
+                    if(fs[j].equals(functionName))
+                    {
+                        other.Other(json);
+                    }
+                }
+            }
+        } catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
+    }
+
+    static void LifeCycle(JSONObject json)
+    {
+        SendLog("SDKInterBase LifeCycle " + json.toString());
+        try {
+            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                switch (functionName)
+                {
+                    case SDKInterfaceDefine.LifeCycle_FunctionName_OnApplicationQuit: entry.getValue().OnAppplicationQuit(json);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("Other Error:" + e.toString(),e);
+        }
+    }
+
+    static boolean IsSDKExist(String sdkName)
+    {
+        for (SDKBase temp: allClass.values()) {
+            if(temp.SDKName.equals(sdkName))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     static boolean GetIsLog()  {
 
         if(SdkManifest.containsKey(SDKInterfaceDefine.PropertiesKey_IsLog))
@@ -1211,4 +1141,77 @@ public class SdkInterface
             return  false;
         }
     }
+
+    //endregion
+
+    //region 通用工具
+
+    static SDKBase GetSDK(JSONObject json,ArrayList<SDKBase> list) throws Exception {
+
+        if(isInit)
+        {
+            if(json.has(SDKInterfaceDefine.SDKName))
+            {
+                String SDKName = json.getString(SDKInterfaceDefine.SDKName);
+                for (int i = 0; i < list.size(); i++)
+                {
+                    if(list.get(i).SDKName != null && list.get(i).SDKName.equals(SDKName))
+                    {
+                        return list.get(i);
+                    }
+                }
+
+                String sdkList = "";
+                for (int i = 0; i < list.size(); i++)
+                {
+                    sdkList+=list.get(i).SDKName +"|";
+                }
+
+                SendLog("GetSDK 找不到 SDKName:  SDKName ->" + SDKName + "<  sdkList ->" + sdkList + "<");
+                return null;
+            }
+            else if(json.has(SDKInterfaceDefine.SDKIndex))
+            {
+                int index = json.getInt(SDKInterfaceDefine.SDKIndex);
+                return list.get(index);
+            }
+            else
+            {
+                return list.get(0);
+            }
+        }
+        else
+        {
+            SendLog("SDKManager尚未初始化！" );
+            return null;
+        }
+    }
+
+    public static Context GetContext()
+    {
+        return UnityPlayer.currentActivity.getApplicationContext();
+    }
+
+    static HashMap<String,SDKBase> allClass = new HashMap<String,SDKBase>() ;
+
+    public  static SDKBase GetClass(String className,JSONObject json) throws Exception
+    {
+        if(allClass.containsKey(className))
+        {
+            SendLog("已存在的类 ClassName ->" + className+"<");
+            return allClass.get(className);
+        }
+        else
+        {
+            Class cla = Class.forName(className);
+            SDKBase sdk = (SDKBase)cla.newInstance();
+            sdk.SDKName = SdkManifest.getProperty(className,className);
+            allClass.put(className,sdk);
+
+            SendLog("创建新类 ClassName ->" + className+"< SDKName ->" + sdk.SDKName + "<");
+            return sdk;
+        }
+    }
+
+    //endregion
 }
