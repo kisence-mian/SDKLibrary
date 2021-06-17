@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/borderView"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/joy_login_success_banner_shape"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/borderView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintBottom_toBottomOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/joy_black"
+        android:text="加载中..."
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

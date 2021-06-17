@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/joy_red">
+
+    <ImageView
+        android:id="@+id/borderView"
+        android:layout_width="340dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1060:800"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/joy_border_1060_800"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/borderView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/joy_btn_come_back"
+        />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/joy_btn_help"
+        />
+
+    <TextView
+        android:id="@+id/accountTextView"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:gravity="center"
+        android:text="您的账号："
+        android:textSize="18sp"
+        android:textColor="@color/joy_black"
+        />
+
+
+    <Button
+        android:id="@+id/changeAccountButton"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        app:layout_constraintDimensionRatio="183:47"
+        app:layout_constraintBottom_toBottomOf="@+id/borderView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@id/borderView"
+        android:layout_marginBottom="10dp"
+        tools:background="@drawable/joy_btn_change_account"
+        />
+
+    <Button
+        android:id="@+id/realNameButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="525:160"
+        app:layout_constraintBottom_toTopOf="@+id/changeAccountButton"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/joy_btn_register_realname_selector"
+        />
+
+    <TextView
+        android:id="@+id/tipsTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/accountTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintBottom_toTopOf="@+id/realNameButton"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="根据国家新闻出版署发布的《关于防止未成年人沉迷网络游戏的通知》，您的账号为非正式账号，每15天只有一个小时的游戏体验时长，建议您尽快完成相关认证操作。"
+        android:textSize="14sp"
+        android:textColor="@color/joy_black"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

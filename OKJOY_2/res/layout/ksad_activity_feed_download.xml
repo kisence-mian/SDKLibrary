@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.core.view.KsAdContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ksad_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical
+        android:id="@+id/ksad_download_container"
+        android:layout_width="match_parent"
+        android:layout_height="286dp" />
+
+</com.kwad.sdk.core.view.KsAdContainer>

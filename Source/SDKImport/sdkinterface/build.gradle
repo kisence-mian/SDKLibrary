@@ -29,5 +29,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation files('libs/classes.jar')
     implementation files('libs/android-support-multidex.jar')
-    compile 'com.android.support:multidex'
+    implementation 'com.android.support:multidex'
 }

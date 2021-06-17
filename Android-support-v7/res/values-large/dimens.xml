@@ -22,4 +22,12 @@
      showAsAction="ifRoom" items can fit. "always" items can override this. -->
     <integer name="abc_max_action_buttons">4</integer>
 
+    <item type="dimen" name="abc_dialog_fixed_width_major">60%</item>
+    <item type="dimen" name="abc_dialog_fixed_width_minor">90%</item>
+    <item type="dimen" name="abc_dialog_fixed_height_major">60%</item>
+    <item type="dimen" name="abc_dialog_fixed_height_minor">90%</item>
+
+    <item type="dimen" name="abc_dialog_min_width_major">55%</item>
+    <item type="dimen" name="abc_dialog_min_width_minor">80%</item>
+
 </resources>

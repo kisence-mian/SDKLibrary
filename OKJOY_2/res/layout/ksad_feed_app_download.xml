@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tool:ignore="SpUsage,ContentDescription">
+
+    <ImageView
+        android:id="@+id/ksad_app_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ksad_default_app_icon" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tool:ignore="RtlHardcoded">
+
+        <TextView
+            android:id="@+id/ksad_app_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="#222222"
+            android:textSize="14dp"
+            tool:text="快手APP" />
+
+        <TextView
+            android:id="@+id/ksad_app_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="#9C9C9C"
+            android:textSize="11dp"
+            tool:text="记录美好生活" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="64dp"
+        android:layout_height="24dp">
+
+        <com.kwad.sdk.core.page.widget.TextProgressBar
+            android:id="@+id/ksad_app_download_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/ksad_feed_download_progress"
+            android:visibility="gone"
+            tool:text="立即下载"
+            tool:visibility="gone" />
+
+        <TextView
+            android:id="@+id/ksad_app_download_before"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ksad_feed_app_download_before_bg"
+            android:gravity="center"
+            android:textColor="#FF5000"
+            android:textSize="11dp"
+            tool:text="立即下载"
+            tool:visibility="visible" />
+
+        <View
+            android:id="@+id/ksad_app_download_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ksad_video_actionbar_cover_bg" />
+    </FrameLayout>
+
+</LinearLayout>

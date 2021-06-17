@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/ksad_landing_page_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/ksad_kwad_web_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="#F8F8F8"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ksad_kwad_web_navi_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:scaleType="center"
+            android:src="@drawable/ksad_navi_back_selector" />
+
+        <ImageView
+            android:id="@+id/ksad_kwad_web_navi_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/ksad_kwad_web_navi_back"
+            android:scaleType="center"
+            android:src="@drawable/ksad_navi_close_selector" />
+
+        <TextView
+            android:id="@+id/ksad_kwad_titlebar_title"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center|center_vertical"
+            android:minWidth="50dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="#222222"
+            android:textSize="17sp"
+            tools:text="落地页标题" />
+    </RelativeLayout>
+
+    <com.kwad.sdk.core.page.widget.webview.KsAdWebView
+        android:id="@+id/ksad_video_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ksad_kwad_web_titlebar" />
+
+    <LinearLayout
+        android:id="@+id/ksad_web_tip_bar"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_alignTop="@+id/ksad_video_webview"
+        android:background="#FFF2E6"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ksad_web_tip_bar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:textColor="#FF5000"
+            android:ellipsize="marquee"
+            android:textSize="14dp"
+            android:marqueeRepeatLimit="marquee_forever"
+            tools:text="描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本" />
+
+        <ImageView
+            android:id="@+id/ksad_web_tip_close_btn"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/ksad_web_tip_bar_close_button" />
+    </LinearLayout>
+
+</RelativeLayout>

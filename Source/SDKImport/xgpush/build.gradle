@@ -30,8 +30,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile project(path: ':sdkinterface')
-    compile project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
     implementation files('libs/android-support-v4.jar')
     implementation files('libs/jg_filter_sdk_1.1.jar')
     implementation files('libs/mid-core-sdk-4.0.7.jar')

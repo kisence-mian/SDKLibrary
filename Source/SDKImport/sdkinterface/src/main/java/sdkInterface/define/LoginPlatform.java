@@ -111,4 +111,6 @@ public enum LoginPlatform {
     /// OkJoy
     /// </summary>
     OKJOY,
+
+    OKJOY_2,
 }

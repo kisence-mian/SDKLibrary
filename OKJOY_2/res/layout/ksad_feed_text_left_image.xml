@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_marginRight="12dp"
+        android:gravity="center_vertical"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/ksad_ad_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:textColor="#020202"
+            android:textSize="15dp"
+            android:lineSpacingExtra="0dp"
+            tools:text="快手广告快手广告快手广告快手广告快手广告" />
+
+        <FrameLayout
+            android:layout_width="64dp"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true">
+
+            <com.kwad.sdk.core.page.widget.TextProgressBar
+                android:id="@+id/ksad_app_download_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:indeterminateOnly="false"
+                android:progressDrawable="@drawable/ksad_feed_download_progress"
+                android:visibility="gone"
+                tools:text="立即下载"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/ksad_app_download_before"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ksad_feed_app_download_before_bg"
+                android:gravity="center"
+                android:textColor="#FF5000"
+                android:textSize="11dp"
+                tools:text="立即下载"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/ksad_app_download_cover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ksad_video_actionbar_cover_bg" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/ksad_ad_dislike"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ksad_ad_dislike_bottom" />
+    </RelativeLayout>
+
+    <com.kwad.sdk.feed.widget.base.RatioFrameLayout
+        android:id="@+id/ksad_image_container"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_weight="1"
+        tools:layout_height="76dp">
+
+        <com.kwad.sdk.core.page.widget.RoundAngleImageView
+            android:id="@+id/ksad_ad_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center" />
+
+        <com.kwad.sdk.widget.KsLogoView
+            android:id="@+id/ksad_feed_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ksad_splash_logo_bg"
+            android:layout_gravity="left|bottom" />
+    </com.kwad.sdk.feed.widget.base.RatioFrameLayout>
+
+</LinearLayout>

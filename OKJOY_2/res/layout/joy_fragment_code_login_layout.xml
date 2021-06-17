@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/joy_red">
+
+    <ImageView
+        android:id="@+id/borderView"
+        android:layout_width="340dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1060:800"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/joy_border_1060_800"/>
+
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/borderView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/joy_btn_come_back"
+        />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/joy_btn_help"
+        />
+
+    <ImageView
+        android:id="@+id/titleImageView"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/joy_title_phone_code_login"
+
+        />
+
+    <com.okjoy.okjoysdk.view.widget.OkJoyCustomCodeEditText
+        android:id="@+id/codeEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf = "@+id/titleImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@id/borderView"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:inputType="text"
+        app:hint="请输入验证码"
+        app:buttonVisibility="true"
+        app:iconImage="@drawable/joy_icon_verify_code"
+        app:buttonImage="@drawable/joy_btn_get_code"
+        />
+
+
+    <com.okjoy.okjoysdk.view.widget.OkJoyCustomAgreementTextView
+        android:id="@+id/tipsView"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/codeEditText"
+        app:layout_constraintLeft_toLeftOf="@+id/codeEditText"
+        app:layout_constraintRight_toRightOf="@+id/codeEditText"
+        android:layout_marginTop="10dp"
+        app:text="阅读并同意《服务条款》和《隐私协议》"
+        app:textSize="14"
+        app:isAgree="true"
+        />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="525:160"
+        app:layout_constraintTop_toBottomOf="@+id/tipsView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/joy_btn_next_step_selector"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

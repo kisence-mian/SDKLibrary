@@ -162,4 +162,9 @@ public class Umeng extends SDKBase implements ILog
             SendError("TalkingData Log Error:" + e,e);
         }
     }
+
+    @Override
+    public void LogError(JSONObject json) {
+        MobclickAgent.onEvent(GetCurrentActivity(),"Error",json.toString());
+    }
 }

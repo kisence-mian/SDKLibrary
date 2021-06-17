@@ -30,7 +30,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
     implementation files('libs/hmssdk-base-2.6.3.306.jar')
     implementation files('libs/hmssdk-game-2.6.3.306.jar')
     implementation files('libs/hmssdk-iap-2.6.3.306.jar')

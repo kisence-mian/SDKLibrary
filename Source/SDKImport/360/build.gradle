@@ -33,5 +33,5 @@ dependencies {
     implementation files('libs/360SDK.jar')
     implementation files('libs/android-support-multidex.jar')
     implementation files('libs/android-support-v4.jar')
-    compile project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
 }

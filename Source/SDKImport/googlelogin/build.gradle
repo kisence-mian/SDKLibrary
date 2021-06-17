@@ -31,8 +31,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    compile project(path: ':sdkinterface')
-    compile project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
 
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.kwad.sdk.core.page.recycle.NestedScrollWebView
+        android:id="@+id/ksad_video_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/ksad_web_tip_bar"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_alignTop="@+id/ksad_video_webView"
+        android:background="#FFF2E6"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/ksad_web_tip_bar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:textColor="#FF5000"
+            android:textSize="14dp"
+            tools:text="描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本描述文本" />
+
+        <ImageView
+            android:id="@+id/ksad_web_tip_close_btn"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/ksad_web_tip_bar_close_button" />
+    </LinearLayout>
+
+</RelativeLayout>

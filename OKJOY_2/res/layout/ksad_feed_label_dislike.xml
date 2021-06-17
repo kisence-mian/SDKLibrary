@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="24dp"
+    android:layout_marginTop="4dp"
+    tools:background="@android:color/darker_gray"
+    tools:ignore="ContentDescription,RtlHardcoded">
+
+    <com.kwad.sdk.widget.KsLogoView
+        android:id="@+id/ksad_ad_dislike_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/ksad_ad_dislike"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ksad_ad_dislike_gray" />
+</RelativeLayout>

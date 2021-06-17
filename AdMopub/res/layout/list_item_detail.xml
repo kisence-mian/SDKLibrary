@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?android:attr/listPreferredItemHeight" android:paddingStart="?android:attr/listPreferredItemPaddingStart" android:paddingLeft="?android:attr/listPreferredItemPaddingLeft" android:paddingEnd="?android:attr/listPreferredItemPaddingEnd" android:paddingRight="?android:attr/listPreferredItemPaddingRight">
-  <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_toStartOf="@+id/imageView" android:layout_toLeftOf="@+id/imageView" android:layout_centerVertical="true" android:layout_marginVertical="8dp">
-    <TextView android:id="@android:id/text1" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@android:color/primary_text_light" android:textSize="@dimen/applovin_sdk_mediationDebuggerDetailListItemTextSize" android:textAppearance="?android:attr/textAppearanceListItem" />
-    <TextView android:id="@android:id/text2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@android:id/text1" android:layout_alignStart="@android:id/text1" android:layout_alignLeft="@android:id/text1" android:textColor="@android:color/secondary_text_light" android:textAppearance="?android:attr/textAppearanceListItem" />
-  </RelativeLayout>
-  <ImageView android:id="@+id/imageView" android:contentDescription="@string/applovin_list_item_image_description" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentRight="true" android:layout_alignParentEnd="true" android:layout_centerVertical="true" />
-</RelativeLayout>

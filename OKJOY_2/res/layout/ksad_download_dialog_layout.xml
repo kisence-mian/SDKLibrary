@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.core.view.AdBaseFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ksad_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded, HardcodedText">
+
+    <com.kwad.sdk.core.page.widget.webview.KsAdWebView
+        android:id="@+id/ksad_download_tips_web_card_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:scrollbarStyle="insideOverlay"
+        tools:visibility="visible" />
+</com.kwad.sdk.core.view.AdBaseFrameLayout>
+
+

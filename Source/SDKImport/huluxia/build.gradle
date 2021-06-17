@@ -44,5 +44,5 @@ dependencies {
     implementation files('libs/ormlite-core-4.48.jar')
     implementation files('libs/pay.jar')
     implementation files('libs/shuyufu_wappay.jar')
-    compile project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
 }

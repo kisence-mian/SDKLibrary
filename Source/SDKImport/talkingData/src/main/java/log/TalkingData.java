@@ -228,6 +228,11 @@ public class TalkingData extends SDKBase implements ILog
             SendError("TalkingData Log Error:" + e,e);
         }
     }
+
+    @Override
+    public void LogError(JSONObject json) {
+        TalkingDataGA.onEvent(json.toString());
+    }
 }
 
 class ReportThread implements Runnable {

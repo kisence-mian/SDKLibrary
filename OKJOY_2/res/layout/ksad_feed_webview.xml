@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.feed.widget.base.RatioFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ksad_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded"
+    tools:layout_height="195dp">
+
+
+    <com.kwad.sdk.core.page.widget.webview.KsAdWebView
+        android:id="@+id/ksad_web_card_webView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scrollbarStyle="insideOverlay" />
+
+    <com.kwad.sdk.feed.widget.base.RatioFrameLayout
+           android:id="@+id/ksad_video_container"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="8dp"
+           android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:id="@+id/ksad_video_first_frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.kwad.sdk.feed.widget.base.RatioFrameLayout>
+</com.kwad.sdk.feed.widget.base.RatioFrameLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tt_dislike_dialog_linearlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/tt_dislike_dialog_bg"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="0.5dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="12dp"
+    tools:context=".dislike.TTDislikeDialog">
+
+    <LinearLayout
+        android:id="@+id/tt_personalization_layout"
+        android:orientation="vertical"
+        android:layout_marginTop="11.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tt_personalization_name"
+                android:textColor="#161823"
+                android:typeface="normal"
+                android:textSize="15sp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/tt_right_arrow"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="6dp"
+            android:background="#0F161823" />
+    </LinearLayout>
+
+    <com.bytedance.sdk.openadsdk.dislike.TTDislikeListView
+        android:id="@+id/tt_filer_words_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#0F161823"
+        android:dividerHeight="0.5dp"
+        android:listSelector="@color/tt_transparent"
+        android:scrollbars="none" />
+
+    <View
+        android:id="@+id/tt_dislike_line1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="11.5dp"
+        android:background="#0F161823"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tt_edit_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tt_comment_tv"
+        android:drawableLeft="@drawable/tt_suggestion_logo"
+        android:focusable="false"
+        android:hint=" 其他建议"
+        android:paddingLeft="8.6dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#80161823"
+        android:textSize="12sp"
+        android:visibility="visible" />
+
+
+</LinearLayout>

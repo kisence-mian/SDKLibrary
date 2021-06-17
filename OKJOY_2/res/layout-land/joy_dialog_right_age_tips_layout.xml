@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/joy_gray">
+
+    <ImageView
+        android:id="@+id/bgImageView"
+        android:layout_width="480dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1.6:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/joy_right_age_dialog_shape"
+        />
+
+    <ImageView
+        android:id="@+id/titleImageView"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="@+id/bgImageView"
+        app:layout_constraintLeft_toLeftOf="@id/bgImageView"
+        app:layout_constraintRight_toRightOf="@id/bgImageView"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/joy_title_warm_tips"
+        />
+
+<!--    <Button-->
+<!--        android:id="@+id/cancelButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        app:layout_constraintDimensionRatio="525:160"-->
+<!--        app:layout_constraintLeft_toLeftOf="@+id/bgImageView"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/bgImageView"-->
+<!--        app:layout_constraintRight_toLeftOf="@+id/sureButton"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:background="@drawable/joy_btn_cancel_selector"-->
+<!--        />-->
+
+    <Button
+        android:id="@+id/sureButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="525:160"
+        app:layout_constraintBottom_toBottomOf="@+id/bgImageView"
+        app:layout_constraintLeft_toLeftOf="@id/bgImageView"
+        app:layout_constraintRight_toRightOf="@id/bgImageView"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/joy_btn_sure_selector"
+        />
+
+    <Button
+        android:id="@+id/agreeButton"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/tipsTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/tipsTextView"
+        app:layout_constraintRight_toLeftOf="@+id/tipsTextView"
+        android:background="@drawable/joy_btn_agree_normal"
+        />
+
+    <TextView
+        android:id="@+id/tipsTextView"
+        android:layout_width="130dp"
+        android:layout_height="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/sureButton"
+        app:layout_constraintLeft_toLeftOf="@+id/bgImageView"
+        app:layout_constraintRight_toRightOf="@+id/bgImageView"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="25dp"
+        android:gravity="center"
+        android:lines="1"
+        android:text="本次登录不再显示"
+        android:textSize="14sp"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/titleImageView"
+        app:layout_constraintLeft_toLeftOf="@id/bgImageView"
+        app:layout_constraintBottom_toTopOf="@id/tipsTextView"
+        app:layout_constraintRight_toRightOf="@id/bgImageView"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <TextView
+                android:id="@+id/contentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="left"
+                android:textColor="@color/joy_black"
+                android:textSize="14sp"
+                android:text=""
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

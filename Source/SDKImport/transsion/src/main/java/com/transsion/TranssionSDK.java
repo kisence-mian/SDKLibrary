@@ -1,0 +1,222 @@
+package com.transsion;
+
+import com.transsion.gamead.AdInitializer;
+import com.transsion.gamepay.core.ConfigCallback;
+import com.transsion.gamepay.core.PayCallback;
+import com.transsion.gamepay.core.PayHelper;
+import com.transsion.gamepay.core.PayInitializer;
+import com.transsion.gamepay.core.PayParams;
+import com.transsion.gamepay.core.SupplementCallback;
+import com.transsion.gamepay.core.bean.OrderInfo;
+import com.transsion.gamepay.core.bean.ProductConfig;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
+
+import androidx.multidex.MultiDex;
+import sdkInterface.IPay;
+import sdkInterface.SDKBase;
+import sdkInterface.ILogin;
+import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.define.StoreName;
+import sdkInterface.module.PayInfo;
+
+public class TranssionSDK extends SDKBase implements ILogin, IPay {
+    List<ProductConfig> m_Result;
+    PayInfo m_PayInfo;
+
+    @Override
+    public void OnCreate() {
+        super.OnCreate();
+//        MultiDex.install(GetCurrentActivity());
+
+        try {
+            String appKey = GetProperties().getProperty("AppKey", "");// "7位数的appId";
+
+            boolean debuggable = GetProperties().getProperty("DebugAble").equals("true");//BuildConfig.DEBUG;
+            String testMccMnc = GetProperties().getProperty("TestMccMnc");
+            PayInitializer.init(
+                    new PayInitializer.Builder(GetCurrentActivity(), appKey)
+                            //sdk内部需要用到子线程，你可以传入你全局统一构建的线程池，
+                            //否则内部默认使用AsyncTask.THREAD_POOL_EXECUTOR
+//                        .setExecutor(executor)
+                            //sdk内部需要用到主线程，你可以传入你全局统一构建的Handler,
+                            //否则内部默认创建一个新的handler
+//                        .setMainThreadHandler(handler)
+                            //如果你需要开启测试环境，测试环境影响服务器接口地址
+                            .setDebuggable(debuggable)
+                            //如果你需要模拟某个国家的支付测试，
+                            //你需要开启Debug模式，并传入对应的MccMnc
+                            .setTestMccMnc(testMccMnc)
+                            //订单补充回调
+                            .setSupplementCallback(new SupplementCallback() {
+
+                                                       @Override
+                                                       public void reissueProduct(PayParams payParams, OrderInfo orderInfo) {
+                                                           //在线支付当用户付完钱后，没等回调结果就退出应用，那么当实际结果是扣款成功的时候，
+                                                           //游戏还未给用户发放道具或权益，在下次进入应用，检测到支付成功时，将通知游戏
+                                                           //在这里补发道具
+                                                           SendPayCallBack(true, orderInfo.orderId, "");
+                                                       }
+
+                                                       @Override
+                                                       public void supplementOrderSuccess(PayParams payParams, OrderInfo orderInfo) {
+                                                           //短代支付，支付成功后，优先通知游戏发放道具，后续将自动验证这笔订单的扣款情况
+                                                           //如果是失败的情况，那么会提示用户进行补单，这里将告诉你补单情况的结果是成功。
+                                                           //这里不需要再发放道具
+                                                       }
+
+                                                       @Override
+                                                       public void supplementOrderFail(PayParams payParams, OrderInfo orderInfo, int errorCode) {
+                                                           //短代支付，支付成功后，优先通知游戏发放道具，后续将自动验证这笔订单的扣款情况
+                                                           //如果是失败的情况，那么会提示用户进行补单，这里将告诉你补单情况的结果是失败。
+                                                           //这里不需要再发放道具
+                                                       }
+                                                   }
+                            ));
+            AdInitializer.init(
+                    new AdInitializer.Builder(GetCurrentActivity().getApplication(), appKey)
+                            .setDebuggable(debuggable)
+            );
+        } catch (IOException e) {
+            SendError("Transsion Init Error",e);
+        }
+
+        GetProductConfig();
+
+        SendLog("Transsion onCreate Complete");
+    }
+
+    //返回支付结果 （OkJoy sdk 的回调不准确,必然成功）
+    void SendPayCallBack(boolean success,String token,String errorCode) {
+        try {
+            JSONObject jo = new JSONObject();
+            String goodsID = "";
+            if(m_PayInfo != null)
+            {
+                goodsID = m_PayInfo.goodsID;
+            }
+
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, goodsID);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, token);
+            jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.OKJOY.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, token);
+
+            SendLog( "PayInfo is null" + (m_PayInfo == null) + "jo is null" + (jo == null));
+
+            if (m_PayInfo == null) {
+                m_PayInfo = new PayInfo();
+            }
+            m_PayInfo.ToJson(jo);
+
+            SendLog( jo.toString());
+
+            sdkInterface.SdkInterface.SendMessage(jo);
+        } catch (JSONException e) {
+            SendError("SendPayCallBack Error " + e, e);
+        }
+    }
+
+        @Override
+    public void Init(JSONObject json) {
+        super.Init(json);
+        SendLog("Transsion Inited , " + json);
+    }
+
+    @Override
+    public void Login(JSONObject json) {
+        SendLog("Transsion Login , " + json);
+    }
+
+    @Override
+    public void LoginOut(JSONObject json) {
+        SendLog("Transsion LoginOut , " + json);
+
+    }
+
+    void GetProductConfig(){
+        PayHelper.getProductConfig(new ConfigCallback() {
+            @Override
+            public void response(List<ProductConfig> result) {
+                SendLog("Transsion read config,count="+result.size());
+                m_Result = result;
+            }
+        });
+    }
+
+    ProductConfig GetConfig(String productName)
+    {
+        for(int i =0;i<m_Result.size();++i)
+        {
+            if(m_Result.get(i).name.equals(productName))
+            {
+                return m_Result.get(i);
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void Pay(JSONObject json) {
+        if (null == m_Result) {
+            String e = "TranssionSDK m_Result Need init";
+            SendError(e, new Exception());
+            SendPayCallBack(false, "", e);
+            return;
+        }
+
+        m_PayInfo = PayInfo.FromJson(json);
+        ProductConfig currentProduct = GetConfig(m_PayInfo.goodsID);
+        SendLog("Transsion Pay , " + json);
+        PayHelper.pay(GetCurrentActivity(),
+                new PayParams.Builder(currentProduct.id)
+                        //如果你有自有的订单号需要传入，可通过这个方法传入
+//                        .setCustomizeOrderId()
+                        //如果你需要传递额外参数，你可以通过这个方法传入
+//                        .setExtra()
+                ,
+                //支付回调
+                new PayCallback() {
+                    @Override
+                    public void paySuccess(PayParams params, OrderInfo orderInfo) {
+                        //支付成功
+                        SendPayCallBack(true, orderInfo.orderId, "");
+                    }
+
+                    @Override
+                    public void payFailure(PayParams params, OrderInfo orderInfo, int errorCode) {
+                        //支付失败
+                        SendPayCallBack(false, orderInfo.orderId, "" + errorCode);
+                    }
+                }
+        );
+    }
+
+        @Override
+    public boolean IsPrePay() {
+//        SendLog("Transsion IsPrePay ");
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+//        SendLog("Transsion IsReSendPay ");
+        return false;
+    }
+
+    @Override
+    public void GetGoodsInfo(JSONObject json) {
+//        SendLog("Transsion GetGoodsInfo , " + json);
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+//        SendLog("Transsion ClearPurchase , " + json);
+    }
+}

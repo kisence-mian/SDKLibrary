@@ -24,5 +24,5 @@ public interface ILog
 
     void OnEvent(JSONObject json);
 
-
+    void LogError(JSONObject json);
 }

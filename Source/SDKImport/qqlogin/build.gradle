@@ -35,5 +35,5 @@ dependencies {
     implementation files('libs/MidasPluginSDK.jar')
     implementation files('libs/mta-sdk-2.0.0.jar')
     implementation files('libs/open_sdk_r6020.jar')
-    compile project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
 }

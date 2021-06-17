@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ksad_tf_h5_ad_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textColor="#666666"
+        android:textSize="16dp"
+        tools:ignore="SpUsage"
+        tools:text="广告描述广告描述" />
+
+    <TextView
+        android:id="@+id/ksad_tf_h5_open_btn"
+        android:layout_width="263dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ksad_video_actionbar_h5_bg"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        tools:ignore="SpUsage"
+        tools:text="查看详情" />
+
+</LinearLayout>

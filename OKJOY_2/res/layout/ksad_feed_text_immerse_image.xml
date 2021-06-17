@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.feed.widget.base.RatioFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ksad_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded"
+    tools:layout_height="195dp">
+
+    <ImageView
+        android:id="@+id/ksad_ad_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop" />
+
+    <com.kwad.sdk.widget.KsLogoView
+        android:id="@+id/ksad_feed_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/ksad_splash_logo_bg"
+        android:layout_gravity="left|top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/ksad_feed_immerse_image_bg">
+
+        <TextView
+            android:id="@+id/ksad_ad_desc"
+            android:layout_width="0dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp"
+            tools:text="快手广告快手广告快手广告快手广告快手广告快手广告快手广告" />
+
+        <ImageView
+            android:id="@+id/ksad_ad_dislike"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ksad_ad_dislike_white" />
+    </LinearLayout>
+</com.kwad.sdk.feed.widget.base.RatioFrameLayout>

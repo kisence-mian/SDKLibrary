@@ -8,6 +8,8 @@ import android.util.SparseArray;
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,10 +25,12 @@ import sdkInterface.tool.PropertieTool;
 
 public class SdkInterface
 {
+    static Boolean isCallBack = false;
     static final String CallBackObjectName = "CallBackObject";
     static final String CallBackFuntionName = "OnSDKCallBack";
     static boolean isInit = false;
     static boolean isLog = true;
+    static boolean isMultiDex = false;
 
     static Properties SdkManifest;
 
@@ -42,6 +46,7 @@ public class SdkInterface
     {
         try
         {
+            isCallBack = true;
             SendLog("SDKInterface UnityRequestFunction receive ->"  + content + "<-");
 
             JSONObject json = new JSONObject(content);
@@ -56,7 +61,6 @@ public class SdkInterface
                 case SDKInterfaceDefine.ModuleName_Pay:Pay(json);break;
 //                case SDKInterfaceDefine.ModuleName_Share:Share(json);break;
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
-                case SDKInterfaceDefine.ModuleName_LifeCycle:LifeCycle(json);break;
                 case SDKInterfaceDefine.ModuleName_RealName:RealName(json);break;
                 default:SendError("UnityRequestFunction : not support function name ->" + content + "<-",null);
             }
@@ -187,7 +191,10 @@ public class SdkInterface
             Log.d("Unity","SendMessage ->" + content + "<-");
         }
 
-        UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
+        if(isCallBack)
+        {
+            UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, content);
+        }
     }
 
     public static void SendMessage(JSONObject json)
@@ -204,12 +211,16 @@ public class SdkInterface
                 Log.e("Unity", "SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
             }
 
-            JSONObject jo = new JSONObject();
-            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
-            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
-            jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent+ "\n" + GetCallStrack(e));
+            if(isCallBack)
+            {
+                JSONObject jo = new JSONObject();
+                jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
+                jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
+                jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent+ "\n" + GetCallStrack(e));
 
-//            UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString() );
+                UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString() );
+            }
+
         }
         catch (Exception ex)
         {
@@ -224,6 +235,10 @@ public class SdkInterface
     {
         return isLog;
     }
+    public static boolean IsMultiDex()
+    {
+        return isMultiDex;
+    }
 
     public static void SendLog(String LogContent)
     {
@@ -232,13 +247,15 @@ public class SdkInterface
             Log.d("Unity","SendLog ->" + LogContent + "<-");
 
             try
-            {
-                JSONObject jo = new JSONObject();
-                jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
-                jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnLog);
-                jo.put(SDKInterfaceDefine.ParameterName_Content, LogContent);
+             {
+                  if(isCallBack) {
+                    JSONObject jo = new JSONObject();
+                    jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
+                    jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnLog);
+                    jo.put(SDKInterfaceDefine.ParameterName_Content, LogContent);
 
-                UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
+                    UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString());
+                }
             }
             catch (Exception e)
             {
@@ -252,29 +269,26 @@ public class SdkInterface
     //region Init
     static void Init(JSONObject json)
     {
-        if(!isInit)
-        {
-            isInit = true;
-            InitActResultRequest();
+        Init();
+        InitActResultRequest();
 
-            SendLog("SDKManager Init " );
-            try
+        SendLog("SDKManager Init " );
+        try
+        {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
-                for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+                try {
+                    entry.getValue().Init(json);
+                }
+                catch (Exception e)
                 {
-                    try {
-                        entry.getValue().Init(json);
-                    }
-                    catch (Exception e)
-                    {
-                        SendError(entry.getKey() + "Init Error:" + e.toString(),e);
-                    }
+                    SendError(entry.getKey() + "Init Error:" + e.toString(),e);
                 }
             }
-            catch (Exception e)
-            {
-                SendError("Init Exception: ->" + e.toString(),e);
-            }
+        }
+        catch (Exception e)
+        {
+            SendError("Init Exception: ->" + e.toString(),e);
         }
     }
 
@@ -475,7 +489,7 @@ public class SdkInterface
                     SDKBase ins =  GetClass(className,json);
 
                     adSDKList.add(ins);
-                    SendLog("Put AD SDKName >" + ins.SDKName + "< adSDKList size is " + adSDKList.size());
+//                    SendLog("Put AD SDKName >" + ins.SDKName + "< adSDKList size is " + adSDKList.size());
                 } catch (Exception e) {
                     SendError(e.toString(), e);
                 }
@@ -585,6 +599,9 @@ public class SdkInterface
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_LogPay:
                     log.LogPay(json);
+                    break;
+                case SDKInterfaceDefine.Log_FunctionName_LogError:
+                    log.LogError(json);
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_LogPaySuccess:
                     log.LogPaySuccess(json);
@@ -866,28 +883,65 @@ public class SdkInterface
         }
     }
 
+    public static void OnApplicationCreate()
+    {
+        SendLog("SDKInterface OnApplicationCreate " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().OnApplicationCreate();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("OnApplicationCreate Error:" + e.toString(),e);
+        }
+    }
+
+    public static void AttachBaseContext(Context base)
+    {
+        SendLog("SDKInterface AttachBaseContext " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().AttachBaseContext(base);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("AttachBaseContext Error:" + e.toString(),e);
+        }
+    }
+
+    //SDKinterface 有三种初始化路径
+    //一个是从Application 过来 另一个是从Activity过来 最后是通过unity调用
+    //通过isInit字段保证只初始化一次
+    public  static void Init()
+    {
+        if(!isInit) {
+            isInit = true;
+
+            try {
+                SendLog("SDKInterBase OnCreate ");
+
+                InitSdkManifestProperty();
+
+                //加载当前环境下有的SDK放入SDK接口内
+                InitLoginSDK(null);
+                InitLog(null);
+                InitPay(null);
+                InitAD(null);
+                InitShare(null);
+                InitOther(null);
+                InitRealName(null);
+            } catch (Exception e) {
+                SendError("OnCreate Error " + e, e);
+            }
+        }
+    }
+
     public static void OnCreate(Bundle bundle)
     {
-        try
-        {
-            SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
-            isLog = GetIsLog();
-
-            SendLog("SDKInterBase OnCreate " );
-
-            //加载当前环境下有的SDK放入SDK接口内
-            InitLoginSDK(null);
-            InitLog(null);
-            InitPay(null);
-            InitAD(null);
-            InitShare(null);
-            InitOther(null);
-            InitRealName(null);
-        }catch (Exception e)
-        {
-            SendError("OnCreate Error " + e,e);
-        }
-
         try {
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
@@ -1081,16 +1135,26 @@ public class SdkInterface
         SendLog("SDKInterBase Other " + json.toString());
         try {
             String functionName = json.getString(SDKInterfaceDefine.FunctionName);
-            for (int i = 0; i < otherSDKList.size(); i++) {
-                IOther other = (IOther) otherSDKList.get(i);
-                String[] fs = other.GetFunctionName();
-                for (int j = 0; j < fs.length; j++)
-                {
-                    SendLog(functionName+"=> fs[] "  + j + " "+ fs[j] + " ->" + fs[j].equals(functionName));
+            String sdkName = json.getString(SDKInterfaceDefine.SDKName);
 
-                    if(fs[j].equals(functionName))
+            if(json.has(SDKInterfaceDefine.SDKName))
+            {
+                IOther other = (IOther)GetSDK(json,otherSDKList);
+                other.Other(json);
+            }
+            else
+            {
+                for (int i = 0; i < otherSDKList.size(); i++) {
+                    IOther other = (IOther) otherSDKList.get(i);
+                    String[] fs = other.GetFunctionName();
+                    for (int j = 0; j < fs.length; j++)
                     {
-                        other.Other(json);
+                        SendLog(functionName+"=> fs[] "  + j + " "+ fs[j] + " ->" + fs[j].equals(functionName));
+
+                        if(fs[j].equals(functionName))
+                        {
+                            other.Other(json);
+                        }
                     }
                 }
             }
@@ -1100,23 +1164,18 @@ public class SdkInterface
         }
     }
 
-    static void LifeCycle(JSONObject json)
+    static boolean ApplictaionQuit()
     {
-        SendLog("SDKInterBase LifeCycle " + json.toString());
-        try {
-            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
-            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+        boolean isQuit = false;
+        for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+        {
+            if(!isQuit)
             {
-                switch (functionName)
-                {
-                    case SDKInterfaceDefine.LifeCycle_FunctionName_OnApplicationQuit: entry.getValue().OnAppplicationQuit(json);
-                }
+                isQuit = entry.getValue().OnAppplicationQuit();
             }
         }
-        catch (Exception e)
-        {
-            SendError("Other Error:" + e.toString(),e);
-        }
+
+        return isQuit;
     }
 
     static boolean IsSDKExist(String sdkName)
@@ -1130,11 +1189,53 @@ public class SdkInterface
         return false;
     }
 
+    public static void InitSdkManifestProperty(Context context)
+    {
+        if(SdkManifest == null)
+        {
+            try {
+                SdkManifest = PropertieTool.getProperties(context, "SdkManifest");
+                isLog = GetIsLog();
+                isMultiDex = GetIsMultiDex();
+
+            } catch (IOException e) {
+                SendError("InitSdkManifestProperty error",e);
+            }
+        }
+    }
+
+    public static void InitSdkManifestProperty()
+    {
+        if(SdkManifest == null)
+        {
+            try {
+                SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
+                isLog = GetIsLog();
+                isMultiDex = GetIsMultiDex();
+
+            } catch (IOException e) {
+                SendError("InitSdkManifestProperty error",e);
+            }
+        }
+    }
+
     static boolean GetIsLog()  {
 
         if(SdkManifest.containsKey(SDKInterfaceDefine.PropertiesKey_IsLog))
         {
             return Boolean.parseBoolean(SdkManifest.getProperty(SDKInterfaceDefine.PropertiesKey_IsLog));
+        }
+        else
+        {
+            return  false;
+        }
+    }
+
+    static boolean GetIsMultiDex()  {
+
+        if(SdkManifest.containsKey(SDKInterfaceDefine.PropertiesKey_IsMultiDex))
+        {
+            return Boolean.parseBoolean(SdkManifest.getProperty(SDKInterfaceDefine.PropertiesKey_IsMultiDex));
         }
         else
         {
@@ -1198,7 +1299,6 @@ public class SdkInterface
     {
         if(allClass.containsKey(className))
         {
-            SendLog("已存在的类 ClassName ->" + className+"<");
             return allClass.get(className);
         }
         else
@@ -1208,7 +1308,6 @@ public class SdkInterface
             sdk.SDKName = SdkManifest.getProperty(className,className);
             allClass.put(className,sdk);
 
-            SendLog("创建新类 ClassName ->" + className+"< SDKName ->" + sdk.SDKName + "<");
             return sdk;
         }
     }

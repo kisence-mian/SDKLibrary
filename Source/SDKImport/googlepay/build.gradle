@@ -33,6 +33,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.android.billingclient:billing:2.0.3'
-    compile project(path: ':sdkinterface')
-    compile project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
+    implementation project(path: ':sdkinterface')
 }

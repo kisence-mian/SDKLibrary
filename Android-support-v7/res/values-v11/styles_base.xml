@@ -21,24 +21,16 @@
      variants are for direct use or use as parent styles by the app. -->
     <eat-comment/>
 
+    <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Holo.Spinner" />
+
     <!-- Progress Bar -->
 
-    <style name="Widget.AppCompat.Base.ProgressBar.Horizontal"
+    <style name="Base.Widget.AppCompat.ProgressBar.Horizontal"
            parent="android:Widget.Holo.ProgressBar.Horizontal">
     </style>
 
-    <style name="Widget.AppCompat.Base.ProgressBar"
+    <style name="Base.Widget.AppCompat.ProgressBar"
            parent="android:Widget.Holo.ProgressBar">
-    </style>
-
-    <!-- AutoCompleteTextView styles (for SearchView) -->
-
-    <style name="Widget.AppCompat.Base.AutoCompleteTextView"
-           parent="android:Widget.Holo.AutoCompleteTextView">
-    </style>
-
-    <style name="Widget.AppCompat.Light.Base.AutoCompleteTextView"
-           parent="android:Widget.Holo.Light.AutoCompleteTextView">
     </style>
 
 </resources>

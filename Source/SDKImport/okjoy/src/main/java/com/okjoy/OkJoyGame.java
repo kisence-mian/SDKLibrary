@@ -542,8 +542,9 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IShare, IR
     }
 
     @Override
-    public void OnAppplicationQuit(JSONObject json) {
+    public boolean OnAppplicationQuit() {
         OkJoyEit();
+        return true;
     }
 
     //返回登陆结果
@@ -891,6 +892,11 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IShare, IR
     //事件
     @Override
     public void OnEvent(JSONObject json) {
+
+    }
+
+    @Override
+    public void LogError(JSONObject json) {
 
     }
     //endregion

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.core.view.AdBaseFrameLayout android:id="@+id/ksad_splash_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@android:color/holo_orange_light"
+    android:background="@android:color/white"
+    tools:ignore="RtlHardcoded, SpUsage">
+    <!--播放器-->
+
+    <ImageView
+        android:id="@+id/ksad_splash_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:scaleType="centerCrop" />
+
+    <com.kwad.sdk.contentalliance.detail.video.DetailVideoView
+        android:id="@+id/ksad_splash_video_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/ksad_splash_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter" />
+
+    <com.kwad.sdk.core.page.widget.webview.KsAdWebView
+        android:id="@+id/ksad_splash_web_card_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:background="#00000000"
+        android:scrollbarStyle="insideOverlay"
+        android:visibility="gone"
+        tools:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/ksad_preload_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="32dp">
+
+        <TextView
+            android:id="@+id/ksad_splash_preload_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已提前加载"
+            android:textSize="12sp"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/ksad_splash_skip_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="跳过"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:layout_gravity="right|top"
+            android:background="@drawable/ksad_splash_preload"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <com.kwad.sdk.widget.KsLogoView
+        android:id="@+id/ksad_splash_logo_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|top"
+        android:background="@drawable/ksad_splash_logo_bg" />
+
+    <ImageView
+        android:id="@+id/ksad_splash_sound"
+        android:layout_width="34dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ksad_splash_sound_selector"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        tools:ignore="ContentDescription" />
+
+</com.kwad.sdk.core.view.AdBaseFrameLayout>

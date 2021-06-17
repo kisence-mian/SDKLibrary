@@ -5,12 +5,21 @@ buildscript {
         jcenter()
         google()
         maven { url 'http://developer.huawei.com/repo/' }
-        maven { url 'https://maven.google.com' }
+//        maven { url 'https://maven.google.com' }
+
+        maven { url "https://maven.aliyun.com/repository/google"}
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+        maven {url 'https://dl.bintray.com/anythink/maven'}
+        maven {url "https://dl.bintray.com/ironsource-mobile/android-sdk"}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.google.gms:google-services:4.3.5'
         classpath 'com.huawei.agconnect:agcp:1.1.1.300'
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

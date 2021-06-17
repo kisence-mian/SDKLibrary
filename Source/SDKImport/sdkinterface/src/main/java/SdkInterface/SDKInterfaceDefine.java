@@ -64,7 +64,7 @@ public class SDKInterfaceDefine {
     public static final String Pay_ParameterName_CallBackUrl = "CallBackUrl";
     public static final String Pay_ParameterName_CpOrderID = "CpOrderID";//第三方支付ID
     public static final String Pay_ParameterName_OrderID = "OrderID";  //我们自己的支付ID
-    public static final String Pay_ParameterName_PrepayID    = "PrepayID "; //预支付订单id
+    public static final String Pay_ParameterName_PrepayID    = "PrepayID"; //预支付订单id
     public static final String Pay_ParameterName_Price = "Price";  //价格
     public static final String Pay_ParameterName_Currency = "Currency";  //货币
     public static final String Pay_ParameterName_Payment = "Payment";   //支付途径
@@ -85,6 +85,12 @@ public class SDKInterfaceDefine {
     public static final String AD_ParameterName_ADType = "ADType";
     public static final String AD_ParameterName_ADResult = "ADResult";   //广告播放结果
 
+    //ADType
+    public  static  final String AD_ADTypeEnum_Reward = "Reward";
+    public  static  final String AD_ADTypeEnum_Banner = "Banner";
+    public  static  final String AD_ADTypeEnum_Interstitial = "Interstitial";
+    public  static  final String AD_ADTypeEnum_Video = "Video";
+
     //Share相关参数
     public static final String Share_FunctionName_Share = "Share";
 
@@ -98,6 +104,7 @@ public class SDKInterfaceDefine {
     public static final String Log_FunctionName_LoginOut = "LogLoginOut";
     public static final String Log_FunctionName_Event = "LogEvent";
     public static final String Log_FunctionName_LogPay = "LogPay";
+    public static final String Log_FunctionName_LogError = "LogError";
     public static final String Log_FunctionName_LogPaySuccess = "LogPaySuccess";
 
 
@@ -149,9 +156,19 @@ public class SDKInterfaceDefine {
     public static final String Other_ParameterName_TotalProgress = "TotalProgress";
     public static final String Other_ParameterName_Size = "Size";
 
+    //Other -> 打开游戏中心
+    public static final String Other_FunctionName_OpenGameCenter="OpenGameCenter";
+
+    //Other -> 存档
+    public  static  final  String Other_FunctionName_UploadGameRecord="UploadGameRecord";
+    public  static  final  String Other_ParameterName_RecordPath="RecordPath";//存档路径
+    public  static  final  String Other_ParameterName_RecordName="RecordName";//文件名
+
+
     //Properties
     public static final String FileName_ChannelProperties = "Channel";
     public static final String PropertiesKey_IsLog = "IsLog";                           //是否输出日志
+    public static final String PropertiesKey_IsMultiDex = "IsMultiDex";                 //是否分包
     public static final String PropertiesKey_SelectNetworkPath = "SelectNetworkPath";  //选服配置下载地址
     public static final String PropertiesKey_UpdateDownLoadPath = "UpdateDownLoadPath"; //热更新下载地址(最后没有斜线)
     public static final String PropertiesKey_TestUpdateDownLoadPath = "TestUpdateDownLoadPath"; //热更新下载测试地址(最后没有斜线)
