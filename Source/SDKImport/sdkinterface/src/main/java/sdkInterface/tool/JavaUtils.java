@@ -12,9 +12,9 @@ public class JavaUtils
     {
        try
        {
-//           SdkInterface.SendLog("JavaUtils VerifyClass class ->" + className + "<-");
+           SdkInterface.SendLog("JavaUtils VerifyClass class ->" + className + "<-");
            Class.forName(className);
-//           SdkInterface.SendLog("JavaUtils VerifyClass class ->" + className + "<- success!");
+           SdkInterface.SendLog("JavaUtils VerifyClass class ->" + className + "<- success!");
        }
        catch (ClassNotFoundException e)
        {

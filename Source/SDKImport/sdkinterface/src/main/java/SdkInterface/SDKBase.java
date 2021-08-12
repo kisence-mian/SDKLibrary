@@ -8,6 +8,8 @@ import com.unity3d.player.UnityPlayer;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import sdkInterface.define.ADResult;
@@ -16,6 +18,7 @@ import sdkInterface.define.LoginPlatform;
 import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
 import sdkInterface.tool.ActResultRequest;
+import sdkInterface.tool.Base64Util;
 import sdkInterface.tool.PropertieTool;
 
 /**
@@ -72,6 +75,10 @@ public class SDKBase {
         SdkInterface.SendError(content, e);
     }
 
+    public void SendError(String content) {
+        SdkInterface.SendError(content);
+    }
+
     public Properties GetProperties() throws IOException {
         return PropertieTool.getProperties(SdkInterface.GetContext(),SDKName);
     }
@@ -121,6 +128,9 @@ public class SDKBase {
             jo.put(SDKInterfaceDefine.AD_ParameterName_ADResult,ADResult);
             jo.put(SDKInterfaceDefine.Tag,tag);
 
+
+            SendLog(" CallBackADReward " + jo.toString());
+
             CallBack(jo);
         } catch (JSONException e) {
             SendError("SendPayCallBack Error " + e, e);
@@ -159,4 +169,59 @@ public class SDKBase {
             SendError("SendPayCallBack Error " + e, e);
         }
     }
+
+    //查询商品信息回调
+    protected void CallBackGoodsInfo(String goodsID,String price) {
+        SendLog("CallBackGoodsInfo goodsID >" + goodsID + "< >" + price + "<");
+
+        try {
+            JSONObject jo = new JSONObject();
+            //查询成功
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.Pay_FunctionName_GetGoodsInfo);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, goodsID); //转化为游戏配置的key
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_LocalizedPriceString, price);
+            sdkInterface.SdkInterface.SendMessage(jo);
+
+        } catch (JSONException e) {
+            SendError("SendPayCallBack Error " + e, e);
+        }
+    }
+
+    protected HashMap<String, String> GenerateHashMapBySqlitContent(String content, String splitChar)
+    {
+        HashMap<String, String> hash = new HashMap<String, String>();
+
+        try {
+            String[] keySplit = content.split("\\|");
+            for (int i = 0; (i) < keySplit.length; i++) {
+                if (!keySplit[i].isEmpty()) {
+                    String[] key_value = keySplit[i].split(splitChar);
+                    if (!hash.containsKey(key_value[0])) {
+                        hash.put(key_value[0], key_value[1]);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            SendError("GenerateHashMapBySqlitContent error " + e,e);
+        }
+
+        return hash;
+    }
+
+    protected  String GeneratePayCustomContent(PayInfo payInfo)
+    {
+            JSONObject json = payInfo.GenJSONObject();
+            String content = json.toString();
+            byte[] bytes = content.getBytes();
+            String encode = Base64Util.encode(bytes);
+
+            String result =  encode.replace("+","-")
+                    .replace("/","_")
+                    .replace("=","");
+
+            return result;
+
+    }
+
 }

@@ -1,10 +1,11 @@
-package tool;
+package tool.clipboard;
 
 import org.json.JSONObject;
 import android.app.Activity;
 import sdkInterface.IOther;
 import sdkInterface.SDKBase;
 import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.SdkInterface;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
@@ -13,6 +14,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+
+import com.unity3d.player.UnityPlayer;
 
 public class Clipboard extends SDKBase implements IOther
 {
@@ -24,8 +27,7 @@ public class Clipboard extends SDKBase implements IOther
     @Override
     public void Other(JSONObject json)
     {
-
-        sdkInterface.SendLog("Clipboard " + json.toString());
+        SdkInterface.SendLog("Clipboard " + json.toString());
         try {
             String functionName = json.getString(SDKInterfaceDefine.FunctionName);
             switch (functionName)
@@ -40,7 +42,7 @@ public class Clipboard extends SDKBase implements IOther
         }
         catch (Exception e)
         {
-            sdkInterface.SendError("Clipboard Error " + e.toString(),e);
+            SdkInterface.SendError("Clipboard Error " + e.toString(),e);
         }
     }
 
@@ -48,7 +50,7 @@ public class Clipboard extends SDKBase implements IOther
     // 向剪贴板中添加文本
     public void copyTextToClipboard(final Context activity, final String content) throws Exception{
 
-        sdkInterface.SendLog("Clipboard copyTextToClipboard" + json.toString());
+        SdkInterface.SendLog("Clipboard copyTextToClipboard " + content);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -68,7 +70,7 @@ public class Clipboard extends SDKBase implements IOther
     }
     // 从剪贴板中获取文本
     public void getTextFromClipboard() throws Exception {
-        sdkInterface.SendLog("Clipboard getTextFromClipboard" + json.toString());
+        SdkInterface.SendLog("Clipboard getTextFromClipboard" );
         String content = "";
         if (clipboard != null && clipboard.hasPrimaryClip() && clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
             ClipData cdText = clipboard.getPrimaryClip();
@@ -81,6 +83,8 @@ public class Clipboard extends SDKBase implements IOther
         jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.Other_FunctionName_CopyFromClipboard);
         jo.put(SDKInterfaceDefine.Other_ParameterName_Content,content);
 
-        sdkInterface.SendMessage(jo);
+        SdkInterface.SendMessage(jo);
     }
+
+
 }

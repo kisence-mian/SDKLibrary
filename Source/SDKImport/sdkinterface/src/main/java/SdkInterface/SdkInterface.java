@@ -204,11 +204,16 @@ public class SdkInterface
 
     public static void SendError(String errorContent,Exception e)
     {
+        SendError(errorContent+ "\n" + GetCallStrack(e));
+    }
+
+    public static void SendError(String errorContent)
+    {
         try
         {
             if(isLog)
             {
-                Log.e("Unity", "SendError ->" + errorContent + "\n" + GetCallStrack(e) + "<-");
+                Log.e("Unity", "SendError ->" + errorContent + "<-");
             }
 
             if(isCallBack)
@@ -216,7 +221,7 @@ public class SdkInterface
                 JSONObject jo = new JSONObject();
                 jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Debug);
                 jo.put(SDKInterfaceDefine.FunctionName, SDKInterfaceDefine.FunctionName_OnError);
-                jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent+ "\n" + GetCallStrack(e));
+                jo.put(SDKInterfaceDefine.ParameterName_Content, errorContent);
 
                 UnityPlayer.UnitySendMessage(CallBackObjectName, CallBackFuntionName, jo.toString() );
             }
@@ -1212,7 +1217,6 @@ public class SdkInterface
                 SdkManifest = PropertieTool.getProperties(GetContext(), "SdkManifest");
                 isLog = GetIsLog();
                 isMultiDex = GetIsMultiDex();
-
             } catch (IOException e) {
                 SendError("InitSdkManifestProperty error",e);
             }

@@ -62,14 +62,15 @@ public class SDKInterfaceDefine {
     public static final String Pay_ParameterName_GoodsName = "GoodsName";
     public static final String Pay_ParameterName_GoodsDescription = "GoodsDescription";
     public static final String Pay_ParameterName_CallBackUrl = "CallBackUrl";
-    public static final String Pay_ParameterName_CpOrderID = "CpOrderID";//第三方支付ID
-    public static final String Pay_ParameterName_OrderID = "OrderID";  //我们自己的支付ID
+    public static final String Pay_ParameterName_InternalOrderID = "InternalOrderID";
+    public static final String Pay_ParameterName_OrderID = "OrderID";
     public static final String Pay_ParameterName_PrepayID    = "PrepayID"; //预支付订单id
     public static final String Pay_ParameterName_Price = "Price";  //价格
     public static final String Pay_ParameterName_Currency = "Currency";  //货币
     public static final String Pay_ParameterName_Payment = "Payment";   //支付途径
     public static final String Pay_ParameterName_Receipt = "Receipt";   //支付回执
     public static final String Pay_ParameterName_LocalizedPriceString = "localizedPriceString";//本地货币类型与数目
+    public static final String Pay_ParameterName_RegionID    = "RegionID";//大区ID
 
     public static final String Pay_GoodsTypeEnum_ONCE_ONLY = "ONCE_ONLY";
     public static final String Pay_GoodsTypeEnum_NORMAL = "NORMAL";
