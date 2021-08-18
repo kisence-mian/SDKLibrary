@@ -1,6 +1,11 @@
 package com.transsion;
 
+import com.transsion.gamead.AdHelper;
 import com.transsion.gamead.AdInitializer;
+import com.transsion.gamead.GameAdDisplayCallback;
+import com.transsion.gamead.GameRewardItem;
+import com.transsion.gamead.GameRewardedAdCallback;
+import com.transsion.gamead.GameRewardedAdLoadCallback;
 import com.transsion.gamepay.core.ConfigCallback;
 import com.transsion.gamepay.core.PayCallback;
 import com.transsion.gamepay.core.PayHelper;
@@ -10,21 +15,26 @@ import com.transsion.gamepay.core.SupplementCallback;
 import com.transsion.gamepay.core.bean.OrderInfo;
 import com.transsion.gamepay.core.bean.ProductConfig;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.multidex.MultiDex;
+import sdkInterface.IAD;
 import sdkInterface.IPay;
 import sdkInterface.SDKBase;
 import sdkInterface.ILogin;
 import sdkInterface.SDKInterfaceDefine;
+import sdkInterface.define.ADResult;
+import sdkInterface.define.ADType;
 import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
 
-public class TranssionSDK extends SDKBase implements ILogin, IPay {
+public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
     List<ProductConfig> m_Result;
     PayInfo m_PayInfo;
 
@@ -38,6 +48,10 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay {
 
             boolean debuggable = GetProperties().getProperty("DebugAble").equals("true");//BuildConfig.DEBUG;
             String testMccMnc = GetProperties().getProperty("TestMccMnc");
+//            String BannerUnitId = GetProperties().getProperty("BannerUnitId");
+//            String InterstitialUnitId = GetProperties().getProperty("InterstitialUnitId");
+            String RewardUnitId = GetProperties().getProperty("RewardUnitId");
+
             PayInitializer.init(
                     new PayInitializer.Builder(GetCurrentActivity(), appKey)
                             //sdk内部需要用到子线程，你可以传入你全局统一构建的线程池，
@@ -77,10 +91,32 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay {
                                                        }
                                                    }
                             ));
+
             AdInitializer.init(
+                    //appKey是我们提供给您的一串数值
                     new AdInitializer.Builder(GetCurrentActivity().getApplication(), appKey)
-                            .setDebuggable(debuggable)
-            );
+                    //设置banner广告的单元ID
+//                    .setBannerUnitId("ca-app-pub3940256099942544/6300978111")
+                    //设置插屏广告的单元ID
+//                    .setInterstitialUnitId("ca-app-pub3940256099942544/1033173712")
+                    //设置激励视频广告的单元ID
+                    .setRewardUnitId(RewardUnitId)
+                    //开启debuggable 展示测试广告
+                    //请在正式上线环境下，设为false
+                    .setDebuggable(debuggable)
+                    //开启debug，展示的是admob的测试服务器广告
+                    //如果你需要调试线上真实广告，你需要把debuggable设为false
+                    //并输入你的设备ID，如何获取设备ID见 第6点广告测试的问题QA
+                    //sdk内部需要用到子线程，你可以传入你全局统一构建的线程池，
+                    //否则内部默认使用AsyncTask.THREAD_POOL_EXECUTOR
+//                    .setExecutor(executor)
+                    //sdk内部需要用到主线程，你可以传入你全局统一构建的Handler,
+                    //否则内部默认创建一个新的handler
+//                    .setMainThreadHandler(handler)
+                    //广告开关，不传默认开启
+                    .setTotalSwitch(true)
+                );
+
         } catch (IOException e) {
             SendError("Transsion Init Error",e);
         }
@@ -171,6 +207,26 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay {
             return;
         }
 
+        JSONArray map = new JSONArray();
+
+        try {
+            JSONObject productID = new JSONObject();
+            productID.put("productId",m_PayInfo.goodsID);
+            map.put(productID);
+
+//            JSONObject productName = new JSONObject();
+//            productID.put("productName",m_PayInfo.goodsName);
+//            map.put(productName);
+
+            JSONObject userID = new JSONObject();
+            productID.put("userId",m_PayInfo.userID);
+            map.put(userID);
+
+        } catch (JSONException e) {
+            SendError("Pay Error ",e);
+        }
+
+
         m_PayInfo = PayInfo.FromJson(json);
         ProductConfig currentProduct = GetConfig(m_PayInfo.goodsID);
         SendLog("Transsion Pay , " + json);
@@ -179,7 +235,7 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay {
                         //如果你有自有的订单号需要传入，可通过这个方法传入
 //                        .setCustomizeOrderId()
                         //如果你需要传递额外参数，你可以通过这个方法传入
-//                        .setExtra()
+                       .setExtra(map.toString())
                 ,
                 //支付回调
                 new PayCallback() {
@@ -218,5 +274,85 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay {
     @Override
     public void ClearPurchase(JSONObject json) {
 //        SendLog("Transsion ClearPurchase , " + json);
+    }
+
+    @Override
+    public void LoadAD(JSONObject json) {
+        AdHelper.loadReward(GetCurrentActivity(), new GameRewardedAdLoadCallback() {
+            @Override
+            public void onRewardedAdLoaded() {
+                super.onRewardedAdLoaded();
+                SendLog("TranssionSDK onRewardedAdLoaded");
+                CallBackADReward(ADType.Reward, ADResult.Load_Success,"");
+            }
+            @Override
+            public void onRewardedAdFailedToLoad(int i) {
+                super.onRewardedAdFailedToLoad(i);
+                SendLog("TranssionSDK onRewardedAdFailedToLoad " + i);
+                CallBackADReward(ADType.Reward, ADResult.Load_Failure,"");
+            }
+        }, new GameRewardedAdCallback(){
+            @Override
+            public void onRewardedAdOpened() {
+                //激励广告被打开
+                SendLog("TranssionSDK onRewardedAdOpened");
+            }
+            public void onRewardedAdClosed() {
+                //激励广告被关闭
+                SendLog("TranssionSDK onRewardedAdClosed");
+            }
+            public void onUserEarnedReward(@NonNull GameRewardItem gameRewardItem){
+                //激励广告播放完成
+                SendLog("TranssionSDK onUserEarnedReward " + gameRewardItem);
+            }
+            public void onRewardedAdFailedToShow(int reason) {
+                //激励广告展示失败
+                SendLog("TranssionSDK onRewardedAdFailedToShow");
+            }
+        });
+    }
+
+    @Override
+    public void PlayAD(JSONObject json) {
+        //当您需要展示广告，如果此时广告未加载完成，您愿意等待广告的加载结果
+//        AdHelper.showReward(GetCurrentActivity());
+        //或者
+        AdHelper.showReward(GetCurrentActivity(), new GameAdDisplayCallback() {
+
+            @Override
+            public void successful() {
+                super.successful();
+                SendLog("TranssionSDK PlayAD successful");
+                CallBackADReward(ADType.Reward, ADResult.Show_Finished,"");
+            }
+
+            @Override
+            public void failure(int var1) {
+                SendLog("TranssionSDK failure successful");
+                CallBackADReward(ADType.Reward, ADResult.Show_Failed,"");
+            }
+        //您可以点击进入GameAdDisplayCallback类，查看更多您需要的回调，并重写对应的方法
+        });
+
+//        //当您仅在广告加载完成时展示广告，如果未加载完成，则跳过此次展示时机
+//        AdHelper.showRewardWhenLoaded(GetCurrentActivity());
+//        //或者
+//        AdHelper.showRewardWhenLoaded(GetCurrentActivity(), new GameAdDisplayCallback() {
+//            @Override
+//            public void failure(int var1) {
+//            }
+//
+//        //您可以点击进入GameAdDisplayCallback类，查看更多您需要的回调，并重写对应的方法
+//        });
+    }
+
+    @Override
+    public void CloseAD(JSONObject json) {
+
+    }
+
+    @Override
+    public Boolean IsLoaded(JSONObject json) {
+        return true;
     }
 }
