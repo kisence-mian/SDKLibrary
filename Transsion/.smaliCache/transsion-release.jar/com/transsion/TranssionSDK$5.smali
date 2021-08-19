@@ -23,7 +23,7 @@
     .registers 2
     .param p1, "this$0"    # Lcom/transsion/TranssionSDK;
 
-    .line 294
+    .line 328
     iput-object p1, p0, Lcom/transsion/TranssionSDK$5;->this$0:Lcom/transsion/TranssionSDK;
 
     invoke-direct {p0}, Lcom/transsion/gamead/GameRewardedAdCallback;-><init>()V
@@ -36,14 +36,14 @@
 .method public onRewardedAdClosed()V
     .registers 3
 
-    .line 302
+    .line 336
     iget-object v0, p0, Lcom/transsion/TranssionSDK$5;->this$0:Lcom/transsion/TranssionSDK;
 
     const-string v1, "TranssionSDK onRewardedAdClosed"
 
     invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 303
+    .line 337
     return-void
 .end method
 
@@ -51,28 +51,28 @@
     .registers 4
     .param p1, "reason"    # I
 
-    .line 310
+    .line 344
     iget-object v0, p0, Lcom/transsion/TranssionSDK$5;->this$0:Lcom/transsion/TranssionSDK;
 
     const-string v1, "TranssionSDK onRewardedAdFailedToShow"
 
     invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 311
+    .line 345
     return-void
 .end method
 
 .method public onRewardedAdOpened()V
     .registers 3
 
-    .line 298
+    .line 332
     iget-object v0, p0, Lcom/transsion/TranssionSDK$5;->this$0:Lcom/transsion/TranssionSDK;
 
     const-string v1, "TranssionSDK onRewardedAdOpened"
 
     invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 299
+    .line 333
     return-void
 .end method
 
@@ -80,7 +80,7 @@
     .registers 5
     .param p1, "gameRewardItem"    # Lcom/transsion/gamead/GameRewardItem;
 
-    .line 306
+    .line 340
     iget-object v0, p0, Lcom/transsion/TranssionSDK$5;->this$0:Lcom/transsion/TranssionSDK;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -103,6 +103,6 @@
 
     invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 307
+    .line 341
     return-void
 .end method

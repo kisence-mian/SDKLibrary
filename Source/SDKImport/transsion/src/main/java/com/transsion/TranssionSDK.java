@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -34,9 +35,16 @@ import sdkInterface.define.ADType;
 import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
 
-public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
+public class TranssionSDK extends SDKBase implements  IPay , IAD {
     List<ProductConfig> m_Result;
     PayInfo m_PayInfo;
+
+    String PayIDKey;
+    HashMap<String,String> payIDDict;
+    HashMap<String,String> productIDDict;
+
+    HashMap<String,String> priceDict;
+    private String goodsIDCache;
 
     @Override
     public void OnCreate() {
@@ -45,6 +53,7 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
 
         try {
             String appKey = GetProperties().getProperty("AppKey", "");// "7位数的appId";
+            PayIDKey =  GetProperties().getProperty("PayIDKey");
 
             boolean debuggable = GetProperties().getProperty("DebugAble").equals("true");//BuildConfig.DEBUG;
             String testMccMnc = GetProperties().getProperty("TestMccMnc");
@@ -121,6 +130,12 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
             SendError("Transsion Init Error",e);
         }
 
+        payIDDict = GenerateHashMapBySqlitContent(PayIDKey,"-");
+        productIDDict = new HashMap<String, String>();
+        for (String key : payIDDict.keySet()) {
+            productIDDict.put(payIDDict.get(key),key);
+        }
+
         GetProductConfig();
 
         SendLog("Transsion onCreate Complete");
@@ -165,23 +180,21 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
         SendLog("Transsion Inited , " + json);
     }
 
-    @Override
-    public void Login(JSONObject json) {
-        SendLog("Transsion Login , " + json);
-    }
-
-    @Override
-    public void LoginOut(JSONObject json) {
-        SendLog("Transsion LoginOut , " + json);
-
-    }
-
     void GetProductConfig(){
         PayHelper.getProductConfig(new ConfigCallback() {
             @Override
             public void response(List<ProductConfig> result) {
                 SendLog("Transsion read config,count="+result.size());
                 m_Result = result;
+
+                priceDict = new HashMap<>();
+
+                for(int i =0;i<m_Result.size();++i)
+                {
+                    SendLog("m_Result  i " + i + " " + m_Result.get(i).name  +" " + m_Result.get(i).id + " " + m_Result.get(i).amount);
+
+                    priceDict.put(m_Result.get(i).name,m_Result.get(i).amount);
+                }
             }
         });
     }
@@ -195,6 +208,8 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
                 return m_Result.get(i);
             }
         }
+
+        SendError("GetConfig not find " + productName);
         return null;
     }
 
@@ -206,6 +221,9 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
             SendPayCallBack(false, "", e);
             return;
         }
+
+        m_PayInfo = PayInfo.FromJson(json);
+        goodsIDCache = payIDDict.get(m_PayInfo.goodsID);
 
         JSONArray map = new JSONArray();
 
@@ -226,9 +244,8 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
             SendError("Pay Error ",e);
         }
 
-
         m_PayInfo = PayInfo.FromJson(json);
-        ProductConfig currentProduct = GetConfig(m_PayInfo.goodsID);
+        ProductConfig currentProduct = GetConfig(goodsIDCache);
         SendLog("Transsion Pay , " + json);
         PayHelper.pay(GetCurrentActivity(),
                 new PayParams.Builder(currentProduct.id)
@@ -269,6 +286,23 @@ public class TranssionSDK extends SDKBase implements ILogin, IPay , IAD {
     @Override
     public void GetGoodsInfo(JSONObject json) {
 //        SendLog("Transsion GetGoodsInfo , " + json);
+
+        try {
+            String goodsID = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            goodsID = payIDDict.get(goodsID);
+
+            if(priceDict.containsKey(goodsID))
+            {
+                CallBackGoodsInfo(goodsID,priceDict.get(goodsID));
+            }
+            else {
+
+                SendError("GetGoodsInfo Error not find goodsID " + goodsID);
+            }
+
+        } catch (JSONException e) {
+            SendError("GetGoodsInfo error " + e.toString(),e );
+        }
     }
 
     @Override

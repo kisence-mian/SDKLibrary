@@ -26,7 +26,7 @@
     .registers 2
     .param p1, "this$0"    # Lcom/transsion/TranssionSDK;
 
-    .line 69
+    .line 78
     iput-object p1, p0, Lcom/transsion/TranssionSDK$1;->this$0:Lcom/transsion/TranssionSDK;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .param p1, "payParams"    # Lcom/transsion/gamepay/core/PayParams;
     .param p2, "orderInfo"    # Lcom/transsion/gamepay/core/bean/OrderInfo;
 
-    .line 76
+    .line 85
     iget-object v0, p0, Lcom/transsion/TranssionSDK$1;->this$0:Lcom/transsion/TranssionSDK;
 
     iget-object v1, p2, Lcom/transsion/gamepay/core/bean/OrderInfo;->orderId:Ljava/lang/String;
@@ -52,7 +52,7 @@
 
     invoke-virtual {v0, v2, v1, v3}, Lcom/transsion/TranssionSDK;->SendPayCallBack(ZLjava/lang/String;Ljava/lang/String;)V
 
-    .line 77
+    .line 86
     return-void
 .end method
 
@@ -62,7 +62,7 @@
     .param p2, "orderInfo"    # Lcom/transsion/gamepay/core/bean/OrderInfo;
     .param p3, "errorCode"    # I
 
-    .line 91
+    .line 100
     return-void
 .end method
 
@@ -71,6 +71,6 @@
     .param p1, "payParams"    # Lcom/transsion/gamepay/core/PayParams;
     .param p2, "orderInfo"    # Lcom/transsion/gamepay/core/bean/OrderInfo;
 
-    .line 84
+    .line 93
     return-void
 .end method
