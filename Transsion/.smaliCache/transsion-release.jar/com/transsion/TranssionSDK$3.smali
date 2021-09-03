@@ -26,7 +26,7 @@
     .registers 2
     .param p1, "this$0"    # Lcom/transsion/TranssionSDK;
 
-    .line 258
+    .line 260
     iput-object p1, p0, Lcom/transsion/TranssionSDK$3;->this$0:Lcom/transsion/TranssionSDK;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,42 @@
     .param p2, "orderInfo"    # Lcom/transsion/gamepay/core/bean/OrderInfo;
     .param p3, "errorCode"    # I
 
-    .line 268
+    .line 270
+    iget-object v0, p0, Lcom/transsion/TranssionSDK$3;->this$0:Lcom/transsion/TranssionSDK;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Transsion payFailure , "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p2, Lcom/transsion/gamepay/core/bean/OrderInfo;->orderId:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
+
+    .line 272
     iget-object v0, p0, Lcom/transsion/TranssionSDK$3;->this$0:Lcom/transsion/TranssionSDK;
 
     iget-object v1, p2, Lcom/transsion/gamepay/core/bean/OrderInfo;->orderId:Ljava/lang/String;
@@ -69,7 +104,7 @@
 
     invoke-virtual {v0, v3, v1, v2}, Lcom/transsion/TranssionSDK;->SendPayCallBack(ZLjava/lang/String;Ljava/lang/String;)V
 
-    .line 269
+    .line 273
     return-void
 .end method
 
@@ -78,7 +113,32 @@
     .param p1, "params"    # Lcom/transsion/gamepay/core/PayParams;
     .param p2, "orderInfo"    # Lcom/transsion/gamepay/core/bean/OrderInfo;
 
-    .line 262
+    .line 263
+    iget-object v0, p0, Lcom/transsion/TranssionSDK$3;->this$0:Lcom/transsion/TranssionSDK;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Transsion paySuccess , "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p2, Lcom/transsion/gamepay/core/bean/OrderInfo;->orderId:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
+
+    .line 265
     iget-object v0, p0, Lcom/transsion/TranssionSDK$3;->this$0:Lcom/transsion/TranssionSDK;
 
     iget-object v1, p2, Lcom/transsion/gamepay/core/bean/OrderInfo;->orderId:Ljava/lang/String;
@@ -89,6 +149,6 @@
 
     invoke-virtual {v0, v2, v1, v3}, Lcom/transsion/TranssionSDK;->SendPayCallBack(ZLjava/lang/String;Ljava/lang/String;)V
 
-    .line 263
+    .line 266
     return-void
 .end method

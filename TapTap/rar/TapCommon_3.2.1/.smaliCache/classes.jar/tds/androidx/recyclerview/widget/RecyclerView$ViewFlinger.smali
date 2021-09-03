@@ -1,0 +1,1160 @@
+.class Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;
+.super Ljava/lang/Object;
+.source "RecyclerView.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Ltds/androidx/recyclerview/widget/RecyclerView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = "ViewFlinger"
+.end annotation
+
+
+# instance fields
+.field private mEatRunOnAnimationRequest:Z
+
+.field mInterpolator:Landroid/view/animation/Interpolator;
+
+.field private mLastFlingX:I
+
+.field private mLastFlingY:I
+
+.field mOverScroller:Landroid/widget/OverScroller;
+
+.field private mReSchedulePostAnimationCallback:Z
+
+.field final synthetic this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+
+# direct methods
+.method constructor <init>(Ltds/androidx/recyclerview/widget/RecyclerView;)V
+    .registers 5
+    .param p1, "this$0"    # Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    .line 5371
+    iput-object p1, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 5363
+    sget-object v0, Ltds/androidx/recyclerview/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
+
+    iput-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    .line 5366
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mEatRunOnAnimationRequest:Z
+
+    .line 5369
+    iput-boolean v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mReSchedulePostAnimationCallback:Z
+
+    .line 5372
+    new-instance v0, Landroid/widget/OverScroller;
+
+    invoke-virtual {p1}, Ltds/androidx/recyclerview/widget/RecyclerView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    sget-object v2, Ltds/androidx/recyclerview/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
+
+    iput-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    .line 5373
+    return-void
+.end method
+
+.method private computeScrollDuration(IIII)I
+    .registers 18
+    .param p1, "dx"    # I
+    .param p2, "dy"    # I
+    .param p3, "vx"    # I
+    .param p4, "vy"    # I
+
+    .line 5609
+    move-object v0, p0
+
+    invoke-static {p1}, Ljava/lang/Math;->abs(I)I
+
+    move-result v1
+
+    .line 5610
+    .local v1, "absDx":I
+    invoke-static {p2}, Ljava/lang/Math;->abs(I)I
+
+    move-result v2
+
+    .line 5611
+    .local v2, "absDy":I
+    if-le v1, v2, :cond_d
+
+    const/4 v3, 0x1
+
+    goto :goto_e
+
+    :cond_d
+    const/4 v3, 0x0
+
+    .line 5612
+    .local v3, "horizontal":Z
+    :goto_e
+    mul-int v4, p3, p3
+
+    mul-int v5, p4, p4
+
+    add-int/2addr v4, v5
+
+    int-to-double v4, v4
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v4
+
+    double-to-int v4, v4
+
+    .line 5613
+    .local v4, "velocity":I
+    mul-int v5, p1, p1
+
+    mul-int v6, p2, p2
+
+    add-int/2addr v5, v6
+
+    int-to-double v5, v5
+
+    invoke-static {v5, v6}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v5
+
+    double-to-int v5, v5
+
+    .line 5614
+    .local v5, "delta":I
+    iget-object v6, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    if-eqz v3, :cond_2d
+
+    invoke-virtual {v6}, Ltds/androidx/recyclerview/widget/RecyclerView;->getWidth()I
+
+    move-result v6
+
+    goto :goto_31
+
+    :cond_2d
+    invoke-virtual {v6}, Ltds/androidx/recyclerview/widget/RecyclerView;->getHeight()I
+
+    move-result v6
+
+    .line 5615
+    .local v6, "containerSize":I
+    :goto_31
+    div-int/lit8 v7, v6, 0x2
+
+    .line 5616
+    .local v7, "halfContainerSize":I
+    int-to-float v8, v5
+
+    const/high16 v9, 0x3f800000    # 1.0f
+
+    mul-float/2addr v8, v9
+
+    int-to-float v10, v6
+
+    div-float/2addr v8, v10
+
+    invoke-static {v9, v8}, Ljava/lang/Math;->min(FF)F
+
+    move-result v8
+
+    .line 5617
+    .local v8, "distanceRatio":F
+    int-to-float v10, v7
+
+    int-to-float v11, v7
+
+    .line 5618
+    invoke-direct {p0, v8}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->distanceInfluenceForSnapDuration(F)F
+
+    move-result v12
+
+    mul-float/2addr v11, v12
+
+    add-float/2addr v10, v11
+
+    .line 5621
+    .local v10, "distance":F
+    if-lez v4, :cond_58
+
+    .line 5622
+    const/high16 v9, 0x447a0000    # 1000.0f
+
+    int-to-float v11, v4
+
+    div-float v11, v10, v11
+
+    invoke-static {v11}, Ljava/lang/Math;->abs(F)F
+
+    move-result v11
+
+    mul-float/2addr v11, v9
+
+    invoke-static {v11}, Ljava/lang/Math;->round(F)I
+
+    move-result v9
+
+    mul-int/lit8 v9, v9, 0x4
+
+    .local v9, "duration":I
+    goto :goto_66
+
+    .line 5624
+    .end local v9    # "duration":I
+    :cond_58
+    if-eqz v3, :cond_5c
+
+    move v11, v1
+
+    goto :goto_5d
+
+    :cond_5c
+    move v11, v2
+
+    :goto_5d
+    int-to-float v11, v11
+
+    .line 5625
+    .local v11, "absDelta":F
+    int-to-float v12, v6
+
+    div-float v12, v11, v12
+
+    add-float/2addr v12, v9
+
+    const/high16 v9, 0x43960000    # 300.0f
+
+    mul-float/2addr v12, v9
+
+    float-to-int v9, v12
+
+    .line 5627
+    .end local v11    # "absDelta":F
+    .restart local v9    # "duration":I
+    :goto_66
+    const/16 v11, 0x7d0
+
+    invoke-static {v9, v11}, Ljava/lang/Math;->min(II)I
+
+    move-result v11
+
+    return v11
+.end method
+
+.method private distanceInfluenceForSnapDuration(F)F
+    .registers 4
+    .param p1, "f"    # F
+
+    .line 5603
+    const/high16 v0, 0x3f000000    # 0.5f
+
+    sub-float/2addr p1, v0
+
+    .line 5604
+    const v0, 0x3ef1463b
+
+    mul-float/2addr p1, v0
+
+    .line 5605
+    float-to-double v0, p1
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->sin(D)D
+
+    move-result-wide v0
+
+    double-to-float v0, v0
+
+    return v0
+.end method
+
+.method private internalPostOnAnimation()V
+    .registers 2
+
+    .line 5536
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v0, p0}, Ltds/androidx/recyclerview/widget/RecyclerView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    .line 5537
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-static {v0, p0}, Ltds/androidx/core/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
+
+    .line 5538
+    return-void
+.end method
+
+
+# virtual methods
+.method public fling(II)V
+    .registers 15
+    .param p1, "velocityX"    # I
+    .param p2, "velocityY"    # I
+
+    .line 5541
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Ltds/androidx/recyclerview/widget/RecyclerView;->setScrollState(I)V
+
+    .line 5542
+    const/4 v0, 0x0
+
+    iput v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
+
+    iput v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingX:I
+
+    .line 5546
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    sget-object v1, Ltds/androidx/recyclerview/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
+
+    if-eq v0, v1, :cond_24
+
+    .line 5547
+    sget-object v0, Ltds/androidx/recyclerview/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
+
+    iput-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    .line 5548
+    new-instance v0, Landroid/widget/OverScroller;
+
+    iget-object v1, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v1}, Ltds/androidx/recyclerview/widget/RecyclerView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    sget-object v2, Ltds/androidx/recyclerview/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
+
+    iput-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    .line 5550
+    :cond_24
+    iget-object v3, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/high16 v8, -0x80000000
+
+    const v9, 0x7fffffff
+
+    const/high16 v10, -0x80000000
+
+    const v11, 0x7fffffff
+
+    move v6, p1
+
+    move v7, p2
+
+    invoke-virtual/range {v3 .. v11}, Landroid/widget/OverScroller;->fling(IIIIIIII)V
+
+    .line 5552
+    invoke-virtual {p0}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
+
+    .line 5553
+    return-void
+.end method
+
+.method postOnAnimation()V
+    .registers 2
+
+    .line 5528
+    iget-boolean v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mEatRunOnAnimationRequest:Z
+
+    if-eqz v0, :cond_8
+
+    .line 5529
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mReSchedulePostAnimationCallback:Z
+
+    goto :goto_b
+
+    .line 5531
+    :cond_8
+    invoke-direct {p0}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->internalPostOnAnimation()V
+
+    .line 5533
+    :goto_b
+    return-void
+.end method
+
+.method public run()V
+    .registers 25
+
+    .line 5377
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v1, v1, Ltds/androidx/recyclerview/widget/RecyclerView;->mLayout:Ltds/androidx/recyclerview/widget/RecyclerView$LayoutManager;
+
+    if-nez v1, :cond_c
+
+    .line 5378
+    invoke-virtual/range {p0 .. p0}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->stop()V
+
+    .line 5379
+    return-void
+
+    .line 5382
+    :cond_c
+    const/4 v1, 0x0
+
+    iput-boolean v1, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mReSchedulePostAnimationCallback:Z
+
+    .line 5383
+    const/4 v2, 0x1
+
+    iput-boolean v2, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mEatRunOnAnimationRequest:Z
+
+    .line 5385
+    iget-object v3, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v3}, Ltds/androidx/recyclerview/widget/RecyclerView;->consumePendingUpdateOperations()V
+
+    .line 5397
+    iget-object v3, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    .line 5398
+    .local v3, "scroller":Landroid/widget/OverScroller;
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->computeScrollOffset()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1a1
+
+    .line 5399
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->getCurrX()I
+
+    move-result v4
+
+    .line 5400
+    .local v4, "x":I
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->getCurrY()I
+
+    move-result v5
+
+    .line 5401
+    .local v5, "y":I
+    iget v6, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingX:I
+
+    sub-int v6, v4, v6
+
+    .line 5402
+    .local v6, "unconsumedX":I
+    iget v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
+
+    sub-int v13, v5, v7
+
+    .line 5403
+    .local v13, "unconsumedY":I
+    iput v4, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingX:I
+
+    .line 5404
+    iput v5, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
+
+    .line 5405
+    const/4 v14, 0x0
+
+    .line 5406
+    .local v14, "consumedX":I
+    const/4 v15, 0x0
+
+    .line 5409
+    .local v15, "consumedY":I
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aput v1, v7, v1
+
+    .line 5410
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aput v1, v7, v2
+
+    .line 5411
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v10, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x1
+
+    move v8, v6
+
+    move v9, v13
+
+    invoke-virtual/range {v7 .. v12}, Ltds/androidx/recyclerview/widget/RecyclerView;->dispatchNestedPreScroll(II[I[II)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5d
+
+    .line 5413
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aget v7, v7, v1
+
+    sub-int/2addr v6, v7
+
+    .line 5414
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aget v7, v7, v2
+
+    sub-int/2addr v13, v7
+
+    .line 5419
+    :cond_5d
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v7}, Ltds/androidx/recyclerview/widget/RecyclerView;->getOverScrollMode()I
+
+    move-result v7
+
+    const/4 v8, 0x2
+
+    if-eq v7, v8, :cond_6b
+
+    .line 5420
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v7, v6, v13}, Ltds/androidx/recyclerview/widget/RecyclerView;->considerReleasingGlowsOnScroll(II)V
+
+    .line 5424
+    :cond_6b
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mAdapter:Ltds/androidx/recyclerview/widget/RecyclerView$Adapter;
+
+    if-eqz v7, :cond_c6
+
+    .line 5425
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aput v1, v7, v1
+
+    .line 5426
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aput v1, v7, v2
+
+    .line 5427
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v9, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    invoke-virtual {v7, v6, v13, v9}, Ltds/androidx/recyclerview/widget/RecyclerView;->scrollStep(II[I)V
+
+    .line 5428
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aget v14, v7, v1
+
+    .line 5429
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aget v15, v7, v2
+
+    .line 5430
+    sub-int/2addr v6, v14
+
+    .line 5431
+    sub-int/2addr v13, v15
+
+    .line 5435
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mLayout:Ltds/androidx/recyclerview/widget/RecyclerView$LayoutManager;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView$LayoutManager;->mSmoothScroller:Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+
+    .line 5436
+    .local v7, "smoothScroller":Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+    if-eqz v7, :cond_c6
+
+    invoke-virtual {v7}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->isPendingInitialRun()Z
+
+    move-result v9
+
+    if-nez v9, :cond_c6
+
+    .line 5437
+    invoke-virtual {v7}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->isRunning()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_c6
+
+    .line 5438
+    iget-object v9, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v9, v9, Ltds/androidx/recyclerview/widget/RecyclerView;->mState:Ltds/androidx/recyclerview/widget/RecyclerView$State;
+
+    invoke-virtual {v9}, Ltds/androidx/recyclerview/widget/RecyclerView$State;->getItemCount()I
+
+    move-result v9
+
+    .line 5439
+    .local v9, "adapterSize":I
+    if-nez v9, :cond_b4
+
+    .line 5440
+    invoke-virtual {v7}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->stop()V
+
+    goto :goto_c6
+
+    .line 5441
+    :cond_b4
+    invoke-virtual {v7}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->getTargetPosition()I
+
+    move-result v10
+
+    if-lt v10, v9, :cond_c3
+
+    .line 5442
+    add-int/lit8 v10, v9, -0x1
+
+    invoke-virtual {v7, v10}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->setTargetPosition(I)V
+
+    .line 5443
+    invoke-virtual {v7, v14, v15}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
+
+    goto :goto_c6
+
+    .line 5445
+    :cond_c3
+    invoke-virtual {v7, v14, v15}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
+
+    .line 5450
+    .end local v7    # "smoothScroller":Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+    .end local v9    # "adapterSize":I
+    :cond_c6
+    :goto_c6
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mItemDecorations:Ljava/util/ArrayList;
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v7
+
+    if-nez v7, :cond_d5
+
+    .line 5451
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v7}, Ltds/androidx/recyclerview/widget/RecyclerView;->invalidate()V
+
+    .line 5455
+    :cond_d5
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aput v1, v7, v1
+
+    .line 5456
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aput v1, v7, v2
+
+    .line 5457
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x1
+
+    iget-object v9, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    move-object/from16 v16, v7
+
+    move/from16 v17, v14
+
+    move/from16 v18, v15
+
+    move/from16 v19, v6
+
+    move/from16 v20, v13
+
+    move-object/from16 v23, v9
+
+    invoke-virtual/range {v16 .. v23}, Ltds/androidx/recyclerview/widget/RecyclerView;->dispatchNestedScroll(IIII[II[I)V
+
+    .line 5459
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aget v7, v7, v1
+
+    sub-int/2addr v6, v7
+
+    .line 5460
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v7, v7, Ltds/androidx/recyclerview/widget/RecyclerView;->mReusableIntPair:[I
+
+    aget v7, v7, v2
+
+    sub-int/2addr v13, v7
+
+    .line 5462
+    if-nez v14, :cond_10a
+
+    if-eqz v15, :cond_10f
+
+    .line 5463
+    :cond_10a
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v7, v14, v15}, Ltds/androidx/recyclerview/widget/RecyclerView;->dispatchOnScrolled(II)V
+
+    .line 5466
+    :cond_10f
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    # invokes: Ltds/androidx/recyclerview/widget/RecyclerView;->awakenScrollBars()Z
+    invoke-static {v7}, Ltds/androidx/recyclerview/widget/RecyclerView;->access$200(Ltds/androidx/recyclerview/widget/RecyclerView;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_11c
+
+    .line 5467
+    iget-object v7, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v7}, Ltds/androidx/recyclerview/widget/RecyclerView;->invalidate()V
+
+    .line 5475
+    :cond_11c
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->getCurrX()I
+
+    move-result v7
+
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->getFinalX()I
+
+    move-result v9
+
+    if-ne v7, v9, :cond_128
+
+    move v7, v2
+
+    goto :goto_129
+
+    :cond_128
+    move v7, v1
+
+    .line 5476
+    .local v7, "scrollerFinishedX":Z
+    :goto_129
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->getCurrY()I
+
+    move-result v9
+
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->getFinalY()I
+
+    move-result v10
+
+    if-ne v9, v10, :cond_135
+
+    move v9, v2
+
+    goto :goto_136
+
+    :cond_135
+    move v9, v1
+
+    .line 5477
+    .local v9, "scrollerFinishedY":Z
+    :goto_136
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->isFinished()Z
+
+    move-result v10
+
+    if-nez v10, :cond_147
+
+    if-nez v7, :cond_140
+
+    if-eqz v6, :cond_145
+
+    :cond_140
+    if-nez v9, :cond_147
+
+    if-eqz v13, :cond_145
+
+    goto :goto_147
+
+    :cond_145
+    move v10, v1
+
+    goto :goto_148
+
+    :cond_147
+    :goto_147
+    move v10, v2
+
+    .line 5484
+    .local v10, "doneScrolling":Z
+    :goto_148
+    iget-object v11, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v11, v11, Ltds/androidx/recyclerview/widget/RecyclerView;->mLayout:Ltds/androidx/recyclerview/widget/RecyclerView$LayoutManager;
+
+    iget-object v11, v11, Ltds/androidx/recyclerview/widget/RecyclerView$LayoutManager;->mSmoothScroller:Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+
+    .line 5485
+    .local v11, "smoothScroller":Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+    if-eqz v11, :cond_158
+
+    .line 5486
+    invoke-virtual {v11}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->isPendingInitialRun()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_158
+
+    move v12, v2
+
+    goto :goto_159
+
+    :cond_158
+    move v12, v1
+
+    .line 5488
+    .local v12, "smoothScrollerPending":Z
+    :goto_159
+    if-nez v12, :cond_18f
+
+    if-eqz v10, :cond_18f
+
+    .line 5492
+    iget-object v2, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v2}, Ltds/androidx/recyclerview/widget/RecyclerView;->getOverScrollMode()I
+
+    move-result v2
+
+    if-eq v2, v8, :cond_183
+
+    .line 5493
+    invoke-virtual {v3}, Landroid/widget/OverScroller;->getCurrVelocity()F
+
+    move-result v2
+
+    float-to-int v2, v2
+
+    .line 5494
+    .local v2, "vel":I
+    if-gez v6, :cond_16e
+
+    neg-int v8, v2
+
+    goto :goto_173
+
+    :cond_16e
+    if-lez v6, :cond_172
+
+    move v8, v2
+
+    goto :goto_173
+
+    :cond_172
+    move v8, v1
+
+    .line 5495
+    .local v8, "velX":I
+    :goto_173
+    if-gez v13, :cond_177
+
+    neg-int v1, v2
+
+    goto :goto_17c
+
+    :cond_177
+    if-lez v13, :cond_17b
+
+    move v1, v2
+
+    goto :goto_17c
+
+    :cond_17b
+    const/4 v1, 0x0
+
+    .line 5496
+    .local v1, "velY":I
+    :goto_17c
+    move/from16 v18, v2
+
+    .end local v2    # "vel":I
+    .local v18, "vel":I
+    iget-object v2, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v2, v8, v1}, Ltds/androidx/recyclerview/widget/RecyclerView;->absorbGlows(II)V
+
+    .line 5499
+    .end local v1    # "velY":I
+    .end local v8    # "velX":I
+    .end local v18    # "vel":I
+    :cond_183
+    sget-boolean v1, Ltds/androidx/recyclerview/widget/RecyclerView;->ALLOW_THREAD_GAP_WORK:Z
+
+    if-eqz v1, :cond_1a1
+
+    .line 5500
+    iget-object v1, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v1, v1, Ltds/androidx/recyclerview/widget/RecyclerView;->mPrefetchRegistry:Ltds/androidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;
+
+    invoke-virtual {v1}, Ltds/androidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->clearPrefetchPositions()V
+
+    goto :goto_1a1
+
+    .line 5505
+    :cond_18f
+    invoke-virtual/range {p0 .. p0}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
+
+    .line 5506
+    iget-object v1, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v1, v1, Ltds/androidx/recyclerview/widget/RecyclerView;->mGapWorker:Ltds/androidx/recyclerview/widget/GapWorker;
+
+    if-eqz v1, :cond_1a1
+
+    .line 5507
+    iget-object v1, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v1, v1, Ltds/androidx/recyclerview/widget/RecyclerView;->mGapWorker:Ltds/androidx/recyclerview/widget/GapWorker;
+
+    iget-object v2, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v1, v2, v14, v15}, Ltds/androidx/recyclerview/widget/GapWorker;->postFromTraversal(Ltds/androidx/recyclerview/widget/RecyclerView;II)V
+
+    .line 5512
+    .end local v4    # "x":I
+    .end local v5    # "y":I
+    .end local v6    # "unconsumedX":I
+    .end local v7    # "scrollerFinishedX":Z
+    .end local v9    # "scrollerFinishedY":Z
+    .end local v10    # "doneScrolling":Z
+    .end local v11    # "smoothScroller":Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+    .end local v12    # "smoothScrollerPending":Z
+    .end local v13    # "unconsumedY":I
+    .end local v14    # "consumedX":I
+    .end local v15    # "consumedY":I
+    :cond_1a1
+    :goto_1a1
+    iget-object v1, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    iget-object v1, v1, Ltds/androidx/recyclerview/widget/RecyclerView;->mLayout:Ltds/androidx/recyclerview/widget/RecyclerView$LayoutManager;
+
+    iget-object v1, v1, Ltds/androidx/recyclerview/widget/RecyclerView$LayoutManager;->mSmoothScroller:Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+
+    .line 5514
+    .local v1, "smoothScroller":Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;
+    if-eqz v1, :cond_1b4
+
+    invoke-virtual {v1}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->isPendingInitialRun()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1b4
+
+    .line 5515
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2, v2}, Ltds/androidx/recyclerview/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
+
+    goto :goto_1b5
+
+    .line 5514
+    :cond_1b4
+    const/4 v2, 0x0
+
+    .line 5518
+    :goto_1b5
+    iput-boolean v2, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mEatRunOnAnimationRequest:Z
+
+    .line 5519
+    iget-boolean v4, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mReSchedulePostAnimationCallback:Z
+
+    if-eqz v4, :cond_1bf
+
+    .line 5520
+    invoke-direct/range {p0 .. p0}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->internalPostOnAnimation()V
+
+    goto :goto_1ca
+
+    .line 5522
+    :cond_1bf
+    iget-object v4, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v4, v2}, Ltds/androidx/recyclerview/widget/RecyclerView;->setScrollState(I)V
+
+    .line 5523
+    iget-object v2, v0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v4}, Ltds/androidx/recyclerview/widget/RecyclerView;->stopNestedScroll(I)V
+
+    .line 5525
+    :goto_1ca
+    return-void
+.end method
+
+.method public smoothScrollBy(IIILandroid/view/animation/Interpolator;)V
+    .registers 12
+    .param p1, "dx"    # I
+    .param p2, "dy"    # I
+    .param p3, "duration"    # I
+    .param p4, "interpolator"    # Landroid/view/animation/Interpolator;
+
+    .line 5571
+    const/4 v0, 0x0
+
+    const/high16 v1, -0x80000000
+
+    if-ne p3, v1, :cond_9
+
+    .line 5572
+    invoke-direct {p0, p1, p2, v0, v0}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->computeScrollDuration(IIII)I
+
+    move-result p3
+
+    .line 5574
+    :cond_9
+    if-nez p4, :cond_d
+
+    .line 5575
+    sget-object p4, Ltds/androidx/recyclerview/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
+
+    .line 5580
+    :cond_d
+    iget-object v1, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    if-eq v1, p4, :cond_20
+
+    .line 5581
+    iput-object p4, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    .line 5582
+    new-instance v1, Landroid/widget/OverScroller;
+
+    iget-object v2, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v2}, Ltds/androidx/recyclerview/widget/RecyclerView;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2, p4}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
+
+    iput-object v1, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    .line 5586
+    :cond_20
+    iput v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
+
+    iput v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mLastFlingX:I
+
+    .line 5589
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Ltds/androidx/recyclerview/widget/RecyclerView;->setScrollState(I)V
+
+    .line 5590
+    iget-object v1, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    move v4, p1
+
+    move v5, p2
+
+    move v6, p3
+
+    invoke-virtual/range {v1 .. v6}, Landroid/widget/OverScroller;->startScroll(IIIII)V
+
+    .line 5592
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x17
+
+    if-ge v0, v1, :cond_3f
+
+    .line 5596
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->computeScrollOffset()Z
+
+    .line 5599
+    :cond_3f
+    invoke-virtual {p0}, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->postOnAnimation()V
+
+    .line 5600
+    return-void
+.end method
+
+.method public stop()V
+    .registers 2
+
+    .line 5631
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->this$0:Ltds/androidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v0, p0}, Ltds/androidx/recyclerview/widget/RecyclerView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    .line 5632
+    iget-object v0, p0, Ltds/androidx/recyclerview/widget/RecyclerView$ViewFlinger;->mOverScroller:Landroid/widget/OverScroller;
+
+    invoke-virtual {v0}, Landroid/widget/OverScroller;->abortAnimation()V
+
+    .line 5633
+    return-void
+.end method

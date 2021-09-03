@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tds_achievement_string_dialog_earned_date">- 獲得： %s -</string>
+    <string name="tds_achievement_string_dialog_percent">\"%.1f%%のプレイヤーがこの項目を達成しました\"</string>
+    <string name="tds_achievement_string_dialog_percent_low">\"この項目を達成したプレイヤーは0.1％未満です\"</string>
+    <string name="tds_achievement_string_dialog_status">%1$s/%2$s　達成項目</string>
+    <string name="tds_achievement_string_invisible_subtitle">もう少しプレイしたら明らかになりますよ</string>
+    <string name="tds_achievement_string_invisible_title">非表示</string>
+    <string name="tds_achievement_string_locked">ロック中</string>
+    <string name="tds_achievement_string_pop_title">項目達成おめでとう！</string>
+    <string name="tds_achievement_string_rarity_common">ノーマル</string>
+    <string name="tds_achievement_string_rarity_rare">スーパーハード</string>
+    <string name="tds_achievement_string_rarity_ultra_rare">エクストリーム</string>
+    <string name="tds_achievement_string_rarity_uncommon">ハード</string>
+    <string name="tds_achievement_string_unlocked">完了</string>
+</resources>

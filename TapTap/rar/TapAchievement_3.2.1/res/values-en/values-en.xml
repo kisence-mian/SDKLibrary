@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tds_achievement_string_dialog_earned_date">- Accomplished on %s -</string>
+    <string name="tds_achievement_string_dialog_percent">\'%.1f%% of players have this\'</string>
+    <string name="tds_achievement_string_dialog_percent_low">\'Fewer than 0.1% of players have achieved this\'</string>
+    <string name="tds_achievement_string_dialog_status">%1$s/%2$s Achievements</string>
+    <string name="tds_achievement_string_invisible_subtitle">Keep playing to find out</string>
+    <string name="tds_achievement_string_invisible_title">Hidden</string>
+    <string name="tds_achievement_string_locked">LOCKED</string>
+    <string name="tds_achievement_string_pop_title">Achievement unlocked!</string>
+    <string name="tds_achievement_string_rarity_common">Common</string>
+    <string name="tds_achievement_string_rarity_rare">Super Rare</string>
+    <string name="tds_achievement_string_rarity_ultra_rare">Ultra Rare</string>
+    <string name="tds_achievement_string_rarity_uncommon">Rare</string>
+    <string name="tds_achievement_string_unlocked">UNLOCKED</string>
+</resources>

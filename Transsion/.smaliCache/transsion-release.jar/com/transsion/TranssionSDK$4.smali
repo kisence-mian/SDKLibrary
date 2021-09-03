@@ -23,7 +23,7 @@
     .registers 2
     .param p1, "this$0"    # Lcom/transsion/TranssionSDK;
 
-    .line 315
+    .line 322
     iput-object p1, p0, Lcom/transsion/TranssionSDK$4;->this$0:Lcom/transsion/TranssionSDK;
 
     invoke-direct {p0}, Lcom/transsion/gamead/GameRewardedAdLoadCallback;-><init>()V
@@ -37,17 +37,17 @@
     .registers 6
     .param p1, "i"    # I
 
-    .line 324
+    .line 331
     invoke-super {p0, p1}, Lcom/transsion/gamead/GameRewardedAdLoadCallback;->onRewardedAdFailedToLoad(I)V
 
-    .line 325
+    .line 332
     iget-object v0, p0, Lcom/transsion/TranssionSDK$4;->this$0:Lcom/transsion/TranssionSDK;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "TranssionSDK onRewardedAdFailedToLoad "
+    const-string v2, "TranssionSDK LoadAD onRewardedAdFailedToLoad "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -63,7 +63,7 @@
 
     invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 326
+    .line 333
     iget-object v0, p0, Lcom/transsion/TranssionSDK$4;->this$0:Lcom/transsion/TranssionSDK;
 
     sget-object v1, LsdkInterface/define/ADType;->Reward:LsdkInterface/define/ADType;
@@ -75,24 +75,24 @@
     # invokes: Lcom/transsion/TranssionSDK;->CallBackADReward(LsdkInterface/define/ADType;LsdkInterface/define/ADResult;Ljava/lang/String;)V
     invoke-static {v0, v1, v2, v3}, Lcom/transsion/TranssionSDK;->access$100(Lcom/transsion/TranssionSDK;LsdkInterface/define/ADType;LsdkInterface/define/ADResult;Ljava/lang/String;)V
 
-    .line 327
+    .line 334
     return-void
 .end method
 
 .method public onRewardedAdLoaded()V
     .registers 5
 
-    .line 318
+    .line 325
     invoke-super {p0}, Lcom/transsion/gamead/GameRewardedAdLoadCallback;->onRewardedAdLoaded()V
 
-    .line 319
+    .line 326
     iget-object v0, p0, Lcom/transsion/TranssionSDK$4;->this$0:Lcom/transsion/TranssionSDK;
 
-    const-string v1, "TranssionSDK onRewardedAdLoaded"
+    const-string v1, "TranssionSDK LoadAD onRewardedAdLoaded"
 
     invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 320
+    .line 327
     iget-object v0, p0, Lcom/transsion/TranssionSDK$4;->this$0:Lcom/transsion/TranssionSDK;
 
     sget-object v1, LsdkInterface/define/ADType;->Reward:LsdkInterface/define/ADType;
@@ -104,6 +104,6 @@
     # invokes: Lcom/transsion/TranssionSDK;->CallBackADReward(LsdkInterface/define/ADType;LsdkInterface/define/ADResult;Ljava/lang/String;)V
     invoke-static {v0, v1, v2, v3}, Lcom/transsion/TranssionSDK;->access$000(Lcom/transsion/TranssionSDK;LsdkInterface/define/ADType;LsdkInterface/define/ADResult;Ljava/lang/String;)V
 
-    .line 321
+    .line 328
     return-void
 .end method

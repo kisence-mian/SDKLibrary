@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tds_achievement_string_dialog_earned_date">- %s 獲得 -</string>
+    <string name="tds_achievement_string_dialog_percent">\"有%.1f%%的玩家達成此項成就\"</string>
+    <string name="tds_achievement_string_dialog_percent_low">\"只有不到0.1%的玩家達成此項成就\"</string>
+    <string name="tds_achievement_string_dialog_status">已解鎖%1$s項成就，共%2$s項成就</string>
+    <string name="tds_achievement_string_invisible_subtitle">繼續玩下去就會知道囉</string>
+    <string name="tds_achievement_string_invisible_title">隱藏</string>
+    <string name="tds_achievement_string_locked">未解鎖</string>
+    <string name="tds_achievement_string_pop_title">恭喜解鎖新成就！</string>
+    <string name="tds_achievement_string_rarity_common">普通</string>
+    <string name="tds_achievement_string_rarity_rare">珍貴</string>
+    <string name="tds_achievement_string_rarity_ultra_rare">極為珍貴</string>
+    <string name="tds_achievement_string_rarity_uncommon">稀有</string>
+    <string name="tds_achievement_string_unlocked">已解鎖</string>
+</resources>

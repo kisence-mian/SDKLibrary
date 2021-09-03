@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tds.achievement"
+    android:versionCode="30201001"
+    android:versionName="3.2.1" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="30" />
+
+    <application>
+        <meta-data
+            android:name="com.tapsdk.achievement.loader"
+            android:value="true" />
+    </application>
+
+</manifest>

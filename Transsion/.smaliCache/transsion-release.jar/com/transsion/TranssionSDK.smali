@@ -126,7 +126,7 @@
     .registers 2
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 311
+    .line 315
     return-void
 .end method
 
@@ -134,7 +134,7 @@
     .registers 2
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 386
+    .line 393
     return-void
 .end method
 
@@ -142,7 +142,7 @@
     .registers 4
     .param p1, "productName"    # Ljava/lang/String;
 
-    .line 204
+    .line 206
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -155,7 +155,7 @@
 
     if-ge v0, v1, :cond_25
 
-    .line 206
+    .line 208
     iget-object v1, p0, Lcom/transsion/TranssionSDK;->m_Result:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -172,7 +172,7 @@
 
     if-eqz v1, :cond_22
 
-    .line 208
+    .line 210
     iget-object v1, p0, Lcom/transsion/TranssionSDK;->m_Result:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -183,13 +183,13 @@
 
     return-object v1
 
-    .line 204
+    .line 206
     :cond_22
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 212
+    .line 214
     .end local v0    # "i":I
     :cond_25
     new-instance v0, Ljava/lang/StringBuilder;
@@ -212,7 +212,7 @@
 
     invoke-virtual {p0, v0}, Lcom/transsion/TranssionSDK;->SendError(Ljava/lang/String;)V
 
-    .line 213
+    .line 215
     const/4 v0, 0x0
 
     return-object v0
@@ -222,7 +222,7 @@
     .registers 5
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 291
+    .line 295
     :try_start_0
     const-string v0, "GoodsID"
 
@@ -230,7 +230,7 @@
 
     move-result-object v0
 
-    .line 292
+    .line 296
     .local v0, "goodsID":Ljava/lang/String;
     iget-object v1, p0, Lcom/transsion/TranssionSDK;->payIDDict:Ljava/util/HashMap;
 
@@ -242,7 +242,7 @@
 
     move-object v0, v1
 
-    .line 294
+    .line 298
     iget-object v1, p0, Lcom/transsion/TranssionSDK;->priceDict:Ljava/util/HashMap;
 
     invoke-virtual {v1, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -251,7 +251,7 @@
 
     if-eqz v1, :cond_23
 
-    .line 296
+    .line 300
     iget-object v1, p0, Lcom/transsion/TranssionSDK;->priceDict:Ljava/util/HashMap;
 
     invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -264,7 +264,7 @@
 
     goto :goto_39
 
-    .line 300
+    .line 304
     :cond_23
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -288,16 +288,16 @@
     :try_end_39
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_39} :catch_3a
 
-    .line 305
+    .line 309
     .end local v0    # "goodsID":Ljava/lang/String;
     :goto_39
     goto :goto_55
 
-    .line 303
+    .line 307
     :catch_3a
     move-exception v0
 
-    .line 304
+    .line 308
     .local v0, "e":Lorg/json/JSONException;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -323,7 +323,7 @@
 
     invoke-virtual {p0, v1, v0}, Lcom/transsion/TranssionSDK;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 306
+    .line 310
     .end local v0    # "e":Lorg/json/JSONException;
     :goto_55
     return-void
@@ -332,14 +332,14 @@
 .method GetProductConfig()V
     .registers 2
 
-    .line 184
+    .line 186
     new-instance v0, Lcom/transsion/TranssionSDK$2;
 
     invoke-direct {v0, p0}, Lcom/transsion/TranssionSDK$2;-><init>(Lcom/transsion/TranssionSDK;)V
 
     invoke-static {v0}, Lcom/transsion/gamepay/core/PayHelper;->getProductConfig(Lcom/transsion/gamepay/core/ConfigCallback;)V
 
-    .line 200
+    .line 202
     return-void
 .end method
 
@@ -347,10 +347,10 @@
     .registers 4
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 179
+    .line 181
     invoke-super {p0, p1}, LsdkInterface/SDKBase;->Init(Lorg/json/JSONObject;)V
 
-    .line 180
+    .line 182
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -371,7 +371,7 @@
 
     invoke-virtual {p0, v0}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 181
+    .line 183
     return-void
 .end method
 
@@ -379,7 +379,7 @@
     .registers 3
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 390
+    .line 397
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -392,7 +392,7 @@
 .method public IsPrePay()Z
     .registers 2
 
-    .line 277
+    .line 281
     const/4 v0, 0x0
 
     return v0
@@ -401,7 +401,7 @@
 .method public IsReSendPay()Z
     .registers 2
 
-    .line 283
+    .line 287
     const/4 v0, 0x0
 
     return v0
@@ -411,7 +411,12 @@
     .registers 5
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 315
+    .line 320
+    const-string v0, "TranssionSDK LoadAD"
+
+    invoke-virtual {p0, v0}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
+
+    .line 322
     invoke-virtual {p0}, Lcom/transsion/TranssionSDK;->GetCurrentActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -426,7 +431,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/transsion/gamead/AdHelper;->loadReward(Landroid/app/Activity;Lcom/transsion/gamead/GameRewardedAdLoadCallback;Lcom/transsion/gamead/GameRewardedAdCallback;)V
 
-    .line 347
+    .line 354
     return-void
 .end method
 
@@ -571,29 +576,50 @@
 
     .line 104
     invoke-static {v4}, Lcom/transsion/gamead/AdInitializer;->init(Lcom/transsion/gamead/AdInitializer$Builder;)V
-    :try_end_79
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_79} :catch_7a
 
-    .line 131
+    .line 129
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Transsion onCreate Complete "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p0, v4}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
+    :try_end_8f
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_8f} :catch_90
+
+    .line 133
     .end local v0    # "appKey":Ljava/lang/String;
     .end local v1    # "debuggable":Z
     .end local v2    # "testMccMnc":Ljava/lang/String;
     .end local v3    # "RewardUnitId":Ljava/lang/String;
-    goto :goto_80
+    goto :goto_96
 
-    .line 129
-    :catch_7a
+    .line 131
+    :catch_90
     move-exception v0
 
-    .line 130
+    .line 132
     .local v0, "e":Ljava/io/IOException;
     const-string v1, "Transsion Init Error"
 
     invoke-virtual {p0, v1, v0}, Lcom/transsion/TranssionSDK;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 133
+    .line 135
     .end local v0    # "e":Ljava/io/IOException;
-    :goto_80
+    :goto_96
     iget-object v0, p0, Lcom/transsion/TranssionSDK;->PayIDKey:Ljava/lang/String;
 
     const-string v1, "-"
@@ -604,14 +630,14 @@
 
     iput-object v0, p0, Lcom/transsion/TranssionSDK;->payIDDict:Ljava/util/HashMap;
 
-    .line 134
+    .line 136
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/transsion/TranssionSDK;->productIDDict:Ljava/util/HashMap;
 
-    .line 135
+    .line 137
     iget-object v0, p0, Lcom/transsion/TranssionSDK;->payIDDict:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -622,12 +648,12 @@
 
     move-result-object v0
 
-    :goto_9b
+    :goto_b1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_b3
+    if-eqz v1, :cond_c9
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -635,7 +661,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 136
+    .line 138
     .local v1, "key":Ljava/lang/String;
     iget-object v2, p0, Lcom/transsion/TranssionSDK;->productIDDict:Ljava/util/HashMap;
 
@@ -647,20 +673,20 @@
 
     invoke-virtual {v2, v3, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 137
-    .end local v1    # "key":Ljava/lang/String;
-    goto :goto_9b
-
     .line 139
-    :cond_b3
-    invoke-virtual {p0}, Lcom/transsion/TranssionSDK;->GetProductConfig()V
+    .end local v1    # "key":Ljava/lang/String;
+    goto :goto_b1
 
     .line 141
-    const-string v0, "Transsion onCreate Complete"
+    :cond_c9
+    invoke-virtual {p0}, Lcom/transsion/TranssionSDK;->GetProductConfig()V
 
-    invoke-virtual {p0, v0}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
+    .line 143
+    const/4 v0, 0x0
 
-    .line 142
+    invoke-virtual {p0, v0}, Lcom/transsion/TranssionSDK;->LoadAD(Lorg/json/JSONObject;)V
+
+    .line 144
     return-void
 .end method
 
@@ -668,15 +694,15 @@
     .registers 7
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 218
+    .line 220
     iget-object v0, p0, Lcom/transsion/TranssionSDK;->m_Result:Ljava/util/List;
 
     if-nez v0, :cond_15
 
-    .line 219
+    .line 221
     const-string v0, "TranssionSDK m_Result Need init"
 
-    .line 220
+    .line 222
     .local v0, "e":Ljava/lang/String;
     new-instance v1, Ljava/lang/Exception;
 
@@ -684,17 +710,17 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/transsion/TranssionSDK;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 221
+    .line 223
     const/4 v1, 0x0
 
     const-string v2, ""
 
     invoke-virtual {p0, v1, v2, v0}, Lcom/transsion/TranssionSDK;->SendPayCallBack(ZLjava/lang/String;Ljava/lang/String;)V
 
-    .line 222
+    .line 224
     return-void
 
-    .line 225
+    .line 227
     .end local v0    # "e":Ljava/lang/String;
     :cond_15
     invoke-static {p1}, LsdkInterface/module/PayInfo;->FromJson(Lorg/json/JSONObject;)LsdkInterface/module/PayInfo;
@@ -703,7 +729,7 @@
 
     iput-object v0, p0, Lcom/transsion/TranssionSDK;->m_PayInfo:LsdkInterface/module/PayInfo;
 
-    .line 226
+    .line 228
     iget-object v1, p0, Lcom/transsion/TranssionSDK;->payIDDict:Ljava/util/HashMap;
 
     iget-object v0, v0, LsdkInterface/module/PayInfo;->goodsID:Ljava/lang/String;
@@ -716,19 +742,19 @@
 
     iput-object v0, p0, Lcom/transsion/TranssionSDK;->goodsIDCache:Ljava/lang/String;
 
-    .line 228
+    .line 230
     new-instance v0, Lorg/json/JSONArray;
 
     invoke-direct {v0}, Lorg/json/JSONArray;-><init>()V
 
-    .line 231
+    .line 233
     .local v0, "map":Lorg/json/JSONArray;
     :try_start_2c
     new-instance v1, Lorg/json/JSONObject;
 
     invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
 
-    .line 232
+    .line 234
     .local v1, "productID":Lorg/json/JSONObject;
     const-string v2, "productId"
 
@@ -738,15 +764,15 @@
 
     invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 233
+    .line 235
     invoke-virtual {v0, v1}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 239
+    .line 241
     new-instance v2, Lorg/json/JSONObject;
 
     invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
-    .line 240
+    .line 242
     .local v2, "userID":Lorg/json/JSONObject;
     const-string v3, "userId"
 
@@ -756,29 +782,29 @@
 
     invoke-virtual {v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 241
+    .line 243
     invoke-virtual {v0, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
     :try_end_4e
     .catch Lorg/json/JSONException; {:try_start_2c .. :try_end_4e} :catch_50
 
-    .line 245
+    .line 247
     nop
 
     .end local v1    # "productID":Lorg/json/JSONObject;
     .end local v2    # "userID":Lorg/json/JSONObject;
     goto :goto_56
 
-    .line 243
+    .line 245
     :catch_50
     move-exception v1
 
-    .line 244
+    .line 246
     .local v1, "e":Lorg/json/JSONException;
     const-string v2, "Pay Error "
 
     invoke-virtual {p0, v2, v1}, Lcom/transsion/TranssionSDK;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 247
+    .line 249
     .end local v1    # "e":Lorg/json/JSONException;
     :goto_56
     invoke-static {p1}, LsdkInterface/module/PayInfo;->FromJson(Lorg/json/JSONObject;)LsdkInterface/module/PayInfo;
@@ -787,14 +813,14 @@
 
     iput-object v1, p0, Lcom/transsion/TranssionSDK;->m_PayInfo:LsdkInterface/module/PayInfo;
 
-    .line 248
+    .line 250
     iget-object v1, p0, Lcom/transsion/TranssionSDK;->goodsIDCache:Ljava/lang/String;
 
     invoke-virtual {p0, v1}, Lcom/transsion/TranssionSDK;->GetConfig(Ljava/lang/String;)Lcom/transsion/gamepay/core/bean/ProductConfig;
 
     move-result-object v1
 
-    .line 249
+    .line 251
     .local v1, "currentProduct":Lcom/transsion/gamepay/core/bean/ProductConfig;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -816,7 +842,7 @@
 
     invoke-virtual {p0, v2}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 250
+    .line 252
     invoke-virtual {p0}, Lcom/transsion/TranssionSDK;->GetCurrentActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -827,7 +853,7 @@
 
     invoke-direct {v3, v4}, Lcom/transsion/gamepay/core/PayParams$Builder;-><init>(Ljava/lang/String;)V
 
-    .line 255
+    .line 257
     invoke-virtual {v0}, Lorg/json/JSONArray;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -840,10 +866,10 @@
 
     invoke-direct {v4, p0}, Lcom/transsion/TranssionSDK$3;-><init>(Lcom/transsion/TranssionSDK;)V
 
-    .line 250
+    .line 252
     invoke-static {v2, v3, v4}, Lcom/transsion/gamepay/core/PayHelper;->pay(Landroid/app/Activity;Lcom/transsion/gamepay/core/PayParams$Builder;Lcom/transsion/gamepay/core/PayCallback;)V
 
-    .line 272
+    .line 276
     return-void
 .end method
 
@@ -851,7 +877,7 @@
     .registers 4
     .param p1, "json"    # Lorg/json/JSONObject;
 
-    .line 354
+    .line 361
     invoke-virtual {p0}, Lcom/transsion/TranssionSDK;->GetCurrentActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -862,7 +888,7 @@
 
     invoke-static {v0, v1}, Lcom/transsion/gamead/AdHelper;->showReward(Landroid/app/Activity;Lcom/transsion/gamead/GameAdDisplayCallback;)V
 
-    .line 381
+    .line 388
     return-void
 .end method
 
@@ -872,28 +898,28 @@
     .param p2, "token"    # Ljava/lang/String;
     .param p3, "errorCode"    # Ljava/lang/String;
 
-    .line 147
+    .line 149
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    .line 148
+    .line 150
     .local v0, "jo":Lorg/json/JSONObject;
     const-string v1, ""
 
-    .line 149
+    .line 151
     .local v1, "goodsID":Ljava/lang/String;
     iget-object v2, p0, Lcom/transsion/TranssionSDK;->m_PayInfo:LsdkInterface/module/PayInfo;
 
     if-eqz v2, :cond_e
 
-    .line 151
+    .line 153
     iget-object v2, v2, LsdkInterface/module/PayInfo;->goodsID:Ljava/lang/String;
 
     move-object v1, v2
 
-    .line 154
+    .line 156
     :cond_e
     const-string v2, "ModuleName"
 
@@ -901,27 +927,27 @@
 
     invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 155
+    .line 157
     const-string v2, "GoodsID"
 
     invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 156
+    .line 158
     const-string v2, "IsSuccess"
 
     invoke-virtual {v0, v2, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 157
+    .line 159
     const-string v2, "OrderID"
 
     invoke-virtual {v0, v2, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 158
+    .line 160
     const-string v2, "Error"
 
     invoke-virtual {v0, v2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 159
+    .line 161
     const-string v2, "Payment"
 
     sget-object v3, LsdkInterface/define/StoreName;->OKJOY:LsdkInterface/define/StoreName;
@@ -932,12 +958,12 @@
 
     invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 160
+    .line 162
     const-string v2, "Receipt"
 
     invoke-virtual {v0, v2, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 162
+    .line 164
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -966,7 +992,7 @@
 
     move-result-object v2
 
-    const-string v3, "jo is null"
+    const-string v3, " josn is null"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -982,46 +1008,46 @@
 
     invoke-virtual {p0, v2}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 164
+    .line 166
     iget-object v2, p0, Lcom/transsion/TranssionSDK;->m_PayInfo:LsdkInterface/module/PayInfo;
 
     if-nez v2, :cond_6c
 
-    .line 165
+    .line 167
     new-instance v2, LsdkInterface/module/PayInfo;
 
     invoke-direct {v2}, LsdkInterface/module/PayInfo;-><init>()V
 
     iput-object v2, p0, Lcom/transsion/TranssionSDK;->m_PayInfo:LsdkInterface/module/PayInfo;
 
-    .line 167
+    .line 169
     :cond_6c
     iget-object v2, p0, Lcom/transsion/TranssionSDK;->m_PayInfo:LsdkInterface/module/PayInfo;
 
     invoke-virtual {v2, v0}, LsdkInterface/module/PayInfo;->ToJson(Lorg/json/JSONObject;)V
 
-    .line 169
+    .line 171
     invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {p0, v2}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 171
+    .line 173
     invoke-static {v0}, LsdkInterface/SdkInterface;->SendMessage(Lorg/json/JSONObject;)V
     :try_end_7b
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_7b} :catch_7c
 
-    .line 174
+    .line 176
     .end local v0    # "jo":Lorg/json/JSONObject;
     .end local v1    # "goodsID":Ljava/lang/String;
     goto :goto_93
 
-    .line 172
+    .line 174
     :catch_7c
     move-exception v0
 
-    .line 173
+    .line 175
     .local v0, "e":Lorg/json/JSONException;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1043,7 +1069,7 @@
 
     invoke-virtual {p0, v1, v0}, Lcom/transsion/TranssionSDK;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 175
+    .line 177
     .end local v0    # "e":Lorg/json/JSONException;
     :goto_93
     return-void

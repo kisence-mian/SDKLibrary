@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tds_achievement_string_dialog_earned_date">- Mendapat achievement pada %s -</string>
+    <string name="tds_achievement_string_dialog_percent">\"%.1f%% pemain mendapat Achievement ini\"</string>
+    <string name="tds_achievement_string_dialog_percent_low">\"Kurang dari 0.1% pemain memiliki achievement ini\"</string>
+    <string name="tds_achievement_string_dialog_status">%1$s/%2$s Achievement</string>
+    <string name="tds_achievement_string_invisible_subtitle">Tetaplah bermain untuk membukanya</string>
+    <string name="tds_achievement_string_invisible_title">Tersembunyi</string>
+    <string name="tds_achievement_string_locked">LOCKED</string>
+    <string name="tds_achievement_string_pop_title">Mendapatkan achievement!</string>
+    <string name="tds_achievement_string_rarity_common">Common</string>
+    <string name="tds_achievement_string_rarity_rare">Super Rare</string>
+    <string name="tds_achievement_string_rarity_ultra_rare">Ultra Rare</string>
+    <string name="tds_achievement_string_rarity_uncommon">Rare</string>
+    <string name="tds_achievement_string_unlocked">UNLOCKED</string>
+</resources>

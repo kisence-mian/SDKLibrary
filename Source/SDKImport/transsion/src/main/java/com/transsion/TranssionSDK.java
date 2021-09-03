@@ -126,6 +126,8 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
                     .setTotalSwitch(true)
                 );
 
+            SendLog("Transsion onCreate Complete " + appKey);
+
         } catch (IOException e) {
             SendError("Transsion Init Error",e);
         }
@@ -138,7 +140,7 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
 
         GetProductConfig();
 
-        SendLog("Transsion onCreate Complete");
+        LoadAD(null);
     }
 
     //返回支付结果 （OkJoy sdk 的回调不准确,必然成功）
@@ -159,7 +161,7 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.OKJOY.toString());
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, token);
 
-            SendLog( "PayInfo is null" + (m_PayInfo == null) + "jo is null" + (jo == null));
+            SendLog( "PayInfo is null" + (m_PayInfo == null) + " josn is null" + (jo == null));
 
             if (m_PayInfo == null) {
                 m_PayInfo = new PayInfo();
@@ -193,7 +195,7 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
                 {
                     SendLog("m_Result  i " + i + " " + m_Result.get(i).name  +" " + m_Result.get(i).id + " " + m_Result.get(i).amount);
 
-                    priceDict.put(m_Result.get(i).name,m_Result.get(i).amount);
+                    priceDict.put(m_Result.get(i).id,m_Result.get(i).amount);
                 }
             }
         });
@@ -203,7 +205,7 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
     {
         for(int i =0;i<m_Result.size();++i)
         {
-            if(m_Result.get(i).name.equals(productName))
+            if(m_Result.get(i).id.equals(productName))
             {
                 return m_Result.get(i);
             }
@@ -258,12 +260,14 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
                 new PayCallback() {
                     @Override
                     public void paySuccess(PayParams params, OrderInfo orderInfo) {
+                        SendLog("Transsion paySuccess , " + orderInfo.orderId);
                         //支付成功
                         SendPayCallBack(true, orderInfo.orderId, "");
                     }
 
                     @Override
                     public void payFailure(PayParams params, OrderInfo orderInfo, int errorCode) {
+                        SendLog("Transsion payFailure , " + orderInfo.orderId + " " + errorCode);
                         //支付失败
                         SendPayCallBack(false, orderInfo.orderId, "" + errorCode);
                     }
@@ -312,17 +316,20 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
 
     @Override
     public void LoadAD(JSONObject json) {
+
+        SendLog("TranssionSDK LoadAD");
+
         AdHelper.loadReward(GetCurrentActivity(), new GameRewardedAdLoadCallback() {
             @Override
             public void onRewardedAdLoaded() {
                 super.onRewardedAdLoaded();
-                SendLog("TranssionSDK onRewardedAdLoaded");
+                SendLog("TranssionSDK LoadAD onRewardedAdLoaded");
                 CallBackADReward(ADType.Reward, ADResult.Load_Success,"");
             }
             @Override
             public void onRewardedAdFailedToLoad(int i) {
                 super.onRewardedAdFailedToLoad(i);
-                SendLog("TranssionSDK onRewardedAdFailedToLoad " + i);
+                SendLog("TranssionSDK LoadAD onRewardedAdFailedToLoad " + i);
                 CallBackADReward(ADType.Reward, ADResult.Load_Failure,"");
             }
         }, new GameRewardedAdCallback(){
@@ -362,7 +369,7 @@ public class TranssionSDK extends SDKBase implements  IPay , IAD {
 
             @Override
             public void failure(int var1) {
-                SendLog("TranssionSDK failure successful");
+                SendLog("TranssionSDK PlayAD failure " + var1);
                 CallBackADReward(ADType.Reward, ADResult.Show_Failed,"");
             }
         //您可以点击进入GameAdDisplayCallback类，查看更多您需要的回调，并重写对应的方法

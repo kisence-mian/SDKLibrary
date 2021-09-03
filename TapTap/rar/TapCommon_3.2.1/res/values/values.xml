@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tds_common_tag_unhandled_key_event_manager" type="id"/>
+    <item name="tds_common_tag_unhandled_key_listeners" type="id"/>
+    <style name="tds_common_DialogTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="tds_common_animation_slideSheetDialog_landscape" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/tds_common_slide_sheet_land_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/tds_common_slide_sheet_land_slide_out</item>
+    </style>
+    <style name="tds_common_animation_slideSheetDialog_portrait" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/tds_common_slide_sheet_port_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/tds_common_slide_sheet_port_slide_out</item>
+    </style>
+    <style name="tds_common_permission_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+</resources>

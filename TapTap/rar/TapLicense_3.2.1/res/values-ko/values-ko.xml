@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_choose_tap_cn">TapTap중국</string>
+    <string name="dialog_choose_tap_global">TapTap</string>
+    <string name="dialog_choose_title">아래 앱을 선택하여 열기</string>
+    <string name="taptap_alert_download_taptap">본 게임은 TapTap 최신버전에서 지원됩니다. TapTap 최신 버전을 다운로드해주세요</string>
+    <string name="taptap_alert_license_no">활성화되지않은 게임입니다. TapTap에서 게임을 구매하세요</string>
+    <string name="taptap_string_checking_license">구매 기록 확인 중...</string>
+    <string name="taptap_string_download_taptap">TapTap 다운로드</string>
+    <string name="taptap_string_open_taptap">TapTap 열기</string>
+</resources>

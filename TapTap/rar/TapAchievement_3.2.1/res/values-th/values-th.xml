@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tds_achievement_string_dialog_earned_date">- สำเร็จเมื่อ %s -</string>
+    <string name="tds_achievement_string_dialog_percent">\"%.1f%% ของผู้เล่นได้รับความสำเร็จนี้\"</string>
+    <string name="tds_achievement_string_dialog_percent_low">\"ผู้เล่นน้อยกว่า 0.1% ได้รับความสำเร็จนี้\"</string>
+    <string name="tds_achievement_string_dialog_status">%1$s/%2$s ความสำเร็จ</string>
+    <string name="tds_achievement_string_invisible_subtitle">เล่นเพื่อปลดล็อกความสำเร็จลับ</string>
+    <string name="tds_achievement_string_invisible_title">ความสำเร็จลับ</string>
+    <string name="tds_achievement_string_locked">ล็อก</string>
+    <string name="tds_achievement_string_pop_title">ปลดล็อกความสำเร็จ!</string>
+    <string name="tds_achievement_string_rarity_common">คอมมอน</string>
+    <string name="tds_achievement_string_rarity_rare">ซุปเปอร์แรร์</string>
+    <string name="tds_achievement_string_rarity_ultra_rare">อัลตราแรร์</string>
+    <string name="tds_achievement_string_rarity_uncommon">แรร์</string>
+    <string name="tds_achievement_string_unlocked">ปลดล็อก</string>
+</resources>

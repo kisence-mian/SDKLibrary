@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refreshAreaLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    >
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/tds_common_ic_refresh"
+        android:scaleType="centerInside"
+        />
+    <TextView
+        android:layout_marginLeft="6dp"
+        android:id="@+id/refreshMessageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:textColor="#73000000"
+        tools:text="网络异常，点击重试"
+        android:text="网络异常，点击重试"
+        />
+</LinearLayout>
+

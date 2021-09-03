@@ -1,0 +1,14 @@
+-keep,allowobfuscation @interface com.tds.common.annotation.Keep
+-keep @com.tds.common.annotation.Keep class * {*;}
+
+-keepclasseswithmembers class * {
+    @com.tds.common.annotation.Keep <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @com.tds.common.annotation.Keep <fields>;
+}
+
+-keepclasseswithmembers class * {
+    @com.tds.common.annotation.Keep <init>(...);
+}

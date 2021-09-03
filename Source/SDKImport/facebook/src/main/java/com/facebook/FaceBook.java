@@ -13,12 +13,13 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
+import sdkInterface.IShare;
 import sdkInterface.SDKBase;
 import sdkInterface.ILogin;
 import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.define.LoginPlatform;
 
-public class FaceBook extends SDKBase implements ILogin {
+public class FaceBook extends SDKBase implements ILogin , IShare {
 
     public static String LogTag = "FaceBookLogin=====";
     public CallbackManager callbackManager; //回调监听
@@ -27,8 +28,8 @@ public class FaceBook extends SDKBase implements ILogin {
     public void Init(JSONObject jsonObject)
     {
         Log.d(LogTag," Init Start");
-        FacebookSdk.sdkInitialize(GetCurrentActivity().getApplicationContext());
-        AppEventsLogger.activateApp(GetCurrentActivity());
+//        FacebookSdk.sdkInitialize(GetCurrentActivity().getApplicationContext());
+//        AppEventsLogger.activateApp(GetCurrentActivity());
         callbackManager = CallbackManager.Factory.create();
 
         LoginManager.getInstance().registerCallback(callbackManager,
@@ -100,8 +101,6 @@ public class FaceBook extends SDKBase implements ILogin {
         }
 
         SignOutResultResultCallBack(true,"0");
-
-
     }
 
 
@@ -149,6 +148,11 @@ public class FaceBook extends SDKBase implements ILogin {
             e.printStackTrace();
             SendError("Google onLoginError", e);
         }
+
+    }
+
+    @Override
+    public void Share(JSONObject json, String thumbImage, String image) {
 
     }
 }

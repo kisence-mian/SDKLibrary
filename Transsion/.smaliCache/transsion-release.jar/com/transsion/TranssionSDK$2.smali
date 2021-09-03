@@ -26,7 +26,7 @@
     .registers 2
     .param p1, "this$0"    # Lcom/transsion/TranssionSDK;
 
-    .line 184
+    .line 186
     iput-object p1, p0, Lcom/transsion/TranssionSDK$2;->this$0:Lcom/transsion/TranssionSDK;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
         }
     .end annotation
 
-    .line 187
+    .line 189
     .local p1, "result":Ljava/util/List;, "Ljava/util/List<Lcom/transsion/gamepay/core/bean/ProductConfig;>;"
     iget-object v0, p0, Lcom/transsion/TranssionSDK$2;->this$0:Lcom/transsion/TranssionSDK;
 
@@ -75,12 +75,12 @@
 
     invoke-virtual {v0, v1}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 188
+    .line 190
     iget-object v0, p0, Lcom/transsion/TranssionSDK$2;->this$0:Lcom/transsion/TranssionSDK;
 
     iput-object p1, v0, Lcom/transsion/TranssionSDK;->m_Result:Ljava/util/List;
 
-    .line 190
+    .line 192
     iget-object v0, p0, Lcom/transsion/TranssionSDK$2;->this$0:Lcom/transsion/TranssionSDK;
 
     new-instance v1, Ljava/util/HashMap;
@@ -89,7 +89,7 @@
 
     iput-object v1, v0, Lcom/transsion/TranssionSDK;->priceDict:Ljava/util/HashMap;
 
-    .line 192
+    .line 194
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -104,7 +104,7 @@
 
     if-ge v0, v1, :cond_ad
 
-    .line 194
+    .line 196
     iget-object v1, p0, Lcom/transsion/TranssionSDK$2;->this$0:Lcom/transsion/TranssionSDK;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -189,7 +189,7 @@
 
     invoke-virtual {v1, v2}, Lcom/transsion/TranssionSDK;->SendLog(Ljava/lang/String;)V
 
-    .line 196
+    .line 198
     iget-object v1, p0, Lcom/transsion/TranssionSDK$2;->this$0:Lcom/transsion/TranssionSDK;
 
     iget-object v1, v1, Lcom/transsion/TranssionSDK;->priceDict:Ljava/util/HashMap;
@@ -220,12 +220,12 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 192
+    .line 194
     add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_2a
 
-    .line 198
+    .line 200
     .end local v0    # "i":I
     :cond_ad
     return-void
