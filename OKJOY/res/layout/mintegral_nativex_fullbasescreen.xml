@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/mintegral_full_rl_playcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:layout_centerInParent="true">
+        <RelativeLayout
+            android:id="@+id/mintegral_full_player_parent"
+            android:layout_width="wrap_content"
+            android:background="#ff000000"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mintegral_full_rl_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        >
+        <ImageView
+            android:id="@+id/mintegral_full_iv_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/mintegral_nativex_close" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/mintegral_full_pb_loading"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+    <FrameLayout
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/mintegral_full_animation_content"
+        android:background="@drawable/mintegral_nativex_fullview_background"
+        >
+        <LinearLayout
+            android:id="@+id/mintegral_full_animation_player"
+            android:orientation="horizontal"
+            android:background="#00000000"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+            <TextView
+                android:id="@+id/mintegral_full_tv_install"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="安装"
+                android:lineSpacingExtra="10dp"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                />
+        </RelativeLayout>
+    </FrameLayout>
+
+</RelativeLayout>
+
+

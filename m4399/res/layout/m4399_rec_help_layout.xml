@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/m4399_rec_color_white"
+    android:orientation="vertical">
+
+    <cn.m4399.recharge.ui.widget.RechargeNavBarView
+        android:id="@+id/nav"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/m4399_rec_title_height" />
+
+    <include layout="@layout/m4399_rec_help_contact" />
+
+    <View
+        style="@style/m4399PerfectLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#f3f3f3" />
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:scrollbars="none">
+
+
+    </ListView>
+
+</LinearLayout>

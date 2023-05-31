@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/ksad_feed_video_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black">
+
+            <com.kwad.sdk.feed.widget.base.RatioFrameLayout
+                android:id="@+id/ksad_video_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/ksad_video_first_frame_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.kwad.sdk.feed.widget.base.RatioFrameLayout>
+
+            <LinearLayout
+                android:id="@+id/ksad_video_control_fullscreen_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="top|left"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="16dp"
+                android:visibility="invisible"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ksad_video_player_back_btn" />
+
+                <TextView
+                    android:id="@+id/ksad_video_control_fullscreen_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:ellipsize="start"
+                    tools:text="Shock入耳耳机，来京东便宜买"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ksad_video_control_container"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <ImageView
+                    android:id="@+id/ksad_video_control_play_button"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ksad_video_player_pause_btn" />
+
+                <TextView
+                    android:id="@+id/ksad_video_control_play_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:text="00:00" />
+
+                <com.kwad.sdk.core.view.ScaleAnimSeekBar
+                    android:id="@+id/ksad_web_video_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/ksad_video_control_play_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:text="00:00" />
+
+                <ImageView
+                    android:id="@+id/ksad_video_control_fullscreen"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ksad_video_player_fullscreen_btn" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ksad_video_control_play_status"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ksad_video_player_pause_center"
+                android:layout_gravity="center" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/ksad_video_text_below"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center_vertical|left"
+        android:textColor="#323232"
+        android:textSize="15sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:background="@android:color/white"
+        tools:text="峡谷英雄赢永久！每升5级抽Q币，冲榜赢史诗永…" />
+</LinearLayout>

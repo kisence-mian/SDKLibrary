@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded">
+
+    <TextView
+        android:id="@+id/ksad_ad_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#020202"
+        android:textSize="18dp"
+        tools:text="快手广告快手广告快手广告快手广告快手广告快手广告快手广告快手广告快手广告快手广告" />
+
+    <com.kwad.sdk.feed.widget.base.RatioFrameLayout
+        android:id="@+id/ksad_image_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        tools:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/ksad_ad_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+    </com.kwad.sdk.feed.widget.base.RatioFrameLayout>
+
+    <include
+        android:id="@+id/ksad_ad_download_container"
+        layout="@layout/ksad_feed_app_download"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <include
+        android:id="@+id/ksad_ad_h5_container"
+        layout="@layout/ksad_feed_open_h5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <include
+        layout="@layout/ksad_feed_label_dislike"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" />
+
+</LinearLayout>

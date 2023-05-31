@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="m4399_rec_page_height">420dp</dimen>
+    <dimen name="m4399_rec_page_width">275dp</dimen>
+    <dimen name="m4399_rec_title_height">50dp</dimen>
+    <dimen name="m4399_rec_title_iv_txt_spacing">2dp</dimen>
+    <dimen name="m4399_rec_separator_height">1dp</dimen>
+    <dimen name="m4399_rec_paddingTop">6dp</dimen>
+    <dimen name="m4399_rec_paddingBottom">6dp</dimen>
+    <dimen name="m4399_rec_paddingLeft">10dp</dimen>
+    <dimen name="m4399_rec_paddingRight">20dp</dimen>
+    <dimen name="m4399_rec_payment_icon_size">68dp</dimen>
+    <dimen name="m4399_rec_payment_text_size">11sp</dimen>
+    <dimen name="m4399_rec_payment_icon_padding">6dp</dimen>
+    <dimen name="m4399_rec_table_paddingTop">7dp</dimen>
+    <dimen name="m4399_rec_foot_height">26dp</dimen>
+    <dimen name="m4399_rec_edittext_height">36dp</dimen>
+    <dimen name="m4399_rec_btns_hspacing">6dp</dimen>
+    <dimen name="m4399_rec_btns_vspacing">12dp</dimen>
+    <dimen name="m4399_rec_gridview_hspacing">4dp</dimen>
+    <dimen name="m4399_rec_gridview_half_vspacing">7dp</dimen>
+    <dimen name="m4399_rec_gridview_vspacing">14dp</dimen>
+    <dimen name="m4399_rec_gridview_item_height">34dp</dimen>
+    <dimen name="m4399_rec_dialog_height">200dp</dimen>
+    <dimen name="m4399_rec_dialog_width">275dp</dimen>
+    <dimen name="m4399_rec_dialog_spacing">6dp</dimen>
+    <dimen name="m4399_rec_single_btn_marginBottom">30dp</dimen>
+    <dimen name="m4399_rec_foot_text_size">12sp</dimen>
+    <dimen name="m4399_rec_record_entry_offset">38dp</dimen>
+    <dimen name="m4399_rec_record_header_text_size">12sp</dimen>
+    <dimen name="m4399_rec_record_item_text_size">12sp</dimen>
+    <dimen name="m4399_rec_liantong_cfm_captcha_padding">4dp</dimen>
+    <dimen name="m4399_rec_gameinfo_top_margin">20dp</dimen>
+
+    <!--2.14.x-->
+    <dimen name="m4399_rec_page_margin">12dp</dimen>
+    <dimen name="m4399_rec_page_margint_top">10dp</dimen>
+    <dimen name="m4399_rec_page_margint_btm">8dp</dimen>
+
+    <dimen name="m4399_rec_chanel_select_width">340dp</dimen>
+    <dimen name="m4399_rec_chanel_select_height">401dp</dimen>
+    <dimen name="m4399_rec_coupon_select_width">340dp</dimen>
+    <dimen name="m4399_rec_coupon_select_height">451dp</dimen>
+    <dimen name="m4399_rec_input_tv_size">13sp</dimen>
+    <dimen name="m4399_rec_worn_dialog_width">290dp</dimen>
+    <dimen name="m4399_rec_card_width">75dp</dimen>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_choose_tap_cn">TapTap中国</string>
+    <string name="dialog_choose_tap_global">TapTap</string>
+    <string name="dialog_choose_title">以下のアプリケーションで起動してください</string>
+    <string name="taptap_alert_download_taptap">最新バージョンTapTapサービスが必要です。最新バージョンTapTapをダウンロードしてください</string>
+    <string name="taptap_alert_license_no">まだアクティブにしていません。TapTapで購入してください</string>
+    <string name="taptap_string_checking_license">購入詳細を確認中...</string>
+    <string name="taptap_string_download_taptap">TapTapをダウンロード</string>
+    <string name="taptap_string_open_taptap">TapTapを起動</string>
+</resources>

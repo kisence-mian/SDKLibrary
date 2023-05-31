@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/tt_splash_express_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/tt_splash_video_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <com.bytedance.sdk.openadsdk.core.widget.gif.GifView
+        android:id="@+id/tt_splash_ad_gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/tt_splash_video_ad_mute"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/tt_splash_mute" />
+
+    <com.bytedance.sdk.openadsdk.core.widget.TTCountdownView
+        android:id="@+id/tt_splash_skip_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp" />
+
+    <TextView
+        android:id="@+id/tt_ad_logo"
+        android:layout_width="32dp"
+        android:layout_height="12dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/tt_ad_logo_background"
+        android:drawableStart="@drawable/tt_ad_logo"
+        android:drawableLeft="@drawable/tt_ad_logo"
+        android:drawablePadding="2dp"
+        android:gravity="center"
+        android:paddingStart="2dp"
+        android:paddingLeft="2dp"
+        android:text="@string/tt_ad_logo_txt"
+        android:textColor="#FFFFFF"
+        android:textSize="7sp"
+        tools:ignore="RtlSymmetry" />
+
+</FrameLayout>

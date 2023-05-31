@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/ksad_logo_container"
+    android:layout_width="wrap_content"
+    android:layout_height="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="top|center_vertical"
+    tools:layout_gravity="top">
+
+    <ImageView
+        android:id="@+id/ksad_logo_icon"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:src="@drawable/ksad_logo_gray"
+        android:layout_gravity="center_vertical"
+        tools:visibility="visible"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="2dp"
+        />
+
+    <TextView
+        android:id="@+id/ksad_logo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:paddingLeft="2dp"
+        android:paddingRight="3dp"
+        android:text="广告"
+        tools:visibility="visible"
+        android:textColor="#9C9C9C" />
+</LinearLayout>

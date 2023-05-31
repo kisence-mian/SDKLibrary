@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_login_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ipay_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/rl_login_ui_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_40">
+
+            <TextView
+                android:id="@+id/tv_login_ui_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/ipay_ui_title_bar_normal_log"
+                android:textColor="@color/ipay_color_value_6"
+                android:textSize="@dimen/ipay_text_size_15" />
+
+            <ImageView
+                android:id="@+id/iv_login_ui_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/ipay_margin_15"
+                android:src="@drawable/ipay_dialog_close" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_login_ui_line_0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_divid_line_h"
+            android:layout_below="@+id/rl_login_ui_title"
+            android:background="@color/ipay_color_value_3" />
+
+        <RelativeLayout
+            android:id="@+id/rl_login_ui_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_login_ui_line_0"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_15"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <EditText
+                android:id="@+id/et_login_ui_input_account"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:background="@drawable/ipay_edit_cursor_color_top"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="@string/ipay_ui_login_input_account"
+                android:inputType="text"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+            <EditText
+                android:id="@+id/et_login_ui_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:layout_below="@+id/et_login_ui_input_account"
+                android:background="@drawable/ipay_edit_cursor_color_bottom"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="@string/ipay_ui_login_input_pwd"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_login_ui_click_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_44"
+            android:layout_below="@+id/rl_login_ui_et"
+            android:layout_margin="@dimen/ipay_margin_15"
+            android:background="@drawable/ipay_common_btn_bg_color"
+            android:gravity="center"
+            android:text="@string/ipay_ui_title_bar_normal_log"
+            android:textColor="@drawable/ipay_account_common_btn_text_color"
+            android:textSize="@dimen/ipay_text_size_15" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_login_ui_click_btn">
+
+            <TextView
+                android:id="@+id/tv_login_ui_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/ipay_margin_15"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:text="@string/ipay_ui_login_forget_pwd"
+                android:textColor="@color/ipay_color_value_7_2"
+                android:textSize="@dimen/ipay_text_size_11" />
+
+            <TextView
+                android:id="@+id/tv_login_ui_register_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingBottom="@dimen/ipay_margin_15"
+                android:paddingRight="@dimen/ipay_margin_15"
+                android:text="@string/ipay_ui_login_regist_account"
+                android:textColor="@color/ipay_color_value_7_2"
+                android:textSize="@dimen/ipay_text_size_11" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_register_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ipay_margin_15"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rl_register_ui_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_40">
+
+            <TextView
+                android:id="@+id/tv_register_ui_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/ipay_ui_login_regist"
+                android:textColor="@color/ipay_color_value_6"
+                android:textSize="@dimen/ipay_text_size_15" />
+
+            <ImageView
+                android:id="@+id/iv_register_ui_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/ipay_margin_15"
+                android:src="@drawable/ipay_dialog_close" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_register_ui_line_0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_divid_line_h"
+            android:layout_below="@+id/rl_register_ui_title"
+            android:background="@color/ipay_color_value_3" />
+
+        <RelativeLayout
+            android:id="@+id/rl_register_ui_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_register_ui_line_0"
+            android:layout_marginBottom="@dimen/ipay_margin_10"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_15"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <EditText
+                android:id="@+id/et_register_ui_input_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:background="@drawable/ipay_edit_cursor_color_top"
+                android:digits="0123456789"
+                android:hint="@string/ipay_ui_login_input_phone_num"
+                android:inputType="number"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_register_ui_input_phone_number">
+
+                <EditText
+                    android:id="@+id/et_register_ui_input_verification_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ipay_height_37"
+                    android:background="@drawable/ipay_edit_cursor_color_bottom"
+                    android:digits="0123456789"
+                    android:hint="@string/ipay_ui_login_input_sms_num"
+                    android:inputType="number"
+                    android:paddingLeft="@dimen/ipay_margin_15"
+                    android:textColor="@color/ipay_color_value_6"
+                    android:textColorHint="@color/ipay_color_value_4"
+                    android:textSize="@dimen/ipay_text_size_13" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center">
+
+                    <View
+                        android:layout_width="@dimen/ipay_divid_line_h"
+                        android:layout_height="@dimen/ipay_margin_15"
+                        android:layout_alignLeft="@+id/tv_register_ui_verification_code"
+                        android:background="@color/ipay_color_value_7" />
+
+                    <TextView
+                        android:id="@+id/tv_register_ui_verification_code"
+                        android:layout_width="@dimen/ipay_height_70"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/ipay_ui_login_get_number"
+                        android:textColor="@drawable/ipay_account_smscode_btn_text_color"
+                        android:textSize="@dimen/ipay_text_size_11" />
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_register_ui_next_step"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_44"
+            android:layout_below="@+id/rl_register_ui_et"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_10"
+            android:background="@drawable/ipay_common_btn_bg_color"
+            android:gravity="center"
+            android:text="@string/ipay_ui_login_next_step"
+            android:textColor="@drawable/ipay_account_common_btn_text_color"
+            android:textSize="@dimen/ipay_text_size_15" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_set_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ipay_margin_15"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rl_set_password_ui_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_40">
+
+            <TextView
+                android:id="@+id/tv_set_password_ui_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/ipay_ui_set_pwd"
+                android:textColor="@color/ipay_color_value_6"
+                android:textSize="@dimen/ipay_text_size_15" />
+
+            <ImageView
+                android:id="@+id/iv_set_password_ui_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/ipay_margin_15"
+                android:src="@drawable/ipay_dialog_close" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_set_password_ui_line_0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_divid_line_h"
+            android:layout_below="@+id/rl_set_password_ui_title"
+            android:background="@color/ipay_color_value_3" />
+
+        <RelativeLayout
+            android:id="@+id/rl_set_password_ui_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_set_password_ui_line_0"
+            android:layout_marginBottom="@dimen/ipay_margin_10"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_15"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <EditText
+                android:id="@+id/et_set_password_ui_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:background="@drawable/ipay_edit_cursor_color_top"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="@string/ipay_ui_pwd_set"
+                android:inputType="numberPassword"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+            <EditText
+                android:id="@+id/et_set_password_ui_input_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:layout_below="@+id/et_set_password_ui_input_password"
+                android:background="@drawable/ipay_edit_cursor_color_bottom"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="@string/ipay_ui_login_input_pwd_again"
+                android:inputType="numberPassword"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_set_password_ui_error_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rl_set_password_ui_et"
+            android:layout_below="@+id/rl_set_password_ui_et"
+            android:text="@string/ipay_ui_input_wrong_pwd"
+            android:textColor="@color/ipay_color_value_8"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_set_password_ui_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_44"
+            android:layout_below="@+id/tv_set_password_ui_error_hint"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_10"
+            android:background="@drawable/ipay_common_btn_bg_color"
+            android:gravity="center"
+            android:text="@string/ipay_ui_login_regist"
+            android:textColor="@drawable/ipay_account_common_btn_text_color"
+            android:textSize="@dimen/ipay_text_size_15" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_set_new_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ipay_margin_15"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rl_set_new_password_ui_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_40">
+
+            <TextView
+                android:id="@+id/tv_set_new_password_ui_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/ipay_ui_set_pwd"
+                android:textColor="@color/ipay_color_value_6"
+                android:textSize="@dimen/ipay_text_size_15" />
+
+            <ImageView
+                android:id="@+id/iv_set_new_password_ui_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/ipay_margin_15"
+                android:src="@drawable/ipay_dialog_close" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_set_new_password_ui_line_0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_divid_line_h"
+            android:layout_below="@+id/rl_set_new_password_ui_title"
+            android:background="@color/ipay_color_value_3" />
+
+        <RelativeLayout
+            android:id="@+id/rl_set_new_password_ui_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_set_new_password_ui_line_0"
+            android:layout_marginBottom="@dimen/ipay_margin_10"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_15"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <EditText
+                android:id="@+id/et_set_new_password_ui_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:background="@drawable/ipay_edit_cursor_color_top"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="@string/ipay_ui_pwd_set"
+                android:inputType="numberPassword"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+            <EditText
+                android:id="@+id/et_set_new_password_ui_input_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:layout_below="@+id/et_set_new_password_ui_input_password"
+                android:background="@drawable/ipay_edit_cursor_color_bottom"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="@string/ipay_ui_login_input_pwd_again"
+                android:inputType="numberPassword"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_set_new_password_ui_error_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rl_set_new_password_ui_et"
+            android:layout_below="@+id/rl_set_new_password_ui_et"
+            android:text="@string/ipay_ui_input_wrong_pwd"
+            android:textColor="@color/ipay_color_value_8"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_set_new_password_ui_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_44"
+            android:layout_below="@+id/tv_set_new_password_ui_error_hint"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_10"
+            android:background="@drawable/ipay_common_btn_bg_color"
+            android:gravity="center"
+            android:text="@string/ipay_ui_login_regist"
+            android:textColor="@drawable/ipay_account_common_btn_text_color"
+            android:textSize="@dimen/ipay_text_size_15" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_modify_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_modify_password_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ipay_margin_20"
+            android:gravity="center"
+            android:text="@string/ipay_ui_change_pwd"
+            android:textColor="@color/ipay_color_value_6"
+            android:textSize="@dimen/ipay_text_size_15" />
+
+        <RelativeLayout
+            android:id="@+id/rl_modify_password_ui_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_modify_password_title"
+            android:layout_marginLeft="@dimen/ipay_margin_27"
+            android:layout_marginRight="@dimen/ipay_margin_27"
+            android:layout_marginTop="@dimen/ipay_margin_35"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <EditText
+                android:id="@+id/et_modify_password_ui_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_34"
+                android:background="@drawable/ipay_bg_4_1"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:gravity="center"
+                android:hint="@string/ipay_ui_input_original_pwd"
+                android:inputType="numberPassword"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_modify_password_ui"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_divid_line_h"
+            android:layout_below="@+id/rl_modify_password_ui_et"
+            android:layout_marginTop="@dimen/ipay_margin_35"
+            android:background="@color/ipay_color_value_4_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_modify_password_ui"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_modify_password_ui_cancel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/ipay_height_40"
+                android:layout_weight="1"
+                android:background="@drawable/ipay_bg_btn_color_2"
+                android:gravity="center"
+                android:text="@string/ipay_common_alert_dialog_cancel"
+                android:textColor="@color/ipay_color_value_7_2"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+            <View
+                android:layout_width="@dimen/ipay_divid_line_h"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rl_modify_password_ui_et"
+                android:background="@color/ipay_color_value_4_1" />
+
+            <TextView
+                android:id="@+id/tv_modify_password_ui_confirm"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/ipay_height_40"
+                android:layout_weight="1"
+                android:background="@drawable/ipay_bg_btn_color_2"
+                android:gravity="center"
+                android:text="@string/ipay_common_alert_dialog_ensure"
+                android:textColor="@color/ipay_color_value_7_2"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_set_password_modify_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_set_password_modify_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ipay_margin_20"
+            android:gravity="center"
+            android:text="@string/ipay_ui_change_pwd"
+            android:textColor="@color/ipay_color_value_6"
+            android:textSize="@dimen/ipay_text_size_15" />
+
+        <RelativeLayout
+            android:id="@+id/rl_set_password_modify_ui_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_set_password_modify_title"
+            android:layout_marginLeft="@dimen/ipay_margin_27"
+            android:layout_marginRight="@dimen/ipay_margin_27"
+            android:layout_marginTop="@dimen/ipay_margin_10"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <EditText
+                android:id="@+id/et_set_password_modify_ui_input_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_34"
+                android:background="@drawable/ipay_edit_cursor_color_top"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:gravity="center"
+                android:hint="@string/ipay_ui_pwd_set"
+                android:inputType="numberPassword"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_set_password_ui_et_repeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_set_password_modify_ui_et"
+            android:layout_marginLeft="@dimen/ipay_margin_27"
+            android:layout_marginRight="@dimen/ipay_margin_27"
+            android:layout_marginTop="@dimen/ipay_margin_10"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <EditText
+                android:id="@+id/et_set_password_modify_ui_input_password_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_34"
+                android:background="@drawable/ipay_edit_cursor_color_top"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:gravity="center"
+                android:hint="@string/ipay_ui_login_input_pwd_again"
+                android:inputType="numberPassword"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_set_password_modify_error_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_set_password_ui_et_repeat"
+            android:layout_marginBottom="@dimen/ipay_margin_10"
+            android:layout_marginTop="@dimen/ipay_margin_10"
+            android:gravity="center"
+            android:text="@string/ipay_ui_pwd_not_null"
+            android:textColor="@color/ipay_color_value_8"
+            android:textSize="@dimen/ipay_text_size_11"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/v_set_password_modify_ui"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_divid_line_h"
+            android:layout_below="@+id/tv_set_password_modify_error_hint"
+            android:background="@color/ipay_color_value_4_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_set_password_modify_ui"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_set_password_modify_ui_cancel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/ipay_height_40"
+                android:layout_weight="1"
+                android:background="@drawable/ipay_bg_btn_color_2"
+                android:gravity="center"
+                android:text="@string/ipay_common_alert_dialog_cancel"
+                android:textColor="@color/ipay_color_value_7_2"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+            <View
+                android:layout_width="@dimen/ipay_divid_line_h"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rl_modify_password_modify_ui_et"
+                android:background="@color/ipay_color_value_4_1" />
+
+            <TextView
+                android:id="@+id/tv_set_password_modify_ui_confirm"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/ipay_height_40"
+                android:layout_weight="1"
+                android:background="@drawable/ipay_bg_btn_color_2"
+                android:gravity="center"
+                android:text="@string/ipay_common_alert_dialog_ensure"
+                android:textColor="@color/ipay_color_value_7_2"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_retrieve_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ipay_margin_15"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/rl_retrieve_password_ui_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_40">
+
+            <TextView
+                android:id="@+id/tv_retrieve_password_ui_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/ipay_ui_login_find_pwd"
+                android:textColor="@color/ipay_color_value_6"
+                android:textSize="@dimen/ipay_text_size_15" />
+
+            <ImageView
+                android:id="@+id/iv_retrieve_password_ui_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/ipay_margin_15"
+                android:src="@drawable/ipay_dialog_close" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_retrieve_password_ui_line_0"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_divid_line_h"
+            android:layout_below="@+id/rl_retrieve_password_ui_title"
+            android:background="@color/ipay_color_value_3" />
+
+        <RelativeLayout
+            android:id="@+id/rl_retrieve_password_ui_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_retrieve_password_ui_line_0"
+            android:layout_marginBottom="@dimen/ipay_margin_10"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_15"
+            android:background="@drawable/ipay_bg_4_1">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_retrieve_password_ui_input_phone_number">
+
+                <EditText
+                    android:id="@+id/et_retrieve_password_ui_input_verification_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ipay_height_37"
+                    android:background="@drawable/ipay_edit_cursor_color_bottom"
+                    android:digits="0123456789"
+                    android:hint="@string/ipay_ui_login_input_sms_num"
+                    android:inputType="number"
+                    android:paddingLeft="@dimen/ipay_margin_15"
+                    android:textColor="@color/ipay_color_value_6"
+                    android:textColorHint="@color/ipay_color_value_4"
+                    android:textSize="@dimen/ipay_text_size_13" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center">
+
+                    <View
+                        android:layout_width="@dimen/ipay_divid_line_h"
+                        android:layout_height="@dimen/ipay_margin_15"
+                        android:layout_alignLeft="@+id/tv_retrieve_password_ui_verification_code"
+                        android:background="@color/ipay_color_value_7" />
+
+                    <TextView
+                        android:id="@+id/tv_retrieve_password_ui_verification_code"
+                        android:layout_width="@dimen/ipay_height_70"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/ipay_ui_login_get_number"
+                        android:textColor="@drawable/ipay_account_smscode_btn_text_color"
+                        android:textSize="@dimen/ipay_text_size_11" />
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/et_retrieve_password_ui_input_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ipay_height_37"
+                android:background="@drawable/ipay_edit_cursor_color_top"
+                android:digits="0123456789"
+                android:hint="@string/ipay_ui_login_input_phone_num"
+                android:inputType="number"
+                android:paddingLeft="@dimen/ipay_margin_15"
+                android:textColor="@color/ipay_color_value_6"
+                android:textColorHint="@color/ipay_color_value_4"
+                android:textSize="@dimen/ipay_text_size_13" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_retrieve_password_ui_next_step"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_height_44"
+            android:layout_below="@+id/rl_retrieve_password_ui_et"
+            android:layout_marginLeft="@dimen/ipay_margin_15"
+            android:layout_marginRight="@dimen/ipay_margin_15"
+            android:layout_marginTop="@dimen/ipay_margin_10"
+            android:background="@drawable/ipay_common_btn_bg_color"
+            android:gravity="center"
+            android:text="@string/ipay_ui_login_next_step"
+            android:textColor="@drawable/ipay_account_common_btn_text_color"
+            android:textSize="@dimen/ipay_text_size_15" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="SpUsage, ContentDescription,RtlHardcoded">
+
+    <LinearLayout
+        android:id="@+id/ksad_top_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ksad_app_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ksad_default_app_icon" />
+
+        <com.kwad.sdk.reward.widget.AppScoreView
+            android:id="@+id/ksad_app_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/ksad_app_download_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14dp"
+            android:visibility="gone"
+            tools:text="100W次下载"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/ksad_video_place_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        tools:layout_width="200dp">
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="16dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/ksad_ad_label_black" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ksad_bottom_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ksad_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            tools:text="快手APP" />
+
+        <TextView
+            android:id="@+id/ksad_app_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:textColor="#A2A2A2"
+            android:textSize="12dp"
+            tools:text="广告描述广告描述" />
+
+        <FrameLayout
+            android:layout_width="112dp"
+            android:layout_height="44dp">
+
+            <com.kwad.sdk.core.page.widget.TextProgressBar
+                android:id="@+id/ksad_app_download_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:indeterminateOnly="false"
+                android:progressDrawable="@drawable/ksad_video_actionbar_app_progress" />
+
+            <View
+                android:id="@+id/ksad_app_download_btn_cover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ksad_video_actionbar_cover_bg" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ==========================  style资源 start ========================== -->
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+    </style>
+    <style name="JoyGame_Dialog_theme" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@color/joygame_transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="JoyGame_Transparent" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/joygame_transparent_background</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+    <!--popup动画-->
+    <style name="JoyGame_PopupWindow_Animation" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/joy_dialog_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/joy_popup_window_exit</item>
+    </style>
+    <!-- 菜单样式 -->
+    <style name="JoyGame_float_MyDialog" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground">@color/joygame_transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimAmount">0.1</item>
+    </style>
+    <!-- 菜单动画 -->
+    <style name="JoyGame_float_animation">
+        <item name="android:windowEnterAnimation">@anim/joy_float_menu_enter</item>
+        <item name="android:windowExitAnimation">@anim/joy_float_menu_exit</item>
+    </style>
+
+    <!-- ==========================  style资源 end   ========================== -->
+
+   <!-- ==========================  颜色资源 start ========================== -->
+
+    <color name="joygame_white">#ffffff</color>
+    <color name="joygame_black">#000000</color>
+    <color name="joygame_theme_blue">#5CBAEA</color>
+    <color name="joygame_background">#f5f5f5</color>
+    <color name="joygame_light_grey">#585858</color>
+    <color name="joygame_high_light_grey">#999999</color>
+    <color name="joygame_menu_bg">#ebebeb</color>
+    <color name="joygame_transparent">#00000000</color>
+    <color name="joygame_transparent_background">#50000000</color>
+    <color name="joygame_base_color">#efefef</color>
+    <color name="joygame_base_stroke_color">#222325</color>
+    <color name="joygame_light_black">#1d1c1c</color>
+    <color name="joygame_hide_float_color">#FF5E8A</color>
+    <color name="joy_base_color">#257d5f</color>
+
+
+    <!-- ==========================  颜色资源 end   ========================== -->
+
+
+
+    <!-- ==========================  字符资源 end   ========================== -->
+
+    <string name="hours_ago">%d小时前</string>
+    <string name="just_now">刚刚</string>
+    <string name="minutes_ago">%d分钟前</string>
+
+    <string name="app_name">独立游戏Joy-SDK</string>
+
+    <!-- ==========================  字符资源 end   ========================== -->
+
+
+
+    <!-- ==========================  尺寸资源 end   ========================== -->
+
+    <dimen name="joy_inde_l_r_padding">50dp</dimen>
+    <dimen name="joy_edit_height">34dp</dimen>
+
+    <dimen name="joy_base_width">360dp</dimen>
+    <dimen name="joy_base_height">200dp</dimen>
+
+    <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
+    <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
+    <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
+    <item name="item_touch_helper_previous_elevation" type="id" />
+
+    <!-- ==========================  尺寸资源 end   ========================== -->
+
+
+    <declare-styleable name="RecyclerView">
+        <attr name="layoutManager" format="string" />
+        <attr name="android:orientation" />
+        <attr name="spanCount" format="integer" />
+        <attr name="reverseLayout" format="boolean" />
+        <attr name="stackFromEnd" format="boolean" />
+    </declare-styleable>
+
+
+</resources>

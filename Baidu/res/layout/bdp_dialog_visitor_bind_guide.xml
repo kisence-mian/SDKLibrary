@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bdp_bg_white_round"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:visibility="visible" >
+
+        <!-- 关闭按钮 -->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bdp_image" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_guest"
+        android:layout_width="65dip"
+        android:layout_height="65dip"
+        android:layout_below="@+id/title_bar"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/bdp_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/bdp_login_icon_select_guest" />
+
+    <LinearLayout
+        android:id="@+id/ll_guest_id"
+        android:layout_width="match_parent"
+        android:layout_height="32dip"
+        android:layout_below="@+id/iv_guest"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bdp_account_guest"
+            android:textColor="#FF333333"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_guest_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/bdp_account_autologin_type_guest"
+            android:textColor="#FF333333"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/ll_guest_id"
+        android:layout_marginTop="5dp"
+        android:background="@color/bdp_color_cccccc" />
+    <!-- 子视图 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_guest_id"
+        android:layout_marginLeft="@dimen/bdp_dialog_login_margin"
+        android:layout_marginRight="@dimen/bdp_dialog_login_margin" >
+
+        <!-- 用于获取焦点的输入框 -->
+
+        <LinearLayout
+            android:id="@+id/linAccountPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bdp_account_upgrade_login_hint"
+                    android:textColor="#EE6B66"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_view_enter_game"
+                android:layout_width="match_parent"
+                android:layout_height="39dip"
+                android:layout_marginLeft="@dimen/bdp_dialog_login_margin"
+                android:layout_marginRight="@dimen/bdp_dialog_login_margin"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/bdp_color_white_selector"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_enter_game"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bdp_account_enter_game"
+                    android:textColor="#666666"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- 按钮 -->
+
+            <Button
+                android:id="@+id/btnUpgrade"
+                android:layout_width="match_parent"
+                android:layout_height="39dip"
+                android:layout_marginBottom="24dip"
+                android:layout_marginLeft="@dimen/bdp_dialog_login_margin"
+                android:layout_marginRight="@dimen/bdp_dialog_login_margin"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bdp_btn_pink_selector"
+                android:text="@string/bdp_account_upgrade_now"
+                android:textColor="@color/bdp_white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgClose"
+        android:layout_width="45dip"
+        android:layout_height="45dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/bdp_image"
+        android:scaleType="centerInside"
+        android:src="@drawable/bdp_icon_close_selector" />
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_sendmsg_content"
+        android:textColorHint="#ff999999"
+        android:textColor="@android:color/black"
+        android:hint="输入消息内容" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_sendmsg_qid"
+        android:textColorHint="#ff999999"
+        android:textColor="@android:color/black"
+        android:hint="输入用户id" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_sendmsg_addfield"
+        android:textColorHint="#ff999999"
+        android:textColor="@android:color/black"
+        android:hint="附加段信息" />
+
+    <!-- RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radiogroup_msgtype">"
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbtn_msgtype_chat"
+            android:text="chat"
+            android:checked="true"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbtn_msgtype_invite"
+            android:text="invite"
+            android:checked="true"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbtn_msgtype_gift"
+            android:text="gift"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rbtn_msgtype_appinvite"
+            android:text="appinvite"/>
+    </RadioGroup-->
+
+</LinearLayout>

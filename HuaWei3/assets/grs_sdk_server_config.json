@@ -1,0 +1,12 @@
+{
+  "grs_server": {
+    "grs_base_url": [
+      "https://grs.dbankcloud.com",
+      "https://grs.dbankcloud.cn",
+      "https://grs.dbankcloud.eu",
+      "https://grs.dbankcloud.asia"
+    ],
+    "grs_query_endpoint": "/grs/1.0/%1$s/router",
+    "grs_query_timeout": 2
+  }
+}

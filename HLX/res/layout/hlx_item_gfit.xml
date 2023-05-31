@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:ellipsize="end"
+        android:maxEms="11"
+        android:singleLine="true"
+        android:text="最强王者礼包"
+        android:textColor="@color/hlx_gift_text"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/tv_remain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:text="剩余13次"
+        android:textColor="@color/hlx_gift_text"
+        android:textSize="12sp"/>
+
+    <com.huluxia.sdk.framework.base.widget.MarqueeTextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_remain"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="王者*38,经验卡1天4456456，AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        android:textColor="@color/hlx_detail_text"
+        android:textSize="12sp"/>
+
+    <com.huluxia.sdk.framework.base.widget.MarqueeTextView
+        android:id="@+id/tv_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_desc"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="左手右手一个慢动作，大家一起来，嘿嘿哈嘻嘻，一起动次打次动次打次动次打次动次打次"
+        android:textColor="@color/hlx_red"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/tv_receive"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/hlx_btn_bg"
+        android:gravity="center"
+        android:text="领取"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"/>
+
+</RelativeLayout>

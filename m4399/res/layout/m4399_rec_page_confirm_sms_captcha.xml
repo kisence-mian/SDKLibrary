@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/m4399RecPageStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <cn.m4399.recharge.ui.widget.RechargeNavBarView
+        android:id="@+id/nav"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/m4399_rec_title_height" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/m4399_rec_paddingLeft"
+        android:layout_marginRight="@dimen/m4399_rec_paddingLeft"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:background="@color/m4399_rec_color_white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/m4399_rec_corp_name"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/m4399_rec_corp_namecontents"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edt_tel"
+                style="@style/m4399RecInputAreaStyle"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="@string/m4399_rec_sms_input_phone_tip"
+                android:imeOptions="actionDone"
+                android:inputType="phone" />
+
+            <Button
+                android:id="@+id/btn_get_captcha"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="-2dp"
+                android:background="@drawable/m4399_rec_right_btn_bg"
+                android:enabled="false"
+                android:gravity="center"
+                android:paddingLeft="@dimen/m4399_rec_liantong_cfm_captcha_padding"
+                android:paddingRight="@dimen/m4399_rec_liantong_cfm_captcha_padding"
+                android:text="@string/m4399_rec_sms_get_captha_tip"
+                android:textColor="@color/m4399_rec_color_white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/edt_captcha"
+            style="@style/m4399RecInputAreaStyle"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/m4399_rec_sms_input_captha_tip"
+            android:imeOptions="actionDone" />
+
+        <TextView
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginTop="10dp"
+            android:text="@string/m4399_rec_sms_get_captha_constraint"
+            android:textColor="#bbbbbb"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/go_pay_view"
+        layout="@layout/m4399_rec_sec_single_btn_area"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m4399_rec_sum_btns_eara_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="@dimen/m4399_rec_page_margin"
+        android:layout_marginRight="@dimen/m4399_rec_page_margin" />
+
+</LinearLayout>

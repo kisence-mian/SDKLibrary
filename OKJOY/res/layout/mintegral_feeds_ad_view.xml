@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mintegral_feeds_ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mintegral_feeds_white"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="13dp" >
+
+    <RelativeLayout
+        android:id="@+id/mintegral_rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.mintegral.msdk.videocommon.view.MyImageView
+            android:id="@+id/mintegral_feeds_iv_icon"
+            android:layout_width="38dp"
+            android:layout_height="38dp" />
+
+        <TextView
+            android:id="@+id/mintegral_feeds_tv_appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@id/mintegral_feeds_iv_icon"
+            android:textColor="@color/mintegral_feeds_blank"
+            android:textSize="16sp" />
+
+        <com.mintegral.msdk.videocommon.view.StarLevelView
+            android:id="@+id/mintegral_feeds_sv_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/mintegral_feeds_tv_appName"
+            android:layout_below="@id/mintegral_feeds_tv_appName"
+            android:layout_marginTop="5dp" >
+        </com.mintegral.msdk.videocommon.view.StarLevelView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/mintegral_feeds_sv_level"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/mintegral_feeds_sv_level"
+            android:text="Sponsored"
+            android:textColor="@color/mintegral_feeds_gray"
+            android:textSize="8sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/mintegral_feeds_tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:ellipsize="end"
+        android:lines="4"
+        android:textColor="@color/mintegral_feeds_gray"
+        android:textSize="14sp" />
+
+    <FrameLayout
+        android:id="@+id/mintegral_feeds_fl"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.mintegral.msdk.videofeeds.vfplayer.VideoFeedsPlayerView
+            android:id="@+id/mintegral_feeds_vfpv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+        </com.mintegral.msdk.videofeeds.vfplayer.VideoFeedsPlayerView>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/mintegral_feeds_tv_cta"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mintegral_feeds_btn"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="Shop Now"
+        android:textColor="@color/mintegral_feeds_white"
+        android:textSize="16sp" />
+
+</LinearLayout>

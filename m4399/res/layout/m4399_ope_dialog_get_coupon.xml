@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.m4399.operate.ui.widget.HintBannerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:background="@drawable/m4399_ope_banner_bg"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/common_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2dp"
+        android:paddingLeft="@dimen/m4399_ope_top_dialog_pad_left"
+        android:textColor="#E0FFFFFF"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/get_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2dp"
+        android:paddingRight="@dimen/m4399_ope_top_dialog_pad_rig"
+        android:textColor="#ff9515"
+        android:textSize="13sp" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/m4399_ope_top_view_left"
+        android:background="#E0FFFFFF" />
+
+    <TextView
+        android:id="@+id/close_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2dp"
+        android:paddingLeft="@dimen/m4399_ope_top_close_pad_left"
+        android:paddingRight="@dimen/m4399_ope_top_close_pad_rig"
+        android:textColor="#E0FFFFFF"
+        android:textSize="13sp" />
+</cn.m4399.operate.ui.widget.HintBannerView>

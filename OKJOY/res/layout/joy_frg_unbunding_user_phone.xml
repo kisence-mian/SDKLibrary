@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/joy_base_width"
+            android:layout_height="230dp"
+            android:background="@drawable/joy_bind_unbind_phone_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp">
+
+                <FrameLayout
+                    android:id="@+id/l_unbind_phone_back"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="35dp">
+                    <ImageView
+                        android:layout_gravity="bottom|right"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/joy_back_icon"/>
+                </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="手机解绑"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:textSize="20sp"
+                    android:textColor="@color/joygame_black"
+                    android:textStyle="bold"/>
+
+                <FrameLayout
+                    android:id="@+id/l_unbind_phone_close"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="35dp">
+                    <ImageView
+                        android:layout_gravity="bottom"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/joy_delete_icon"/>
+                </FrameLayout>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/id_frg_unbinding_user_phone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                    android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/joy_edit_bg"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/joy_phone" />
+
+                        <com.JoyFramework.wight.ClearEditText
+                            android:id="@+id/phoneET"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="   请输入手机号码"
+                            android:imeOptions="actionDone"
+                            android:inputType="phone"
+                            android:maxLength="11"
+                            android:singleLine="true"
+                            android:textColor="@color/joygame_black"
+                            android:textColorHint="@color/joygame_light_grey"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/joy_edit_bg"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/joy_verify" />
+
+                        <com.JoyFramework.wight.ClearEditText
+                            android:id="@+id/verifyET"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:hint="   请输入验证码"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:maxLength="6"
+                            android:singleLine="true"
+                            android:textColor="@color/joygame_black"
+                            android:textColorHint="@color/joygame_light_grey"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/verifyTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/joy_verify_bg"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="获取验证码"
+                            android:textColor="@color/joy_base_color"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/unbindingPhoneBtn"
+                        android:layout_width="180dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/joy_login_btn_bg1"
+                        android:gravity="center"
+                        android:text="解 绑"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
+

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/dk_transparent" >
+    
+     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+	    <!-- start title -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/bg_yellow"
+            android:orientation="horizontal" >
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="237"
+                android:orientation="vertical" >
+                
+                <TextView
+                    android:id="@+id/dk_text_view_other_pay"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="4dp"
+                    android:text="@string/channel_quickpay"
+                    android:textColor="@color/dk_color_000000"
+                    android:textSize="14sp" />
+                
+                <LinearLayout 
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="4dp">
+                    
+                    <ImageView 
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                	    android:src="@drawable/dk_ic_credit_card_tip"/>
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="3dp"
+                        android:text="@string/dk_tip_credit_security"
+                        android:textColor="@color/dk_color_61B11F"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+            
+            <Button
+                android:id="@+id/dk_btn_bank_manage"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="3dp"
+                android:layout_weight="135"
+                android:background="@drawable/dk_payment_btn_bank_selector"
+                android:gravity="center"
+                android:text="@string/dk_btn_bank_manage"
+                android:textColor="#333333"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+		<!-- end title -->
+
+        <ImageView
+            android:id="@+id/dk_image_view_divider"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/dk_divider"
+            android:visibility="gone" />
+        
+        <ScrollView 
+            android:layout_width="fill_parent"
+	      	android:layout_height="fill_parent"
+	      	android:fillViewport="true"
+	      	android:fadeScrollbars="false"
+	      	android:scrollbarThumbVertical="@drawable/dk_scrollbar_gray">
+	      	
+            <LinearLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+                
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="10"
+                    android:orientation="vertical" >
+              		
+              		<LinearLayout
+              		    android:layout_width="fill_parent"
+              		    android:layout_height="wrap_content"
+              		    android:layout_marginTop="13dp"
+              		    android:gravity="center_horizontal"
+              		    android:orientation="horizontal" >
+              		    
+              		    <LinearLayout
+              		        android:layout_width="0dp"
+              		        android:layout_height="wrap_content"
+              		        android:layout_weight="247"
+              		        android:orientation="vertical" >
+              		        
+              		        <LinearLayout
+              		            android:layout_width="fill_parent"
+		                  		android:layout_height="wrap_content"
+		                  		android:orientation="horizontal" >
+		                  		
+		                  		<TextView
+		                  		    android:id="@+id/dk_tv_tip_select_title"
+		                  		    android:layout_width="wrap_content"
+		                  		    android:layout_height="wrap_content"
+		                  		    android:text="@string/dk_tip_quickpay_amount"
+		                  		    android:textColor="#333333"
+		                  		    android:textSize="14sp" />
+                
+                				<TextView 
+                    				android:id="@+id/dk_tv_tip_select_content"
+				                    android:layout_width="wrap_content"
+				                    android:layout_height="wrap_content"
+				                    android:textColor="#ff3300"
+				                    android:textSize="14sp"
+				                    android:text="@string/dk_tip_choose_recharge_ratio" />
+		              		</LinearLayout>
+		              		
+		              		<LinearLayout
+		              		    android:visibility="gone"
+		              		    android:id="@+id/dk_layout_info"
+		              		    android:layout_width="fill_parent"
+		              		    android:layout_height="wrap_content"
+		              		    android:orientation="horizontal"
+		              		    android:layout_marginTop="4dp">
+		                  		
+		                  		<TextView 
+		                  		    android:layout_width="wrap_content"
+		                  		    android:layout_height="wrap_content"
+		                  		    android:textColor="#666666"
+		                  		    android:textSize="12sp"
+		                  		    android:text="@string/dk_tip_pay_desc"/>
+						    </LinearLayout>
+		              		
+		              		<LinearLayout
+		              		    android:layout_width="fill_parent"
+		              		    android:layout_height="wrap_content"
+		              		    android:layout_marginTop="13dp" >
+		                
+		                		<TextView
+		                		    android:layout_width="wrap_content"
+		                		    android:layout_height="wrap_content"
+		                		    android:text="@string/dk_tip_input_bankcard_number"
+		                		    android:textColor="#999999"
+		                		    android:textSize="12sp" />
+
+		            		</LinearLayout>
+              		    </LinearLayout>
+              		    
+              		    <LinearLayout
+              		        android:id="@+id/dk_layout_support_bank"
+              		        android:layout_width="0dp"
+              		        android:layout_height="32dp"
+              		        android:layout_weight="125"
+              		        android:background="@drawable/dk_bg_support_bank"
+              		        android:gravity="center"
+              		        android:orientation="vertical" >
+	                    
+	                    	<TextView
+	                    	    android:id="@+id/dk_text_view_support_bank"
+	                    	    android:layout_width="wrap_content"
+	                    	    android:layout_height="wrap_content"
+	                    	    android:layout_gravity="center"
+	                    	    android:text="@string/dk_tip_support_bank"
+	                    	    android:textColor="#999999"
+	                    	    android:textSize="12sp" />
+
+	                	</LinearLayout>
+              		</LinearLayout>
+	            
+	            	<LinearLayout
+	            	    android:id="@+id/dk_layout_input_credit_card"
+	            	    android:layout_width="fill_parent"
+	            	    android:layout_height="wrap_content"
+	            	    android:layout_marginTop="7dp"
+	            	    android:orientation="vertical" >
+	                
+	                	<LinearLayout 
+	                    	android:layout_width="fill_parent"
+	                    	android:layout_height="wrap_content"
+	                    	android:orientation="horizontal">
+	                    
+	                    	<EditText
+	                    	    android:id="@+id/dk_et_card_number"
+	                    	    android:layout_width="fill_parent"
+	                    	    android:layout_height="36dp"
+	                    	    android:background="@drawable/dk_payment_edittext_selector"
+	                    	    android:focusable="true"
+	                    	    android:focusableInTouchMode="true"
+	                    	    android:gravity="center_vertical"
+	                    	    android:hint="@string/dk_tip_debit_card_number_hint"
+	                    	    android:inputType="numberSigned"
+	                    	    android:nextFocusDown="@+id/dk_et_credit_phone"
+	                    	    android:paddingLeft="7dp"
+	                    	    android:textColor="#333333"
+	                    	    android:textSize="14sp" >
+	                        
+	                    	</EditText>
+	                	</LinearLayout>
+
+	            </LinearLayout>
+		        
+	            <LinearLayout
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="13dp"
+	                android:orientation="horizontal" >
+	                
+	                <Button
+	                    android:id="@+id/dk_btn_input_next_step"
+	                    android:layout_width="0dp"
+	                    android:layout_height="42dp"
+	                    android:layout_weight="1"
+	                    android:background="@drawable/dk_payment_btn_orange_selector"
+	                    android:gravity="center"
+	                    android:text="@string/dk_btn_next_step"
+	                    android:textColor="#ffffff"
+	                    android:textSize="16sp" />
+
+	             </LinearLayout>
+           		</LinearLayout>
+           		
+           		<RelativeLayout
+           		    android:id="@+id/dk_layout_bottom_logo"
+           		    android:layout_weight="2"
+           		    android:layout_height="0dp"
+           		    android:layout_width="fill_parent"
+           		    android:gravity="center_horizontal|bottom"
+           		    android:layout_gravity="center_horizontal">
+                  	
+                  	<include
+                  	    android:layout_alignParentBottom="true"
+                  	    android:layout_centerHorizontal="true"
+                  	    layout="@layout/dk_payment_bottom" />
+		          </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

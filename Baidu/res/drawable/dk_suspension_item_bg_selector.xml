@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_selected="true"><shape>
+            <gradient android:angle="270" android:endColor="@color/dk_gamesdk_gray" android:startColor="@color/dk_gamesdk_gray" />
+
+            <size android:height="60dp" android:width="320dp" />
+
+            <corners android:radius="8dp" />
+        </shape></item>
+    <item android:state_pressed="true"><shape>
+            <gradient android:angle="270" android:endColor="@color/dk_gamesdk_gray" android:startColor="@color/dk_gamesdk_gray" />
+
+            <size android:height="60dp" android:width="320dp" />
+
+            <corners android:radius="8dp" />
+        </shape></item>  
+   <!-- <item android:drawable="@drawable/dk_suspension_item_bg_press" android:state_focused="true"></item>
+   <item android:drawable="@drawable/dk_suspension_item_bg_press" android:state_selected="true"></item>
+   <item android:drawable="@drawable/dk_suspension_item_bg_press" android:state_pressed="true"></item> --> 
+   <item android:drawable="@drawable/dk_suspension_item_bg_normal"></item>
+
+</selector>

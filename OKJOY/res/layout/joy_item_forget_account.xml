@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.JoyFramework.wight.PullToRefresh.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/l_item_forget_account_swipe_menu_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/joy_forget_account_bg"
+            android:orientation="vertical"
+            android:paddingTop="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用户编号："
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/l_item_forget_account_user_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3sasdada"
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="账号："
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/l_item_forget_account_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cy459593435654"
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="手机号："
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/l_item_forget_account_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13564258844"
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最后登录游戏："
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/l_item_forget_account_game"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="青云决"
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最后一次登录："
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/l_item_forget_account_last_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-10-18 9：23"
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/l_item_forget_account_copy"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/joy_dialog_ensure"
+        android:gravity="center"
+        android:minWidth="80dp"
+        android:padding="5dp"
+        android:text="复制用户编号"
+        android:textColor="@color/joygame_white"
+        android:textSize="16sp" />
+
+</com.JoyFramework.wight.PullToRefresh.SwipeMenuLayout>

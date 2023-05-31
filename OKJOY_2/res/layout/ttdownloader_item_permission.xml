@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="24dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/tv_permission_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:textColor="#333333"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        tools:text="联系人" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="18dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ttdownloader_icon_yes" />
+
+        <TextView
+            android:id="@+id/tv_permission_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:includeFontPadding="false"
+            android:textColor="#666666"
+            android:textSize="13dp"
+            tools:text="读取或修改通讯录" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dash_line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/ttdownloader_dash_line"
+        android:layerType="software" />
+</LinearLayout>

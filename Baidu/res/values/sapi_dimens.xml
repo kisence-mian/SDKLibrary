@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="sapi_margin_top">10dp</dimen>
+    <dimen name="sapi_verifycodeimg_width">70dp</dimen>
+    <dimen name="sapi_verifycodeimg_height">40dp</dimen>
+    <dimen name="sapi_text_size">16sp</dimen>
+    <dimen name="sapi_text_tip_size">14sp</dimen>
+    <dimen name="sapi_text_hint_size">12sp</dimen>
+    <dimen name="sapi_standard_margin">8dp</dimen>
+
+    <dimen name="sapi_action_item_vertical_margin">4dp</dimen>
+    <dimen name="sapi_action_item_horizontal_margin">8dp</dimen>
+
+    <!-- QR -->
+    <dimen name="standard_padding">8dip</dimen>
+    <dimen name="half_padding">4dip</dimen>
+
+    <integer name="sapi_capture_mask_tip_margin">50</integer>
+
+    <dimen name="sapi_image_recommend_alert_corner">8dp</dimen>
+
+    <dimen name="sapi_account_center_padding">8dp</dimen>
+</resources>

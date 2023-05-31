@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kasd_guider_mask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="gone"
+    android:background="#7F000000">
+
+    <com.ksad.lottie.LottieAnimationView
+        android:id="@+id/ksad_guider_animation"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:visibility="visible"
+        tools:background="#FF00FF"
+        tools:visibility="visible" />
+
+      <TextView
+        android:id="@+id/ksad_guider_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        tools:text="向上滑动查看更多作品" />
+</FrameLayout>

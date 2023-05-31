@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound1"
+        android:duration="150"/>
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound2"
+        android:duration="150"/>
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound3"
+        android:duration="150"/>
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound4"
+        android:duration="150"/>
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound5"
+        android:duration="150"/>
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound6"
+        android:duration="150"/>
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound7"
+        android:duration="150"/>
+    <item
+        android:drawable="@drawable/mintegral_nativex_sound8"
+        android:duration="150"/>
+</animation-list>

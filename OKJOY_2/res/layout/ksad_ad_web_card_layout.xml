@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ksad_web_card_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <com.kwad.sdk.core.page.widget.webview.KSApiWebView
+        android:id="@+id/ksad_web_card_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:scrollbarStyle="insideOverlay" />
+</FrameLayout>

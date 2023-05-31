@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/pgd_progress"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="28dp"
+        android:indeterminateDrawable="@drawable/m4399_progress_medium_drawable"
+        android:max="10000" />
+
+    <TextView
+        android:id="@+id/pgd_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/m4399_rec_on_loading"
+        android:textColor="#dd000000"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/pgd_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/m4399_ope_ftn_dialog_cancel_bg"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/m4399PerfectLine"
+            android:background="#dddddd" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="#dd000000"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dk_bg_tip_info"
+    android:gravity="center"
+    android:orientation="horizontal">"
+
+		    
+        <ImageView
+            android:id="@+id/dk_iv_toast_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dk_ic_baidu"
+            android:layout_marginLeft="18dp"
+             />
+
+        <TextView
+            android:id="@+id/dk_tv_toast_user_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:singleLine="true"
+            android:text="1234567890123456"
+            android:textColor="#297bfb"
+            android:textSize="13sp" 
+  />
+
+        <TextView
+            android:id="@+id/dk_tv_toast_user_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="18dp"
+            android:singleLine="true"
+            android:text="欢迎你回来"
+            android:textColor="@color/dk_color_666666"
+            android:textSize="13sp" />
+
+
+</LinearLayout>

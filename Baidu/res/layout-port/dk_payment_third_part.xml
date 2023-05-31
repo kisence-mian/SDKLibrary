@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="false"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/title_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/goodsinfo_bg"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/pay_current_account"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/dkTxtUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:singleLine="true"
+                    android:text="@string/pay_purchase_item"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/goodsinfo_divide"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" >
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/pay_commodityname"
+                    android:textColor="@color/dk_color_333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/dkTxtGoodsName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="right"
+                    android:marqueeRepeatLimit="1"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@color/dk_color_666666"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/goodsinfo_divide" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" >
+
+                <TextView
+                    android:id="@+id/TextView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/pay_payamount"
+                    android:textColor="@color/dk_color_333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/dkTxtGoodsPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="right"
+                    android:marqueeRepeatLimit="1"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="@string/tip_card_recharge_price"
+                    android:textColor="@color/dk_color_666666"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- 推荐支付方式  coco remove -->
+        <!--
+             <LinearLayout
+            android:id="@+id/pay_recent_linearlayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/dkTxtRecentPaymethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/dk_last_pay_mode"
+                android:textColor="@color/dk_color_333333"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <include
+                    android:id="@+id/include_id1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    layout="@layout/dk_new_payment_item"
+                    android:visibility="invisible" />
+
+                <include
+                    android:id="@+id/include_id2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    layout="@layout/dk_new_payment_item"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+            <TableLayout
+                android:id="@+id/pay_recent_tablelayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+            </TableLayout>
+
+        -->
+
+
+        <!-- coco  add  微信及支付宝打折 -->
+
+        <RelativeLayout
+            android:id="@+id/pay_discount_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/dkTxtOtherPaymethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:singleLine="true"
+                android:text="@string/dk_other_pay_mode"
+                android:textColor="@color/dk_color_333333"
+                android:textSize="16sp" />
+            <!-- coco add -->
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dkTxtOtherPaymethod"
+                android:fadingEdge="none"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:orientation="vertical" >
+
+                    <include
+                        android:id="@+id/pay1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        layout="@layout/dk_payment_discount_item"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/pay2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        layout="@layout/dk_payment_discount_item"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/pay3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        layout="@layout/dk_payment_discount_item"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/pay4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        layout="@layout/dk_payment_discount_item"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/pay5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        layout="@layout/dk_payment_discount_item"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/pay6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        layout="@layout/dk_payment_discount_item"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/loadmore"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/btn_background_pay_selector_bottom"
+                        android:gravity="center"
+                        android:text="显示更多   ∨"
+                        android:textColor="#666666" />
+
+                    <include
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        layout="@layout/dk_dialog_footer" />
+                </LinearLayout>
+            </ScrollView>
+
+            <include
+                 android:id="@+id/phone2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                layout="@layout/dk_dialog_footer" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

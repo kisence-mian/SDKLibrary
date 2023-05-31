@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:padding = "5dp">
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_userinfo_tip"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="3dp"
+         android:text="@string/dialog_bindinformation"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="@color/dk_color_666666"
+         android:textSize="12sp" />
+
+     <LinearLayout
+         android:id="@+id/dk_dialog_baiduid_linear"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:visibility="visible" >
+
+         <TextView
+             android:id="@+id/dk_dialog_baiduid_tv_key"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/dialog_baidu_account"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textColor="@color/dk_color_333333"
+             android:textSize="14sp" />
+
+         <TextView
+             android:id="@+id/dk_dialog_baiduid_tv_value"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="value"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textColor="@color/dk_color_333333"
+             android:textSize="14sp" />
+     </LinearLayout>
+
+     <LinearLayout
+         android:id="@+id/dk_dialog_phone_linear"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:visibility="visible" >
+
+         <TextView
+             android:id="@+id/dk_dialog_phone_tv_key"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/dialog_phoneno"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textColor="@color/dk_color_333333"
+             android:textSize="14sp" />
+
+         <TextView
+             android:id="@+id/dk_dialog_phone_tv_value"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="value"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textColor="@color/dk_color_333333"
+             android:textSize="14sp" />
+     </LinearLayout>
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_drawsuccess_tip"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="3dp"
+         android:text="@string/dialog_prizeinfo"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="@color/dk_color_666666"
+         android:textSize="12sp" />
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_value1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:text="value"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="@color/dk_color_333333"
+         android:textSize="14sp"
+         android:visibility="gone" />
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_value2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:text="value"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="@color/dk_color_333333"
+         android:textSize="14sp"
+         android:visibility="gone" />
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_value3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:text="value"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="@color/dk_color_333333"
+         android:textSize="14sp"
+         android:visibility="gone" />
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_value4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:text="value"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="@color/dk_color_333333"
+         android:textSize="14sp"
+         android:visibility="gone" />
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_value5"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:text="value"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="@color/dk_color_333333"
+         android:textSize="14sp"
+         android:visibility="gone" />
+
+     <TextView
+         android:id="@+id/dk_dialog_tv_sendphone_tip"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="3dp"
+         android:text="@string/dialog_sendphoneuse"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:textColor="#f08f1e"
+         android:textSize="12sp" />
+</LinearLayout>

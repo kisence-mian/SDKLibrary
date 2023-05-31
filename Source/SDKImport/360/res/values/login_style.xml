@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="radiobutton1">登录（透明）</string>
+    <string name="radiobutton2">登录（不透明）</string>
+    <string name="radiobutton3">不显示关闭按钮（透明）</string>
+    <string name="radiobutton4">不显示关闭按钮（不透明）</string>
+    <string name="radiobutton5">登录 (支持离线)</string>
+    <string name="radiobutton6">切换账号 (支持离线)</string>
+    <string name="radiobutton7">显示切换账号</string>
+</resources>
+

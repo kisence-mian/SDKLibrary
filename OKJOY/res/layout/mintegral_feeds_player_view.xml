@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mintegral_feeds_rl_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/mintegral_feeds_playerview_bg" >
+
+    <RelativeLayout
+         android:id="@+id/mintegral_feeds_rl_playroot"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:id="@+id/mintegral_feeds_ll_sur_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mintegral_feeds_ll_loading"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mintegral_feeds_ll_pro_dur"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/mintegral_feeds_ll_sur_container"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" 
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/mintegral_feeds_tv_cur_pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="00:00" />
+
+            <ProgressBar
+                android:id="@+id/mintegral_feeds_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginLeft="6dp"
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/mintegral_feeds_play_progress" />
+
+            <TextView
+                android:id="@+id/mintegral_feeds_tv_alldur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:textColor="#ffffff"
+                android:text="00:00" />
+
+            <ImageView
+                android:id="@+id/mintegral_feeds_iv_sound"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/mintegral_feeds_sound_open" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mintegral_feeds_rl_playend"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="invisible" >
+
+        <com.mintegral.msdk.videocommon.view.MyImageView
+            android:id="@+id/mintegral_feeds_iv_playend_pic"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            />
+
+        <ImageView
+            android:id="@+id/mintegral_feeds_iv_play"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/mintegral_feeds_play" />
+    </RelativeLayout>
+    
+    <ProgressBar
+                android:id="@+id/mintegral_feeds_probar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_centerInParent="true"
+                android:layout_width="60dp"
+                android:layout_height="60dp" 
+                android:visibility="gone"
+                />
+
+</RelativeLayout>

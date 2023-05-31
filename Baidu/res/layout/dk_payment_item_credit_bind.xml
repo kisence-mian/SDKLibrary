@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="38dp"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="2dp"
+        android:background="@drawable/dk_bg_kubi_no_engouth" >
+        
+        <TextView 
+            android:id="@+id/dk_item_tv_credit_bind"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/dk_color_666666"
+            android:textSize="14sp"
+            android:layout_toLeftOf="@+id/dk_item_ck_credit_bind"
+            android:text="@string/dk_select_kubi_pay_not_engouth"/>
+        
+        <CheckBox
+            android:id="@+id/dk_item_ck_credit_bind"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:checked="false"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="2dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:button="@drawable/dk_payment_checkbox_kubi_selector" />
+    </RelativeLayout>
+    
+    <View
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/dk_color_999999" />
+</LinearLayout>

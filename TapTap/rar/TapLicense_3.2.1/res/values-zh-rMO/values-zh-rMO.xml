@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_choose_tap_cn">TapTap中國</string>
+    <string name="dialog_choose_tap_global">TapTap</string>
+    <string name="dialog_choose_title">請選擇以下應用程式開啟檔案</string>
+    <string name="taptap_alert_download_taptap">本遊戲需要最新版TapTap app方能遊玩，請下載最新版本TapTap</string>
+    <string name="taptap_alert_license_no">遊戲尚未啟動，請前往TapTap購買此遊戲</string>
+    <string name="taptap_string_checking_license">正在查詢購買資訊...</string>
+    <string name="taptap_string_download_taptap">下載TapTap</string>
+    <string name="taptap_string_open_taptap">開啟TapTap</string>
+</resources>

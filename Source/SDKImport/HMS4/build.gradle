@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //HMS4 - 游戏服务 （包括登录、事件上报、玩家信息统计
+    implementation 'com.huawei.hms:hwid:4.0.1.300'
+    implementation 'com.huawei.hms:iap:4.0.1.300'
+    implementation 'com.huawei.hms:game:4.0.1.300'
+    implementation 'com.huawei.hms:hianalytics:4.0.1.300'
+    //HMS4 - 支付
+    implementation 'com.huawei.hms:iap:4.0.1.300'
+    compile project(path: ':sdkinterface')
+    compile project(path: ':sdkinterface')
+
+}

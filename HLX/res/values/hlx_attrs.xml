@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="title_bar_style">
+        <attr name="left" format="integer|reference"></attr>
+        <attr name="right" format="integer|reference"></attr>
+        <attr name="center" format="integer|reference"></attr>
+        <attr name="bg" format="integer|reference|color"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="login_style">
+        <attr name="login_btn_bg" format="integer|reference"></attr>
+        <attr name="login_title_back" format="integer|reference"></attr>
+        <attr name="login_title_split" format="integer|reference"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressBarCircle">
+        <attr name="barColor" format="color" />
+        <attr name="rimColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="rimWidth" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="padding"  format="dimension" />
+    </declare-styleable>
+</resources>

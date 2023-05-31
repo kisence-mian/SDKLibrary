@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/joy_record_bg"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/popup_recycler"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/joygame_base_stroke_color"
+        android:dividerHeight="1dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/popup_clear_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/joygame_menu_bg"
+        android:gravity="right"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:text="清除记录"
+        android:textColor="@color/joygame_light_grey"
+        android:visibility="gone" />
+
+</LinearLayout>

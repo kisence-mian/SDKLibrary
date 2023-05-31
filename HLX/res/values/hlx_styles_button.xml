@@ -1,0 +1,33 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 图片按钮的基本定义 -->
+    <style name="value_button_image" parent="@android:style/Widget.ImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <!-- 修改器菜单界面的按钮特殊定义 -->
+    <style name="value_button_menukey" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/hlx_style_button_alpha_green</item>
+        <item name="android:textColor">@color/hlx_color_text_22_p</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:gravity">center|left</item>
+    </style>
+
+    <!-- 修改器小键盘的按钮样式定义 -->
+    <style name="value_button_keybroad" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/hlx_style_button_alpha_blue</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/hlx_color_text_keybroad</item>
+    </style>
+
+    <!-- 无边框   绿色背景 圆角15p 白色文字  -->
+    <style name="value_button_green_all" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/hlx_style_button_green_all_4p</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+</resources>

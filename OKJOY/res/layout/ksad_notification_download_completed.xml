@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:ignore="HardcodedText,RtlHardcoded,SpUsage">
+
+    <ImageView
+        android:id="@+id/ksad_download_icon"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_margin="10dp"
+        android:contentDescription="appIcon"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ksad_default_app_icon" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ksad_download_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:maxWidth="80dp"
+                android:maxLines="1"
+                android:textColor="#222222"
+                android:textSize="16dp"
+                tools:text="kw.apk" />
+
+            <TextView
+                android:id="@+id/ksad_download_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="#222222"
+                android:textSize="16dp"
+                tools:text="下载完成" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ksad_download_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="#666666"
+            android:textSize="12dp"
+            tools:text="70.04MB" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ksad_download_install"
+        android:layout_width="92dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ksad_notification_install_bg"
+        android:gravity="center"
+        android:text="立即安装"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
+
+</LinearLayout>

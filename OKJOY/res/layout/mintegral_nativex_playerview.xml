@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mintegral_native_rl_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000" >
+
+    <TextureView
+        android:id="@+id/mintegral_textureview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:targetApi="ice_cream_sandwich"
+        android:visibility="visible"
+        />
+
+    <ImageView
+        android:id="@+id/mintegral_iv_pause"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/mintegral_nativex_pause"
+        android:visibility="gone"
+        />
+
+    <ProgressBar
+        android:id="@+id/mintegral_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentBottom="true"
+        android:progressDrawable="@drawable/mintegral_nativex_play_progress" />
+
+    <ImageView
+        android:id="@+id/mintegral_iv_sound"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="8dp"
+        android:padding="5dp"
+        android:background="@drawable/mintegral_nativex_sound_bg"
+        android:src="@drawable/mintegral_nativex_sound_open"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/mintegral_iv_sound_animation"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/mintegral_nativex_sound_animation"
+        android:background="@drawable/mintegral_nativex_sound_bg"
+        android:padding="5dp"
+        android:layout_alignBottom="@id/mintegral_textureview"
+        android:layout_alignRight="@id/mintegral_textureview"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="gone"
+        />
+
+    <com.mintegral.msdk.videocommon.view.MyImageView
+        android:id="@+id/mintegral_iv_playend_pic"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+         />
+
+    <View
+        android:id="@+id/mintegral_view_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4D000000"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/mintegral_iv_play"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/mintegral_nativex_play"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/mintegral_ll_loading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+    </LinearLayout>
+
+</RelativeLayout>

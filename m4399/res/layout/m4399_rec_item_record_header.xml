@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/m4399_rec_record_header_height"
+    android:background="@drawable/m4399_rec_record_header_bg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp"
+    android:paddingTop="1dp">
+
+    <TextView
+        android:id="@+id/tv_record_ptime"
+        style="@style/m4399HistoryRecordHeaderStyle"
+        android:layout_marginRight="1dp"
+        android:layout_weight="1"
+        android:text="@string/m4399_rec_record_ptime" />
+
+    <TextView
+        android:id="@+id/tv_record_porder"
+        style="@style/m4399HistoryRecordHeaderStyle"
+        android:layout_marginRight="1dp"
+        android:layout_weight="2"
+        android:text="@string/m4399_rec_record_porder" />
+
+    <TextView
+        android:id="@+id/tv_record_pmoney"
+        style="@style/m4399HistoryRecordHeaderStyle"
+        android:layout_marginRight="1dp"
+        android:layout_weight="1"
+        android:text="@string/m4399_rec_record_pmoney_unit" />
+
+    <TextView
+        android:id="@+id/tv_record_pstate"
+        style="@style/m4399HistoryRecordHeaderStyle"
+        android:layout_weight="1"
+        android:text="@string/m4399_rec_record_pstate" />
+
+</LinearLayout>

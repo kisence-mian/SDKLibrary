@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mintegral_interstitial_white" >
+
+    <com.mintegral.msdk.mtgjscommon.windvane.WindVaneWebView
+        android:id="@+id/mintegral_interstitial_wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/mintegral_interstitial_pb"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <!--<RelativeLayout
+        android:id="@+id/mintegral_interstitial_rl_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/mintegral_interstitial_iv_close"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="9dp"
+            android:src="@drawable/mintegral_interstitial_close"/>
+    </RelativeLayout>-->
+
+    <ImageView
+        android:id="@+id/mintegral_interstitial_iv_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/mintegral_interstitial_close"/>
+
+
+</RelativeLayout>

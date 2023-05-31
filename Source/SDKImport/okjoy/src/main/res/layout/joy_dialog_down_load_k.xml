@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="315dp"
+        android:layout_height="150dp"
+        android:background="@drawable/joy_dialog_bg" />
+
+    <RelativeLayout
+        android:layout_width="315dp"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/k_dialog_down_load_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ellipsize="middle"
+            android:gravity="center"
+            android:maxLines="3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:text="游戏包下载"
+            android:textColor="@color/joygame_light_grey"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="315dp"
+            android:layout_height="1dp"
+            android:layout_below="@+id/k_dialog_down_load_name"
+            android:background="@color/joygame_base_stroke_color" />
+
+        <com.JoyFramework.wight.DownLoadSeekBar
+            android:id="@+id/k_dialog_down_load_seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/k_dialog_down_load_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/k_dialog_down_load_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/k_dialog_down_load_seekBar"
+            android:paddingLeft="10dp"
+            android:paddingTop="3dp"
+            android:text="25/100"
+            android:textColor="@color/joygame_light_grey" />
+
+        <TextView
+            android:id="@+id/k_dialog_down_load_install"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/joy_dialog_ensure"
+            android:paddingBottom="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            android:text="安装"
+            android:textColor="@color/joygame_white"
+            android:textSize="14sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

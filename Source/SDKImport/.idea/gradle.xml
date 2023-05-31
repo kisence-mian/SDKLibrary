@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="E:/gradle-6.2.1-bin/gradle-6.2.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/360" />
+            <option value="$PROJECT_DIR$/Clipboard" />
+            <option value="$PROJECT_DIR$/DeviceLogin" />
+            <option value="$PROJECT_DIR$/Hotupdate" />
+            <option value="$PROJECT_DIR$/Pangle" />
+            <option value="$PROJECT_DIR$/Umeng" />
+            <option value="$PROJECT_DIR$/UnityAds" />
+            <option value="$PROJECT_DIR$/Vungle" />
+            <option value="$PROJECT_DIR$/admob" />
+            <option value="$PROJECT_DIR$/admopub" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/appsflyer" />
+            <option value="$PROJECT_DIR$/autoupdate" />
+            <option value="$PROJECT_DIR$/baidu" />
+            <option value="$PROJECT_DIR$/dataeyes" />
+            <option value="$PROJECT_DIR$/facebook" />
+            <option value="$PROJECT_DIR$/googlelogin" />
+            <option value="$PROJECT_DIR$/googlepay" />
+            <option value="$PROJECT_DIR$/huawei" />
+            <option value="$PROJECT_DIR$/huluxia" />
+            <option value="$PROJECT_DIR$/iapppay" />
+            <option value="$PROJECT_DIR$/loongcheer" />
+            <option value="$PROJECT_DIR$/m4399-FN" />
+            <option value="$PROJECT_DIR$/meizu" />
+            <option value="$PROJECT_DIR$/migusdk" />
+            <option value="$PROJECT_DIR$/okjoy" />
+            <option value="$PROJECT_DIR$/okjoy_2" />
+            <option value="$PROJECT_DIR$/oppo" />
+            <option value="$PROJECT_DIR$/oppoSingle" />
+            <option value="$PROJECT_DIR$/payssion" />
+            <option value="$PROJECT_DIR$/qqlogin" />
+            <option value="$PROJECT_DIR$/readphonestatus" />
+            <option value="$PROJECT_DIR$/sdk4399" />
+            <option value="$PROJECT_DIR$/sdk4399single" />
+            <option value="$PROJECT_DIR$/sdkinterface" />
+            <option value="$PROJECT_DIR$/talkingData" />
+            <option value="$PROJECT_DIR$/taptap" />
+            <option value="$PROJECT_DIR$/transsion" />
+            <option value="$PROJECT_DIR$/uc" />
+            <option value="$PROJECT_DIR$/ucsdk" />
+            <option value="$PROJECT_DIR$/vivo" />
+            <option value="$PROJECT_DIR$/vivoSingle" />
+            <option value="$PROJECT_DIR$/weixinlogin" />
+            <option value="$PROJECT_DIR$/xgpush" />
+            <option value="$PROJECT_DIR$/xiaomi" />
+            <option value="$PROJECT_DIR$/ysdk" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

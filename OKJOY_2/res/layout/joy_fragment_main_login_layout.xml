@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/joy_red">
+
+    <ImageView
+        android:id="@+id/borderView"
+        android:layout_width="340dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1060:1390"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/joy_border_1060_1390"/>
+
+<!--    android:background="@drawable/joy_game_image_portrait_shape"-->
+    <ImageView
+        android:id="@+id/bgImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1060:540"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        app:layout_constraintTop_toTopOf="@+id/borderView"
+        android:src="@drawable/joy_game_head_image"
+        />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/borderView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/joy_btn_white_come_back"
+        />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/joy_btn_white_help"
+        />
+
+    <com.okjoy.okjoysdk.view.widget.OkJoyCustomEditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf ="@+id/bgImageView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:inputType="phone"
+        app:hint="请输入您的手机号码"
+        app:buttonVisibility="false"
+        app:iconImage="@drawable/joy_icon_phone"
+        />
+
+    <Button
+        android:id="@+id/codeButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="525:160"
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditText"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/joy_btn_code_login_selector"
+        />
+
+    <TextView
+        android:id="@+id/tipsView"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:text="------ 其他登录方式 ------"
+        android:textAlignment="center"
+        android:maxLines="1"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/codeButton"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:layout_marginTop="10dp"
+
+        />
+
+    <Button
+        android:id="@+id/accountButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="298:102"
+        app:layout_constraintTop_toBottomOf="@+id/tipsView"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toLeftOf="@+id/visitorButton"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/joy_btn_account_login_selector"
+        />
+
+    <Button
+        android:id="@+id/visitorButton"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="298:102"
+        app:layout_constraintTop_toTopOf="@+id/accountButton"
+        app:layout_constraintLeft_toRightOf="@+id/accountButton"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:background="@drawable/joy_btn_visitor_login_selector"
+        />
+
+    <Button
+        android:id="@+id/wxButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@+id/accountButton"
+        app:layout_constraintLeft_toLeftOf="@+id/borderView"
+        app:layout_constraintRight_toLeftOf="@+id/qqButton"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/joy_btn_wx_login"
+        />
+
+    <Button
+        android:id="@+id/qqButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/wxButton"
+        app:layout_constraintLeft_toRightOf="@+id/wxButton"
+        app:layout_constraintRight_toLeftOf="@+id/tapButton"
+        android:background="@drawable/joy_btn_qq_login"
+        />
+
+    <Button
+        android:id="@+id/tapButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@+id/wxButton"
+        app:layout_constraintLeft_toRightOf="@+id/qqButton"
+        app:layout_constraintRight_toRightOf="@+id/borderView"
+        android:background="@drawable/joy_btn_tap_login"
+        />
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

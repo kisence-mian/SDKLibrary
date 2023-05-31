@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:id="@+id/mainBase"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/sdk_ver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="@string/uninitiated"
+                android:textColor="@color/demo_base_info" />
+
+            <TextView
+                android:id="@+id/channel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="@string/uninitiated"
+                android:textColor="@color/demo_base_info" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/login_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="@string/unlogin"
+            android:minHeight="60dp"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="登录选项"
+                    android:textColor="@android:color/black" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dip"
+                    android:stretchColumns="*" >
+
+                    <TableRow
+                        android:id="@+id/tableRow2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                        <CheckBox
+                            android:id="@+id/isShowSwitchButton"
+                            android:layout_width="1dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="显示账号切换按钮"
+                            android:textColor="#000000" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <CheckBox
+                            android:id="@+id/isAutoLoginHideUI"
+                            android:layout_width="1dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="静默自动登录"
+                            android:textColor="#000000" />
+                    </TableRow>
+                    
+                    <TableRow
+                        android:id="@+id/tableRow4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+                        <CheckBox
+                            android:id="@+id/send_qid"
+                            android:layout_width="1dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:checked="true"
+                            android:text="是否传递QID字段"
+                            android:textColor="#000000" />
+                    </TableRow>
+                    
+                    <TableRow
+                        android:id="@+id/tableRow9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <Button
+                            android:id="@+id/btn_login_choose"
+                            style="@style/demo_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="登录"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/btn_switch_account"
+                            style="@style/demo_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="切换帐号"
+                            android:textColor="@android:color/black" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- payment 非收银台类型，独立支付-->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout"
+                android:orientation="horizontal" >
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:layout_margin="5dp"
+                    android:text="支付金额"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@android:color/black" />
+                <EditText
+                    android:id="@+id/et_input_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:hint="请输入支付金额(单位:分)"
+                    android:inputType="number"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#ff999999"
+                     />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:background="@drawable/layout_border"
+            android:layout_margin="3dp"
+            android:visibility="gone" >
+                
+                 <EditText
+                    android:id="@+id/et_input_appuserid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:hint="app_userid"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#ff999999"/>
+                    
+                <EditText
+                    android:id="@+id/et_input_orderid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:hint="app_orderid"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#ff999999"/>
+        </LinearLayout>
+        
+        <!-- payment 收银台-->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout"
+                android:layout_gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="有收银台"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@android:color/black" />
+
+                <CheckBox
+                    android:id="@+id/isPayFixed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="定额支付"
+                    android:textColor="@android:color/black"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btn_pay"
+                    style="@style/demo_btn"
+                    android:text="支付"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+            
+            <LinearLayout style="@style/demo_layout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无收银台"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@android:color/black" />
+                <Button
+                    android:id="@+id/btn_weixin_pay"
+                    style="@style/demo_btn"
+                    android:text="微信支付"
+                    android:textColor="@android:color/black" />
+                <Button
+                    android:id="@+id/btn_ali_pay"
+                    style="@style/demo_btn"
+                    android:text="支付宝支付"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+            
+        </LinearLayout>
+
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <!-- 离线模式登录 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <!-- 获取社交模块初始化信息 -->
+
+            <LinearLayout style="@style/demo_layout"
+                android:visibility="gone" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="扫码支付"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic"
+                    android:textColor="@android:color/black" />
+                <Button
+                    android:id="@+id/btn_qr_pay"
+                    style="@style/demo_btn"
+                    android:text="全支付"
+                    android:textColor="@android:color/black" />
+                <Button
+                    android:id="@+id/btn_qr_weixin_pay"
+                    style="@style/demo_btn"
+                    android:text="微信支付"
+                    android:textColor="@android:color/black" />
+                <Button
+                    android:id="@+id/btn_qr_ali_pay"
+                    style="@style/demo_btn"
+                    android:text="支付宝"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+            
+            <!-- 注销登录 -->
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="注销登录"
+                    android:textColorHint="#ff999999" />
+
+                <Button
+                    android:id="@+id/btn_logout"
+                    style="@style/demo_btn"
+                    android:text="注销"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="进入论坛"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_bbs"
+                    style="@style/demo_btn"
+                    android:text="进入"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="退出接口"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_quit"
+                    style="@style/demo_btn"
+                    android:text="退出"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="防沉迷"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_antAddiction"
+                    style="@style/demo_btn"
+                    android:text="查询"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="调起实名制"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_open_shimingzhi"
+                    style="@style/demo_btn"
+                    android:text="实名制"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+            
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="点击打开插件浮窗"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_openpluginwindow"
+                    style="@style/demo_btn"
+                    android:text="打开插件浮窗"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+            
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="点击打开分享"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_openshare"
+                    style="@style/demo_btn"
+                    android:text="分享"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="点击打开客服"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_openkefu"
+                    style="@style/demo_btn"
+                    android:text="打开客服"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="获取用户信息打点"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_getuserinfo"
+                    style="@style/demo_btn"
+                    android:text="打点测试"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout style="@style/demo_layout" >
+
+                <TextView
+                	android:id="@+id/ch_txt"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="点击获取渠道号"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_getchn"
+                    style="@style/demo_btn"
+                    android:text="渠道测试"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                style="@style/demo_layout"
+                android:layout_width="match_parent"
+                android:visibility="gone" >
+
+                <TextView
+                	android:id="@+id/hook_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="拦截浏览器打开页面"
+                    android:textColor="@android:color/black" />
+                
+                 <EditText
+                    android:id="@+id/et_hoook_cnt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入想要打开的网址"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#ff999999" />
+
+                <Button
+                    android:id="@+id/btn_open_hook"
+                    style="@style/demo_btn" 
+                    android:text="打开拦截页面链接"
+                    android:textColor="@android:color/black" />
+                
+            </LinearLayout>
+            
+        
+         <LinearLayout
+                style="@style/demo_layout"
+                android:layout_width="match_parent" 
+                android:visibility="gone">
+
+                <TextView
+                	android:id="@+id/hook_app_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="拦截浏览器打开下载链接"
+                    android:textColor="@android:color/black" />
+
+                 <EditText
+                    android:id="@+id/et_hoook_apk_cnt"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入想要下载的apk链接"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#ff999999" />
+                
+                <Button
+                    android:id="@+id/btn_open2dl_hook"
+                    style="@style/demo_btn" 
+                    android:text="打开拦截下载链接"
+                    android:textColor="@android:color/black" />
+                
+            </LinearLayout>
+            
+         <LinearLayout
+                style="@style/demo_layout"
+                android:layout_width="match_parent"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="测试AppUserName特殊字符"
+                    android:textColor="@android:color/black" />
+
+                 <EditText
+                    android:id="@+id/et_appusername"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="输入特殊字符"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#ff999999" />
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                style="@style/demo_layout"
+                android:layout_width="match_parent" 
+                android:visibility="visible">
+
+                <TextView
+                	android:id="@+id/plugin_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="插件化测试功能按钮"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/btn_open_plugin_activity"
+                    style="@style/demo_btn"
+                    android:layout_width="wrap_content"
+                    android:text="打开插件化测试界面"
+                    android:textColor="@android:color/black" />
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                style="@style/demo_layout"
+                android:layout_width="match_parent"
+                android:visibility="visible" >
+                
+                <TextView
+                	android:id="@+id/server_order_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="服务器下单功能"
+                    android:textColor="@android:color/black" />
+                
+                <Button
+                    android:id="@+id/gettoken_btn"
+                    style="@style/demo_btn"
+                    android:layout_width="wrap_content"
+                    android:text="获取tokenId"
+                    android:textColor="@android:color/black" />
+                    
+                
+                <EditText 
+                    android:id="@+id/token_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="token_id"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:layout_marginBottom="20dp"/>
+                
+                <EditText
+                    android:id="@+id/order_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="order_token"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:layout_marginBottom="20dp"/>
+
+                <Button
+                    android:id="@+id/server_order_btn"
+                    style="@style/demo_btn"
+                    android:layout_width="wrap_content"
+                    android:text="服务器下单"
+                    android:textColor="@android:color/black" />
+                
+            </LinearLayout>
+            
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 忘记密码的头部分 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="54dp"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/bd_account_bg_top" >
+
+    <ImageButton
+            android:id="@+id/bd_login_account_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical|left"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:src="@drawable/dk_account_back_selector" />
+
+        <LinearLayout
+            android:id="@+id/dk_login_bd_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/dk_titlebar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableLeft="@drawable/dk_ic_baidu"
+                android:gravity="center"
+                android:textColor="@color/dk_color_000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dk_login_common_title"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" >
+
+                <TextView
+                    android:id="@+id/dk_baidu_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/dk_color_000000"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/dk_baidu_account_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/dk_baidu_account_text"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@id/dk_baidu_account_text"
+                    android:orientation="horizontal" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" >
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" >
+
+                <TextView
+                    android:id="@+id/dk_other_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/dk_color_000000"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/dk_other_account_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@id/dk_other_account_text"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@id/dk_other_account_text"
+                    android:orientation="horizontal" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/dk_close"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="25dp" />
+
+            <View
+                android:id="@+id/dk_close_container"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right|center_vertical"
+                android:background="@color/dk_transparent" />
+        </FrameLayout>
+
+</FrameLayout>

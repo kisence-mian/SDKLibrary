@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ksad_shoot_refresh_view"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <com.ksad.lottie.LottieAnimationView
+        android:id="@+id/ksad_pull_to_refresh_animation_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerInParent="true"
+      />
+</com.kwad.sdk.contentalliance.refreshview.KsAdHotShootRefreshView>

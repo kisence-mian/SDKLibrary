@@ -1,0 +1,71 @@
+<resources>
+  <string name="c_buoycircle_abort" priority="translator">"DA"</string>
+  <string name="c_buoycircle_abort_message" priority="translator">"Ustaviti prenos?"</string>
+  <string name="c_buoycircle_appmarket_name" priority="translator">"HUAWEI AppGallery"</string>
+  <string name="c_buoycircle_auto_hide_notice" priority="translator">"Povlecite sem za skrivanje"</string>
+  <string name="c_buoycircle_cancel" priority="translator">"PREKLIČI"</string>
+  <string name="c_buoycircle_check_failure" priority="translator">"Preverjanje posodobitve ni uspelo."</string>
+  <string name="c_buoycircle_checking" priority="translator">"Iskanje posodobitev ..."</string>
+  <string name="c_buoycircle_confirm" priority="translator">"V redu"</string>
+  <string name="c_buoycircle_download_failure" priority="translator">"Ni bilo mogoče prenesti HUAWEI AppGallery."</string>
+  <string name="c_buoycircle_download_no_space" priority="translator">"Ni dovolj prostega prostora. Prenos ni možen."</string>
+  <string name="c_buoycircle_download_retry" priority="translator">"Prenos ni uspel. Poskusiti znova?"</string>
+  <string name="c_buoycircle_downloading_loading" priority="translator">"Prenašanje ..."</string>
+  <string name="c_buoycircle_floatwindow_click_fail_toast" priority="translator">"Omogočite sekundarni zagon za HUAWEI AppGallery v upravitelju telefona ali nastavitvah."</string>
+  <string name="c_buoycircle_hide_guide_btn_cancel" priority="translator">"PREKLIČI"</string>
+  <string name="c_buoycircle_hide_guide_btn_confirm" priority="translator">"SKRIJ"</string>
+  <string name="c_buoycircle_hide_guide_content_nosensor" priority="translator">"Če balone skrijete, boste morali znova zagnati aplikacijo, da jih zopet prikažete."</string>
+  <string name="c_buoycircle_hide_guide_content_sensor" priority="translator">"Ko balone skrijete, obrnite napravo, da jih zopet prikažete."</string>
+  <string name="c_buoycircle_hide_guide_noremind" priority="translator">"Ne opominjaj me več"</string>
+  <string name="c_buoycircle_hide_guide_title" priority="translator">"Skrij balone"</string>
+  <string name="c_buoycircle_install" priority="translator">"NAMESTI"</string>
+  <string name="c_buoycircle_no" priority="translator">"NE"</string>
+  <string name="c_buoycircle_retry" priority="translator">"POSKUSI ZNOVA"</string>
+  <string name="c_buoycircle_update_message_new" priority="translator">"Za to storitev je potrebna najnovejša različica naslednje aplikacije:\n\n%1$s"</string>
+  <string name="hms_game_login_notice" priority="LT">"Dobrodošli, %1$s!"</string>
+  <string name="hms_abort" priority="translator">"Ustavi"</string>
+  <string name="hms_abort_message" priority="translator">"Ali želite ustaviti prenos?"</string>
+  <string name="hms_bindfaildlg_message" priority="translator">"%1$s ne more uporabljati mobilnih storitev Huawei. Zaženite Upravitelja telefona ali pa odprite nastavitve, omogočite vsa dovoljenja za %2$s (vključno s samodejnim in sekundarnim zagonom) in poskusite znova."</string>
+  <string name="hms_cancel" priority="translator">"Prekliči"</string>
+  <string name="hms_check_failure" priority="translator">"Iskanje posodobitev ni uspelo."</string>
+  <string name="hms_check_no_update" priority="translator">"Najnovejšo različico že uporabljate."</string>
+  <string name="hms_checking" priority="translator">"Iskanje posodobitev ..."</string>
+  <string name="hms_confirm" priority="translator">"V redu"</string>
+  <string name="hms_download_failure" priority="translator">"Prenos paketa storitev Huawei Mobile ni uspel."</string>
+  <string name="hms_download_no_space" priority="translator">"Ni dovolj nezasedenega prostora. Prenosa ni mogoče zaključiti."</string>
+  <string name="hms_download_retry" priority="translator">"Prenos ni uspel. Želite poskusiti znova?"</string>
+  <string name="hms_downloading" priority="translator">"Prenašanje storitev Huawei Mobile | napredovanje: %d%%"</string>
+  <string name="hms_downloading_loading" priority="LT">"Prenašanje"</string>
+  <string name="hms_downloading_new" priority="LT">"Prenos HMS-ja"</string>
+  <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+  <string name="hms_install" priority="translator">"Namesti"</string>
+  <string name="hms_install_message" priority="translator">"Za uporabo te funkcije je treba namestiti program Mobilne storitve Huawei. Ga želite namestiti?"</string>
+  <string name="hms_retry" priority="translator">"Poskusi znova"</string>
+  <string name="hms_update" priority="translator">"Posodobi"</string>
+  <string name="hms_update_message" priority="translator">"Za uporabo te funkcije posodobite na najnovejšo različico storitev Huawei Mobile. Želite posodobiti zdaj?"</string>
+  <string name="hms_update_message_new" priority="LT">"Za to storitev je potrebna najnovejša različica naslednje aplikacije:\n\n%1$s"</string>
+  <string name="hms_update_title" priority="translator">"Storitve Huawei Mobile"</string>
+  <string name="upsdk_app_dl_installing" priority="LT">"Prenašanje aplikacije AppGallery"</string>
+  <string name="upsdk_app_download_info_new" priority="translator">"Namesti"</string>
+  <string name="upsdk_app_size" priority="translator">"Velikost"</string>
+  <string name="upsdk_app_version" priority="translator">"Različica"</string>
+  <string name="upsdk_cancel" priority="translator">"Prekliči"</string>
+  <string name="upsdk_checking_update_prompt" priority="translator">"Iskanje posodobitev …"</string>
+  <string name="upsdk_choice_update" priority="LT">"Na voljo je posodobitev. Prenesite in namestite najnovejšo različico."</string>
+  <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Povezave s strežnikom ni mogoče vzpostaviti. Poskusite znova pozneje."</string>
+  <string name="upsdk_detail" priority="translator">"Podrobnosti"</string>
+  <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Informacij ni mogoče pridobiti. Poskusite znova pozneje."</string>
+  <string name="upsdk_install" priority="LT">"Namestite aplikacijo AppGallery, da posodobite. Jo želite namestiti zdaj?"</string>
+  <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Ni internetne povezave. Preverite nastavitve omrežja."</string>
+  <string name="upsdk_ota_app_name" priority="LT">"Aplikacija"</string>
+  <string name="upsdk_ota_cancel" priority="translator">"Pozneje"</string>
+  <string name="upsdk_ota_force_cancel_new" priority="LT">"Izhod"</string>
+  <string name="upsdk_ota_notify_updatebtn" priority="translator">"Posodobi"</string>
+  <string name="upsdk_ota_title" priority="translator">"Nova različica"</string>
+  <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+  <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Želite preklicati namestitev?"</string>
+  <string name="upsdk_third_app_dl_install_failed" priority="translator">"Namestitev ni uspela."</string>
+  <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Da"</string>
+  <string name="upsdk_update_check_no_new_version" priority="translator">"Najnovejšo različico že uporabljate."</string>
+  <string name="upsdk_updating" priority="translator">"Posodabljanje"</string>
+</resources>

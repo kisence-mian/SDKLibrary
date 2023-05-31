@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="android_dialog_margin_bottom">26dp</dimen>
+  <dimen name="android_dialog_margin_left">22dp</dimen>
+  <dimen name="android_dialog_margin_right">22dp</dimen>
+  <dimen name="android_dialog_margin_top">16dp</dimen>
+  <item name="controller" type="id" />
+  <item name="tabtitle" type="id" />
+  <integer name="birth_year_min">1900</integer>
+  <integer name="chat_text_length_max">140</integer>
+  <integer name="chat_text_length_min">1</integer>
+  <integer name="comment_text_length_max">140</integer>
+  <integer name="comment_text_length_min">1</integer>
+  <integer name="direct_message_text_length_max">140</integer>
+  <integer name="direct_message_text_length_min">1</integer>
+  <integer name="message_text_length_max">140</integer>
+  <integer name="message_text_length_min">1</integer>
+  <integer name="user_description_length_max">100</integer>
+  <integer name="user_description_length_min">0</integer>
+  <integer name="user_name_length_max">20</integer>
+  <integer name="user_name_length_min">1</integer>
+  <integer name="user_password_length_max">12</integer>
+  <integer name="user_password_length_min">6</integer>
+  <string name="app_name">EasyApp</string>
+  <string name="cancel">Cancel</string>
+  <string name="date_format_month_day">EEEE, MMMM d</string>
+  <string name="date_format_year_month_day">EEEE, MMMM d yyyy</string>
+  <string name="empty" />
+  <string name="failed_to_get_more">Failed to load more.</string>
+  <string name="failed_to_load">Failed to load.</string>
+  <string name="failed_to_refresh">Failed to refresh.</string>
+  <string name="fiverocks_app_id" />
+  <string name="fiverocks_app_key" />
+  <string name="getting_more">Loading more…</string>
+  <string name="just_before">Just before</string>
+  <string name="loading">Loading…</string>
+  <string name="no">No</string>
+  <string name="ok">OK</string>
+  <string name="please_wait">Please wait…</string>
+  <string name="pull_down_to_load">Pull down to load.</string>
+  <string name="pull_down_to_refresh">Pull down to refresh.</string>
+  <string name="pull_up_to_get_more">Pull up to load more.</string>
+  <string name="refresh">Refresh</string>
+  <string name="release_to_get_more">Release to load more.</string>
+  <string name="release_to_load">Release to load.</string>
+  <string name="release_to_refresh">Release to refresh.</string>
+  <string name="search_hint">Search</string>
+  <string name="settings">Settings</string>
+  <string name="sign_in">Sign in</string>
+  <string name="sign_out">Sign out</string>
+  <string name="sign_up">Sign up</string>
+  <string name="today">Today</string>
+  <string name="updating">Updating…</string>
+  <string name="yes">Yes</string>
+  <string name="yesterday">Yesterday</string>
+  <style name="AppBaseTheme" parent="android:Theme.Light">
+    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+  </style>
+  <style name="AppTheme" parent="AppBaseTheme">
+    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+  </style>
+  <style name="ImageButton.NoBackground" parent="@android:style/Widget.ImageButton">
+    <item name="android:background">@null</item>
+  </style>
+  <style name="SearchEditText">
+    <item name="android:singleLine">true</item>
+  </style>
+</resources>

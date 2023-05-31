@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <com.huluxia.sdk.framework.base.widget.title.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            />
+
+    <!-- 分割线 -->
+    <View
+            android:id="@+id/split_top"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/title_bar"
+            />
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="horizontal"
+                  android:id="@+id/content"></LinearLayout>
+</LinearLayout>

@@ -1,0 +1,1 @@
+{"sdkName":"Umeng","className":"log.Umeng","useCustomJavaClass":false,"customJavaClass":[],"customJavaLibrary":[],"sdkType":"Log","configList":[{"key":"AppKey"},{"key":"PushSecret"}],"permissionList":["ACCESS_NETWORK_STATE","READ_PHONE_STATE","ACCESS_WIFI_STATE","INTERNET"],"minSDKversion":0,"targetSDKVersion":0,"activityInfoList":[],"serviceInfoList":[],"providerInfoList":[]}

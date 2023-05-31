@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tds_achievement_string_dialog_earned_date">- 획득: %s -</string>
+    <string name="tds_achievement_string_dialog_percent">\"%.1f%%유저가 이 업적을 달성 하였습니다\"</string>
+    <string name="tds_achievement_string_dialog_percent_low">\"0.1% 미만의 유저가 이 성과를 달성 하였습니다\"</string>
+    <string name="tds_achievement_string_dialog_status">%1$s업적중 /%2$s개 의 업적을 달성 하였습니다</string>
+    <string name="tds_achievement_string_invisible_subtitle">계속해서 플레이를 하면 알 수 있습니다</string>
+    <string name="tds_achievement_string_invisible_title">숨김</string>
+    <string name="tds_achievement_string_locked">미해제</string>
+    <string name="tds_achievement_string_pop_title">축하합니다. 새로운 업적을 달성 하였습니다.</string>
+    <string name="tds_achievement_string_rarity_common">노멀</string>
+    <string name="tds_achievement_string_rarity_rare">유니크</string>
+    <string name="tds_achievement_string_rarity_ultra_rare">울트라 유니크</string>
+    <string name="tds_achievement_string_rarity_uncommon">희귀</string>
+    <string name="tds_achievement_string_unlocked">해제</string>
+</resources>

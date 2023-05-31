@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/joy_dialog_bg"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:paddingBottom="5dp"
+            android:text="隐藏悬浮窗，可摇一摇再显示"
+            android:textColor="@color/joygame_black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/joy_shake_phone" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/l_dialog_hide_float_cancel"
+                android:layout_width="135dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="取消"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/joy_login_btn_bg1"
+                android:textColor="@color/joygame_black"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@color/joygame_base_stroke_color" />
+            <TextView
+                android:id="@+id/l_dialog_hide_float_ensure"
+                android:layout_width="135dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="隐藏"
+                android:background="@drawable/joy_login_btn_bg1"
+                android:textColor="@color/joygame_black"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

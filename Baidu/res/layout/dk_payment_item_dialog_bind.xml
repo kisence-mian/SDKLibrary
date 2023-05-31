@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/dk_bg_kubi_no_engouth">
+        
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_weight="2.5"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="4dp">
+            
+            <TextView
+                android:id="@+id/dk_item_dialog_tv_credit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dk_tip_dialog_card_bind_title"
+                android:textColor="@color/dk_color_666666"
+                android:textSize="12sp" />
+            
+            <ImageView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="1px"
+	            android:layout_marginTop="4dp"
+	            android:layout_marginBottom="4dp"
+	            android:background="@drawable/dk_ic_dialog_dot"/>
+            
+            <TextView 
+                android:id="@+id/dk_item_dialog_tv_credit_number"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/dk_color_666666"
+	            android:textSize="14sp"
+	            android:text="@string/dk_dialog_string_card_number"/>
+        </LinearLayout>
+        
+        <Button
+            android:id="@+id/dk_item_ck_credit_bind"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="2dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/dk_color_ff3300"
+            android:textSize="14sp"
+            android:text="@string/dk_dialog_string_unbind"
+            android:background="@drawable/dk_payment_dialog_unbind_selector" />
+    </LinearLayout>
+</LinearLayout>

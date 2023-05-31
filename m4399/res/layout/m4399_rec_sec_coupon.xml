@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--优惠券-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coupon_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+
+    <TextView
+        style="@style/m4399RecLabelTv"
+        android:text="@string/m4399_rec_coupon_space"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_coupon_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_coupon_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:textColor="@color/m4399_rec_coupon_txt_color"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/main_coupon_icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10dp"
+            android:adjustViewBounds="true"
+            android:duplicateParentState="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/m4399_rec_coupon_goto_tips" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

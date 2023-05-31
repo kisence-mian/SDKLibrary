@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 灰色背景  无边框  圆角3dp -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item >
+		<shape>
+		  <solid android:color="#ffe7ebec" />
+          <corners android:radius="3dp" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,71 @@
+<resources>
+  <string name="c_buoycircle_abort" priority="translator">"JA"</string>
+  <string name="c_buoycircle_abort_message" priority="translator">"Stop download?"</string>
+  <string name="c_buoycircle_appmarket_name" priority="translator">"HUAWEI AppGallery"</string>
+  <string name="c_buoycircle_auto_hide_notice" priority="translator">"Træk her for at skjule"</string>
+  <string name="c_buoycircle_cancel" priority="translator">"ANNULLER"</string>
+  <string name="c_buoycircle_check_failure" priority="translator">"Opdateringstjek mislykkedes."</string>
+  <string name="c_buoycircle_checking" priority="translator">"Tjekker, om der findes opdateringer…"</string>
+  <string name="c_buoycircle_confirm" priority="translator">"OK"</string>
+  <string name="c_buoycircle_download_failure" priority="translator">"HUAWEI AppGallery kunne ikke downloades."</string>
+  <string name="c_buoycircle_download_no_space" priority="translator">"Der er ikke nok ledig plads. Der kan ikke downloades."</string>
+  <string name="c_buoycircle_download_retry" priority="translator">"Download mislykkedes. Prøv igen?"</string>
+  <string name="c_buoycircle_downloading_loading" priority="translator">"Downloader…"</string>
+  <string name="c_buoycircle_floatwindow_click_fail_toast" priority="translator">"Aktiver sekundær start for HUAWEI AppGallery i Telefon-styring eller Indstillinger."</string>
+  <string name="c_buoycircle_hide_guide_btn_cancel" priority="translator">"ANNULLER"</string>
+  <string name="c_buoycircle_hide_guide_btn_confirm" priority="translator">"SKJUL"</string>
+  <string name="c_buoycircle_hide_guide_content_nosensor" priority="translator">"Når ballonerne er blevet skjult, skal du genstarte appen for at vise dem igen."</string>
+  <string name="c_buoycircle_hide_guide_content_sensor" priority="translator">"Når ballonerne er blevet skjult, skal du vende din enhed om for at vise dem igen."</string>
+  <string name="c_buoycircle_hide_guide_noremind" priority="translator">"Mind mig ikke om det igen"</string>
+  <string name="c_buoycircle_hide_guide_title" priority="translator">"Skjul balloner"</string>
+  <string name="c_buoycircle_install" priority="translator">"INSTALLER"</string>
+  <string name="c_buoycircle_no" priority="translator">"NEJ"</string>
+  <string name="c_buoycircle_retry" priority="translator">"PRØV IGEN"</string>
+  <string name="c_buoycircle_update_message_new" priority="translator">"Denne tjeneste kræver den nyeste version af følgende app:\n\n%1$s"</string>
+  <string name="hms_game_login_notice" priority="LT">"Velkommen %1$s"</string>
+  <string name="hms_abort" priority="translator">"Stop"</string>
+  <string name="hms_abort_message" priority="translator">"Vil du stoppe download?"</string>
+  <string name="hms_bindfaildlg_message" priority="translator">"%1$s kan ikke bruge Huawei Mobile Services. Start Phone Manager eller gå til Indstillinger, aktivér alle tilladelser for %2$s (inkl. automatisk start og sekundær start), og prøv igen."</string>
+  <string name="hms_cancel" priority="translator">"Annuller"</string>
+  <string name="hms_check_failure" priority="translator">"Kunne ikke søge efter opdateringer."</string>
+  <string name="hms_check_no_update" priority="translator">"Du bruger allerede den nyeste version."</string>
+  <string name="hms_checking" priority="translator">"Søger efter opdateringer..."</string>
+  <string name="hms_confirm" priority="translator">"OK"</string>
+  <string name="hms_download_failure" priority="translator">"Kunne ikke downloade Huawei Mobile Services-pakken."</string>
+  <string name="hms_download_no_space" priority="translator">"Ikke nok ledig plads. Download kan ikke fuldføres."</string>
+  <string name="hms_download_retry" priority="translator">"Download mislykkedes. Vil du prøve igen?"</string>
+  <string name="hms_downloading" priority="translator">"Downloader Huawei Mobile Services | status: %d%%"</string>
+  <string name="hms_downloading_loading" priority="LT">"Henter"</string>
+  <string name="hms_downloading_new" priority="LT">"Downloader HMS"</string>
+  <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+  <string name="hms_install" priority="translator">"Installer"</string>
+  <string name="hms_install_message" priority="translator">"Huawei Mobile Services skal være installeret for at benytte denne funktion. Installér?"</string>
+  <string name="hms_retry" priority="translator">"Prøv igen"</string>
+  <string name="hms_update" priority="translator">"Opdater"</string>
+  <string name="hms_update_message" priority="translator">"Opdatér til den nyeste version af Huawei Mobile Services for at kunne benytte denne funktion. Opdatér nu?"</string>
+  <string name="hms_update_message_new" priority="LT">"Denne tjeneste kræver den nyeste version af følgende app:\n\n%1$s"</string>
+  <string name="hms_update_title" priority="translator">"Huawei Mobile Services"</string>
+  <string name="upsdk_app_dl_installing" priority="LT">"Henter AppGallery"</string>
+  <string name="upsdk_app_download_info_new" priority="translator">"Installer"</string>
+  <string name="upsdk_app_size" priority="translator">"Størrelse"</string>
+  <string name="upsdk_app_version" priority="translator">"Version"</string>
+  <string name="upsdk_cancel" priority="translator">"Annuller"</string>
+  <string name="upsdk_checking_update_prompt" priority="translator">"Søger efter opdateringer..."</string>
+  <string name="upsdk_choice_update" priority="LT">"Opdatering tilgængelig. Download og installér den nyeste version."</string>
+  <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Kan ikke oprette forbindelse til serveren. Prøv igen senere."</string>
+  <string name="upsdk_detail" priority="translator">"Detaljer"</string>
+  <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Kunne ikke hente information. Prøv igen senere."</string>
+  <string name="upsdk_install" priority="LT">"Installer AppGallery for at opdatere. Installer nu?"</string>
+  <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Ingen internetforbindelse. Kontrollér netværksindstillingerne."</string>
+  <string name="upsdk_ota_app_name" priority="LT">"App"</string>
+  <string name="upsdk_ota_cancel" priority="translator">"Senere"</string>
+  <string name="upsdk_ota_force_cancel_new" priority="LT">"Afslut"</string>
+  <string name="upsdk_ota_notify_updatebtn" priority="translator">"Opdatér"</string>
+  <string name="upsdk_ota_title" priority="translator">"Ny version"</string>
+  <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+  <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Vil du annullere installationen?"</string>
+  <string name="upsdk_third_app_dl_install_failed" priority="translator">"Installationen mislykkedes."</string>
+  <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Ja"</string>
+  <string name="upsdk_update_check_no_new_version" priority="translator">"Du bruger allerede den seneste version."</string>
+  <string name="upsdk_updating" priority="translator">"Opdaterer"</string>
+</resources>

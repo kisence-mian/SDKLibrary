@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/m4399_ope_verify_dialog_width_dimen"
+    android:layout_height="wrap_content"
+    android:background="@drawable/m4399_ope_common_alert_dialog_bg">
+
+    <ImageView
+        android:id="@+id/m4399_ope_id_iv_close"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="18dp"
+        android:src="@drawable/m4399_rec_coupon_close" />
+
+    <LinearLayout
+        android:id="@+id/m4399_ope_id_ll_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical">
+
+        <cn.m4399.operate.ui.widget.AlignTextView
+            android:id="@+id/m4399_ope_id_tv_tip_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="26dp"
+            android:layout_marginBottom="20dp" />
+
+        <cn.m4399.operate.ui.widget.AlignTextView
+            android:id="@+id/m4399_ope_id_tv_tip_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="-7dp"
+            android:layout_marginRight="26dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/m4399_ope_id_view_line"
+        style="@style/m4399PerfectLine"
+        android:layout_below="@id/m4399_ope_id_ll_tip"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:id="@+id/m4399_ope_id_tv_write"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/m4399_ope_id_view_line"
+        android:background="@drawable/m4399_ope_dialog_btn_bg_bottom_radius"
+        android:gravity="center"
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp"
+        android:text="@string/m4399_ope_name_auth_write_click"
+        android:textColor="@color/m4399_ope_coupon_on_count"
+        android:textSize="16sp" />
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/m4399_ope_banner_width"
+    android:layout_height="wrap_content"
+    android:background="@drawable/m4399_ope_banner_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="19dp"
+    android:paddingTop="8dp"
+    android:paddingRight="19dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/m4399_ope_id_banner_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:lineSpacingExtra="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/m4399_ope_id_banner_action_negative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="13dp"
+        android:gravity="center_vertical"
+        android:text="@string/m4399_ope_close"
+        android:textColor="@android:color/white"
+        android:textSize="13sp" />
+
+</LinearLayout>

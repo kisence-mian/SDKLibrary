@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+  <title>Authoriztion</title>
+  <script>var start_time = (new Date).getTime()</script>
+  <meta charset=UTF-8>
+  <meta http-equiv=X-UA-Compatible content="ie=edge">
+  <script>function mvInit() { !function () { var e = "@charset \"utf-8\";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}", t = document.createElement("style"); if (document.getElementsByTagName("head")[0].appendChild(t), t.styleSheet) t.styleSheet.disabled || (t.styleSheet.cssText = e); else try { t.innerHTML = e } catch (i) { t.innerText = e } }(), function (e, t) { function i() { var t = r.getBoundingClientRect().width; t / s > 540 && (t = 540 * s); var i = t / 10; r.style.fontSize = i + "px", m.rem = e.rem = i } var n, a = e.document, r = a.documentElement, o = a.querySelector('meta[name="viewport"]'), l = a.querySelector('meta[name="flexible"]'), s = 0, d = 0, m = t.flexible || (t.flexible = {}); if (o) { var c = o.getAttribute("content").match(/initial\-scale=([\d\.]+)/); c && (d = parseFloat(c[1]), s = parseInt(1 / d)) } else if (l) { var h = l.getAttribute("content"); if (h) { var p = h.match(/initial\-dpr=([\d\.]+)/), f = h.match(/maximum\-dpr=([\d\.]+)/); p && (s = parseFloat(p[1]), d = parseFloat((1 / s).toFixed(2))), f && (s = parseFloat(f[1]), d = parseFloat((1 / s).toFixed(2))) } } if (!s && !d) { var u = (e.navigator.appVersion.match(/android/gi), e.navigator.appVersion.match(/iphone/gi)), b = e.devicePixelRatio; d = 1 / (s = u ? b >= 3 && (!s || s >= 3) ? 3 : b >= 2 && (!s || s >= 2) ? 2 : 1 : 1) } if (r.setAttribute("data-dpr", s), !o) if ((o = a.createElement("meta")).setAttribute("name", "viewport"), o.setAttribute("content", "initial-scale=" + d + ", maximum-scale=" + d + ", minimum-scale=" + d + ", user-scalable=no"), r.firstElementChild) r.firstElementChild.appendChild(o); else { var g = a.createElement("div"); g.appendChild(o), a.write(g.innerHTML) } e.addEventListener("resize", function () { clearTimeout(n), n = setTimeout(i, 300) }, !1), e.addEventListener("pageshow", function (e) { e.persisted && (clearTimeout(n), n = setTimeout(i, 300)) }, !1), "complete" === a.readyState ? a.body.style.fontSize = 12 * s + "px" : a.addEventListener("DOMContentLoaded", function () { a.body.style.fontSize = 12 * s + "px" }, !1), i(), m.dpr = e.dpr = s, m.refreshRem = i, m.rem2px = function (e) { var t = parseFloat(e) * this.rem; return "string" == typeof e && e.match(/rem$/) && (t += "px"), t }, m.px2rem = function (e) { var t = parseFloat(e) / this.rem; return "string" == typeof e && e.match(/px$/) && (t += "rem"), t } }(window, window.lib || (window.lib = {})) } mvInit()</script>
+  <style>@charset "utf-8";html{color:#000;background:#fff;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}html,body{font-family:sans-serif}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:500}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500}q:before,q:after{content:''}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}a:hover{text-decoration:underline}ins,a{text-decoration:none}</style>
+  <style type="text/css">blockquote,body,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,pre,td,textarea,th,ul{padding:0;margin:0;-webkit-tap-highlight-color:rgba(255,255,255,0)}article,aside,dialog,figure,footer,header,nav,section{display:block}body,html{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none}li{list-style:none}table{border-collapse:collapse;border-spacing:0}img{border:0;vertical-align:middle;width:100%}em,i{font-style:normal}a{text-decoration:none;color:#333}input{outline:0}#pageInit{position:fixed;width:100%;top:50%;margin-top:-100px;z-index:3}#pageInit img{width:300px;height:300px}.loadingTxt{color:#fff;display:block;text-align:center;font-size:40px}#mask{position:fixed;left:0;top:0;width:100%;height:100%;background-color:#000;z-index:2}body,html{width:100%;height:100%}#tipCenter{margin:0 auto;background:#333;color:#fff;line-height:.3rem;width:80%;text-align:center;position:fixed;top:35%;left:7%;z-index:99999999;height:auto;word-break:break-all;padding:.3rem .1rem;border-radius:4px;font-size:.48rem}body{overflow:hidden}.none{display:none!important}</style>
+  <style type="text/css">.shade{position:fixed;left:0;top:0;width:100%;height:100%;background-color:#000;z-index:2;opacity:.3}.mint-checklist-label{display:block;padding:0 10px;color:#c7c7c7;margin-bottom:10px}.mint-checkbox{box-sizing:border-box}.mint-checkbox-input{display:none}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}input,textarea{-webkit-user-modify:read-write-plaintext-only}input,select,textarea{outline:0}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0;vertical-align:middle}.mint-checkbox-input:checked+.mint-checkbox-core{background-color:#82c325;border-color:#82c325}.mint-checkbox-core{display:inline-block;background-color:#fff;border-radius:100%;border:1px solid #ccc;position:relative;width:32px;height:32px;vertical-align:middle}.mint-checkbox-input:checked+.mint-checkbox-core:after{border-color:#fff;-webkit-transform:rotate(45deg) scale(1);transform:rotate(45deg) scale(1)}.mint-checkbox-core:after{border:4px solid transparent;border-left:0;border-top:0;content:" ";top:6px;left:10px;position:absolute;width:6px;height:12px;-webkit-transform:rotate(45deg) scale(0);transform:rotate(45deg) scale(0);transition:-webkit-transform .2s;transition:transform .2s;transition:transform .2s,-webkit-transform .2s}.mint-checkbox-label{vertical-align:middle;margin-left:12px}.container .main{padding:10% 0;height:90%;margin:0 auto;overflow:auto;}.container .header{margin-bottom:3%}.container .img-box{text-align:center}.container .img-box img{height:1.7333rem;width:1.3333rem}.container .tit{text-align:center;font-size:.6rem;padding:3% 0 0}.container .content{height:82%;overflow-x:hidden;margin-bottom:8%}.container .content .m-txt{margin:5% auto;line-height:1.5}.container .content .m-txt dt{font-size:.42rem;color:#8fc31f}.container .btn{border-radius:.1rem;padding:3% 0;text-align:center;background-image:linear-gradient(-135deg,#18c84f,#82c325);color:#fff;font-size:.4rem}.container .confirm{height:80%}.container .confirm .tit{color:#60b660}.container .confirm .content{font-size:.45rem;margin-bottom:0}.container .confirm-footer{display:-webkit-box;display:-ms-flexbox;display:flex;border-top:1px solid #e4e4e4;height:1.5rem;line-height:1.5rem;text-align:center}.container .confirm-btn{line-height:1.5rem;display:block;background-color:#fff;-webkit-box-flex:1;-ms-flex:1;flex:1;margin:0;border:0;font-size:.5rem}.container .btn-later{width:50%;border-right:1px solid #e4e4e4;color:#60b660}.container .btn-sure{width:50%}.landscape .main{padding:2% 0}.landscape .header{margin-bottom:1%}.landscape .img-box img{height:1.15rem;width:.8889rem}.landscape .tit{font-size:.4rem;padding:1% 0 0}.landscape .content{height:80%;margin-bottom:3%}.landscape .content .m-txt{margin:1% auto}.landscape .content .m-txt:first-child{margin:0 auto}.landscape .btn{border-radius:.1rem;padding:1% 0;text-align:center;background-image:linear-gradient(-135deg,#18c84f,#82c325);color:#fff;font-size:.3rem;margin:0 auto}.landscape .confirm .tit{color:#60b660}.landscape .confirm .content{font-size:.4rem}.landscape .confirm-footer{height:1rem;line-height:1rem}.landscape .confirm-btn{line-height:1rem;font-size:.4rem}@media only screen and (min-device-width:560px) and (max-device-width:1136px) and (-webkit-min-device-pixel-ratio:2){.landscape .content{height:80%;margin-bottom:1%}.landscape .btn{padding:.8% 0}.landscape .confirm-btn,.landscape .confirm .content{font-size:.35rem}} body{overflow: auto;} </style>
+</head>
+
+<body mark=mintegral>
+  <div class=container>
+    <div class="main one">
+      <div class=header>
+        <h3 class=tit>Privacy Policy</h3>
+      </div>
+      <div class="content protocol">
+        <dl class=m-txt>
+          <dt>1. Introduction</dt>
+          <dd>
+            <p>This Policy applies to information collection and use while Users view ads served by the Mintegral Services or
+              whilst interacting with the Mintegral Services.</p>
+            <p>Our technology enables our partners to show Users more relevant advertising that is based on Users’ interests
+              and behaviors. In order to provide Mintegral Services, we may collect and use certain information about User
+              activity and preferences. We understand how important it is to keep such User’s personal information confidential
+              and discrete, especially in today's online world. To this end, we have designed this Policy in a format that
+              is easy to navigate and read so that our privacy practices can be clearly understood.</p>
+            <p>The Mintegral Services may link to third party websites, Apps or other third party content. Please note that
+              we cannot control the treatment of a User’s information by such third parties, and that the privacy practices
+              of third parties likely differ from those described in this Policy.</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>2. How We Collect Users’ Information</dt>
+          <dd>Depending on the nature of a User’s interaction with the Mintegral Services, we may collect information directly
+            from such User or from our business partners (e.g. mobile application developers, Ad Exchanges platform). For
+            example, when we partner with an Ad Exchange platform and the Ad Exchange platform initiates an ad request to
+            our DSP, it may share User’s information with us. Where required, the publisher will obtain User consent for
+            and on our behalf for the processing of User personal information to display advertising on a User’s device.
+            A User can withdraw their consent at any time. In addition, we may acquire information from other trusted sources
+            to update or supplement the information that the User voluntarily provides to us or that we collect automatically
+            or collect from our business partners (e.g. mobile application developers, Ad Exchange platforms).</dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>3. Information We May Collect From Users</dt>
+          <dd>
+            <p>When you view ads served by Mintegral Service, we and/or our business partners (e.g. mobile application developers,
+              Ad Exchange platforms) may collect your information including the following: </p>
+            <p>Device make, device model, operating system (e.g.iOS), device type (e.g. smartphone, tablet, etc.), device properties
+              related to screen size, orientation and battery, carrier, name and properties of mobile application through
+              which a consumer interacts with the Advertising Services, country, time zone and locale settings (country and
+              preferred language), network connection type, IP address, Internet browser user-agent used to access the Advertising
+              Services, identifier for advertisers (IDFA), network provider, SDK version, timestamp, API key (identifier
+              for application), application version, iOS Identifier for advertising, OS version of device, time zone, network
+              status such as WiFi, the geo-location of your device (using GPS or other geo-location data) and the Identifier
+              for Advertising (IDFA) or the Google Advertising ID (AAID), GAID, etc., international mobile equipment identity
+              (IMEI), Internet (IP) addresses or geo-location data, the content type of the ad (what the ad is about, e.g.
+              games, finance, entertainment, news), the ad type (e.g. whether the ad is a text, image, or video based ad),
+              device event information such as crashes, system activity, hardware settings, browser type, browser language,
+              the date and time of your request and referral URL. </p>
+            <p>We provide Mintegral Service for our mobile application developers through Mintegral. We may collect the email
+              address, account name and password, IP address and address of individuals using Mintegral on behalf of our
+              mobile application developers.</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>4. How We Use Users’ Personal Information</dt>
+          <dd>
+            <p>We use your personal information to display advertising on your device, which may include interest-based advertising
+              customized to individuals’ inferred interests, preferences, locations and other features. Where required, the
+              publisher will obtain User consent for and on our behalf for the processing of User personal information to
+              display advertising on a User’s device. A User can withdraw their consent at any time.</p>
+            <p>Where necessary in our legitimate interests we use your personal information: (i) to understand and analyze your
+              usage trends and preferences and improve our Mintegral Service; or (ii) for purpose of anti-fraud and traffic
+              quality monitoring in order to perform the contractual obligations to our business partners.</p>
+            <p>We may also use personal information about Users to comply with applicable laws, regulations or codes of practice,
+              and to protect our legitimate interest and protect the rights or property of us or any other third parties.</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>5. Disclosure of Users’ Personal Information</dt>
+          <dd>
+            <p>We may disclose the User’s personal information to our business partners, including our advertisers, to report
+              the measurement of Users’ interactions with the Apps, and for anti-fraud and traffic quality monitoring in
+              order to perform the contractual obligations to our business partners (e.g. advertisers). These business partners
+              may use the Users’ personal information to show Users relevant ads, measure Users’ ad/site interaction, identify
+              Users’ interest areas, and better understand the site and app traffic usage or User behavior in order to improve
+              their services. Our business partners’ use of the information that we disclose to them will be governed by
+              their privacy policies.</p>
+            <p>We may also share aggregate or anonymous information with other third parties in accordance with the terms of
+              this Policy.</p>
+            <p>Our affiliates may also have access to Users’ personal information for the purposes set out in this Privacy Policy.</p>
+            <p>We may share Users’ personal information as required or permitted by law to comply with a subpoena or similar
+              legal process or government request, or when we believe in good faith that disclosure is legally required or
+              otherwise necessary to protect our rights and property, or the rights, property or safety of others, including
+              to advisers, law enforcement agencies, judicial and regulatory authorities. We may also transfer Users’ personal
+              information to a third party that acquires all or part of our assets or shares, or that succeeds us in carrying
+              on all or a part of our business, whether by merger, acquisition, reorganization or otherwise.</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>6. International Transfers</dt>
+          <dd>
+            <p>When you are located in the EEA, personal information collected from you, including though our Mintegral Service,
+              will be transferred to recipients in countries located outside the EEA (including in China, US, India, Korea,
+              Singapore, Australia, Japan, Canada, France, Ireland, London, Germany, Brazil.), which do not provide a similar
+              or adequate level of protection to that provided by countries in the EEA. Where required by law, the publisher
+              will obtain your consent to the transfer of your personal information to recipients, as described in this Privacy
+              Policy, which are located outside the EEA. You may withdraw your consent at any time.</p>
+            <p>Mintegral has entered into EU standard contractual clauses (“Model Contracts”) for intra-group transfers of personal
+              information to its affiliates. You can request a copy of these Model Contracts by submitting your request via
+              email to
+              <a href=mailto:privacy@mintegral.com target=_blank>privacy@mintegral.com</a>.</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>7. Your Data Rights</dt>
+          <dd>
+            <p>If you are in the EEA, you have a right to (subject to a limited number of exceptions): (i) request access to
+              and rectification or erasure of you personal information; (ii) obtain restriction of processing or to object
+              to processing of your personal information; and (iii) ask for a copy of your personal information to be provided
+              to them, or a third party, in a digital format. You also have the right to lodge a complaint about the processing
+              of your personal information with your local data protection authority in the EEA.</p>
+            <p>To exercise this right please contact
+              <a href=mailto:privacy@mintegral.com target=_blank>privacy@mintegral.com</a>.</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>8. Security of Your Personal Information</dt>
+          <dd>
+            <p>The security of User’s information is our utmost priority, and we take strict measures in order to protect our
+              data from unauthorized access, use, disclosure or destruction of data. We have implemented physical, technical
+              and administrative security measures for the Services that comply with applicable laws and industry standards.
+              For example, we use firewalls, encryption technology and other automated software designed to protect against
+              fraud and identity theft; our data is only stored in centers that provide high-level security for User’s information.
+              Physical access is strictly controlled both at the perimeter and at building ingress points by our staff utilizing
+              video surveillance and other electronic means. </p>
+            <p>We also protect User’s privacy by seeking to minimize the amount of sensitive data and PRI that we store on our
+              servers in the first place. We also seek appropriate contractual protection from our partners regarding their
+              treatment of user data.</p>
+            <p>Mintegral may retain the information relating to you collected from our business partners as necessary for the
+              provision of the services, internal analytical purposes, or to comply with its legal obligations, resolve disputes
+              and enforce agreements (e.g. settlement). The criteria used to determine the retention periods include: (i)
+              how long the personal data is needed to provide the services and operate the business; (ii) the type of personal
+              data collected; and (iii) whether we are subject to a legal, contractual or similar obligation to retain the
+              data (e.g., mandatory data retention laws, government orders to preserve data relevant to an investigation,
+              or data that must be retained for the purposes of litigation or disputes).</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>9. Children</dt>
+          <dd>
+            <p>We ensure that we complies with the Children's Online Privacy Protection Act (COPPA), and does not knowingly
+              collect personal information about Users of Apps directed to children under the age of thirteen (13). For more
+              detailed information please visit our COPPA policy.</p>
+            <p>If a parent or guardian becomes aware that his or her child has provided us with information without their consent,
+              he or she should promptly contact us and we take reasonable steps to ensure that such information is deleted
+              from our files.</p>
+          </dd>
+        </dl>
+        <dl class=m-txt>
+          <dt>10. Marketing</dt>
+          <dd>
+            <p>We may contact you periodically by e-mail to provide information regarding our products, services and content
+              that may be of interest to you. If applicable law requires that we receive your consent before we send you
+              certain types of marketing communications, we will only send you those types of communications after receiving
+              your consent.</p>
+            <p>If you decide at any time that you no longer wish to receive such communications from us, you may follow the
+              unsubscribe instructions provided in any of the communications or request to be opted-out of receiving such
+              communications via email to
+              <span>support@mintegral.com</span>.</p>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+  var util = {}
+  util.getEl = function (el, tagName) {
+    el = el.replace(/^\s|\s$/g, '');
+    // # id . class tag
+    var first = el.substr(0, 1);
+    ////console.log(first);
+
+    if (first === '#') {
+      return document.getElementById(el.substr(1, el.length))
+    }
+
+    if (first === '.') {
+      return document.getElementsByClassName(el.substr(1, el.length))
+    }
+
+  }
+
+  util.rmEl = function (el) {
+    var oParent = el.parentNode;
+    if (oParent) {
+      oParent.removeChild(el);
+    }
+  }
+
+  util.addClass = function (el, className) {
+    var reg = new RegExp('' + className + '');
+    if (!reg.test(el.className)) {
+      // if dosent exsist
+      el.className += (' ' + className);
+    }
+  }
+
+  util.rmClass = function (el, className) {
+    var reg = new RegExp('' + className + '');
+    if (reg.test(el.className)) {
+      el.className = el.className.replace(reg, '');
+    }
+  }
+
+  // 可视窗口高度 和 宽度
+  util.getWinWH = function () {
+    var ww = 0
+    var wh = 0
+    if (document.compatMode === "CSS1Compat") {
+      ww = document.documentElement.clientWidth;
+      wh = document.documentElement.clientHeight;
+    } else {
+      ww = document.body.clientWidth;
+      wh = document.body.clientHeight;
+    }
+    return {
+      ww,
+      wh
+    }
+  }
+
+  handleResize()
+
+  function handleResize() {
+    var ww = util.getWinWH().ww
+    var wh = util.getWinWH().wh
+    // console.log({ww, wh})
+    if (ww > wh) {
+      // 横屏
+      util.addClass(util.getEl('.container')[0], 'landscape')
+      util.rmClass(util.getEl('.protocol')[0], 'h50')
+    } else {
+      // 竖屏
+      util.rmClass(util.getEl('.container')[0], 'landscape')
+      if (wh < 1135) {
+        util.addClass(util.getEl('.protocol')[0], 'h50')
+      } else {
+        util.rmClass(util.getEl('.protocol')[0], 'h50')
+      }
+
+    }
+  }
+
+  window.addEventListener('resize', function(){
+    handleResize()
+  })
+
+</script>
+
+</body>
+
+</html>
+<mintegralloadend></mintegralloadend>

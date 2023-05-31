@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?><!--  个人中心 导航栏 by.zhengxu  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/m4399_ope_usercenter_nav_bar_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/nav_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="18dp">
+
+        <ImageView
+            android:id="@+id/nav_back_img"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/m4399_ope_nav_back" />
+
+        <ImageView
+            android:id="@+id/nav_logo_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/m4399_ope_nav_logo"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/nav_left_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="120dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
+            android:textColor="@color/m4399_ope_usercenter_white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="20dp">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/m4399_ope_index_switch_account" />
+
+        <TextView
+            android:id="@+id/nav_right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/m4399_ope_usercenter_swith_user"
+            android:textColor="@color/m4399_ope_usercenter_white" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/nav_right_btn"
+        android:layout_width="96dp"
+        android:layout_height="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/m4399_ope_nav_btn_selector"
+        android:text="@string/m4399_ope_usercenter_back_to_game"
+        android:textColor="#6a400e"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/customerServiceImg"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/nav_right_btn"
+        android:src="@drawable/m4399_ope_contact_nav"
+        android:visibility="gone" />
+
+</RelativeLayout>

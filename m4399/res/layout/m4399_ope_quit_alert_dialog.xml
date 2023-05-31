@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/m4399_ope_common_alert_dialog_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/m4399_ope_quit_alert_dialog_title" />
+
+    <LinearLayout
+        android:id="@+id/circle_view"
+        style="@style/m4399QuitItemParentStyle">
+
+        <LinearLayout style="@style/m4399QuitItemLaStyle">
+
+            <TextView
+                style="@style/m4399QuitItemLabelStyle"
+                android:background="@drawable/m4399_ope_quit_circle_label_bg"
+                android:text="@string/m4399_ope_index_game_circle" />
+
+            <TextView
+                style="@style/m4399QuitItemContentStyle"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:text="@string/m4399_ope_quit_circle_description" />
+
+            <ImageView style="@style/m4399QuitItemArrowStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/strategy_view"
+        style="@style/m4399QuitItemParentStyle">
+
+        <View
+            android:id="@+id/line1"
+            style="@style/m4399QuitItemLineStyle" />
+
+        <LinearLayout style="@style/m4399QuitItemLaStyle">
+
+            <TextView
+                style="@style/m4399QuitItemLabelStyle"
+                android:background="@drawable/m4399_ope_quit_strategy_label_bg"
+                android:text="@string/m4399_ope_strategy" />
+
+            <TextView
+                style="@style/m4399QuitItemContentStyle"
+                android:text="@string/m4399_ope_quit_strategy_description" />
+
+            <ImageView style="@style/m4399QuitItemArrowStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gift_view"
+        style="@style/m4399QuitItemParentStyle">
+
+        <View
+            android:id="@+id/line2"
+            style="@style/m4399QuitItemLineStyle" />
+
+        <LinearLayout
+            style="@style/m4399QuitItemLaStyle"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp">
+
+            <TextView
+                style="@style/m4399QuitItemLabelStyle"
+                android:background="@drawable/m4399_ope_quit_gift_label_bg"
+                android:text="@string/m4399_ope_index_gift" />
+
+            <TextView
+                style="@style/m4399QuitItemContentStyle"
+                android:text="@string/m4399_ope_quit_gift_description" />
+
+            <ImageView style="@style/m4399QuitItemArrowStyle" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dddddd" />
+
+    <include layout="@layout/m4399_ope_quit_dialog_foot" />
+
+</LinearLayout>

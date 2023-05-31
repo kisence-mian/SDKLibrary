@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:ignore="HardcodedText, RtlHardcoded, SpUsage, ContentDescription">
+
+    <TextView
+        android:id="@+id/ksad_video_count_down"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/ksad_video_btn_bg"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        android:visibility="visible"
+        tools:ignore="SpUsage"
+        tools:text="10" />
+
+    <ImageView
+        android:id="@+id/ksad_video_sound_switch"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/ksad_video_btn_bg"
+        android:scaleType="centerInside"
+        android:src="@drawable/ksad_video_sound_selector" />
+
+    <ImageView
+        android:id="@+id/ksad_detail_reward_icon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        android:src="@drawable/ksad_video_reward_icon"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/ksad_detail_call_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/ksad_reward_call_bg"
+        android:drawableRight="@drawable/ksad_arrow_left"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingRight="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"
+        android:visibility="gone"
+        tools:text="免费获取"
+        tools:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/ksad_reward_container_new"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="40dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/ksad_reward_call_bg"
+            android:paddingLeft="40dp"
+            android:paddingRight="12dp">
+
+            <TextView
+                android:id="@+id/ksad_video_count_down_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|right"
+                android:textColor="#ffffff"
+                android:textSize="15dp"
+                tools:ignore="SpUsage"
+                tools:text="10s" />
+
+            <TextView
+                android:id="@+id/ksad_detail_reward_tip_new"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxWidth="180dp"
+                android:maxLines="1"
+                android:textColor="#FFFFFF"
+                android:textSize="14dp"
+                tools:text="后可领取奖励" />
+
+        </LinearLayout>
+
+        <com.kwad.sdk.widget.AnimatedImageView
+            android:id="@+id/ksad_detail_reward_icon_new"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="1dp"
+            android:src="@drawable/ksad_reward_icon_detail" />
+
+    </FrameLayout>
+
+
+    <ImageView
+        android:id="@+id/ksad_detail_close_btn"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ksad_page_close"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</RelativeLayout>

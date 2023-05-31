@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/joy_base_width"
+            android:layout_height="280dp"
+            android:layout_gravity="center"
+            android:background="@drawable/joy_pay_view_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <FrameLayout
+                    android:id="@+id/l_pay_close"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <RelativeLayout
+                    android:id="@+id/l_frg_payView_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/joygame_white"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:id="@+id/productNameTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/amountTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+
+                <ListView
+                    android:id="@+id/typeLV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/l_frg_payView_top"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/joygame_white"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@color/joygame_menu_bg"
+                    android:dividerHeight="1dp"
+                    android:overScrollMode="never"
+                    android:paddingBottom="63dp"
+                    android:scrollbars="none">
+
+                </ListView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_above="@+id/typeLV"
+                    android:background="@color/joygame_menu_bg" />
+
+                <Button
+                    android:id="@+id/PayBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/joy_edit_height"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/joy_login_btn_bg1"
+                    android:gravity="center"
+                    android:text="立即充值"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kwad.sdk.core.view.AdBaseFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ksad_root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded, HardcodedText">
+
+    <!--播放器-->
+    <com.kwad.sdk.contentalliance.detail.video.DetailVideoView
+        android:id="@+id/ksad_video_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+    <!--播放进度-->
+    <ProgressBar
+        android:id="@+id/ksad_video_progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:progressDrawable="@drawable/ksad_video_progress_normal" />
+
+    <!--没有网络-->
+    <TextView
+        android:id="@+id/ksad_video_network_unavailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="视频加载失败"
+        android:textColor="#DADADA"
+        android:textSize="14dp"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+    <!--视频首帧-->
+    <ImageView
+        android:id="@+id/ksad_video_first_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"/>
+
+    <!--流量下播放提示-->
+    <RelativeLayout
+        android:id="@+id/ksad_data_flow_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ksad_data_flow_play_btn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ksad_video_play" />
+
+        <TextView
+            android:id="@+id/ksad_data_flow_play_tip"
+            android:layout_width="39dp"
+            android:layout_height="17dp"
+            android:layout_below="@+id/ksad_data_flow_play_btn"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/ksad_native_video_duration_bg"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="10dp"
+            tools:text="00:29" />
+
+    </RelativeLayout>
+
+    <!--播放错误-->
+    <LinearLayout
+        android:id="@+id/ksad_video_error_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#CC000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视频加载失败"
+            android:textColor="#DADADA"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <!--播放结束页封面图-->
+    <ImageView
+        android:id="@+id/ksad_video_cover_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:visibility="visible" />
+
+    <!--播放完成App-->
+    <LinearLayout
+        android:id="@+id/ksad_video_complete_app_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#CC000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ksad_app_icon"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:src="@drawable/ksad_default_app_icon" />
+
+        <TextView
+            android:id="@+id/ksad_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            tools:text="快手APP" />
+
+        <TextView
+            android:id="@+id/ksad_app_download"
+            android:layout_width="64dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ksad_video_install_bg"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="11dp"
+            tools:text="立即下载" />
+
+    </LinearLayout>
+
+    <!--播放完成H5-->
+    <LinearLayout
+        android:id="@+id/ksad_video_complete_h5_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#CC000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/ksad_h5_open"
+            android:layout_width="64dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/ksad_video_install_bg"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="11dp"
+            tools:text="立即查看" />
+
+    </LinearLayout>
+
+</com.kwad.sdk.core.view.AdBaseFrameLayout>

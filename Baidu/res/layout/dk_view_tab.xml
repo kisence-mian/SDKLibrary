@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/dk_tab_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="下载"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/dk_tab_line"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/dk_tab_title"
+        android:layout_alignEnd="@+id/dk_tab_title"
+        android:layout_alignLeft="@+id/dk_tab_title"
+        android:layout_alignRight="@+id/dk_tab_title"
+        android:layout_alignStart="@+id/dk_tab_title"
+        android:background="@color/dk_donwload_tab_select"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/dk_tab_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/dk_tab_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/dk_tab_title"
+        android:layout_toRightOf="@+id/dk_tab_title"
+        android:src="@drawable/dk_shape_dot_6dp_red"
+        android:visibility="invisible" />
+
+</RelativeLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/new_bg_dialog"
+        android:orientation="vertical" >
+        <include layout="@layout/dk_dialog_header_draw" />
+
+        <LinearLayout
+            android:id="@+id/dk_dialog_draw_container1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="20dp" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dk_dialog_draw_container2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp" >
+
+
+                <Button
+                    android:id="@+id/dk_dialog_btn1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/dk_btn_confirm_quit_selector"
+                    android:gravity="center"
+                    android:maxEms="5"
+                    android:text="@string/Cancel"
+                    android:textColor="@color/dk_color_333333"
+                    android:textColorHint="@color/dk_chess_rankdate_text_color"
+                    android:textSize="18sp"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/dk_dialog_btn2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/dk_btn_pointer_game_selector"
+                    android:gravity="center"
+                    android:text="@string/Ensure"
+                    android:textColor="@color/dk_color_ffffff"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dk_dialog_draw_foot_wrap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include layout="@layout/dk_dialog_footer_draw" />
+        </LinearLayout>
+   </LinearLayout>
+
+</RelativeLayout>

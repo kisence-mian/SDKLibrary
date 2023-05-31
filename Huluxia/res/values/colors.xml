@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hlx_blue_1">#539ffd</color>
+    <color name="hlx_blue_2">#4180ce</color>
+    <color name="hlx_green_1">#52ae38</color>
+    <color name="hlx_green_2">#448f2f</color>
+    <color name="hlx_orange_1">#ffa63e</color>
+    <color name="hlx_orange_2">#d88d35</color>
+    <color name="hlx_transparent">#00000000</color>
+    <color name="hlx_red">#ffcc0000</color>
+    <color name="hlx_gray">#ffacacac</color>
+    <color name="hlx_gray_1">#ff323232</color>
+    <color name="hlx_gray_2">#fff0f0f0</color>
+
+    <!-- dialog colors -->
+    <color name="hlx_color_scheme_gray">#868686</color>
+    <color name="hlx_white">#ffffffff</color>
+    <color name="hlx_blue">#ff33b5e5</color>
+    <!-- dialog colors end -->
+
+    <color name="hlx_dark_gray">#ff666666</color>
+
+    <color name="hlx_color_floor3_title_bar">#ff41ad3c</color>
+
+    <color name="hlx_bgColor">#fff0f0f0</color>
+    <color name="hlx_text_color">#ff666666</color>
+    <color name="hlx_text_color_hint">#ffadadad</color>
+    <color name="hlx_devideline">#ffededed</color>
+    <color name="hlx_title_bg">#41ad3d</color>
+    <color name="hlx_background_normal">#ffffffff</color>
+    <color name="hlx_background_trans">#88ffffff</color>
+    <color name="hlx_gift_bg">#52ae38</color>
+    <color name="hlx_gift_text">#616161</color>
+    <color name="hlx_split_color">#dedfe0</color>
+    <color name="hlx_gift_pressed">#448f2f</color>
+    <color name="hlx_list_view_bg">#eeeeee</color>
+    <color name="hlx_detail_text">#a0a0a0</color>
+    <color name="hlx_dialog_content">#343434</color>
+    <color name="hlx_gift_enable_false">#e5e5e5</color>
+
+    <color name="xing_common_text_gray">#FF646464</color>
+    <color name="xing_common_line">#FFE6E6E6</color>
+    <color name="xing_common_white">#FFFFFFFF</color>
+    <color name="xing_common_basic_red">#FF7DB831</color>
+    <color name="xing_common_transparent">#00000000</color>
+    <color name="xing_common_basic_red_pre">#807DB831</color>
+    <color name="xing_common_black">#000000</color>
+    <color name="xing_common_translucence">#80000000</color>
+    <color name="xing_common_translucence_light">#40000000</color>
+</resources>

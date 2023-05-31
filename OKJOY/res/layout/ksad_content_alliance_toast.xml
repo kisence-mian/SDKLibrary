@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ksad_message_toast_bg">
+
+    <TextView
+        android:id="@+id/ksad_message_toast_txt"
+        android:layout_width="295dp"
+        android:layout_height="74dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:padding="10dp"
+        android:maxLines="2"
+        android:textSize="16sp" />
+</FrameLayout>
+

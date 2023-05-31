@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 无边框  正常绿色 按下浅蓝色   禁用灰色  按钮 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_pressed="false" >
+        <shape>
+            <solid android:color="#ff41ad3c" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    
+    <item android:state_enabled="true" android:state_pressed="true" >
+        <shape>
+            <solid android:color="#ff30812d" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+    
+    <item android:state_enabled="false" >
+        <shape>
+            <solid android:color="#ffcccccc" />
+            <corners android:radius="4dp" />
+        </shape>
+    </item>
+</selector>

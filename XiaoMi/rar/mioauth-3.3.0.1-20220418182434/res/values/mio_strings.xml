@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="no_longer_remind">不再提醒</string>
+    <string name="btn_hide">隐藏</string>
+    <string name="shake">摇一摇</string>
+    <string name="show_box">显示小宝箱</string>
+    <string name="float_hide_tip_text">拖到此处关闭浮窗</string>
+    <string name="fault_notice_button_text">查看详情</string>
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="network_error">请检查网络</string>
+    <string name="start_download_service">开始下载游戏服务</string>
+    <string name="service_downloading">游戏服务下载中...</string>
+    <string name="ask_download_service">您需要安装新版本的游戏服务，才能使用%1$s功能，是否安装游戏服务？</string>
+    <string name="ask_download_gamecenter_title">安装游戏中心</string>
+    <string name="ask_download_gamecenter">您需要安装新版本的游戏中心，才能使用%1$s功能，是否安装游戏中心？</string>
+    <string name="mifloat_account_error">此功能您需要重新登录后使用。</string>
+    <string name="install_gameservice">安装游戏服务</string>
+    <string name="mifloat_menu_window_viptext" translatable="false">VIP上线啦</string>
+    <string name="mifloat_default_nick_name" translatable="false">我的</string>
+    <string name="verify_now">立即注册</string>
+    <string name="verify_pay_fail">支付失败</string>
+
+    <string name="no_url" translatable="false">no url</string>
+    <string name="download_fail" translatable="false">download fail</string>
+
+    <string name="permission_request">权限申请</string>
+    <string name="permission_request_content">请允许我们访问传感器权限，方便我们识别您使用摇一摇功能，打开游戏宝箱。</string>
+    <string name="permission_request_phone">访问传感器权限</string>
+    <string name="permission_request_phone_desc">用户识别用户摇晃手机，打开游戏宝箱</string>
+    <string name="permission_request_to_grant">授权并继续</string>
+    <string name="permission_request_to_refuse">拒绝授权</string>
+    <!--深色模式设置Tag所需Res-->
+    <string name="darkModeSetting" translatable="false">DarkModeSetting</string>
+    <string name="btn_exit_game">退出游戏</string>
+</resources>

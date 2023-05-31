@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_black_60"
+    >
+
+    <LinearLayout
+        android:layout_width="@dimen/view_dimen_980"
+        android:layout_height="@dimen/view_dimen_831"
+        android:layout_centerInParent="true"
+        android:background="@drawable/mio_full_corner_24_white_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_dimen_168"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/view_dimen_72"
+                android:layout_height="@dimen/view_dimen_72"
+                android:background="@drawable/icon_sdk_fault" />
+
+            <TextView
+                android:id="@+id/fault_notice_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/view_dimen_18"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/color_payment_stay_btn_text"
+                android:textSize="@dimen/text_font_size_54"
+                android:textStyle="bold"
+                tools:text="故障公告"
+                android:layout_marginLeft="@dimen/view_dimen_18" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_dimen_1"
+            android:background="@color/text_color_black_10" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/view_dimen_66"
+         >
+
+            <TextView
+                android:id="@+id/fault_notice_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/text_color_black_60"
+                android:textSize="@dimen/text_font_size_46"
+                android:layout_marginLeft="@dimen/view_dimen_95"
+                android:layout_marginRight="@dimen/view_dimen_95"
+                />
+
+        </ScrollView>
+
+
+
+        <!--有按钮的样式-->
+        <LinearLayout
+            android:id="@+id/fault_notice_btn_parent"
+            android:layout_width="@dimen/view_dimen_820"
+            android:layout_height="@dimen/view_dimen_120"
+            android:layout_marginTop="@dimen/view_dimen_84"
+            android:layout_marginBottom="@dimen/view_dimen_72"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginEnd="@dimen/view_dimen_40"
+                android:layout_weight="1"
+                android:id="@+id/fault_notice_actionbtn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/view_dimen_120"
+                android:background="@drawable/mio_bg_corner_33b4ff_stroke_12"
+                android:gravity="center"
+                android:text="@string/fault_notice_button_text"
+                android:textColor="#33B4FF"
+                android:textSize="@dimen/text_font_size_48"
+                android:layout_marginRight="@dimen/view_dimen_40" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/fault_notice_okbtn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/view_dimen_120"
+                android:background="@drawable/mio_bg_12_raduis_solid_33b4ff"
+                android:gravity="center"
+                android:text="@string/btn_exit_game"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/text_font_size_48" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

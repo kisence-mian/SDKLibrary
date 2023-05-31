@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="banner_ad_load_fail">banner advert load fail</string>
+  <string name="google_service_error">No Google Service</string>
+  <string name="load_rewarded_video_fail">load rewarded video fail</string>
+  <string name="load_rewarded_video_overtime">load rewarded video overtime</string>
+  <string name="mopub_sdk_not_init">mopub sdk not init</string>
+  <string name="mopub_sdk_unity">MoPubUnitySdk</string>
+  <string name="no_banner">No Banner AD!</string>
+  <string name="no_interstitial">no interstitial</string>
+  <string name="no_loaded_interstitial">no loaded interstitial,try it later</string>
+  <string name="no_rewarded_video">no rewarded video</string>
+</resources>

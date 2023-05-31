@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    tools:ignore="ContentDescription,SpUsage,RtlHardcoded">
+
+    <com.kwad.sdk.feed.widget.base.RatioFrameLayout
+        android:id="@+id/ksad_image_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:layout_height="74dp">
+
+        <ImageView
+            android:id="@+id/ksad_ad_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+    </com.kwad.sdk.feed.widget.base.RatioFrameLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/ksad_ad_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:textColor="#020202"
+            android:textSize="18dp"
+            tools:text="快手广告快手广告快手广告快手广告快手广告" />
+
+        <include
+            layout="@layout/ksad_feed_label_dislike_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+</LinearLayout>

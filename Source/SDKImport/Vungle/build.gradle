@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 31
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+//repositories {
+//    maven {
+//        url 'https://maven.aliyun.com/repository/google'
+//        }
+//
+//    maven
+//        {
+//            url 'https://maven.aliyun.com/repository/public'
+//        }
+//}
+
+dependencies {
+
+
+    // Vungle SDK
+      implementation 'com.vungle:publisher-sdk-android:6.10.4'
+
+    implementation 'androidx.core:core:1.1.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+
+    // When appcompat is being used, core and localbroadcastmanager are the dependencies
+    // that is getting included
+    // implementation 'androidx.appcompat:appcompat:1.3.1'
+
+    // Recommended for SDK to be able to get Android Advertising ID
+    implementation 'com.google.android.gms:play-services-basement:17.6.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
+
+    // Starting with v6.10.3, the Vungle SDK supports app set ID.
+    // To take advantage of this feature, include Google Play Services tasks and appset libraries
+    // inside build.gradle
+    implementation 'com.google.android.gms:play-services-tasks:17.2.1'
+    implementation 'com.google.android.gms:play-services-appset:16.0.0'
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation files('libs\\core-1.1.0.jar')
+    implementation files('libs\\gson-2.8.6.jar')
+    implementation files('libs\\localbroadcastmanager-1.0.0.jar')
+    implementation files('libs\\okhttp-3.12.12.jar')
+    implementation files('libs\\okio-1.15.0.jar')
+    implementation files('libs\\vungle-android-sdk-6.10.4.jar')
+    implementation project(path: ':sdkinterface')
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

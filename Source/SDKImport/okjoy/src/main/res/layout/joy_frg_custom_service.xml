@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/joy_base_width"
+        android:layout_height="@dimen/joy_base_height"
+        android:layout_gravity="center"
+        android:background="@drawable/joy_service_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+            <FrameLayout
+                android:id="@+id/l_service_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"/>
+
+            <FrameLayout
+                android:id="@+id/l_service_close"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"/>
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center|left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="100dp"
+                android:layout_marginLeft="@dimen/joy_inde_l_r_padding"
+                android:layout_marginRight="@dimen/joy_inde_l_r_padding"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/id_service_phone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="客服电话："
+                        android:textColor="@color/joygame_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/id_service_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/joygame_theme_blue" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_service_qq_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="客服QQ："
+                        android:textColor="@color/joygame_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/id_service_qq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/joygame_theme_blue" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/id_service_qq_group_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="玩家QQ群："
+                        android:textColor="@color/joygame_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/id_service_qq_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/joygame_theme_blue" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/id_service_official_web_site_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="官网地址："
+                        android:textColor="@color/joygame_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/id_service_web_site"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="5"
+                        android:textColor="@color/joygame_theme_blue" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+        
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/m4399_ope_usercenter_action_item_bg"
+        android:orientation="horizontal"
+        android:paddingBottom="9dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="9dp">
+
+
+        <TextView
+            android:id="@+id/usercenter_action_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/m4399_ope_usercenter_tv_margin"
+            android:layout_toRightOf="@+id/usercenter_action_item_image"
+            android:gravity="center_vertical"
+            android:textColor="#dd000000"
+            android:textSize="@dimen/m4399_ope_usercenter_tv_size" />
+
+
+        <ImageView
+            android:id="@+id/usercenter_action_item_arrow"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/m4399_ope_usercenter_right_arrow" />
+
+
+        <TextView
+            android:id="@+id/usercenter_action_item_right_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/usercenter_action_item_arrow"
+            android:textColor="@color/m4399_ope_right_content_color"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+
+    <View
+        style="@style/m4399PerfectLine"
+        android:background="#dddddd" />
+
+</LinearLayout>

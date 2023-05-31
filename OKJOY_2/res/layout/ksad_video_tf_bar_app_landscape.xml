@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CC000000"
+    android:orientation="vertical"
+    tools:ignore="SpUsage">
+
+    <ImageView
+        android:id="@+id/ksad_app_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ksad_video_app_16_bg"
+        android:src="@drawable/ksad_default_app_icon" />
+
+    <TextView
+        android:id="@+id/ksad_app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ksad_app_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingLeft="56dp"
+        android:paddingRight="56dp"
+        android:textColor="#FFFFFF"
+        android:textSize="21dp"
+        tools:ignore="SpUsage"
+        tools:text="快手APP" />
+
+    <com.kwad.sdk.reward.widget.AppScoreView
+        android:id="@+id/ksad_app_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ksad_app_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/ksad_app_download_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ksad_app_score"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        android:visibility="gone"
+        tools:text="800w下载次数"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/ksad_app_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ksad_app_download_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:paddingLeft="56dp"
+        android:paddingRight="56dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"
+        tools:text="同事告诉我这里买水果很便宜同事告诉我这里买水果很便宜同事告诉我这里买水果很便宜" />
+
+    <com.kwad.sdk.core.page.widget.TextProgressBar
+        android:id="@+id/ksad_download_bar"
+        android:layout_width="188dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/ksad_video_actionbar_app_progress" />
+
+</RelativeLayout>

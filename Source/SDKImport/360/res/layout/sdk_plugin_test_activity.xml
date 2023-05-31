@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/plugin_info_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="插件信息"
+            android:textColor="@android:color/black" />
+
+        <ListView
+            android:id="@+id/plugin_listView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="#ff00dddd" >
+
+        </ListView>
+
+        <Button
+            android:id="@+id/btn_shuaxin_plugin_info"
+            style="@style/demo_btn"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="2dp"
+            android:text="刷新插件信息"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/btn_open_plugin_1_float_wnd"
+            style="@style/demo_btn"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="2dp"
+            android:text="打开插件（1）中的浮窗"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/btn_close_plugin_1_float_wnd"
+            style="@style/demo_btn"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="2dp"
+            android:text="关闭插件（1）中的浮窗"
+            android:textColor="@android:color/black" />
+
+        <LinearLayout
+            android:id="@+id/get_plugin_info"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_margin="2dp"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/sp_plugin_num_editText"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_margin="2dp"
+                android:background="#000000"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="numberSigned"
+                android:text="1"
+                android:textColor="#FFFF0000" >
+                
+            </EditText>
+
+	        <Button
+	            android:id="@+id/btn_sp_get_plugin_info"
+	            style="@style/demo_btn"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:layout_margin="2dp"
+	            android:text="取得指定插件信息"
+	            android:textColor="@android:color/black" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

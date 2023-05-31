@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/m4399_ope_verify_sms_code_pressed_color" />
+    <stroke
+        android:width="@dimen/m4399_ope_verify_border_line_dimen"
+        android:color="@color/m4399_ope_verify_sms_code_disable_color" />
+    <corners android:radius="@dimen/m4399_ope_verify_sms_code_radius_dimen" />
+</shape>

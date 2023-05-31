@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fadeScrollbars="false"
+    android:fillViewport="true"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:id="@+id/pay_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hlx_bg_dialog"
+        android:baselineAligned="true"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/hlx_ic_pay_back" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="充值中心"
+                android:textColor="#323232"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/cancel"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:scaleType="center"
+                android:src="@drawable/hlx_ic_pay_cancel" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/tv_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="6dp"
+                android:layout_toLeftOf="@+id/tv_amount"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="葫芦侠游戏支付测试项目"
+                android:textColor="#323232"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="¥0.01"
+                android:textColor="#EFBC09"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F0F0F0" />
+
+        <RelativeLayout
+            android:id="@+id/rly_pay_channel_first"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/tv_pay_channel_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:text="支付宝"
+                android:textColor="#323232"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_pay_channel_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:scaleType="center"
+                android:src="@drawable/hlx_ic_pay_uncheck" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rly_pay_channel_second"
+            android:layout_width="match_parent"
+            android:layout_height="41dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="#F0F0F0" />
+
+            <TextView
+                android:id="@+id/tv_pay_channel_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:drawablePadding="6dp"
+                android:gravity="center_vertical"
+                android:text="微信"
+                android:textColor="#323232"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_pay_channel_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:scaleType="center"
+                android:src="@drawable/hlx_ic_pay_uncheck" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0" />
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="确认支付"
+            android:textColor="#53AE39"
+            android:textSize="17sp" />
+    </LinearLayout>
+</ScrollView>

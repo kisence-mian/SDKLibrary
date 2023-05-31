@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/m4399_rec_color_white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/m4399RecLabelTv"
+            android:layout_marginRight="26dp"
+            android:text="@string/m4399_rec_recharge_card_num"
+
+            />
+
+        <EditText
+            android:id="@+id/serial"
+            style="@style/m4399RecInputAreaStyle"
+            android:hint="@string/m4399_rec_input_card_serial"
+            android:imeOptions="actionNext" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/m4399RecLabelTv"
+            android:layout_marginRight="26dp"
+            android:text="@string/m4399_rec_recharge_card_pwd" />
+
+        <EditText
+            android:id="@+id/passwd"
+            style="@style/m4399RecInputAreaStyle"
+            android:hint="@string/m4399_rec_input_card_psword" />
+    </LinearLayout>
+</LinearLayout>

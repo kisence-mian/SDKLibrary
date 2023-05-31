@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="external_storage_root"
+        path="/m4399_sdk/locate" />
+    <cache-path
+        name="cache"
+        path="/m4399_sdk/locate" />
+</paths>
+

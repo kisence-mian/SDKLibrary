@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dk_pay_item_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="53dp"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:background="@drawable/btn_background_pay_selector_middle"
+    android:orientation="horizontal" >
+  <!--   android:background="@drawable/btn_background_pay_selector_middle"
+ -->
+    <!-- android:background="@color/dk_transparent" -->
+
+
+    <!-- android:minHeight="?android:attr/listPreferredItemHeight" -->
+
+    <ImageView
+        android:id="@+id/payicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pay_other_message_icon" />
+
+    <TextView
+        android:id="@+id/payname"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="支付宝"
+        android:textColor="#666666"
+        android:textSize="16sp" />
+    <!-- "14dp" -->
+
+
+    <!-- android:layout_centerInParent="true" -->
+
+    <TextView
+        android:id="@+id/discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/payname"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@layout/dk_pay_discount_background"
+        android:text="8.5折"
+        android:textColor="#ffffff"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical" >
+        
+          <ImageView
+            android:id="@+id/arrowright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.5dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/dk_icon_item_arrow_pay" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/arrowright"
+            android:layout_marginRight="8dp"
+            android:text="¥120"
+            android:textColor="#fe3e24"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+      
+    </RelativeLayout>
+
+</LinearLayout>

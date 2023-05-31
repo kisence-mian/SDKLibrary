@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="278dp"
+        android:layout_height="121dp" >
+
+        <View
+            android:layout_width="278dp"
+            android:layout_height="121dp"
+            android:background="@drawable/dk_wane_shape" />
+
+        <ImageView
+            android:id="@+id/bd_iv_download_close"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="15dp"
+            android:background="@drawable/dk_btn_selector_notice_close" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="278dp"
+        android:layout_height="121dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/dk_downloads_progress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="228dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:progressDrawable="@drawable/dk_gift_progressbar_style" />
+
+        <TextView
+            android:id="@+id/dk_tv_loading_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="@string/dk_toast_down_text"
+            android:textColor="@color/dk_color_ff999999"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</FrameLayout>

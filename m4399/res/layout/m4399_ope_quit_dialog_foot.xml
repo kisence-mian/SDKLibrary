@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/alert_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/m4399_ope_vip_button_bg_left"
+        android:gravity="center"
+        android:paddingBottom="@dimen/m4399_ope_quit_btn_padding"
+        android:paddingTop="@dimen/m4399_ope_quit_btn_padding"
+        android:textColor="#999999"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/center_line"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#dddddd" />
+
+    <LinearLayout
+        android:id="@+id/alert_sure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/m4399_ope_vip_button_bg_right"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/m4399_ope_quit_btn_padding"
+        android:paddingTop="@dimen/m4399_ope_quit_btn_padding">
+
+
+        <TextView
+            android:id="@+id/alert_sure_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/m4399_rec_color_yellow"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

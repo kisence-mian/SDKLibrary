@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="@dimen/joy_base_width"
+                android:layout_height="330dp"
+                android:layout_gravity="center"
+                android:background="@drawable/joy_update_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:id="@+id/l_dialog_web_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="温馨提示"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <WebView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_marginLeft="@dimen/joy_inde_l_r_padding"
+                    android:layout_marginRight="@dimen/joy_inde_l_r_padding"
+                    android:layerType="software"
+                    android:textSize="14sp" />
+                <FrameLayout
+                    android:id="@+id/l_dialog_web_close"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="180dp"
+                        android:layout_height="@dimen/joy_edit_height"
+                        android:gravity="center"
+                        android:text="确 定"
+                        android:background="@drawable/joy_login_btn_bg1"
+                        android:textColor="@color/joygame_black"
+                        android:textSize="18sp" />
+                </FrameLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

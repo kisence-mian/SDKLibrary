@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/tip_dialog_background">
+    <LinearLayout 
+        android:id="@+id/topLine"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/info"
+            android:scaleType="fitXY"/>
+        <TextView 
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/tip_deal_result"
+            android:textColor="#666666"
+        	android:textSize="18sp"/>
+    </LinearLayout>
+    <LinearLayout 
+        android:id="@+id/line_xian"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dp"
+	    android:layout_below="@id/topLine"
+	    android:orientation="vertical" >
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:background="#cccccc" />
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:background="#ffffff" />
+	</LinearLayout>
+	<TextView 
+	    android:id="@+id/txtMessage"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/line_xian"
+	    android:gravity="center"
+	    android:layout_marginTop="10dp"
+	    android:text="@string/dk_payemnt_dialog_cc"
+        android:textColor="#666666"
+        android:textSize="18sp"/>
+	<LinearLayout 
+        android:id="@+id/line_xian_1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:layout_below="@id/txtMessage"
+	    android:orientation="vertical" >
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:background="#cccccc" />
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="1px"
+	        android:background="#ffffff" />
+	</LinearLayout>
+	<Button 
+	    android:id="@+id/btnOK"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="5dp"
+	    android:layout_below="@id/line_xian_1"
+	    android:gravity="center"
+	    android:background="@drawable/btn_tip_click_bg"
+	    android:textColor="#666666"
+        android:textSize="18sp"
+	    />
+	
+</RelativeLayout>

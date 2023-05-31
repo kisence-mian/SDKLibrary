@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/m4399RecPageStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.m4399.recharge.ui.widget.RechargeNavBarView
+        android:id="@+id/nav"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/m4399_rec_title_height" />
+
+    <cn.m4399.recharge.thirdparty.smoothprogressbar.SmoothProgressBar
+        android:id="@+id/smooth_progressbar"
+        style="@style/m4399OpePocketProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:indeterminate="false"
+        android:progress="0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/m4399_rec_paddingLeft"
+        android:paddingRight="@dimen/m4399_rec_paddingRight">
+
+        <LinearLayout
+            android:id="@+id/ll_record_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/m4399_rec_history_order_hint"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <include
+                android:id="@+id/area_order_header"
+                layout="@layout/m4399_rec_item_record_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m4399_rec_record_item_height" />
+
+            <ListView
+                android:id="@+id/lv_order_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/m4399_rec_record_header_bg"
+                android:divider="@color/m4399_rec_color_history_record_item_bg"
+                android:dividerHeight="1dp"
+                android:padding="1dp"
+                android:scrollbars="none"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_no_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/m4399_rec_no_record_indicator"
+            android:gravity="center"
+            android:text="@string/m4399_rec_no_record"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

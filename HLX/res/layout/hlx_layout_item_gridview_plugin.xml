@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/hlx_style_button_alpha_blue"
+    android:gravity="top" >
+    
+    <ImageView
+        android:id="@+id/ChildPluginItemImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_centerHorizontal="true"
+        android:src="@null" />
+    
+    <TextView
+        android:id="@+id/ChildPluginItemRunning"
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:background="#aa666666"
+        android:textColor="#ffffffff"
+        android:textSize="10sp"
+        android:text="启用中" />
+    
+    <TextView
+        android:id="@+id/ChildPluginItemName"
+        android:layout_below="@id/ChildPluginItemImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-1dp"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#ff666666"
+        android:textSize="12dp"
+        android:text="name" />
+
+</RelativeLayout>
+

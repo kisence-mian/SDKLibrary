@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ipay_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:id="@+id/iv_single_dialog_close"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerVertical="true"
+               android:padding="@dimen/ipay_margin_15"
+               android:src="@drawable/ipay_dialog_close" />
+
+           <TextView
+               android:id="@+id/tv_title"
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/ipay_height_40"
+               android:gravity="center"
+               android:text="@string/ipay_common_single_select_dialog_title"
+               android:paddingLeft="@dimen/ipay_margin_15"
+               android:textColor="@color/ipay_color_value_7_2"
+               android:textSize="@dimen/ipay_text_size_14" />
+
+       </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ipay_title_line_heigth"
+            android:background="#cacaca" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@null"
+            android:dividerHeight="1px"
+            android:fadingEdge="none"
+            android:scrollbars="none"
+            android:layout_marginRight="@dimen/ipay_margin_10"
+            android:layout_marginLeft="@dimen/ipay_margin_10"
+            android:divider="@color/ipay_color_value_3"
+            android:listSelector="@android:color/transparent"
+            android:scrollingCache="false" />
+    </LinearLayout>
+
+</LinearLayout>

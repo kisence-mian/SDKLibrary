@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:isScrollContainer="true" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout style="@style/flow_test_pay_border_layout" >
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/access_token" />
+
+                <EditText
+                    android:id="@+id/value_access_token"
+                    style="@style/flow_test_pay_edittext"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="none" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/qihoo_user_id" />
+
+                <EditText
+                    android:id="@+id/value_qihoo_user_id"
+                    style="@style/flow_test_pay_edittext"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="none" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_key" />
+
+                <EditText
+                    android:id="@+id/value_app_key"
+                    style="@style/flow_test_pay_edittext"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="none" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/private_key" />
+
+                <EditText
+                    android:id="@+id/value_private_key"
+                    style="@style/flow_test_pay_edittext"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="none" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout style="@style/flow_test_pay_border_layout" >
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/amount" />
+
+                <EditText
+                    android:id="@+id/value_amount"
+                    style="@style/flow_test_pay_edittext"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/exchange_rate" />
+
+                <EditText
+                    android:id="@+id/value_exchange_rate"
+                    style="@style/flow_test_pay_edittext"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/product_name" />
+
+                <EditText
+                    android:id="@+id/value_product_name"
+                    style="@style/flow_test_pay_edittext"
+                    android:hint="@string/demo_pay_product_name"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/product_id" />
+
+                <EditText
+                    android:id="@+id/value_product_id"
+                    style="@style/flow_test_pay_edittext"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/flow_test_pay_layout"
+            android:layout_margin="2dp"
+            android:background="@drawable/layout_border"
+            android:padding="2dp" >
+
+            <TextView
+                style="@style/flow_test_pay_textview"
+                android:textColor="@android:color/black"
+                android:text="@string/notify_uri" />
+
+            <EditText
+                android:id="@+id/value_notify_uri"
+                style="@style/flow_test_pay_edittext"
+                android:textColorHint="#ff999999"
+                android:textColor="@android:color/black"
+                android:inputType="textUri" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/flow_test_pay_border_layout" >
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/test_app_name" />
+
+                <EditText
+                    android:id="@+id/value_app_name"
+                    style="@style/flow_test_pay_edittext"
+                    android:hint="@string/demo_pay_app_name"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_user_name" />
+
+                <EditText
+                    android:id="@+id/value_app_user_name"
+                    style="@style/flow_test_pay_edittext"
+                    android:hint="@string/demo_pay_app_user_name"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_user_id" />
+
+                <EditText
+                    android:id="@+id/value_app_user_id"
+                    style="@style/flow_test_pay_edittext"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout style="@style/flow_test_pay_border_layout" >
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_ext_1" />
+
+                <EditText
+                    android:id="@+id/value_app_ext_1"
+                    style="@style/flow_test_pay_edittext"
+                    android:hint="@string/demo_pay_app_ext1"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_ext_2" />
+
+                <EditText
+                    android:id="@+id/value_app_ext_2"
+                    style="@style/flow_test_pay_edittext"
+                    android:hint="@string/demo_pay_app_ext2"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/flow_test_pay_layout" >
+
+                <TextView
+                    style="@style/flow_test_pay_textview"
+                    android:textColor="@android:color/black"
+                    android:text="@string/app_order_id" />
+
+                <EditText
+                    android:id="@+id/value_app_order_id"
+                    style="@style/flow_test_pay_edittext"
+                    android:textColorHint="#ff999999"
+                    android:textColor="@android:color/black"
+                    android:inputType="numberDecimal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_pay"
+            style="@style/demo_btn"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/black"
+            android:text="@string/pay" />
+    </LinearLayout>
+
+</ScrollView>

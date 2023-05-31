@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical">
+
+    <!--播放器-->
+    <com.kwad.sdk.contentalliance.detail.video.DetailVideoView
+        android:id="@+id/ksad_video_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--视频封面-->
+    <ImageView
+        android:id="@+id/ksad_video_first_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"/>
+
+    <!--广告底部转化区域-->
+    <com.kwad.sdk.contentalliance.detail.ad.view.AdBottomView
+        android:id="@+id/ksad_bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <include layout="@layout/ksad_content_alliance_loading"/>
+</FrameLayout>

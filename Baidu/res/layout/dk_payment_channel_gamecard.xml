@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/new_bg_dialog_old"
+    android:minHeight="280dp"
+    android:orientation="vertical" >
+    <include 
+        layout="@layout/dk_dialog_header_old"
+        android:layout_height="0px"
+        android:layout_weight="1"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="3" >
+
+        <LinearLayout
+            android:id="@+id/line_vertical"
+            android:layout_width="2dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="left"
+            android:layout_marginLeft="76dp"
+            android:orientation="horizontal" >
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#cccccc" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="78dp"
+                android:layout_height="match_parent"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/btnGameCard1"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardone"
+                        android:textColor="#333333"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/btnGameCard2"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:gravity="center"
+                        android:text="@string/dialog_cardtwo"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard3"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardthree"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard4"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardfour"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard5"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardfive"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard6"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardsix"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard7"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardseven"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard8"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardeight"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard9"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardnine"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard10"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardten"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btnGameCard11"
+                        android:layout_width="78dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/transparent"
+                        android:text="@string/dialog_cardeleven"
+                        android:textColor="#333333"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" >
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:scrollbars="none" >
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        layout="@layout/dk_dialog_rechargecard_body" />
+                </ScrollView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+	<include 
+        layout="@layout/dk_dialog_footer"
+        android:layout_height="0px"
+        android:layout_weight="1"/>
+</LinearLayout>

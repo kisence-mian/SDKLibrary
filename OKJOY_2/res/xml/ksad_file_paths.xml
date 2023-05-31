@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+  <!--<external-path name="ksadsdk" path="ksadsdk/com.kwad.kwadsdk/cache_v1" />-->
+  <!--代表外部存储区域的根目录下的文件 Environment.getExternalStorageDirectory()  path= "." 代表适配所有路径-->
+  <external-path path="." name="external_storage_root" />
+</paths>

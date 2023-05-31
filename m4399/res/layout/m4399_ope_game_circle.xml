@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/m4399_ope_usercenter_white"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:paddingLeft="@dimen/m4399_ope_index_margin"
+    android:paddingRight="@dimen/m4399_ope_index_margin">
+
+    <LinearLayout
+        android:id="@+id/circle_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/m4399_ope_usercenter_white"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/m4399IndexLabelTvStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/m4399_ope_pop_circle" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="@string/m4399_ope_index_more"
+            android:textColor="#89000000"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:src="@drawable/m4399_ope_usercenter_right_arrow" />
+    </LinearLayout>
+
+
+    <cn.m4399.operate.ui.widget.ListView4ScrollView
+        android:id="@+id/dynamic_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
+
+    <cn.m4399.operate.ui.widget.ListView4ScrollView
+        android:id="@+id/question_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
+</LinearLayout>

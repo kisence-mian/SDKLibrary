@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical">
+
+
+    <cn.m4399.operate.ui.widget.CommonNavView
+        android:id="@+id/personal_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <cn.m4399.operate.ui.widget.UserCenterItemView
+                android:id="@+id/personal_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone" />
+
+
+            <cn.m4399.operate.ui.widget.UserCenterItemView
+                android:id="@+id/personal_bind_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <cn.m4399.operate.ui.widget.UserCenterItemView
+                android:id="@+id/personal_bind_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <cn.m4399.operate.ui.widget.UserCenterItemView
+                android:id="@+id/personal_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
+
+            <cn.m4399.operate.ui.widget.UserCenterItemView
+                android:id="@+id/personal_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RadioGroup
+                android:id="@+id/environ_switch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/product_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/m4399_ope_setting_product"
+                    android:textColor="@color/m4399_ope_activation_title_black" />
+
+                <RadioButton
+                    android:id="@+id/test_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/m4399_ope_setting_test"
+                    android:textColor="@color/m4399_ope_activation_title_black" />
+            </RadioGroup>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/m4399RecPageStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.m4399.recharge.ui.widget.RechargeNavBarView
+        android:id="@+id/nav"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/m4399_rec_title_height" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nav"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="@dimen/m4399_rec_page_margin"
+        android:layout_marginRight="@dimen/m4399_rec_page_margin"
+        android:layout_marginTop="@dimen/m4399_rec_page_margint_top"
+        android:background="@android:color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/m4399_rec_money_product"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <include layout="@layout/m4399_rec_account_info" />
+
+            <include
+                style="@style/m4399RecGridviewContainerStyle"
+                layout="@layout/m4399_rec_sec_rmd_gridview" />
+
+            <include
+                layout="@layout/m4399_rec_sec_coupon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m4399_rec_page_margint_top" />
+
+            <include
+                android:id="@+id/go_pay_view"
+                layout="@layout/m4399_rec_sec_single_btn_area"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m4399_rec_sum_btns_eara_height"
+                android:layout_marginTop="@dimen/m4399_rec_page_margint_top" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

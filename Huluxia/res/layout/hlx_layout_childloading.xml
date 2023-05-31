@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ProgressBarCircle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="248dp" 
+    android:layout_height="wrap_content" 
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ChildLoadingTextTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="app_text"
+        android:textColor="#ff666666" />
+    
+    <com.huluxia.sdk.framework.base.widget.progressbar.ProgressBarCircle
+        android:id="@+id/ChildLoadingProgressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        ProgressBarCircle:rimColor="#44444444"
+        ProgressBarCircle:barColor="#ff48D000"
+        ProgressBarCircle:textColor="#ff222222"
+        ProgressBarCircle:rimWidth="10dp"
+        ProgressBarCircle:padding="5dp"
+        ProgressBarCircle:textSize="14sp" />
+    
+    <TextView
+        android:id="@+id/ChildLoadingTextTips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:text="app_text"
+        android:textColor="#ff666666"
+        android:visibility="gone" />
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|right" >
+
+    <ImageView
+        android:id="@+id/dk_draw_title_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/dk_draw_title" />
+    
+    <RelativeLayout 
+        android:id="@+id/dk_draw_main_container_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="65dp"
+        android:layout_centerHorizontal="true">
+        
+        <com.duoku.platform.single.draw.DKDrawTurntableView
+	        android:id="@+id/dk_draw_turnableview"
+	        android:layout_width="150dp"
+	        android:layout_height="150dp"
+	        android:layout_centerInParent="true"/>
+        <Button
+	        android:id="@+id/dk_draw_startdraw_btn"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:background="@drawable/dk_btn_draw_start_selector" />
+    </RelativeLayout>
+    
+    <Button
+        android:id="@+id/dk_draw_close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/dk_draw_close_selector" />
+
+    <TextView
+        android:id="@+id/dk_draw_historyrecord_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dk_draw_main_container_rl"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:padding="5dp"
+        android:text="@string/dk_draw_check_result"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#fabd02"
+        android:textSize="12sp"
+        android:typeface="serif" />
+</RelativeLayout>

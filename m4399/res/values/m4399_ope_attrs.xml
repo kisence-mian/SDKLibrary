@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--smoothbprogress-->
+    <declare-styleable name="m4399OpeSmoothProgressBar">
+        <attr name="m4399_ope_spbStyle" format="reference" />
+        <attr name="m4399_ope_spb_color" format="color" />
+        <attr name="m4399_ope_spb_stroke_width" format="dimension" />
+        <attr name="m4399_ope_spb_stroke_separator_length" format="dimension" />
+        <attr name="m4399_ope_spb_sections_count" format="integer" />
+        <attr name="m4399_ope_spb_speed" format="float" />
+        <attr name="m4399_ope_spb_progressiveStart_speed" format="float" />
+        <attr name="m4399_ope_spb_progressiveStop_speed" format="float" />
+        <attr name="m4399_ope_spb_interpolator" format="enum">
+            <enum name="m4399_ope_spb_interpolator_accelerate" value="0" />
+            <enum name="m4399_ope_spb_interpolator_linear" value="1" />
+            <enum name="m4399_ope_spb_interpolator_acceleratedecelerate" value="2" />
+            <enum name="m4399_ope_spb_interpolator_decelerate" value="3" />
+        </attr>
+        <attr name="m4399_ope_spb_reversed" format="boolean" />
+        <attr name="m4399_ope_spb_mirror_mode" format="boolean" />
+        <attr name="m4399_ope_spb_colors" format="reference" />
+        <attr name="m4399_ope_spb_progressiveStart_activated" format="boolean" />
+        <attr name="m4399_ope_spb_background" format="reference" />
+        <attr name="m4399_ope_spb_generate_background_with_colors" format="boolean" />
+        <attr name="m4399_ope_spb_gradients" format="boolean" />
+    </declare-styleable>
+
+    <attr name="text" format="string" />
+    <attr name="textColor" format="color" />
+    <declare-styleable name="TextSeekBar">
+        <attr name="text" />
+        <attr name="progressColor" format="color" />
+        <attr name="progressFailColor" format="color" />
+        <attr name="indeterminateColor" format="color" />
+        <attr name="thumb" format="reference" />
+        <attr name="thumbStart" format="reference" />
+        <attr name="thumbFail" format="reference" />
+        <attr name="textColor" />
+        <attr name="indeterminateRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AlignTextView">
+        <attr name="text" />
+        <attr name="textColor" />
+        <attr name="paddingHori" format="dimension" />
+        <attr name="paddingVert" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textPadding" format="dimension" />
+        <attr name="lineSpacing" format="dimension" />
+    </declare-styleable>
+</resources>

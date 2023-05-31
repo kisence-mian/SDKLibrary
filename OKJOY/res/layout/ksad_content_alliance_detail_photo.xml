@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical">
+
+    <com.kwad.sdk.contentalliance.widget.KsAdFrameLayout
+        android:id="@+id/ksad_video_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--播放器-->
+    <com.kwad.sdk.contentalliance.detail.video.DetailVideoView
+        android:id="@+id/ksad_video_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--视频封面-->
+    <ImageView
+        android:id="@+id/ksad_video_first_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop" />
+
+    <!--播放控制按钮-->
+    <Button
+        android:id="@+id/ksad_video_control_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/ksad_photo_video_pause_icon" />
+
+    <!--水印-->
+    <com.kwad.sdk.contentalliance.watermark.WaterMarkView
+        android:id="@+id/ksad_video_water_mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="60dp"
+        android:background="#00000000" />
+
+    <!--video bottom 区域蒙板-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/ksad_draw_bottom_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="35dp">
+        <!--作者信息和内容描述-->
+        <com.kwad.sdk.contentalliance.detail.photo.PhotoBottomView
+            android:id="@+id/ksad_photo_detail_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@+id/ksad_photo_detail_bottom_toolbar" />
+
+        <!--右侧按钮栏-->
+        <LinearLayout
+            android:id="@+id/ksad_photo_detail_bottom_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="4dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ksad_slide_play_like_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+
+    <ProgressBar
+        android:id="@+id/ksad_video_progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:progressDrawable="@drawable/ksad_video_progress_normal"
+        android:visibility="gone"
+        tools:progress="50"
+        tools:visibility="visible" />
+
+  <include layout="@layout/ksad_content_alliance_loading"/>
+
+</FrameLayout>

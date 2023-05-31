@@ -1,0 +1,37 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false"
+    android:variablePadding="true">
+
+    <item
+        android:drawable="@drawable/ksad_loading_1"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_2"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_3"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_4"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_5"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_6"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_7"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_8"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_9"
+        android:duration="80" />
+    <item
+        android:drawable="@drawable/ksad_loading_10"
+        android:duration="80" />
+
+
+</animation-list>

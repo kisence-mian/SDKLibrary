@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_choose_tap_cn">TapTap China</string>
+    <string name="dialog_choose_tap_global">TapTap</string>
+    <string name="dialog_choose_title">Select the following applications to run</string>
+    <string name="taptap_alert_download_taptap">This game requires the latest TapTap service support, please download the latest TapTap version</string>
+    <string name="taptap_alert_license_no">Game not activated, please buy this game from TapTap</string>
+    <string name="taptap_string_checking_license">Checking purchase information...</string>
+    <string name="taptap_string_download_taptap">Download TapTap</string>
+    <string name="taptap_string_open_taptap">Open TapTap</string>
+</resources>

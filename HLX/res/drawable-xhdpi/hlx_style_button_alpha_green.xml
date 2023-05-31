@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--按下:无边框+浅率色 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_enabled="true" android:state_pressed="true" >
+        <shape>
+            <solid android:color="#ffc6e6c4" />
+        </shape>
+    </item>
+</selector>

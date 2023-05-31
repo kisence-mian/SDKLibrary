@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="fill_parent" >
+
+<LinearLayout
+    android:id="@+id/dk_layout_payment_dialog"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/new_bg_dialog1"
+    android:orientation="vertical"
+    android:padding="10dp" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+        
+        <RelativeLayout 
+            android:id="@+id/dk_layout_dialog_title"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="8dp"
+	        android:layout_gravity="center"
+	        android:gravity="center_vertical">
+        
+	        <TextView
+	            android:id="@+id/dk_dialog_tv_tip_title"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_centerHorizontal="true"
+	            android:layout_centerVertical="true"
+	            android:gravity="center"
+	            android:text="@string/dialog_bind_bank"
+	            android:textColor="#333333"
+	            android:textSize="20sp" />
+
+	    </RelativeLayout>
+    
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="8dp"
+	        android:visibility="visible" >
+
+	        <View
+	            android:id="@+id/dk_dialog_view_divider"
+	            android:layout_width="wrap_content"
+	            android:layout_height="1dp"
+	            android:background="@color/dk_color_666666" />
+	        
+	        <ImageView
+	            android:layout_width="fill_parent"
+	            android:layout_height="1px"
+	            android:layout_marginBottom="4dp"
+	            android:layout_marginTop="4dp"
+	            android:background="@drawable/dk_payment_dialog_dot_bg"
+	            android:visibility="gone" />
+
+	    </LinearLayout>
+
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/dk_dialog_linear_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+	    
+        <ListView
+            android:id="@+id/dk_dialog_list_view_bind_credit"
+            android:layout_width="fill_parent"
+            android:layout_height="280dp"
+            android:cacheColorHint="#00000000"
+            android:divider="@drawable/goodsinfo_divide"
+            android:fadingEdge="none"
+            android:scrollbarThumbVertical="@drawable/dk_scrollbar_gray"
+            android:scrollbars="vertical"
+            android:visibility="gone" />
+        
+        <TextView
+            android:id="@+id/dk_dialog_tv_tip_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:text="@string/dialog_unbind_bank"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp">
+        
+        <Button
+            android:id="@+id/dk_dialog_btn_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/dk_btn_pointer_game_selector"
+            android:gravity="center"
+            android:text="@string/dk_dialog_string_close"
+            android:textColor="@color/dk_color_ffffff"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</LinearLayout>
+
+<ImageView
+    android:id="@+id/dk_dialog_iv_close"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:src="@drawable/dk_quickpay_dialog_shutdown_selector"
+    android:visibility="gone" />
+
+</RelativeLayout>

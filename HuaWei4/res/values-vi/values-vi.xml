@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="hms_abort" priority="translator">"Dừng"</string>
+  <string name="hms_abort_message" priority="translator">"Bạn muốn dừng tải về?"</string>
+  <string name="hms_bindfaildlg_message" priority="translator">"%1$s không thể sử dụng Huawei Mobile Services. Vui lòng khởi chạy Trình tối ưu hóa (Quản lý ĐT) hoặc chuyển tới mục Cài đặt để bật tất cả quyền cho %2$s (bao gồm tự động khởi chạy và khởi chạy thứ cấp), sau đó thử lại."</string>
+  <string name="hms_cancel" priority="translator">"Hủy"</string>
+  <string name="hms_check_failure" priority="translator">"Kiểm tra cập nhật thất bại."</string>
+  <string name="hms_check_no_update" priority="translator">"Bạn đang sử dụng phiên bản mới nhất."</string>
+  <string name="hms_checking" priority="translator">"Đang kiểm tra cập nhật..."</string>
+  <string name="hms_confirm" priority="translator">"OK"</string>
+  <string name="hms_download_failure" priority="translator">"Thất bại tải về gói Dịch vụ Di động Huawei."</string>
+  <string name="hms_download_no_space" priority="translator">"Không đủ không gian trống. Không thể hoàn tất tải về máy."</string>
+  <string name="hms_download_retry" priority="translator">"Tải về thất bại. Thử lại?"</string>
+  <string name="hms_downloading" priority="translator">"Đang tải về Dịch vụ Di động Huawei | tiến độ: %d%%"</string>
+  <string name="hms_downloading_loading" priority="LT">"Đang tải xuống"</string>
+  <string name="hms_downloading_new" priority="LT">"Đang tải về HMS"</string>
+  <string name="hms_gamebox_name" priority="LT">"HUAWEI GameCenter"</string>
+  <string name="hms_install" priority="translator">"Cài đặt"</string>
+  <string name="hms_install_message" priority="translator">"Bạn cần cài đặt Dịch vụ Di động Huawei mới có thể sử dụng tính năng này. Cài đặt?"</string>
+  <string name="hms_retry" priority="translator">"Thử lại"</string>
+  <string name="hms_update" priority="translator">"Cập nhật"</string>
+  <string name="hms_update_continue" priority="LT">"Tải xuống"</string>
+  <string name="hms_update_message" priority="translator">"Để sử dụng tính năng này bạn cần cập nhật phiên bản mới nhất của Dịch vụ Di động Huawei. Cập nhật ngay?"</string>
+  <string name="hms_update_message_new" priority="LT">"Dịch vụ này cần các ứng dụng sau sử dụng phiên bản mới nhất:\n\n%1$s"</string>
+  <string name="hms_update_nettype" priority="LT">"Không có kết nối Wi-Fi. Tải xuống bằng dữ liệu di động?"</string>
+  <string name="hms_update_title" priority="translator">"Dịch vụ Di động Huawei"</string>
+  <string name="upsdk_app_dl_installing" priority="LT">"Đang tải xuống AppGallery"</string>
+  <string name="upsdk_app_download_info_new" priority="translator">"Cài đặt"</string>
+  <string name="upsdk_app_size" priority="translator">"Kích cỡ"</string>
+  <string name="upsdk_app_version" priority="translator">"Phiên bản"</string>
+  <string name="upsdk_cancel" priority="translator">"Hủy"</string>
+  <string name="upsdk_checking_update_prompt" priority="translator">"Đang kiểm tra bản cập nhật…"</string>
+  <string name="upsdk_choice_update" priority="LT">"Có sẵn bản cập nhật. Hãy tải xuống và cài đặt phiên bản mới nhất."</string>
+  <string name="upsdk_connect_server_fail_prompt_toast" priority="translator">"Không thể kết nối với máy chủ. Vui lòng thử lại sau."</string>
+  <string name="upsdk_detail" priority="translator">"Chi tiết"</string>
+  <string name="upsdk_getting_message_fail_prompt_toast" priority="translator">"Không thể truy xuất thông tin. Vui lòng thử lại sau."</string>
+  <string name="upsdk_install" priority="LT">"Cài đặt AppGallery để cập nhật. Cài đặt ngay bây giờ?"</string>
+  <string name="upsdk_no_available_network_prompt_toast" priority="translator">"Không có kết nối Internet. Vui lòng kiểm tra cài đặt mạng của bạn."</string>
+  <string name="upsdk_ota_app_name" priority="LT">"Ứng dụng"</string>
+  <string name="upsdk_ota_cancel" priority="translator">"Để sau"</string>
+  <string name="upsdk_ota_force_cancel_new" priority="LT">"Thoát"</string>
+  <string name="upsdk_ota_notify_updatebtn" priority="translator">"Cập nhật"</string>
+  <string name="upsdk_ota_title" priority="translator">"Phiên bản mới"</string>
+  <string name="upsdk_storage_utils" priority="LT">"%1$s MB"</string>
+  <string name="upsdk_third_app_dl_cancel_download_prompt_ex" priority="translator">"Hủy cài đặt?"</string>
+  <string name="upsdk_third_app_dl_install_failed" priority="translator">"Cài đặt không thành công."</string>
+  <string name="upsdk_third_app_dl_sure_cancel_download" priority="translator">"Đúng"</string>
+  <string name="upsdk_update_check_no_new_version" priority="translator">"Bạn đang sử dụng phiên bản mới nhất."</string>
+  <string name="upsdk_updating" priority="translator">"Đang cập nhật"</string>
+  <string name="hwid_huawei_login_button_text" priority="translator">"Đăng nhập với Huawei"</string>
+  <string name="c_buoycircle_abort" priority="translator">"CÓ"</string>
+  <string name="c_buoycircle_abort_message" priority="translator">"Dừng tải xuống?"</string>
+  <string name="c_buoycircle_appmarket_name" priority="translator">"HUAWEI AppGallery"</string>
+  <string name="c_buoycircle_auto_hide_notice" priority="translator">"Kéo vào đây để ẩn"</string>
+  <string name="c_buoycircle_cancel" priority="translator">"HỦY"</string>
+  <string name="c_buoycircle_check_failure" priority="translator">"Kiểm tra cập nhật không thành công."</string>
+  <string name="c_buoycircle_checking" priority="translator">"Đang kiểm tra bản cập nhật…"</string>
+  <string name="c_buoycircle_confirm" priority="translator">"OK"</string>
+  <string name="c_buoycircle_download_failure" priority="translator">"Không thể tải xuống HUAWEI AppGallery."</string>
+  <string name="c_buoycircle_download_no_space" priority="translator">"Không đủ dung lượng trống. Không thể tải xuống."</string>
+  <string name="c_buoycircle_download_retry" priority="translator">"Tải về thất bại. Thử lại?"</string>
+  <string name="c_buoycircle_downloading_loading" priority="translator">"Đang tải về…"</string>
+  <string name="c_buoycircle_floatwindow_click_fail_toast" priority="translator">"Bật Khởi chạy phụ cho HUAWEI AppGallery trong Trình quản lý ĐT hoặc Cài đặt."</string>
+  <string name="c_buoycircle_hide_guide_btn_cancel" priority="translator">"HỦY"</string>
+  <string name="c_buoycircle_hide_guide_btn_confirm" priority="translator">"ẨN"</string>
+  <string name="c_buoycircle_hide_guide_content_nosensor" priority="translator">"Sau khi ẩn quả khí cầu, bạn sẽ phải khởi chạy lại ứng dụng để hiển thị lại."</string>
+  <string name="c_buoycircle_hide_guide_content_sensor" priority="translator">"Sau khi ẩn quả khí cầu, hãy lật thiết bị để hiển thị lại."</string>
+  <string name="c_buoycircle_hide_guide_noremind" priority="translator">"Không nhắc lại"</string>
+  <string name="c_buoycircle_hide_guide_title" priority="translator">"Ẩn quả khí cầu"</string>
+  <string name="c_buoycircle_install" priority="translator">"CÀI ĐẶT"</string>
+  <string name="c_buoycircle_no" priority="translator">"KHÔNG"</string>
+  <string name="c_buoycircle_retry" priority="translator">"THỬ LẠI"</string>
+  <string name="c_buoycircle_update_message_new" priority="translator">"Dịch vụ này cần sử dụng phiên bản mới nhất của ứng dụng sau:\n\n%1$s"</string>
+  <string name="hms_game_achievement_finish_notice" priority="LT">"Đã mở khóa %1$s"</string>
+  <string name="hms_game_check_update_failed_content" priority="LT">"Không thể truy cập. Dịch vụ này yêu cầu phải có phiên bản AppAssistant mới nhất."</string>
+  <string name="hms_game_check_update_success_content" priority="LT">"Cài đặt phiên bản AppAssistant mới nhất (%1$s MB) để sử dụng dịch vụ này."</string>
+  <string name="hms_game_login_notice" priority="LT">"Chào mừng %1$s"</string>
+</resources>

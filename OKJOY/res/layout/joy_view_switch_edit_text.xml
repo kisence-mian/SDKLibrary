@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    android:paddingRight="10dp">
+
+    <EditText
+        android:id="@+id/l_view_switch_input"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:imeOptions="actionDone"
+        android:maxLines="2"
+        android:saveEnabled="false"
+        android:textColor="@color/joygame_black"
+        android:textColorHint="@color/joygame_high_light_grey"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/l_view_switch_drop_down"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:src="@drawable/joy_drop_down" />
+</LinearLayout>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/userloginroot"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginRight="40dp" 
+    android:layout_marginLeft="40dp">
+
+    <!-- titlebar区域 -->
+    <include 
+        android:id="@+id/dk_head"
+        layout="@layout/dk_user_login_header"/>
+
+    <RelativeLayout
+        android:id="@+id/dk_baidu_login"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_below="@id/dk_head"
+        android:background="@drawable/dk_account_bg_bottom"
+        android:visibility="visible" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" 
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:id="@+id/dk_login_body"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dk_dialog_round_bg"
+                        android:orientation="vertical" >
+
+                        <FrameLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="41dp"
+                            android:layout_gravity="center_vertical" >
+
+                            <TextView
+                                android:id="@+id/usernameText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="12dp"
+                                android:text="@string/dk_register_users2"
+                                android:textColor="@color/dk_color_666666" />
+
+                            <EditText
+                                android:id="@+id/bd_account_input_edit"
+                                android:layout_width="fill_parent"
+                                android:layout_height="41dp"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:hint="@string/bd_account_input"
+                                android:paddingLeft="50dp"
+                                android:paddingRight="10dp"
+                                android:singleLine="true"
+                                android:textColorHint="@color/dk_color_999999"
+                                android:textSize="12sp" />
+
+                            <View
+                                android:id="@+id/bd_account_pop_fold_unfold_container"
+                                android:layout_width="68dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="right|center_vertical"
+                                android:background="@color/dk_transparent" />
+
+                            <ImageView
+                                android:id="@+id/dk_clear_username_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical|right"
+                                android:layout_marginRight="32dp"
+                                android:src="@drawable/dk_clear_input_bg"
+                                android:visibility="invisible" />
+
+                            <ImageButton
+                                android:id="@+id/bd_account_pop_fold_unfold"
+                                android:layout_width="16dp"
+                                android:layout_height="10dp"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginRight="8dp"
+                                android:clickable="true" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/dk_divide_line" >
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <FrameLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="41dp"
+                                android:layout_gravity="center_vertical" >
+
+                                <TextView
+                                    android:id="@+id/usernameText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="12dp"
+                                    android:text="@string/dk_register_psd"
+                                    android:textColor="@color/dk_color_666666" />
+
+                                <EditText
+                                    android:id="@+id/bd_pwd_input_edit"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="41dp"
+                                    android:background="@null"
+                                    android:gravity="center_vertical"
+                                    android:hint="@string/dk_pwd_login_hint"
+                                    android:inputType="textPassword"
+                                    android:maxLength="14"
+                                    android:paddingLeft="50dp"
+                                    android:paddingRight="10dp"
+                                    android:singleLine="true"
+                                    android:textColorHint="@color/dk_color_999999"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:id="@+id/dk_clear_password_btn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical|right"
+                                    android:layout_marginRight="72dp"
+                                    android:src="@drawable/dk_clear_input_bg"
+                                    android:visibility="invisible" />
+
+                                <Button
+                                    android:id="@+id/bd_btn_forgot_pwd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical|right"
+                                    android:layout_marginRight="5dp"
+                                    android:background="@drawable/dk_transparent"
+                                    android:singleLine="true"
+                                    android:text="@string/dk_forget_pwd_text"
+                                    android:textColor="@color/dk_color_666666"
+                                    android:textSize="12sp" />
+                            </FrameLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/dk_divide_line" >
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/account_verifycode_layout"
+                            android:layout_width="fill_parent"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/dk_dialog_round_bg"
+                            android:orientation="horizontal"
+                            android:visibility="gone" >
+
+                            <LinearLayout
+                                android:id="@+id/dk_bd_verify_input"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal" >
+
+                                <EditText
+                                    android:id="@+id/bd_verify_input_login_baidu_edit"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="48dp"
+                                    android:background="@null"
+                                    android:gravity="center_vertical"
+                                    android:hint="@string/dk_et_string_verifycode_hint"
+                                    android:paddingLeft="12dp"
+                                    android:singleLine="true"
+                                    android:textColorHint="@color/dk_color_999999"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/dk_bd_verify_get"
+                                android:layout_width="fill_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginLeft="10.0dip"
+                                android:layout_weight="1"
+                                android:orientation="horizontal" >
+
+                                <ImageButton
+                                    android:id="@+id/bd_verify_input_login_baidu"
+                                    android:layout_width="50dp"
+                                    android:layout_height="fill_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:background="@null"
+                                    android:enabled="false"
+                                    android:src="@drawable/dk_selector_btn_refreshcode"
+                                    android:textColor="@color/dk_color_333333"
+                                    android:textSize="14sp" />
+
+                                <ImageView
+                                    android:id="@+id/bd_verifycode_img"
+                                    android:layout_width="90dp"
+                                    android:layout_height="fill_parent"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="20.0dip"
+                                    android:layout_toLeftOf="@+id/bd_verify_input_login_baidu"
+                                    android:gravity="center_vertical" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/bd_btn_login"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/dk_user_login_orange_selector"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:text="@string/dk_login"
+                            android:textColor="@color/login_unclickable"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="9dp"
+                        android:clickable="false"
+                        android:gravity="center" >
+
+                        <Button
+                            android:id="@+id/bd_btn_register_phone"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/dk_user_login_bg_selector"
+                            android:gravity="center"
+                            android:text="@string/dk_register_phone"
+                            android:textColor="@color/dk_gamesdk_white"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/bd_btn_register"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:singleLine="true"
+                            android:text="@string/dk_username_register"
+                            android:textColor="@color/dk_color_297bf6"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/bd_try_play"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:text="@string/bd_fast_try_play"
+                            android:textColor="@color/dk_color_999999"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dk_phone_send_textmsg_default"
+                            android:textColor="@color/dk_color_999999"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dk_login_body" >
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <com.baidu.sapi2.SapiWebView
+            android:id="@+id/sapi_webview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/dk_custom_bottom"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/dk_custom_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            layout="@layout/dk_user_bottom_logo_baidu" />
+    </RelativeLayout>
+
+</RelativeLayout>

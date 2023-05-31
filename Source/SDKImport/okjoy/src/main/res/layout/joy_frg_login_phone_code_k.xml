@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="@dimen/joy_base_width"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:background="@drawable/joy_phone_login_bg"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/k_frg_login_phone_code_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp">
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="登录手机号： "
+                        android:textColor="@color/joygame_light_grey"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/k_frg_login_phone_code_phone_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1352255"
+                        android:textColor="@color/joygame_light_grey"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/joy_edit_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:src="@drawable/joy_password" />
+
+                    <com.JoyFramework.wight.ClearEditText
+                        android:id="@+id/k_frg_login_phone_code_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="请输入验证码"
+                        android:imeOptions="actionDone"
+                        android:maxLength="20"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/joygame_black"
+                        android:textColorHint="@color/joygame_high_light_grey"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/k_frg_login_phone_code_fetch_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/joy_verify_bg"
+                        android:gravity="center"
+                        android:text="获取验证码"
+                        android:textColor="@color/joy_base_color"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/k_frg_login_phone_code_login"
+                    android:layout_width="180dp"
+                    android:layout_height="34dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/joy_login_btn_bg1"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:layout_gravity="center"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/k_frg_phone_code_login_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="登录账号即已阅读并同意服务协议和隐私声明"
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

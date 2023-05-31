@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape  android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:width="@dimen/mintegral_video_common_alertview_button_width"
+        android:height="@dimen/mintegral_video_common_alertview_button_height"/>
+    <corners android:radius="@dimen/mintegral_video_common_alertview_button_radius"/>
+    <solid android:color="@color/mintegral_video_common_alertview_confirm_button_bg_pressed"/>
+</shape>

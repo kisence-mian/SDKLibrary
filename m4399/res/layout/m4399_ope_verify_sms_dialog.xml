@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="@dimen/m4399_ope_verify_dialog_width_dimen"
+        android:layout_height="wrap_content"
+        android:background="@drawable/m4399_ope_common_alert_dialog_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/m4399_ope_verify_dialog_item_width_dimen"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/m4399_ope_verify_dialog_margin_top_line_dimen"
+            android:layout_marginBottom="@dimen/m4399_ope_verify_dialog_margin_top_frame_dimen"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m4399_ope_verify_dialog_editor_height_dimen"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/m4399_ope_sms_verify_dialog_editor"
+                    android:layout_width="@dimen/m4399_ope_verify_dialog_editor_width_dimen"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/m4399_ope_verify_dialog_editor_padding_dimen"
+                    android:background="@drawable/m4399_ope_verify_dialog_editor_bg"
+                    android:hint="@string/m4399_ope_verify_sms_code_hint"
+                    android:paddingLeft="@dimen/m4399_ope_verify_dialog_editor_padding_dimen"
+                    android:textColorHint="@color/m4399_ope_verify_sms_hint_color"
+                    android:textSize="@dimen/m4399_ope_verify_code_btn_font_size_dimen" />
+
+                <ImageView
+                    android:id="@+id/m4399_ope_sms_verify_pic_view"
+                    android:layout_width="@dimen/m4399_ope_verify_dialog_image_width_dimen"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/m4399_ope_sms_verify_dialog_editor"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/m4399_ope_sms_verify_loading_view"
+                    android:layout_width="@dimen/m4399_ope_verify_code_btn_width_dimen"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/m4399_ope_sms_verify_dialog_editor"
+                    android:background="@color/m4399_ope_verify_common_bg_color"
+                    android:gravity="center"
+                    android:text="@string/m4399_ope_verify_loading_text"
+                    android:textColor="@color/m4399_ope_verify_placeholder_color"
+                    android:textSize="@dimen/m4399_ope_verify_code_btn_font_size_dimen"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/m4399_ope_sms_verify_err_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m4399_ope_verify_confirm_offset_dimen"
+                android:text="@string/m4399_ope_verify_sms_code_err_text"
+                android:textColor="@color/m4399_ope_verify_sms_code_err_color"
+                android:textSize="@dimen/m4399_ope_verify_sms_code_err_text_size" />
+        </LinearLayout>
+
+        <View style="@style/m4399PerfectLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m4399_ope_verify_dialog_buttons_height_dimen"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/m4399_ope_sms_verify_dialog_cancel_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/m4399_ope_verify_btn_bg"
+                android:text="@string/m4399_ope_verify_sms_cancel_text"
+                android:textColor="@drawable/m4399_ope_verify_cancel_btn_selector"
+                android:textSize="@dimen/m4399_ope_verify_sms_common_font_size" />
+
+            <View
+                android:layout_width="@dimen/m4399_ope_verify_border_line_dimen"
+                android:layout_height="match_parent"
+                android:background="@color/m4399_ope_verify_sms_dialog_line_color" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/m4399_ope_sms_verify_dialog_confirm_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/m4399_ope_verify_btn_bg"
+                    android:text="@string/m4399_ope_verify_sms_confirm_text"
+                    android:textColor="@drawable/m4399_ope_verify_confirm_btn_selector"
+                    android:textSize="@dimen/m4399_ope_verify_sms_common_font_size" />
+
+                <ProgressBar
+                    android:id="@+id/m4399_ope_sms_verify_dialog_confirm_loading"
+                    android:layout_width="@dimen/m4399_ope_verify_dialog_confirm_loading_size"
+                    android:layout_height="@dimen/m4399_ope_verify_dialog_confirm_loading_size"
+                    android:layout_gravity="center"
+                    android:indeterminateDrawable="@drawable/m4399_progress_dialog_drawable"
+                    android:max="10000"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

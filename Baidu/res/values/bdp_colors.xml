@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bdp_color_0066cc">#0066cc</color>
+    <color name="bdp_pager_sliding_background_tab_pressed">#6633B5E5</color>
+    <color name="bdp_white">#ffffffff</color>
+    <color name="bdp_black">#ff000000</color>
+    <color name="bdp_transparent">#00000000</color>
+    <color name="bdp_dark_gray">#ff333333</color>
+    <color name="bdp_deep_gray">#ff666666</color>
+    <color name="bdp_gray">#ff999999</color>
+    <color name="bdp_light_gray">#ffa0a0a0</color>
+    <color name="bdp_deep_blue">#ff2472d2</color>
+    <color name="bdp_gray_blue">#ffadc5e3</color>
+    <color name="bdp_blue">#ff488ce0</color>
+    <color name="bdp_orange">#fffea11d</color>
+    <color name="bdp_red">#ffff5555</color>
+    <color name="bdp_rice_white">#fff4f4f4</color>
+    <color name="bdp_lighter_gray">#ffe9e9e9</color>
+
+    <!-- paycenter -->
+    <color name="bdp_bg">#f5f5f5</color>
+    <color name="bdp_color_333333">#333333</color>
+    <color name="bdp_color_ff3300">#ff3300</color>
+    <color name="bdp_color_999999">#999999</color>
+    <color name="bdp_color_fdf2db">#fdf2db</color>
+    <color name="bdp_gamesdk_white">#FFFFFF</color>
+    <color name="bdp_color_666666">#666666</color>
+    <color name="bdp_color_000000">#000000</color>
+    <color name="bdp_color_orangeyellow">#ff3300</color>
+    <color name="bdp_color_custom_hotline">#ff488ce0</color>
+    <color name="bdp_color_account_name">#ff488ce0</color>
+    <color name="bdp_color_account_balance">#ff3300</color>
+    <color name="bdp_paycenter_color_61B11F">#61B11F</color>
+    <color name="bdp_color_f08f1e">#f08f1e</color>
+    <color name="bdp_color_text_hint">#ffcccccc</color>
+    <!-- paycenter -->
+
+    <color name="bdp_color_pink">#ffea0063</color>
+    <color name="bdp_color_dfdfdf">#ffdfdfdf</color>
+    <color name="bdp_color_296cfe">#296cfe</color>
+    <color name="bdp_color_c1c1c1">#c1c1c1</color>
+    <color name="bdp_color_fcfcfc">#fffcfcfc</color>
+    <color name="bdp_color_ff39404c">#ff39404c</color>
+    <color name="bdp_color_color_276cfe">#276CFE</color>
+    <color name="bdp_color_color_1c46a3">#1C46A3</color>
+    <color name="bdp_color_color_666666">#666666</color>
+    <color name="bdp_color_color_4875c7">#4875C7</color>
+    <color name="bdp_color_color_2d447d">#2D447D</color>
+    <color name="bdp_color_color_535353">#535353</color>
+    <color name="bdp_color_color_ffcccccc">#FFCCCCCC</color>
+    <color name="bdp_color_color_ffcfcfcf">#FFCFCFCF</color>
+    <color name="bdp_color_color_ffe5006a">#FFE5006A</color>
+    <color name="bdp_color_color_ff333333">#FF333333</color>
+    <color name="bdp_color_color_ffc6c6c6">#FFC6C6C6</color>
+    <color name="bdp_color_color_ffdadbdc">#FFDADBDC</color>
+    <color name="bdp_color_color_ff666666">#FF666666</color>
+    <color name="bdp_color_cccccc">#dddddd</color>
+    <color name="bdp_color_color_c6c6c6">#C6C6C6</color>
+
+</resources>

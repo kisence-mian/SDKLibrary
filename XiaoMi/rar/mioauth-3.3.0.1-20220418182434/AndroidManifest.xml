@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaomi.gamecenter.sdk.oauth.jar"
+    android:versionCode="3030801"
+    android:versionName="3.3.0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="32" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.xiaomi.sdk.permission.PAYMENT" />
+
+    <!-- 适配android 11 包可见性 -->
+    <queries>
+
+        <!-- 游戏中心 -->
+        <package android:name="com.xiaomi.gamecenter" />
+        <!-- 游戏服务 -->
+        <package android:name="com.xiaomi.gamecenter.sdk.service" />
+        <!-- 支付宝 -->
+        <package android:name="com.eg.android.AlipayGphone" />
+        <!-- 微信 -->
+        <package android:name="com.tencent.mm" />
+        <!-- QQ -->
+        <package android:name="com.tencent.mobileqq" />
+        <!-- 微博 -->
+        <package android:name="com.sina.weibo" />
+        <package android:name="com.miui.cloudservice" />
+        <package android:name="com.xiaomi.xmsf" />
+        <package android:name="com.miui.securitycenter" />
+    </queries>
+
+    <application android:usesCleartextTraffic="true" >
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.MiActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.PayListActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.xiaomi.hy.dj.HyDjActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.fault.ViewFaultNoticeActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.notice.NoticeActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.MiPayAntiActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.MiVerifyActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.ForceInterceptActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+        <!-- virtual_cid -->
+        <meta-data
+            android:name="mi_game_cid_option"
+            android:value="49A82B6A7C2039D6C82A186CAA2996BB" /> <!-- 联运SDK，都要走渠道包逻辑 -->
+        <meta-data
+            android:name="mi_game_sdk"
+            android:value="true" />
+
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.anti.ui.MiAntiAlertActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <data
+                    android:host="open_anti_alert"
+                    android:scheme="mioauthsdk" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.xiaomi.gamecenter.sdk.MiGameService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.xiaomi.gamecenter.jar.service" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

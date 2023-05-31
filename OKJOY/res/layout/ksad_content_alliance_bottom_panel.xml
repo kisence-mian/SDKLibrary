@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ksad_photo_bottom_panel_buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ksad_photo_bottom_panel_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="24dp" />
+
+        <Button
+            android:id="@+id/ksad_photo_bottom_panel_cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/ksad_photo_bottom_panel_bg"
+            android:text="取消"
+            android:textColor="#303030"
+            android:textSize="17dp"/>
+
+    </LinearLayout>
+</FrameLayout>

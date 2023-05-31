@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="350dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <include
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/dk_user_login_header" />
+
+    <LinearLayout
+        android:id="@+id/dk_account_bg_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="18dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/dk_account_bg_bottom"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <com.baidu.sapi2.SapiWebView
+        android:id="@+id/sapi_webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/dk_account_bg_bottom"
+        android:layout_below="@+id/title" />
+
+
+</RelativeLayout>

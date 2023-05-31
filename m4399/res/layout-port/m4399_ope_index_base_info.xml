@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/m4399_ope_usercenter_white"
+    android:paddingBottom="16dp"
+    android:paddingLeft="@dimen/m4399_ope_index_margin"
+    android:paddingRight="@dimen/m4399_ope_index_margin"
+    android:paddingTop="16dp">
+
+    <RelativeLayout
+        android:id="@+id/index_head_avater_view"
+        android:layout_width="54dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:id="@+id/index_user_avater"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/m4399_ope_avatar_default" />
+
+        <ImageView
+            android:id="@+id/index_user_setting"
+            android:layout_width="44dp"
+            android:layout_height="17dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/m4399_ope_setting_icon" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/index_user_name_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/index_head_avater_view"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/index_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#dd000000"
+            android:textSize="17sp" />
+
+        <include
+            layout="@layout/m4399_ope_client_qq_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/index_user_name"
+            android:layout_marginTop="4dp" />
+
+
+    </RelativeLayout>
+
+    <include
+        layout="@layout/m4399_ope_ping_view"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_above="@+id/include"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="3dp" />
+
+    <cn.m4399.recharge.ui.widget.InquiryBar
+        android:id="@+id/inquiry_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/index_user_name_view"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/index_head_avater_view" />
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/m4399_ope_index_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/index_user_name_view"
+        android:gravity="center_vertical" />
+
+
+</RelativeLayout>

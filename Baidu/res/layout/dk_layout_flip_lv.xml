@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.duoku.platform.single.view.PullToRefreshListView
+        android:id="@+id/dk_id_flip_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="5dp"
+        android:fadingEdge="none"
+        android:listSelector="@drawable/dk_suspension_item_bg_selector"
+        android:scrollbars="none" />
+
+    <LinearLayout
+        android:id="@+id/dk_id_flip_loading_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/dk_id_flip_loading_pb" 
+	        android:layout_width="32dp"  
+	        android:layout_height="32dp"  
+	        android:visibility="gone"
+	        android:indeterminate="false"  
+	        android:indeterminateDrawable="@drawable/dk_h5_progress_loading"/>
+        
+		<ImageView
+            android:id="@+id/dk_id_flip_loading_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+	        android:visibility="gone"
+            android:layout_margin="5dp"/>
+        
+        <TextView
+            android:id="@+id/dk_id_flip_loading_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/dk_sp_alert_network_inavailble"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#666666"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+	
+</FrameLayout>

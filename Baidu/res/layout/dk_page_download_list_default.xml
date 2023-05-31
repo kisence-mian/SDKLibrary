@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center">
+
+    <com.duoku.sdk.download.ui.widget.StickyListHeadersListView
+        android:id="@+id/manager_activity_download_list"
+        style="@style/dk_dl_style_content_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:clipToPadding="false"
+        android:drawSelectorOnTop="true"
+        android:fastScrollEnabled="true"
+        android:listSelector="#00000000"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:scrollbarStyle="outsideOverlay" />
+
+    <View
+        android:id="@+id/download_no_use"
+        android:layout_width="2dp"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
+    <!-- 没有下载任务 -->
+
+        <!--android:drawableTop="@drawable/dk_downlod_nothing"-->
+    <TextView
+        android:id="@+id/download_null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/download_no_use"
+        android:layout_centerInParent="true"
+        android:drawablePadding="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/dk_dl_label_hint_download_null"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        android:visibility="invisible" />
+</RelativeLayout>

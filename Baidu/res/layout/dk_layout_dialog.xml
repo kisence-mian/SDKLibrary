@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@+id/dk_parent_panel" 
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/new_bg_dialog"
+	android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    <!-- title -->
+	<TextView 
+		android:id="@+id/dk_dialog_title"
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:singleLine="true" 
+	    android:text="@string/dk_text_quit_game_confirm_txt"
+	    android:textSize="16sp"
+	    android:textColor="@android:color/black"
+	    android:layout_marginTop="15dp"
+	    android:layout_marginLeft="12dp"
+	    android:visibility="gone"
+	    android:layout_marginRight="12dp"
+	    /> 
+	<include layout="@layout/dk_dialog_header"/>
+	<HorizontalScrollView  
+        android:id="@+id/dk_games_scrollview"  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+        android:layout_marginLeft="12dp"
+		android:layout_marginRight="12dp"
+		android:background="#FAFAFA"
+		android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/category_layout"  
+            android:layout_width="wrap_content"  
+            android:layout_height="match_parent">
+            <GridView
+			    android:id="@+id/dk_game_recomend_arrays"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+				android:gravity="center"
+				android:scrollbars="none"
+			    android:numColumns="auto_fit"
+			    android:drawSelectorOnTop="false"
+			    android:cacheColorHint="#00000000"
+			    android:listSelector="@null"
+			    android:stretchMode="spacingWidthUniform" />
+        </LinearLayout>
+    </HorizontalScrollView>
+	
+	<LinearLayout
+	    android:id="@+id/dk_game_pointer_area_layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:visibility="gone"
+	    android:layout_marginLeft="12dp"
+	    android:layout_marginRight="12dp"
+	    android:layout_marginTop="10dp"
+	    android:layout_marginBottom="15dp">
+	    
+	</LinearLayout>
+	<View 
+	    android:id="@+id/dk_dialog_stub_view"
+	    android:layout_width="match_parent"
+	    android:layout_height="15dp"
+	    android:visibility="gone"
+	    />
+	<LinearLayout
+	    android:id="@+id/dk_dialog_btn_area" 
+	    android:layout_width="280dp" 
+	    android:layout_height="40dp"
+		android:layout_marginTop="5dp"
+	    android:layout_marginLeft="12dp"
+	    android:layout_marginRight="12dp"
+		android:layout_marginBottom="12dp"
+		android:orientation="horizontal"
+		android:gravity="center_horizontal">
+        
+		<Button 
+		    android:id="@+id/dk_btn_pointer_game_recommend"
+		    android:layout_width="130dp"
+		    android:layout_height="match_parent"
+		    android:background="@drawable/dk_pink_button_bg"
+		    android:text="@string/dk_btn_pointer_game_recommend_txt"
+		    android:textColor="@android:color/white"
+		    android:textSize="16sp"
+		    android:gravity="center"/>
+		<View
+			android:layout_width="20dp"
+			android:layout_height="wrap_content"
+			/>
+		<Button 
+		    android:id="@+id/dk_btn_quit_game"
+		    android:layout_width="130dp"
+		    android:layout_height="match_parent"
+		    android:background="@drawable/dk_white_button_bg"
+		    android:text="@string/dk_btn_quit_game_txt"
+		    android:textColor="#FF2D2F3A"
+		    android:textSize="14sp"
+		    android:gravity="center" />
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/tv_exit_update"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:textColor="#666666"
+		android:layout_marginBottom="12dp"
+		android:text="@string/dk_exit_update_number"
+		android:textSize="14sp"/>
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.JoyFramework.wight.PullToRefresh.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/union_swipe_menu_layout"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+    <LinearLayout
+        android:id="@+id/union_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/joygame_white"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="18dp"
+            android:src="@drawable/joy_pay_type_unionpay" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/unionNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="储蓄卡"
+                android:textColor="@color/joygame_black"
+                android:textSize="13sp" />
+
+
+            <TextView
+                android:id="@+id/unionNumberTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="****    ****    ****    4150"
+                android:textColor="@color/joygame_light_grey"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/deleteUnionInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/joy_base_color"
+        android:gravity="center"
+        android:minWidth="80dp"
+        android:padding="8dp"
+        android:text="解绑"
+        android:textColor="@color/joygame_white"
+        android:textSize="16sp" />
+
+</com.JoyFramework.wight.PullToRefresh.SwipeMenuLayout>

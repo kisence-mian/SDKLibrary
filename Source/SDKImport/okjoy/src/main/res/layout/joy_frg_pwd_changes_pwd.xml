@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/joy_base_width"
+        android:layout_height="290dp"
+        android:background="@drawable/joy_passoword_change_password_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <FrameLayout
+                android:id="@+id/l_pwd_change_pwd_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="30dp"/>
+
+            <FrameLayout
+                android:id="@+id/l_pwd_change_pwd_close"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"/>
+
+            <LinearLayout
+                android:id="@+id/l_pwd_change_pwd_account_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@id/l_pwd_change_pwd_back"
+                android:layout_marginLeft="@dimen/joy_inde_l_r_padding"
+                android:layout_marginRight="@dimen/joy_inde_l_r_padding"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/joy_shape_current_account"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/l_pwd_change_pwd_account_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="当前账号："
+                    android:textColor="@color/joygame_light_grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/l_pwd_change_pwd_change_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="3dp"
+                    android:text="修改"
+                    android:textColor="@color/joy_base_color"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/joy_inde_l_r_padding"
+                android:paddingRight="@dimen/joy_inde_l_r_padding">
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/joy_edit_height"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/joy_edit_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/joy_password" />
+
+                    <com.JoyFramework.wight.ClearEditText
+                        android:id="@+id/oldPasswordET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="   请输入原始密码"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:singleLine="true"
+                        android:textColor="@color/joygame_black"
+                        android:textColorHint="@color/joygame_light_grey"
+                        android:textSize="12sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/joy_edit_height"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/joy_edit_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/joy_password" />
+
+                    <com.JoyFramework.wight.ClearEditText
+                        android:id="@+id/newPasswordET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
+                        android:hint="   请输入6~20位新密码"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:singleLine="true"
+                        android:textColor="@color/joygame_black"
+                        android:textColorHint="@color/joygame_light_grey"
+                        android:textSize="12sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/joy_edit_height"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/joy_edit_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/joy_password" />
+
+                    <com.JoyFramework.wight.ClearEditText
+                        android:id="@+id/againPasswordET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
+                        android:hint="   请再次输入6~20位新密码"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:singleLine="true"
+                        android:textColor="@color/joygame_black"
+                        android:textColorHint="@color/joygame_light_grey"
+                        android:textSize="12sp" />
+
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/pwdchangesPwdBtn"
+                    android:layout_width="180dp"
+                    android:layout_height="@dimen/joy_edit_height"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/joy_login_btn_bg1"
+                    android:gravity="center"
+                    android:text="确 定"
+                    android:layout_gravity="center"
+                    android:textColor="@color/joygame_black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
+
+

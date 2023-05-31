@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mintegral_rl_mediaview_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    >
+
+    <RelativeLayout
+        android:id="@+id/mintegral_ll_playerview_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
+    <com.mintegral.msdk.videocommon.view.MyImageView
+        android:id="@+id/mintegral_my_big_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/mintegral_fb_mediaview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/mintegral_nativex_webview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="invisible">
+        <com.mintegral.msdk.nativex.view.WindVaneWebViewForNV
+            android:id="@+id/mintegral_nativex_webview_layout_webview"
+            android:background="#ff0000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:clickable="false"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/mintegral_native_pb"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>
