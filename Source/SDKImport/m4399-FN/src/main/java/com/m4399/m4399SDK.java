@@ -2,6 +2,7 @@ package com.m4399;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.ssjj.fnsdk.core.SsjjFNListener;
@@ -19,6 +20,13 @@ import com.ssjj.fnsdk.core.listener.SsjjFNUserListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+
 import sdkInterface.IAD;
 import sdkInterface.ILog;
 import sdkInterface.ILogin;
@@ -32,6 +40,7 @@ import sdkInterface.define.LoginPlatform;
 import sdkInterface.define.RealNameStatus;
 import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
+import sdkInterface.tool.ActResultRequest;
 
 public class m4399SDK extends SDKBase implements ILogin, IPay, IOther
 {
@@ -135,13 +144,47 @@ public class m4399SDK extends SDKBase implements ILogin, IPay, IOther
                 // 1. 这个user是临时的user，有些平台这里的name和uid的值会为空，请不要用这里的name或uid来登录游戏。要使用服务端登陆验证接口返回的uid来登录游戏。
                 // 2. user.ext 是个json字符串，研发不要读不要改，原样传给服务端即可。不同平台这些字段是不同的。通过ext只能请求登录验证一次，有些平台多次验证会失效
 
-                LoginResult(true,user,"");
+                try {
 
-                SsjjFNSDK.getInstance().logLoginFinish(user.uid);
-                SsjjFNSDK.getInstance().logCreateRole("role_1", "role_1", "1", "server_1");
-                SsjjFNSDK.getInstance().logSelectServer("role_1", user.uid, "1");
-                SsjjFNSDK.getInstance().logEnterGame("role_1", "role_1", "1", "1", "server_1");
-                SsjjFNSDK.getInstance().logRoleLevel("2", "1");
+                    HttpGetTask task = new HttpGetTask();
+                    task.user = user;
+                    task.callback = new HttpCallback() {
+                        @Override
+                        public void HttpCallbackMethod(String result) {
+                            SendLog("onLoginSucceed result " + result);
+
+                            try {
+                                JSONObject json = new JSONObject(result);
+
+                                if(json.getInt("code") == 1)
+                                {
+                                    LoginResult(true, user, "");
+
+                                    //前端自行与登录验证接口通讯
+                                    SsjjFNSDK.getInstance().setOauthData(GetCurrentActivity(), result);
+
+                                    SsjjFNSDK.getInstance().logLoginFinish(user.uid);
+                                    SsjjFNSDK.getInstance().logCreateRole("role_1", "role_1", "1", "server_1");
+                                    SsjjFNSDK.getInstance().logSelectServer("role_1", user.uid, "1");
+                                    SsjjFNSDK.getInstance().logEnterGame("role_1", "role_1", "1", "1", "server_1");
+                                    SsjjFNSDK.getInstance().logRoleLevel("2", "1");
+                                }
+                                else
+                                {
+                                    LoginResult(false, user, json.getString("msg"));
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+
+                    task.execute();
+
+                }catch (Exception e)
+                {
+                    SendError("onLoginSucceed error " + e,e);
+                }
             }
             @Override
             public void onLoginFailed(String msg) {
@@ -151,6 +194,8 @@ public class m4399SDK extends SDKBase implements ILogin, IPay, IOther
                 // 2. 用户点击登录按钮，重新调用 登录接口 进行登录
 
                 LoginResult(false,null,msg);
+
+
             }
             @Override
             public void onLoginCancel() {
@@ -159,6 +204,8 @@ public class m4399SDK extends SDKBase implements ILogin, IPay, IOther
                 // 1. 游戏停在初始化完成页面（或选服页面），显示登录按钮（跟登录失败处理一样）。
                 // 2. 用户点击登录按钮，游戏就重新调用 登录接口 进行登录
                 LoginResult(false,null,"onLoginCancel");
+
+
             }
             @Override
             public void onSwitchUser(SsjjFNUser user) {
@@ -199,6 +246,110 @@ public class m4399SDK extends SDKBase implements ILogin, IPay, IOther
             }
         });
     }
+
+    interface HttpCallback
+    {
+        void HttpCallbackMethod(String result);
+    }
+
+    private class HttpGetTask extends AsyncTask<Void, Void, String> {
+
+        public SsjjFNUser user;
+
+        HttpCallback callback;
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            try {
+
+                String encodedName = URLEncoder.encode(user.name, "UTF-8");
+                String encodedUid = URLEncoder.encode(user.uid, "UTF-8");
+                String encodedExt = URLEncoder.encode(user.ext, "UTF-8");
+
+                String urlString = "http://fnapi.4399sy.com/sdk/api/login.php?name=" + encodedName + "&uid=" + encodedUid + "&ext=" + encodedExt;
+
+                SendLog("Send URL " + urlString);
+
+                URL url = new URL(urlString);
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+
+                int status = con.getResponseCode();
+                if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    InputStream in = con.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    String line;
+                    StringBuilder response = new StringBuilder();
+
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+
+                    reader.close();
+                    con.disconnect();
+
+                    callback.HttpCallbackMethod(response.toString());
+
+                    return response.toString();
+                } else {
+                    System.out.println("Request failed: " + con.getResponseMessage());
+                }
+
+                return "";
+            }
+            catch (Exception e)
+            {
+                SendError("HttpRequest error " + e,e);
+                return "";
+            }
+        }
+
+    }
+
+//    public String HttpRequest(SsjjFNUser user)  {
+//
+//        try {
+//
+//            String encodedName = URLEncoder.encode(user.name, "UTF-8");
+//            String encodedUid = URLEncoder.encode(user.uid, "UTF-8");
+//            String encodedExt = URLEncoder.encode(user.ext, "UTF-8");
+//
+//            String urlString = "http://fnapi.4399sy.com/sdk/api/login.php?name=" + encodedName + "&uid=" + encodedUid + "&ext=" + encodedExt;
+//
+//            SendLog("Send URL " + urlString);
+//
+//            URL url = new URL(urlString);
+//            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+//            con.setRequestMethod("GET");
+//
+//            int status = con.getResponseCode();
+//            if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
+//                InputStream in = con.getInputStream();
+//                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+//                String line;
+//                StringBuilder response = new StringBuilder();
+//
+//                while ((line = reader.readLine()) != null) {
+//                    response.append(line);
+//                }
+//
+//                reader.close();
+//                con.disconnect();
+//
+//                return response.toString();
+//            } else {
+//                System.out.println("Request failed: " + con.getResponseMessage());
+//            }
+//
+//            return "";
+//        }
+//        catch (Exception e)
+//        {
+//            SendError("HttpRequest error " + e,e);
+//            return "";
+//        }
+//    }
 
     private void LoginResult(boolean success,SsjjFNUser user ,String errorString)
     {
