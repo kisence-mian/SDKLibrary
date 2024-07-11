@@ -10,7 +10,7 @@ public interface IAD
 {
 //    void AD(JSONObject json);
 
-    void LoadAD(JSONObject json);
+    void LoadAD(JSONObject json); 
 
     void PlayAD(JSONObject json);
 
