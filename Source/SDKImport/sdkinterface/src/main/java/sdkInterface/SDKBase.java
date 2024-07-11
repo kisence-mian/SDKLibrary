@@ -3,6 +3,9 @@ package sdkInterface;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
+
 import com.unity3d.player.UnityPlayer;
 
 import org.json.JSONException;
@@ -59,6 +62,18 @@ public class SDKBase {
     public void OnDestroy() { }
 
     public void OnActivityResult(int requestCode, int resultCode, Intent data){}
+
+    public void onAttachedToWindow() {};
+
+    public void onBackPressed() {};
+
+    public void onConfigurationChanged(Configuration newConfig) {};
+
+    public void onSaveInstanceState(Bundle outState) {};
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {};
+
+    public void onWindowFocusChanged(boolean hasFocus) {};
 
     public void CallBack(String content) {
         SdkInterface.SendMessage(content);

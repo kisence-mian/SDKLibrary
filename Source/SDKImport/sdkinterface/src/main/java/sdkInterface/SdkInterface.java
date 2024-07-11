@@ -2,6 +2,7 @@ package sdkInterface;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
@@ -1076,6 +1077,96 @@ public class SdkInterface
         catch (Exception e)
         {
             SendError("OnNewIntent Error:" + e.toString(),e);
+        }
+    }
+
+    public static void onSaveInstanceState(Bundle outState)
+    {
+        SendLog("SDKInterBase onSaveInstanceState " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().onSaveInstanceState(outState);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onSaveInstanceState Error:" + e.toString(),e);
+        }
+    }
+
+    public static void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        SendLog("SDKInterBase onRestoreInstanceState " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().onRestoreInstanceState(savedInstanceState);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onRestoreInstanceState Error:" + e.toString(),e);
+        }
+    }
+
+    public static void onConfigurationChanged(Configuration newConfig)
+    {
+        SendLog("SDKInterBase onConfigurationChanged " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().onConfigurationChanged(newConfig);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onConfigurationChanged Error:" + e.toString(),e);
+        }
+    }
+
+    public static void onAttachedToWindow()
+    {
+        SendLog("SDKInterBase onAttachedToWindow " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().onAttachedToWindow();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onAttachedToWindow Error:" + e.toString(),e);
+        }
+    }
+
+    public static void onWindowFocusChanged(boolean hasFocus)
+    {
+        SendLog("SDKInterBase onWindowFocusChanged " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().onWindowFocusChanged(hasFocus);
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onWindowFocusChanged Error:" + e.toString(),e);
+        }
+    }
+
+    public static void onBackPressed()
+    {
+        SendLog("SDKInterBase onBackPressed " );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().onBackPressed();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onBackPressed Error:" + e.toString(),e);
         }
     }
 
