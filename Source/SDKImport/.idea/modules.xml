@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SDKImport.iml" filepath="$PROJECT_DIR$/SDKImport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/360/SDKImport.360.iml" filepath="$PROJECT_DIR$/.idea/modules/360/SDKImport.360.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Clipboard/SDKImport.Clipboard.iml" filepath="$PROJECT_DIR$/.idea/modules/Clipboard/SDKImport.Clipboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DeviceLogin/SDKImport.DeviceLogin.iml" filepath="$PROJECT_DIR$/.idea/modules/DeviceLogin/SDKImport.DeviceLogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hotupdate/SDKImport.Hotupdate.iml" filepath="$PROJECT_DIR$/.idea/modules/Hotupdate/SDKImport.Hotupdate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Umeng/SDKImport.Umeng.iml" filepath="$PROJECT_DIR$/.idea/modules/Umeng/SDKImport.Umeng.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/admob/SDKImport.admob.iml" filepath="$PROJECT_DIR$/.idea/modules/admob/SDKImport.admob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/admopub/SDKImport.admopub.iml" filepath="$PROJECT_DIR$/.idea/modules/admopub/SDKImport.admopub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SDKImport.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SDKImport.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/appsflyer/SDKImport.appsflyer.iml" filepath="$PROJECT_DIR$/.idea/modules/appsflyer/SDKImport.appsflyer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autoupdate/SDKImport.autoupdate.iml" filepath="$PROJECT_DIR$/.idea/modules/autoupdate/SDKImport.autoupdate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/baidu/SDKImport.baidu.iml" filepath="$PROJECT_DIR$/.idea/modules/baidu/SDKImport.baidu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dataeyes/SDKImport.dataeyes.iml" filepath="$PROJECT_DIR$/.idea/modules/dataeyes/SDKImport.dataeyes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facebook/SDKImport.facebook.iml" filepath="$PROJECT_DIR$/.idea/modules/facebook/SDKImport.facebook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/googlelogin/SDKImport.googlelogin.iml" filepath="$PROJECT_DIR$/.idea/modules/googlelogin/SDKImport.googlelogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/googlepay/SDKImport.googlepay.iml" filepath="$PROJECT_DIR$/.idea/modules/googlepay/SDKImport.googlepay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/huawei/SDKImport.huawei.iml" filepath="$PROJECT_DIR$/.idea/modules/huawei/SDKImport.huawei.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/huluxia/SDKImport.huluxia.iml" filepath="$PROJECT_DIR$/.idea/modules/huluxia/SDKImport.huluxia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iapppay/SDKImport.iapppay.iml" filepath="$PROJECT_DIR$/.idea/modules/iapppay/SDKImport.iapppay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/loongcheer/SDKImport.loongcheer.iml" filepath="$PROJECT_DIR$/.idea/modules/loongcheer/SDKImport.loongcheer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/meizu/SDKImport.meizu.iml" filepath="$PROJECT_DIR$/.idea/modules/meizu/SDKImport.meizu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/migusdk/SDKImport.migusdk.iml" filepath="$PROJECT_DIR$/.idea/modules/migusdk/SDKImport.migusdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/okjoy/SDKImport.okjoy.iml" filepath="$PROJECT_DIR$/.idea/modules/okjoy/SDKImport.okjoy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/okjoy_2/SDKImport.okjoy_2.iml" filepath="$PROJECT_DIR$/.idea/modules/okjoy_2/SDKImport.okjoy_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oppo/SDKImport.oppo.iml" filepath="$PROJECT_DIR$/.idea/modules/oppo/SDKImport.oppo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oppoSingle/SDKImport.oppoSingle.iml" filepath="$PROJECT_DIR$/.idea/modules/oppoSingle/SDKImport.oppoSingle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payssion/SDKImport.payssion.iml" filepath="$PROJECT_DIR$/.idea/modules/payssion/SDKImport.payssion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qqlogin/SDKImport.qqlogin.iml" filepath="$PROJECT_DIR$/.idea/modules/qqlogin/SDKImport.qqlogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/readphonestatus/SDKImport.readphonestatus.iml" filepath="$PROJECT_DIR$/.idea/modules/readphonestatus/SDKImport.readphonestatus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk4399/SDKImport.sdk4399.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk4399/SDKImport.sdk4399.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdk4399single/SDKImport.sdk4399single.iml" filepath="$PROJECT_DIR$/.idea/modules/sdk4399single/SDKImport.sdk4399single.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sdkinterface/SDKImport.sdkinterface.iml" filepath="$PROJECT_DIR$/.idea/modules/sdkinterface/SDKImport.sdkinterface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/talkingData/SDKImport.talkingData.iml" filepath="$PROJECT_DIR$/.idea/modules/talkingData/SDKImport.talkingData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/taptap/SDKImport.taptap.iml" filepath="$PROJECT_DIR$/.idea/modules/taptap/SDKImport.taptap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/transsion/SDKImport.transsion.iml" filepath="$PROJECT_DIR$/.idea/modules/transsion/SDKImport.transsion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/uc/SDKImport.uc.iml" filepath="$PROJECT_DIR$/.idea/modules/uc/SDKImport.uc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucsdk/SDKImport.ucsdk.iml" filepath="$PROJECT_DIR$/.idea/modules/ucsdk/SDKImport.ucsdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vivo/SDKImport.vivo.iml" filepath="$PROJECT_DIR$/.idea/modules/vivo/SDKImport.vivo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vivoSingle/SDKImport.vivoSingle.iml" filepath="$PROJECT_DIR$/.idea/modules/vivoSingle/SDKImport.vivoSingle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/weixinlogin/SDKImport.weixinlogin.iml" filepath="$PROJECT_DIR$/.idea/modules/weixinlogin/SDKImport.weixinlogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/xgpush/SDKImport.xgpush.iml" filepath="$PROJECT_DIR$/.idea/modules/xgpush/SDKImport.xgpush.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/xiaomi/SDKImport.xiaomi.iml" filepath="$PROJECT_DIR$/.idea/modules/xiaomi/SDKImport.xiaomi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ysdk/SDKImport.ysdk.iml" filepath="$PROJECT_DIR$/.idea/modules/ysdk/SDKImport.ysdk.iml" />
+    </modules>
+  </component>
+</project>

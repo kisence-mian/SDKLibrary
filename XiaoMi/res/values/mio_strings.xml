@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="no_longer_remind">不再提醒</string>
+    <string name="btn_hide">隐藏</string>
+    <string name="shake">摇一摇</string>
+    <string name="show_box">显示小宝箱</string>
+    <string name="float_hide_tip_text">拖到此处关闭浮窗</string>
+    <string name="fault_notice_button_text">查看详情</string>
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+
+    <string name="network_error">请检查网络</string>
+    <string name="start_download_service">开始下载游戏服务</string>
+    <string name="service_downloading">游戏服务下载中...</string>
+    <string name="ask_download_service">您需要安装新版本的游戏服务，才能使用%s功能，是否安装游戏服务？</string>
+    <string name="mifloat_account_error">此功能您需要重新登录后使用。</string>
+    <string name="install_gameservice">安装游戏服务</string>
+    <string name="mifloat_menu_window_viptext" translatable="false">VIP上线啦</string>
+    <string name="mifloat_default_nick_name" translatable="false">我的</string>
+</resources>
