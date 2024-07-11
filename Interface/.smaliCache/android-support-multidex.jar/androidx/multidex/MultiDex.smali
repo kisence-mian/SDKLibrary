@@ -476,36 +476,38 @@
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 212
-    nop
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x14
+
+    if-le v1, v2, :cond_5a
 
     .line 213
     const-string v1, "MultiDex"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "MultiDex is not guaranteed to work in SDK version "
+    const-string v4, "MultiDex is not guaranteed to work in SDK version "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, ": SDK version higher than "
+    const-string v4, ": SDK version higher than "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const/16 v3, 0x14
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -550,27 +552,28 @@
 
     .line 213
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_57
-    .catchall {:try_start_3 .. :try_end_57} :catchall_bc
+    :try_end_5a
+    .catchall {:try_start_3 .. :try_end_5a} :catchall_bf
 
     .line 228
-    :try_start_57
+    :cond_5a
+    :try_start_5a
     invoke-virtual {p0}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v1
-    :try_end_5b
-    .catch Ljava/lang/RuntimeException; {:try_start_57 .. :try_end_5b} :catch_b2
-    .catchall {:try_start_57 .. :try_end_5b} :catchall_bc
+    :try_end_5e
+    .catch Ljava/lang/RuntimeException; {:try_start_5a .. :try_end_5e} :catch_b5
+    .catchall {:try_start_5a .. :try_end_5e} :catchall_bf
 
     .line 237
     .local v1, "loader":Ljava/lang/ClassLoader;
     nop
 
     .line 238
-    if-nez v1, :cond_67
+    if-nez v1, :cond_6a
 
     .line 240
-    :try_start_5e
+    :try_start_61
     const-string v2, "MultiDex"
 
     const-string v3, "Context class loader is null. Must be running in test mode. Skip patching."
@@ -579,28 +582,28 @@
 
     .line 243
     monitor-exit v0
-    :try_end_66
-    .catchall {:try_start_5e .. :try_end_66} :catchall_bc
+    :try_end_69
+    .catchall {:try_start_61 .. :try_end_69} :catchall_bf
 
     return-void
 
     .line 247
-    :cond_67
-    :try_start_67
+    :cond_6a
+    :try_start_6a
     invoke-static {p0}, Landroidx/multidex/MultiDex;->clearOldDexDir(Landroid/content/Context;)V
-    :try_end_6a
-    .catchall {:try_start_67 .. :try_end_6a} :catchall_6b
+    :try_end_6d
+    .catchall {:try_start_6a .. :try_end_6d} :catchall_6e
 
     .line 251
-    goto :goto_73
+    goto :goto_76
 
     .line 248
-    :catchall_6b
+    :catchall_6e
     move-exception v2
 
     .line 249
     .local v2, "t":Ljava/lang/Throwable;
-    :try_start_6c
+    :try_start_6f
     const-string v3, "MultiDex"
 
     const-string v4, "Something went wrong when trying to clear old MultiDex extraction, continuing without cleaning."
@@ -609,7 +612,7 @@
 
     .line 253
     .end local v2    # "t":Ljava/lang/Throwable;
-    :goto_73
+    :goto_76
     invoke-static {p0, p2, p3}, Landroidx/multidex/MultiDex;->getDexDir(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v2
@@ -619,8 +622,8 @@
     new-instance v3, Landroidx/multidex/MultiDexExtractor;
 
     invoke-direct {v3, p1, v2}, Landroidx/multidex/MultiDexExtractor;-><init>(Ljava/io/File;Ljava/io/File;)V
-    :try_end_7c
-    .catchall {:try_start_6c .. :try_end_7c} :catchall_bc
+    :try_end_7f
+    .catchall {:try_start_6f .. :try_end_7f} :catchall_bf
 
     .line 258
     .local v3, "extractor":Landroidx/multidex/MultiDexExtractor;
@@ -633,34 +636,34 @@
     .line 261
     const/4 v5, 0x0
 
-    :try_start_7f
+    :try_start_82
     invoke-virtual {v3, p0, p4, v5}, Landroidx/multidex/MultiDexExtractor;->load(Landroid/content/Context;Ljava/lang/String;Z)Ljava/util/List;
 
     move-result-object v5
-    :try_end_83
-    .catchall {:try_start_7f .. :try_end_83} :catchall_a9
+    :try_end_86
+    .catchall {:try_start_82 .. :try_end_86} :catchall_ac
 
     .line 263
     .local v5, "files":Ljava/util/List;, "Ljava/util/List<+Ljava/io/File;>;"
-    :try_start_83
+    :try_start_86
     invoke-static {v1, v2, v5}, Landroidx/multidex/MultiDex;->installSecondaryDexes(Ljava/lang/ClassLoader;Ljava/io/File;Ljava/util/List;)V
-    :try_end_86
-    .catch Ljava/io/IOException; {:try_start_83 .. :try_end_86} :catch_87
-    .catchall {:try_start_83 .. :try_end_86} :catchall_a9
+    :try_end_89
+    .catch Ljava/io/IOException; {:try_start_86 .. :try_end_89} :catch_8a
+    .catchall {:try_start_86 .. :try_end_89} :catchall_ac
 
     .line 273
-    goto :goto_9a
+    goto :goto_9d
 
     .line 265
-    :catch_87
+    :catch_8a
     move-exception v6
 
     .line 266
     .local v6, "e":Ljava/io/IOException;
-    if-eqz p5, :cond_a7
+    if-eqz p5, :cond_aa
 
     .line 269
-    :try_start_8a
+    :try_start_8d
     const-string v7, "MultiDex"
 
     const-string v8, "Failed to install extracted secondary dex files, retrying with forced extraction"
@@ -678,24 +681,24 @@
 
     .line 272
     invoke-static {v1, v2, v5}, Landroidx/multidex/MultiDex;->installSecondaryDexes(Ljava/lang/ClassLoader;Ljava/io/File;Ljava/util/List;)V
-    :try_end_9a
-    .catchall {:try_start_8a .. :try_end_9a} :catchall_a9
+    :try_end_9d
+    .catchall {:try_start_8d .. :try_end_9d} :catchall_ac
 
     .line 276
     .end local v5    # "files":Ljava/util/List;, "Ljava/util/List<+Ljava/io/File;>;"
     .end local v6    # "e":Ljava/io/IOException;
-    :goto_9a
-    :try_start_9a
+    :goto_9d
+    :try_start_9d
     invoke-virtual {v3}, Landroidx/multidex/MultiDexExtractor;->close()V
-    :try_end_9d
-    .catch Ljava/io/IOException; {:try_start_9a .. :try_end_9d} :catch_9e
-    .catchall {:try_start_9a .. :try_end_9d} :catchall_bc
+    :try_end_a0
+    .catch Ljava/io/IOException; {:try_start_9d .. :try_end_a0} :catch_a1
+    .catchall {:try_start_9d .. :try_end_a0} :catchall_bf
 
     .line 281
-    goto :goto_a1
+    goto :goto_a4
 
     .line 277
-    :catch_9e
+    :catch_a1
     move-exception v5
 
     .line 280
@@ -707,15 +710,15 @@
     nop
 
     .line 283
-    :goto_a1
-    if-nez v4, :cond_a5
+    :goto_a4
+    if-nez v4, :cond_a8
 
     .line 286
     .end local v1    # "loader":Ljava/lang/ClassLoader;
     .end local v2    # "dexDir":Ljava/io/File;
     .end local v3    # "extractor":Landroidx/multidex/MultiDexExtractor;
     .end local v4    # "closeException":Ljava/io/IOException;
-    :try_start_a3
+    :try_start_a6
     monitor-exit v0
 
     .line 287
@@ -726,7 +729,7 @@
     .restart local v2    # "dexDir":Ljava/io/File;
     .restart local v3    # "extractor":Landroidx/multidex/MultiDexExtractor;
     .restart local v4    # "closeException":Ljava/io/IOException;
-    :cond_a5
+    :cond_a8
     nop
 
     .end local p0    # "mainContext":Landroid/content/Context;
@@ -736,8 +739,8 @@
     .end local p4    # "prefsKeyPrefix":Ljava/lang/String;
     .end local p5    # "reinstallOnPatchRecoverableException":Z
     throw v4
-    :try_end_a7
-    .catchall {:try_start_a3 .. :try_end_a7} :catchall_bc
+    :try_end_aa
+    .catchall {:try_start_a6 .. :try_end_aa} :catchall_bf
 
     .line 267
     .local v5, "files":Ljava/util/List;, "Ljava/util/List<+Ljava/io/File;>;"
@@ -748,7 +751,7 @@
     .restart local p3    # "secondaryFolderName":Ljava/lang/String;
     .restart local p4    # "prefsKeyPrefix":Ljava/lang/String;
     .restart local p5    # "reinstallOnPatchRecoverableException":Z
-    :cond_a7
+    :cond_aa
     nop
 
     .end local v1    # "loader":Ljava/lang/ClassLoader;
@@ -761,10 +764,10 @@
     .end local p3    # "secondaryFolderName":Ljava/lang/String;
     .end local p4    # "prefsKeyPrefix":Ljava/lang/String;
     .end local p5    # "reinstallOnPatchRecoverableException":Z
-    :try_start_a8
+    :try_start_ab
     throw v6
-    :try_end_a9
-    .catchall {:try_start_a8 .. :try_end_a9} :catchall_a9
+    :try_end_ac
+    .catchall {:try_start_ab .. :try_end_ac} :catchall_ac
 
     .line 275
     .end local v5    # "files":Ljava/util/List;, "Ljava/util/List<+Ljava/io/File;>;"
@@ -779,21 +782,21 @@
     .restart local p3    # "secondaryFolderName":Ljava/lang/String;
     .restart local p4    # "prefsKeyPrefix":Ljava/lang/String;
     .restart local p5    # "reinstallOnPatchRecoverableException":Z
-    :catchall_a9
+    :catchall_ac
     move-exception v5
 
     .line 276
-    :try_start_aa
+    :try_start_ad
     invoke-virtual {v3}, Landroidx/multidex/MultiDexExtractor;->close()V
-    :try_end_ad
-    .catch Ljava/io/IOException; {:try_start_aa .. :try_end_ad} :catch_ae
-    .catchall {:try_start_aa .. :try_end_ad} :catchall_bc
+    :try_end_b0
+    .catch Ljava/io/IOException; {:try_start_ad .. :try_end_b0} :catch_b1
+    .catchall {:try_start_ad .. :try_end_b0} :catchall_bf
 
     .line 281
-    goto :goto_b0
+    goto :goto_b3
 
     .line 277
-    :catch_ae
+    :catch_b1
     move-exception v6
 
     .line 280
@@ -802,7 +805,7 @@
 
     .line 281
     .end local v6    # "e":Ljava/io/IOException;
-    :goto_b0
+    :goto_b3
     nop
 
     .end local p0    # "mainContext":Landroid/content/Context;
@@ -811,7 +814,7 @@
     .end local p3    # "secondaryFolderName":Ljava/lang/String;
     .end local p4    # "prefsKeyPrefix":Ljava/lang/String;
     .end local p5    # "reinstallOnPatchRecoverableException":Z
-    :try_start_b1
+    :try_start_b4
     throw v5
 
     .line 229
@@ -825,7 +828,7 @@
     .restart local p3    # "secondaryFolderName":Ljava/lang/String;
     .restart local p4    # "prefsKeyPrefix":Ljava/lang/String;
     .restart local p5    # "reinstallOnPatchRecoverableException":Z
-    :catch_b2
+    :catch_b5
     move-exception v1
 
     .line 234
@@ -843,12 +846,12 @@
 
     .line 286
     .end local v1    # "e":Ljava/lang/RuntimeException;
-    :catchall_bc
+    :catchall_bf
     move-exception v1
 
     monitor-exit v0
-    :try_end_be
-    .catchall {:try_start_b1 .. :try_end_be} :catchall_bc
+    :try_end_c1
+    .catchall {:try_start_b4 .. :try_end_c1} :catchall_bf
 
     throw v1
 .end method
@@ -1026,7 +1029,13 @@
 
     invoke-direct {v0, v1}, Ljava/lang/NoSuchFieldException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_43
+
+    :goto_42
     throw v0
+
+    :goto_43
+    goto :goto_42
 .end method
 
 .method private static varargs findMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
@@ -1152,7 +1161,13 @@
 
     invoke-direct {v0, v1}, Ljava/lang/NoSuchMethodException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_51
+
+    :goto_50
     throw v0
+
+    :goto_51
+    goto :goto_50
 .end method
 
 .method private static getApplicationInfo(Landroid/content/Context;)Landroid/content/pm/ApplicationInfo;

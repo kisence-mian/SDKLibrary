@@ -150,7 +150,7 @@
 
     sput-object v0, LsdkInterface/SdkInterface;->sCallbacks:Landroid/util/SparseArray;
 
-    .line 1393
+    .line 1392
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -511,10 +511,10 @@
 .method static ApplictaionQuit()Z
     .registers 4
 
-    .line 1267
+    .line 1266
     const/4 v0, 0x0
 
-    .line 1268
+    .line 1267
     .local v0, "isNotQuit":Z
     sget-object v1, LsdkInterface/SdkInterface;->allClass:Ljava/util/HashMap;
 
@@ -539,11 +539,11 @@
 
     check-cast v2, Ljava/util/Map$Entry;
 
-    .line 1270
+    .line 1269
     .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;LsdkInterface/SDKBase;>;"
     if-nez v0, :cond_23
 
-    .line 1272
+    .line 1271
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
@@ -554,12 +554,12 @@
 
     move-result v0
 
-    .line 1274
+    .line 1273
     .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;LsdkInterface/SDKBase;>;"
     :cond_23
     goto :goto_b
 
-    .line 1276
+    .line 1275
     :cond_24
     return v0
 .end method
@@ -794,7 +794,7 @@
         }
     .end annotation
 
-    .line 1397
+    .line 1396
     sget-object v0, LsdkInterface/SdkInterface;->allClass:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -803,7 +803,7 @@
 
     if-eqz v0, :cond_11
 
-    .line 1399
+    .line 1398
     sget-object v0, LsdkInterface/SdkInterface;->allClass:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -814,13 +814,13 @@
 
     return-object v0
 
-    .line 1403
+    .line 1402
     :cond_11
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 1404
+    .line 1403
     .local v0, "cla":Ljava/lang/Class;
     invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
@@ -828,7 +828,7 @@
 
     check-cast v1, LsdkInterface/SDKBase;
 
-    .line 1405
+    .line 1404
     .local v1, "sdk":LsdkInterface/SDKBase;
     sget-object v2, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
@@ -838,19 +838,19 @@
 
     iput-object v2, v1, LsdkInterface/SDKBase;->SDKName:Ljava/lang/String;
 
-    .line 1406
+    .line 1405
     sget-object v2, LsdkInterface/SdkInterface;->allClass:Ljava/util/HashMap;
 
     invoke-virtual {v2, p0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1408
+    .line 1407
     return-object v1
 .end method
 
 .method public static GetContext()Landroid/content/Context;
     .registers 1
 
-    .line 1390
+    .line 1389
     sget-object v0, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
@@ -863,7 +863,7 @@
 .method static GetIsLog()Z
     .registers 2
 
-    .line 1321
+    .line 1320
     sget-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
     const-string v1, "IsLog"
@@ -874,7 +874,7 @@
 
     if-eqz v0, :cond_15
 
-    .line 1323
+    .line 1322
     sget-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
     invoke-virtual {v0, v1}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -887,7 +887,7 @@
 
     return v0
 
-    .line 1327
+    .line 1326
     :cond_15
     const/4 v0, 0x0
 
@@ -897,7 +897,7 @@
 .method static GetIsMultiDex()Z
     .registers 2
 
-    .line 1333
+    .line 1332
     sget-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
     const-string v1, "IsMultiDex"
@@ -908,7 +908,7 @@
 
     if-eqz v0, :cond_15
 
-    .line 1335
+    .line 1334
     sget-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
     invoke-virtual {v0, v1}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -921,7 +921,7 @@
 
     return v0
 
-    .line 1339
+    .line 1338
     :cond_15
     const/4 v0, 0x0
 
@@ -1186,7 +1186,7 @@
         }
     .end annotation
 
-    .line 1349
+    .line 1348
     .local p1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<LsdkInterface/SDKBase;>;"
     sget-boolean v0, LsdkInterface/SdkInterface;->isInit:Z
 
@@ -1194,7 +1194,7 @@
 
     if-eqz v0, :cond_a7
 
-    .line 1351
+    .line 1350
     const-string v0, "SDKName"
 
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
@@ -1203,12 +1203,12 @@
 
     if-eqz v2, :cond_8c
 
-    .line 1353
+    .line 1352
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1354
+    .line 1353
     .local v0, "SDKName":Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -1220,7 +1220,7 @@
 
     if-ge v2, v3, :cond_3a
 
-    .line 1356
+    .line 1355
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -1245,7 +1245,7 @@
 
     if-eqz v3, :cond_37
 
-    .line 1358
+    .line 1357
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1254,18 +1254,18 @@
 
     return-object v1
 
-    .line 1354
+    .line 1353
     :cond_37
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_12
 
-    .line 1362
+    .line 1361
     .end local v2    # "i":I
     :cond_3a
     const-string v2, ""
 
-    .line 1363
+    .line 1362
     .local v2, "sdkList":Ljava/lang/String;
     const/4 v3, 0x0
 
@@ -1277,7 +1277,7 @@
 
     if-ge v3, v4, :cond_65
 
-    .line 1365
+    .line 1364
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1308,12 +1308,12 @@
 
     move-result-object v2
 
-    .line 1363
+    .line 1362
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3d
 
-    .line 1368
+    .line 1367
     .end local v3    # "i":I
     :cond_65
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1352,10 +1352,10 @@
 
     invoke-static {v3}, LsdkInterface/SdkInterface;->SendLog(Ljava/lang/String;)V
 
-    .line 1369
+    .line 1368
     return-object v1
 
-    .line 1371
+    .line 1370
     .end local v0    # "SDKName":Ljava/lang/String;
     .end local v2    # "sdkList":Ljava/lang/String;
     :cond_8c
@@ -1367,12 +1367,12 @@
 
     if-eqz v1, :cond_9f
 
-    .line 1373
+    .line 1372
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 1374
+    .line 1373
     .local v0, "index":I
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -1382,7 +1382,7 @@
 
     return-object v1
 
-    .line 1378
+    .line 1377
     .end local v0    # "index":I
     :cond_9f
     const/4 v0, 0x0
@@ -1395,13 +1395,13 @@
 
     return-object v0
 
-    .line 1383
+    .line 1382
     :cond_a7
     const-string v0, "SDKManager\u5c1a\u672a\u521d\u59cb\u5316\uff01"
 
     invoke-static {v0}, LsdkInterface/SdkInterface;->SendLog(Ljava/lang/String;)V
 
-    .line 1384
+    .line 1383
     return-object v1
 .end method
 
@@ -2570,12 +2570,12 @@
 .method public static InitSdkManifestProperty()V
     .registers 2
 
-    .line 1307
+    .line 1306
     sget-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
     if-nez v0, :cond_23
 
-    .line 1310
+    .line 1309
     :try_start_4
     invoke-static {}, LsdkInterface/SdkInterface;->GetContext()Landroid/content/Context;
 
@@ -2589,14 +2589,14 @@
 
     sput-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
-    .line 1311
+    .line 1310
     invoke-static {}, LsdkInterface/SdkInterface;->GetIsLog()Z
 
     move-result v0
 
     sput-boolean v0, LsdkInterface/SdkInterface;->isLog:Z
 
-    .line 1312
+    .line 1311
     invoke-static {}, LsdkInterface/SdkInterface;->GetIsMultiDex()Z
 
     move-result v0
@@ -2605,20 +2605,20 @@
     :try_end_1c
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_1c} :catch_1d
 
-    .line 1315
+    .line 1314
     goto :goto_23
 
-    .line 1313
+    .line 1312
     :catch_1d
     move-exception v0
 
-    .line 1314
+    .line 1313
     .local v0, "e":Ljava/io/IOException;
     const-string v1, "InitSdkManifestProperty error"
 
     invoke-static {v1, v0}, LsdkInterface/SdkInterface;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 1317
+    .line 1316
     .end local v0    # "e":Ljava/io/IOException;
     :cond_23
     :goto_23
@@ -2629,12 +2629,12 @@
     .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 1292
+    .line 1291
     sget-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
     if-nez v0, :cond_1f
 
-    .line 1295
+    .line 1294
     :try_start_4
     const-string v0, "SdkManifest"
 
@@ -2644,14 +2644,14 @@
 
     sput-object v0, LsdkInterface/SdkInterface;->SdkManifest:Ljava/util/Properties;
 
-    .line 1296
+    .line 1295
     invoke-static {}, LsdkInterface/SdkInterface;->GetIsLog()Z
 
     move-result v0
 
     sput-boolean v0, LsdkInterface/SdkInterface;->isLog:Z
 
-    .line 1297
+    .line 1296
     invoke-static {}, LsdkInterface/SdkInterface;->GetIsMultiDex()Z
 
     move-result v0
@@ -2660,20 +2660,20 @@
     :try_end_18
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_18} :catch_19
 
-    .line 1301
+    .line 1300
     goto :goto_1f
 
-    .line 1299
+    .line 1298
     :catch_19
     move-exception v0
 
-    .line 1300
+    .line 1299
     .local v0, "e":Ljava/io/IOException;
     const-string v1, "InitSdkManifestProperty error"
 
     invoke-static {v1, v0}, LsdkInterface/SdkInterface;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 1303
+    .line 1302
     .end local v0    # "e":Ljava/io/IOException;
     :cond_1f
     :goto_1f
@@ -2823,7 +2823,7 @@
     .registers 4
     .param p0, "sdkName"    # Ljava/lang/String;
 
-    .line 1281
+    .line 1280
     sget-object v0, LsdkInterface/SdkInterface;->allClass:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -2847,7 +2847,7 @@
 
     check-cast v1, LsdkInterface/SDKBase;
 
-    .line 1282
+    .line 1281
     .local v1, "temp":LsdkInterface/SDKBase;
     iget-object v2, v1, LsdkInterface/SDKBase;->SDKName:Ljava/lang/String;
 
@@ -2857,17 +2857,17 @@
 
     if-eqz v2, :cond_20
 
-    .line 1284
+    .line 1283
     const/4 v0, 0x1
 
     return v0
 
-    .line 1286
+    .line 1285
     .end local v1    # "temp":LsdkInterface/SDKBase;
     :cond_20
     goto :goto_a
 
-    .line 1287
+    .line 1286
     :cond_21
     const/4 v0, 0x0
 
@@ -4288,209 +4288,202 @@
 .end method
 
 .method static Other(Lorg/json/JSONObject;)V
-    .registers 9
+    .registers 8
     .param p0, "json"    # Lorg/json/JSONObject;
 
     .line 1233
-    const-string v0, "SDKName"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "SDKInterBase Other "
 
-    const-string v2, "SDKInterBase Other "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, LsdkInterface/SdkInterface;->SendLog(Ljava/lang/String;)V
-
-    .line 1235
-    :try_start_1c
-    const-string v1, "FunctionName"
-
-    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 1236
-    .local v1, "functionName":Ljava/lang/String;
-    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 1238
-    .local v2, "sdkName":Ljava/lang/String;
-    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_38
-
-    .line 1240
-    sget-object v0, LsdkInterface/SdkInterface;->otherSDKList:Ljava/util/ArrayList;
-
-    invoke-static {p0, v0}, LsdkInterface/SdkInterface;->GetSDK(Lorg/json/JSONObject;Ljava/util/ArrayList;)LsdkInterface/SDKBase;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    check-cast v0, LsdkInterface/IOther;
+    invoke-virtual {p0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, LsdkInterface/SdkInterface;->SendLog(Ljava/lang/String;)V
+
+    .line 1235
+    :try_start_1a
+    const-string v0, "FunctionName"
+
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1237
+    .local v0, "functionName":Ljava/lang/String;
+    const-string v1, "SDKName"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_34
+
+    .line 1239
+    sget-object v1, LsdkInterface/SdkInterface;->otherSDKList:Ljava/util/ArrayList;
+
+    invoke-static {p0, v1}, LsdkInterface/SdkInterface;->GetSDK(Lorg/json/JSONObject;Ljava/util/ArrayList;)LsdkInterface/SDKBase;
+
+    move-result-object v1
+
+    check-cast v1, LsdkInterface/IOther;
+
+    .line 1240
+    .local v1, "other":LsdkInterface/IOther;
+    invoke-interface {v1, p0}, LsdkInterface/IOther;->Other(Lorg/json/JSONObject;)V
 
     .line 1241
-    .local v0, "other":LsdkInterface/IOther;
-    invoke-interface {v0, p0}, LsdkInterface/IOther;->Other(Lorg/json/JSONObject;)V
+    .end local v1    # "other":LsdkInterface/IOther;
+    goto :goto_94
 
-    .line 1242
-    .end local v0    # "other":LsdkInterface/IOther;
-    goto :goto_98
+    .line 1244
+    :cond_34
+    const/4 v1, 0x0
+
+    .local v1, "i":I
+    :goto_35
+    sget-object v2, LsdkInterface/SdkInterface;->otherSDKList:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_94
 
     .line 1245
-    :cond_38
-    const/4 v0, 0x0
+    sget-object v2, LsdkInterface/SdkInterface;->otherSDKList:Ljava/util/ArrayList;
 
-    .local v0, "i":I
-    :goto_39
-    sget-object v3, LsdkInterface/SdkInterface;->otherSDKList:Ljava/util/ArrayList;
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    move-result-object v2
 
-    move-result v3
-
-    if-ge v0, v3, :cond_98
+    check-cast v2, LsdkInterface/IOther;
 
     .line 1246
-    sget-object v3, LsdkInterface/SdkInterface;->otherSDKList:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    .local v2, "other":LsdkInterface/IOther;
+    invoke-interface {v2}, LsdkInterface/IOther;->GetFunctionName()[Ljava/lang/String;
 
     move-result-object v3
 
-    check-cast v3, LsdkInterface/IOther;
-
     .line 1247
-    .local v3, "other":LsdkInterface/IOther;
-    invoke-interface {v3}, LsdkInterface/IOther;->GetFunctionName()[Ljava/lang/String;
+    .local v3, "fs":[Ljava/lang/String;
+    const/4 v4, 0x0
 
-    move-result-object v4
+    .local v4, "j":I
+    :goto_4a
+    array-length v5, v3
 
-    .line 1248
-    .local v4, "fs":[Ljava/lang/String;
-    const/4 v5, 0x0
+    if-ge v4, v5, :cond_91
 
-    .local v5, "j":I
-    :goto_4e
-    array-length v6, v4
+    .line 1249
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    if-ge v5, v6, :cond_95
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1250
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v5
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, "=> fs[] "
 
-    move-result-object v6
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "=> fs[] "
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v6, " "
 
-    move-result-object v6
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, " "
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aget-object v6, v3, v4
 
-    move-result-object v6
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget-object v7, v4, v5
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, " ->"
 
-    move-result-object v6
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, " ->"
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aget-object v6, v3, v4
 
-    move-result-object v6
-
-    aget-object v7, v4, v5
-
-    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v6}, LsdkInterface/SdkInterface;->SendLog(Ljava/lang/String;)V
-
-    .line 1252
-    aget-object v6, v4, v5
-
-    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_92
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 1254
-    invoke-interface {v3, p0}, LsdkInterface/IOther;->Other(Lorg/json/JSONObject;)V
-    :try_end_92
-    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_92} :catch_99
+    move-result-object v5
 
-    .line 1248
-    :cond_92
-    add-int/lit8 v5, v5, 0x1
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_4e
+    move-result-object v5
 
-    .line 1245
-    .end local v3    # "other":LsdkInterface/IOther;
-    .end local v4    # "fs":[Ljava/lang/String;
-    .end local v5    # "j":I
-    :cond_95
-    add-int/lit8 v0, v0, 0x1
+    invoke-static {v5}, LsdkInterface/SdkInterface;->SendLog(Ljava/lang/String;)V
 
-    goto :goto_39
+    .line 1251
+    aget-object v5, v3, v4
 
-    .line 1262
-    .end local v0    # "i":I
-    .end local v1    # "functionName":Ljava/lang/String;
-    .end local v2    # "sdkName":Ljava/lang/String;
-    :cond_98
-    :goto_98
-    goto :goto_b4
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 1259
-    :catch_99
-    move-exception v0
+    move-result v5
+
+    if-eqz v5, :cond_8e
+
+    .line 1253
+    invoke-interface {v2, p0}, LsdkInterface/IOther;->Other(Lorg/json/JSONObject;)V
+    :try_end_8e
+    .catch Ljava/lang/Exception; {:try_start_1a .. :try_end_8e} :catch_95
+
+    .line 1247
+    :cond_8e
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_4a
+
+    .line 1244
+    .end local v2    # "other":LsdkInterface/IOther;
+    .end local v3    # "fs":[Ljava/lang/String;
+    .end local v4    # "j":I
+    :cond_91
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_35
 
     .line 1261
+    .end local v0    # "functionName":Ljava/lang/String;
+    .end local v1    # "i":I
+    :cond_94
+    :goto_94
+    goto :goto_b0
+
+    .line 1258
+    :catch_95
+    move-exception v0
+
+    .line 1260
     .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -4516,9 +4509,9 @@
 
     invoke-static {v1, v0}, LsdkInterface/SdkInterface;->SendError(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 1263
+    .line 1262
     .end local v0    # "e":Ljava/lang/Exception;
-    :goto_b4
+    :goto_b0
     return-void
 .end method
 

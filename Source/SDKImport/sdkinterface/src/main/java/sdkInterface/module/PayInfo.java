@@ -10,7 +10,7 @@ import sdkInterface.define.StoreName;
 public class PayInfo
 {
     public String userID= "";
-    public  String prepayID ="";
+    public String prepayID ="";
     public String goodsID= "";
     public String goodsName= "";
     public String goodsDescription= "";

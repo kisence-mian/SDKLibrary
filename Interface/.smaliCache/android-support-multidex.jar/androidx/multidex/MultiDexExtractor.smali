@@ -893,7 +893,13 @@
     .line 413
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
+    goto :goto_119
+
+    :goto_118
     throw v3
+
+    :goto_119
+    goto :goto_118
 .end method
 
 .method private static getMultiDexPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
@@ -2076,7 +2082,13 @@
     .line 309
     .end local v0    # "e":Ljava/io/IOException;
     :goto_19f
+    goto :goto_1a1
+
+    :goto_1a0
     throw v1
+
+    :goto_1a1
+    goto :goto_1a0
 .end method
 
 .method private static putStoredApkInfo(Landroid/content/Context;Ljava/lang/String;JJLjava/util/List;)V

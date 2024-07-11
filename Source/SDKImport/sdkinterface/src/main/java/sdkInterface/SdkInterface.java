@@ -1233,7 +1233,6 @@ public class SdkInterface
         SendLog("SDKInterBase Other " + json.toString());
         try {
             String functionName = json.getString(SDKInterfaceDefine.FunctionName);
-            String sdkName = json.getString(SDKInterfaceDefine.SDKName);
 
             if(json.has(SDKInterfaceDefine.SDKName))
             {

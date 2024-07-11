@@ -300,7 +300,13 @@
 
     invoke-direct {v2, v3}, Ljava/util/zip/ZipException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_87
+
+    :goto_86
     throw v2
+
+    :goto_87
+    goto :goto_86
 .end method
 
 .method static getZipCrc(Ljava/io/File;)J
