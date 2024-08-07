@@ -115,12 +115,32 @@ public class SDKBase {
 
     protected void CallBackLoginResult(String loginPlatform, boolean success,String accountID  ,String errorString)
     {
-        SendLog("login result  " + success);
+        SendLog("login result  " + success + " accountID " + accountID);
         try {
 
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
             jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogin);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId, accountID);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, loginPlatform);
+            jo.put(SDKInterfaceDefine.ParameterName_Error,errorString);
+            CallBack(jo);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            SendError("LoginResult onLogin Error", e);
+        }
+    }
+
+    protected void CallBackLoginOut(String loginPlatform, boolean success,String accountID  ,String errorString)
+    {
+        SendLog("loginOut  " + accountID);
+        try {
+
+            JSONObject jo = new JSONObject();
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
+            jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogout);
             jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId, accountID);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
             jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, loginPlatform);

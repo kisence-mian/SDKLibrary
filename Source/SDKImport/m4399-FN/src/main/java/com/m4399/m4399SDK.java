@@ -213,9 +213,14 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
                         // 2. 也可能是调用切换帐号接口后调用SsjjFNSDK.getInstance().switchUser(...)
                         // 3. 如果进入游戏后，游戏不支持切换帐号，请重启游戏（但直接重启体验不好，请弹出确认框提示“您已切换帐号，需要重启游戏”，点确认重启游戏）
 
-                        SendLog("onSwitchUser");
+                        SendLog("4399 onSwitchUser " + user.uid);
 
-                        ExitGame();
+                        //ExitGame();
+
+                        //2024 0807
+                        //当检测到 sdk 登出时，向游戏发送信息，让游戏弹出重启提示，此处不再直接关掉游戏
+                        CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,user.uid,"");
+
                     }
                     @Override
                     public void onLogout() {
@@ -396,33 +401,56 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
         try {
             m_ADTag = json.getString(SDKInterfaceDefine.Tag);
 
-            boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_showVideoAD"); // 先判断是否支持该方法
+            String AdUnitID = "";
+            String AdPlacementId = "";
+            String adUnitIdKey = "";
 
-            SendLog("PlayAD isSupport " + isSupport);
-//            if (isSupport) {
-//                SsjjFNParams data = new SsjjFNParams();
-//
-//                if(AdUnitID != "") {
-//                    data.put("AdUnitID", AdUnitID); // 激励视频广告位id，非必传，根据业务场景来定
-//                }
-//
-//                SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_showVideoAD", data, new SsjjFNListener() {
-//                    public void onCallback(int code, String msg, SsjjFNParams data) {
-//                        if (code == SsjjFNTag.CODE_SUCCEED) {
-//                            // 播放视频完成
-//                            // 发放奖励
-//
-//                            AdRewardCallBack(ADType.Reward,ADResult.Show_Finished);
-//                        } else {
-//                            // 玩家没观看完视频，或视频播放失败
-//                            // 不做处理
-//                            AdRewardCallBack(ADType.Reward,ADResult.Show_Failed);
-//                        }
-//                    }
-//                });
-//            }
+            boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_showVideoAD"); // 先判断是否支持该方法
+            if (isSupport) {
+                SsjjFNParams data = new SsjjFNParams();
+
+                if(json.has("AdUnitID"))
+                {
+                    AdUnitID = json.getString("AdUnitID");
+                    data.put("AdUnitID", AdUnitID); // 激励视频广告位id。非必传，根据业务场景来定
+                }
+
+                if(json.has("AdPlacementId"))
+                {
+                    AdPlacementId = json.getString("AdPlacementId");
+                    // 如果研发不想维护广告位id，可用指定的key来映射。映射关系需联系蜂鸟技术在蜂鸟后台配置
+                    data.put("AdPlacementId", AdPlacementId); // 研发自定义的广告位key。非必传，根据业务场景来定
+                }
+
+                if(json.has("adUnitIdKey"))
+                {
+                    adUnitIdKey = json.getString("adUnitIdKey");
+                    data.put("adUnitIdKey", adUnitIdKey); // （选传）广告展示位置id，根据运营给的传，没有可不传
+                }
+
+                SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_showVideoAD", data, new SsjjFNListener() {
+                    public void onCallback(int code, String msg, SsjjFNParams data) {
+                        if (code == SsjjFNTag.CODE_SUCCEED) {
+                            // 播放视频完成
+                            // 发放奖励
+                            AdRewardCallBack(ADType.Reward,ADResult.Show_Finished);
+                        } else {
+                            // 玩家没观看完视频，或视频播放失败，可通过msg查找原因
+                            // 不做处理
+                            AdRewardCallBack(ADType.Reward,ADResult.Show_Failed);
+                        }
+                    }
+                });
+            }
+            else
+            {
+                SendLog("4399 PlayAD out support ad ");
+                AdRewardCallBack(ADType.Reward,ADResult.Show_Failed);
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
+            AdRewardCallBack(ADType.Reward,ADResult.Show_Failed);
         }
     }
 
@@ -605,7 +633,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, "m4399_FN");
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, "");
 
-            SendLog( "PayInfo is null" + (payInfo == null) + " jo is null " + (jo == null));
+            SendLog( "PayInfo is null " + (payInfo == null) + " jo is null " + (jo == null));
 
             if (payInfo == null) {
                 payInfo = new PayInfo();
