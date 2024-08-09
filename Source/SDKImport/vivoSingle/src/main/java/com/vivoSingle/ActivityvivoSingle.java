@@ -43,6 +43,11 @@ public class ActivityvivoSingle extends SDKBase implements ILogin,IPay {
     }
 
     @Override
+    public void LoginOut(JSONObject json) {
+
+    }
+
+    @Override
     public void Pay(JSONObject json) {
 
         int amount = 0;
@@ -54,10 +59,10 @@ public class ActivityvivoSingle extends SDKBase implements ILogin,IPay {
             float price = Float.parseFloat(json.getString(SDKInterfaceDefine.Pay_ParameterName_Price));
             amount = (int)(price * 100); // 支付金额，单位分
 
-            name =  json.getString(SdkInterface.SDKInterfaceDefine.Pay_ParameterName_GoodsName);
-            vivoSignature = json.getString(SdkInterface.SDKInterfaceDefine.Pay_ParameterName_GoodsID); //由订单推送接口返回，字段为accessKey
-            orderID = json.getString(SdkInterface.SDKInterfaceDefine.Pay_ParameterName_CpOrderID);//交易流水号
-            if(json.getString(SdkInterface.SDKInterfaceDefine.Pay_ParameterName_Payment) == "2")
+            name =  json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsName);
+            vivoSignature = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID); //由订单推送接口返回，字段为accessKey
+            orderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_InternalOrderID);//交易流水号
+            if(json.getString(SDKInterfaceDefine.Pay_ParameterName_Payment) == "2")
             {
                 platform = 2;
             }
@@ -85,6 +90,26 @@ public class ActivityvivoSingle extends SDKBase implements ILogin,IPay {
                 SendPayCallBack(b,s,s1);
             }
         },platform);
+    }
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        return false;
+    }
+
+    @Override
+    public void GetGoodsInfo(JSONObject json) {
+
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
     }
 
 
@@ -120,9 +145,9 @@ public class ActivityvivoSingle extends SDKBase implements ILogin,IPay {
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Login);
             jo.put(SDKInterfaceDefine.Login_ParameterName_AccountId,openId);
-            jo.put(SDKInterfaceDefine.Login_ParameterName_AuchToken,authToken);
+            jo.put(SDKInterfaceDefine.Login_ParameterName_AuthToken,authToken);
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
-            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.vivo.toString());
+            jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.VIVO.toString());
 
             CallBack(jo);
         }
@@ -137,14 +162,14 @@ public class ActivityvivoSingle extends SDKBase implements ILogin,IPay {
         try {
 
             JSONObject jo = new JSONObject();
-            jo.put(SdkInterface.SDKInterfaceDefine.ModuleName, SdkInterface.SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
 
-            jo.put(SdkInterface.SDKInterfaceDefine.Pay_ParameterName_GoodsID,s);
-            jo.put(SdkInterface.SDKInterfaceDefine.ParameterName_IsSuccess,success);
-            jo.put(SdkInterface.SDKInterfaceDefine.Pay_ParameterName_OrderID,s1);
-            jo.put(SdkInterface.SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.vivo.toString());
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID,s);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess,success);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,s1);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.VIVO.toString());
 
-            SdkInterface.SdkInterface.SendMessage(jo);
+            SdkInterface.SendMessage(jo);
         } catch (JSONException e)
         {
             SendError("SendPayCallBack Error " + e,e);

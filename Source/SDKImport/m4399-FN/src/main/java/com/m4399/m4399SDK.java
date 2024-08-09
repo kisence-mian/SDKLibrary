@@ -993,9 +993,8 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     public void reportViolation(JSONObject json) throws JSONException
     {
         String uid = json.getString("uid");
-        String userName = json.getString("userName");
-        String contact = json.getString("contact");
-
+        String userName = json.getString(SDKInterfaceDefine.Login_ParameterName_NickName);
+        String contact = json.getString("Contact");
 
         if(SsjjFNSpecial.getInstance().isSurportApi("4399hz_reportViolation")) {
             SsjjFNParams params = new SsjjFNParams();

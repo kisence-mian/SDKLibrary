@@ -53,7 +53,9 @@ public class SDKInterfaceDefine {
     public static final String Login_ParameterName_Device = "Device";
     public static final String Login_ParameterName_AccountId = "AccountId";
     public static final String Login_ParameterName_loginPlatform = "loginPlatform";
-    public static final String Login_ParameterName_AuchToken = "AuchToken";
+    public static final String Login_ParameterName_NickName      = "NickName";
+    public static final String Login_ParameterName_HeadPortrait  = "HeadPortrait";
+    public static final String Login_ParameterName_AuthToken = "AuchToken";
 
     //Pay相关参数
     public static final String Pay_ParameterName_GoodsID = "GoodsID";
