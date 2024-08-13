@@ -1231,7 +1231,6 @@ public class SdkInterface
         SendLog("SDKInterBase Other " + json.toString());
         try {
             String functionName = json.getString(SDKInterfaceDefine.FunctionName);
-            String sdkName = json.getString(SDKInterfaceDefine.SDKName);
 
             if(json.has(SDKInterfaceDefine.SDKName))
             {
@@ -1245,7 +1244,7 @@ public class SdkInterface
                     String[] fs = other.GetFunctionName();
                     for (int j = 0; j < fs.length; j++)
                     {
-                        SendLog(functionName+"=> fs[] "  + j + " "+ fs[j] + " ->" + fs[j].equals(functionName));
+                        SendLog(functionName+"Other => j: "  + j + " fs[] "+ fs[j] + " eq  ->" + fs[j].equals(functionName));
 
                         if(fs[j].equals(functionName))
                         {

@@ -89,10 +89,14 @@ public class SDKInterfaceDefine {
     public static final String AD_ParameterName_ADResult = "ADResult";   //广告播放结果
 
     //ADType
-    public  static  final String AD_ADTypeEnum_Reward = "Reward";
-    public  static  final String AD_ADTypeEnum_Banner = "Banner";
-    public  static  final String AD_ADTypeEnum_Interstitial = "Interstitial";
-    public  static  final String AD_ADTypeEnum_Video = "Video";
+    public  static final String AD_ADTypeEnum_Reward = "Reward";
+    public  static final String AD_ADTypeEnum_Banner = "Banner";
+    public  static final String AD_ADTypeEnum_Interstitial = "Interstitial";
+    public  static final String AD_ADTypeEnum_Video = "Video";
+
+    public  static final String AD_ParameterName_AdUnitID      = "AdUnitID";
+    public  static final String AD_ParameterName_AdUnitIdKey   = "AdUnitIdKey";
+    public  static final String AD_ParameterName_AdPlacementId = "AdPlacementId";
 
     //Share相关参数
     public static final String Share_FunctionName_Share = "Share";

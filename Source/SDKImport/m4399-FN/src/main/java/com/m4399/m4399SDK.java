@@ -377,6 +377,8 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     @Override
     public void LoadAD(JSONObject json) {
 
+        SendLog("4399 Load AD " + json);
+
         boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_loadVideoAD"); // 先判断是否支持该方法
         if (isSupport) {
             SsjjFNParams data = new SsjjFNParams();
@@ -398,10 +400,12 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     @Override
     public void PlayAD(JSONObject json) {
 
+        SendLog("4399 PlayAD " + json);
+
         try {
             m_ADTag = json.getString(SDKInterfaceDefine.Tag);
 
-            String AdUnitID = "";
+            String AdUnitID = "28811";
             String AdPlacementId = "";
             String adUnitIdKey = "";
 
@@ -409,11 +413,13 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
             if (isSupport) {
                 SsjjFNParams data = new SsjjFNParams();
 
-                if(json.has("AdUnitID"))
+                if(json.has(SDKInterfaceDefine.Tag))
                 {
-                    AdUnitID = json.getString("AdUnitID");
+                    AdUnitID = json.getString(SDKInterfaceDefine.Tag);
                     data.put("AdUnitID", AdUnitID); // 激励视频广告位id。非必传，根据业务场景来定
                 }
+
+                AdUnitID = "28811";
 
                 if(json.has("AdPlacementId"))
                 {
@@ -431,10 +437,12 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
                 SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_showVideoAD", data, new SsjjFNListener() {
                     public void onCallback(int code, String msg, SsjjFNParams data) {
                         if (code == SsjjFNTag.CODE_SUCCEED) {
+                            SendLog("4399 AD onCallback  播放视频完成 " + msg);
                             // 播放视频完成
                             // 发放奖励
                             AdRewardCallBack(ADType.Reward,ADResult.Show_Finished);
                         } else {
+                            SendLog("4399 AD onCallback  视频播放失败 " + msg);
                             // 玩家没观看完视频，或视频播放失败，可通过msg查找原因
                             // 不做处理
                             AdRewardCallBack(ADType.Reward,ADResult.Show_Failed);
@@ -480,10 +488,15 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     @Override
     public Boolean IsLoaded(JSONObject json) {
 
-        ADLoadResult loadResult = new ADLoadResult();
-        loadResult.QueryADLoad();
+        SendLog("4399 is AD load");
 
-        return loadResult.getResult();
+        return true;
+
+
+//        ADLoadResult loadResult = new ADLoadResult();
+//        loadResult.QueryADLoad();
+//
+//        return loadResult.getResult();
 
     }
 
@@ -873,7 +886,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
                 showActivityPage(json);
             }
 
-            if(functionName.equals("reportViolation"))
+            if(functionName.equals("ReportViolation"))
             {
                 reportViolation(json);
             }
@@ -992,9 +1005,16 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
     public void reportViolation(JSONObject json) throws JSONException
     {
-        String uid = json.getString("uid");
+        SendLog("4399 reportViolation ");
+
+        String uid = m_user.uid;
         String userName = json.getString(SDKInterfaceDefine.Login_ParameterName_NickName);
-        String contact = json.getString("Contact");
+        String contact = "";
+
+        if(json.has("Contact"))
+        {
+            contact = json.getString("Contact");
+        }
 
         if(SsjjFNSpecial.getInstance().isSurportApi("4399hz_reportViolation")) {
             SsjjFNParams params = new SsjjFNParams();
@@ -1023,7 +1043,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
     @Override
     public String[] GetFunctionName() {
-        return new String[]{"setOauthData","toggle","openWebView","showActivityPage","reportViolation"};
+        return new String[]{"setOauthData","toggle","openWebView","showActivityPage","ReportViolation"};
     }
 
     @Override
