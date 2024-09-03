@@ -235,7 +235,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
                         SendLog("onLogout");
 
-                        ExitGame();
+                        CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,m_user.uid,"");
                     }
                     @Override
                     public void onLogoutException(String msg) {
