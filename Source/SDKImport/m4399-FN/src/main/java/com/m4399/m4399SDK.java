@@ -29,6 +29,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.concurrent.CountDownLatch;
 
 import sdkInterface.IAD;
 import sdkInterface.ILog;
@@ -219,7 +220,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
                         //2024 0807
                         //当检测到 sdk 登出时，向游戏发送信息，让游戏弹出重启提示，此处不再直接关掉游戏
-                        CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,user.uid,"");
+                        CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,user.uid,"onSwitchUser");
 
                     }
                     @Override
@@ -235,7 +236,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
                         SendLog("onLogout");
 
-                        CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,m_user.uid,"");
+                        CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,m_user.uid,"onLogout");
                     }
                     @Override
                     public void onLogoutException(String msg) {
@@ -486,72 +487,45 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     }
 
     @Override
-    public Boolean IsLoaded(JSONObject json) {
+    public Boolean IsLoaded(JSONObject json)  {
 
-        SendLog("4399 is AD load");
-
-        return true;
-
-
-//        ADLoadResult loadResult = new ADLoadResult();
-//        loadResult.QueryADLoad();
-//
-//        return loadResult.getResult();
-
+        try {
+            return isVideoLoadedSync();
+        } catch (Exception e) {
+            SendError("IsLoaded Error " + e);
+            return false;
+        }
     }
 
-    public class ADLoadResult {
-        private boolean ready = false; // 标记异步结果是否已准备好
-        private Boolean result = null; // 异步结果
+    public boolean isVideoLoadedSync() throws InterruptedException {
+        boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_hasLoadedVideo"); // 先判断是否支持该方法
+        if (isSupport) {
+            SsjjFNParams data = new SsjjFNParams();
+            data.put("AdUnitID", "102338314"); // 激励视频广告位id。非必传，根据业务场景来定
+            // 如果研发不想维护广告位id，可用指定的key来映射。映射关系需联系蜂鸟技术在蜂鸟后台配置
+            // data.put("adUnitIdKey", "1"); // 研发自定义的广告位key。非必传，根据业务场景来定
 
-        public void QueryADLoad()
-        {
+            // 创建CountDownLatch，初始计数为1
+            final CountDownLatch latch = new CountDownLatch(1);
+            final boolean[] result = {false}; // 用于存储结果
 
-            boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_hasLoadedVideo"); // 先判断是否支持该方法
-            if (isSupport) {
-                SsjjFNParams data = new SsjjFNParams();
-
-                if(AdUnitID != "")
-                {
-                    data.put("AdUnitID", AdUnitID); // 激励视频广告位id，非必传，根据业务场景来定
-                }
-
-                SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_hasLoadedVideo", data, new SsjjFNListener() {
-                    @Override
-                    public void onCallback(int code, String msg, SsjjFNParams data) {
-                        if (code == SsjjFNTag.CODE_SUCCEED) {
-                            // 视频加载已完成
-                            // 播放视频或显示播放入口
-                            setResult(true);
-                        } else {
-                            // 视频加载未完成，不处理
-                            setResult(false);
-                        }
+            SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_hasLoadedVideo", data, new SsjjFNListener() {
+                @Override
+                public void onCallback(int code, String msg, SsjjFNParams data) {
+                    if (code == SsjjFNTag.CODE_SUCCEED) {
+                        // 视频加载已完成
+                        result[0] = true; // 设置为true表示视频加载完成
                     }
-                });
-            }
-        }
-
-        // 同步方法，等待异步结果
-        public synchronized boolean getResult() {
-            while (!ready) { // 判断异步结果是否已准备好
-                try {
-                    wait(); // 等待异步结果
-                } catch (InterruptedException e) {
-                    // 异常处理
+                    // 无论成功与否，释放latch让主线程继续执行
+                    latch.countDown();
                 }
-            }
-            return result;
-        }
+            });
 
-        // 异步方法，设置异步结果
-        public void setResult(boolean result) {
-            synchronized (this) {
-                this.result = result;
-                ready = true;
-                notify(); // 通知等待的线程
-            }
+            // 等待回调完成
+            latch.await();
+            return result[0]; // 返回视频是否加载完成
         }
+        return false; // 如果不支持，返回false
     }
 
 
@@ -638,9 +612,13 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
                 goodsID = payInfo.goodsID;
             }
 
+            //2024 1031 不再信任前端SDK 返回的支付结果
+
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, payInfo.goodsID);
-            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            //2024 1031 不再信任前端SDK 返回的支付结果
+            //jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, true);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, payInfo.orderID);
             jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
             jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, "m4399_FN");

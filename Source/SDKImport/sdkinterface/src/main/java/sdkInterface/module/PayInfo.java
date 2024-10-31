@@ -39,6 +39,11 @@ public class PayInfo
                 info.internalOrderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_InternalOrderID);
             }
 
+            if(json.has(SDKInterfaceDefine.Pay_ParameterName_GoodsDescription))
+            {
+                info.goodsDescription = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsDescription);
+            }
+
             info.price =  Float.parseFloat(json.getString(SDKInterfaceDefine.Pay_ParameterName_Price));
             info.currency = json.getString(SDKInterfaceDefine.Pay_ParameterName_Currency);
 

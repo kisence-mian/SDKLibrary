@@ -16,5 +16,5 @@ public interface IAD
 
     void CloseAD(JSONObject json);
 
-    Boolean IsLoaded(JSONObject json);
+    Boolean IsLoaded(JSONObject json) throws InterruptedException;
 }
