@@ -515,6 +515,8 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
     public boolean isVideoLoadedSync() throws InterruptedException {
         boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_hasLoadedVideo"); // 先判断是否支持该方法
+
+        SendLog("isVideoLoadedSync fnadv_hasLoadedVideo " + isSupport);
         if (isSupport) {
             SsjjFNParams data = new SsjjFNParams();
             data.put("AdUnitID", "102338314"); // 激励视频广告位id。非必传，根据业务场景来定
@@ -528,6 +530,8 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
             SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_hasLoadedVideo", data, new SsjjFNListener() {
                 @Override
                 public void onCallback(int code, String msg, SsjjFNParams data) {
+
+                    SendLog("isVideoLoadedSync onCallback code " + code + " msg " + msg);
                     if (code == SsjjFNTag.CODE_SUCCEED) {
                         // 视频加载已完成
                         result[0] = true; // 设置为true表示视频加载完成
@@ -772,7 +776,10 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
         SendLog("m4399SDK OnRequestPermissionsResult requestCode " + requestCode );
 
-        if(SsjjFNSDK.getInstance().isSurportFunc("onRequestPermissionsResult")) {
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc("onRequestPermissionsResult");
+        SendLog("m4399SDK OnRequestPermissionsResult isSurportFunc onRequestPermissionsResult " + res );
+
+        if(res) {
             SsjjFNParams params = new SsjjFNParams();
             params.putObj("requestCode", requestCode);
             params.putObj("permissions", permissions);
@@ -785,9 +792,11 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        SendLog("m4399SDK onSaveInstanceState  " );
 
-        if(SsjjFNSDK.getInstance().isSurportFunc("onSaveInstanceState")) {
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc("onSaveInstanceState");
+        SendLog("m4399SDK onSaveInstanceState  " + res);
+
+        if(res) {
             SsjjFNParams params = new SsjjFNParams();
             params.putObj("bundle", outState);
             SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "onSaveInstanceState", params, null);
@@ -798,9 +807,10 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        SendLog("m4399SDK onRestoreInstanceState  " );
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc("onRestoreInstanceState");
+        SendLog("m4399SDK onRestoreInstanceState  " + res);
 
-        if(SsjjFNSDK.getInstance().isSurportFunc("onRestoreInstanceState")) {
+        if(res) {
             SsjjFNParams params = new SsjjFNParams();
             params.putObj("bundle", savedInstanceState);
             SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "onRestoreInstanceState", params, null);
@@ -822,9 +832,10 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
 
-        SendLog("m4399SDK onAttachedToWindow  " );
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc("onAttachedToWindow");
+        SendLog("m4399SDK onAttachedToWindow  " + res);
 
-        if(SsjjFNSDK.getInstance().isSurportFunc("onAttachedToWindow")) {
+        if(res) {
             SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "onAttachedToWindow", null, null);
         }
     }
@@ -833,9 +844,10 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
 
-        SendLog("m4399SDK onWindowFocusChanged  " );
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc("onWindowFocusChanged");
+        SendLog("m4399SDK onWindowFocusChanged  " + res);
 
-        if (SsjjFNSDK.getInstance().isSurportFunc("onWindowFocusChanged")) {
+        if (res) {
             SsjjFNParams params = new SsjjFNParams();
             params.putObj("hasFocus", hasFocus);
             SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "onWindowFocusChanged", params, null);
@@ -846,9 +858,10 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     public void onBackPressed() {
         super.onBackPressed();
 
-        SendLog("m4399SDK onBackPressed  " );
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc("onBackPressed");
+        SendLog("m4399SDK onBackPressed  " +res);
 
-        if (SsjjFNSDK.getInstance().isSurportFunc("onBackPressed")) {
+        if (res) {
             SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "onBackPressed", null, null);
         }
     }
