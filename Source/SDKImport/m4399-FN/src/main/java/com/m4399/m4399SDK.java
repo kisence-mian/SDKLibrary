@@ -279,6 +279,19 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
         }
     }
 
+    public static boolean isSupportSwitchUser()
+    {
+        if( SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_switchUser)) {
+            return true;
+        } else if(SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout)){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     void m4399LoginOut()
     {
         boolean result = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout);
@@ -356,8 +369,11 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
             String typeKey = "";
             if(success && user != null)
             {
-                typeKey = user.name + "|" + user.uid +"|" + user.ext;
+                String name = URLEncoder.encode(user.name, "UTF-8");
+                String uid = URLEncoder.encode(user.uid, "UTF-8");
+                String ext = URLEncoder.encode(user.ext, "UTF-8");
 
+                typeKey = name + "|" + uid +"|" + ext;
             }
             SendLog( "send typeKey to Unity :  " + typeKey);
             JSONObject jo = new JSONObject();
@@ -561,7 +577,9 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
             info.serverId ="1";
             info.productId = payInfo.goodsID;
-            info.uid = payInfo.userID;
+            //uid 使用服务器传回的值
+            //info.uid = payInfo.userID;
+            info.uid = payInfo.tag;
             info.productName = payInfo.goodsName;
             info.productDesc = payInfo.goodsDescription;
             info.price = (int)payInfo.price +"";
