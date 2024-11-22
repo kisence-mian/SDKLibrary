@@ -63,7 +63,7 @@ public class SdkInterface
 //                case SDKInterfaceDefine.ModuleName_Share:Share(json);break;
                 case SDKInterfaceDefine.ModuleName_Other:Other(json);break;
                 case SDKInterfaceDefine.ModuleName_RealName:RealName(json);break;
-                default:SendError("UnityRequestFunction : not support function name ->" + content + "<-",null);
+                default:SendError("UnityRequestFunction : not support moduleName name ->" + content + "<-",null);
             }
         }
         catch (Exception e)

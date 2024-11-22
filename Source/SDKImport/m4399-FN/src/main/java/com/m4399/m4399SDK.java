@@ -134,6 +134,8 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                 SsjjFNSDK.getInstance().setUserListener(new SsjjFNUserListener() {
                     @Override
                     public void onLoginSucceed(SsjjFNUser user) {
+
+                        SendLog("onLoginSucceed result uid " + user.uid);
                         // SDK端登录成功。
                         // 处理：
                         // 大陆平台：1. 需将user.name、user.uid和user.ext这3个字段原样传给游戏服务器，在游戏服务端进行登录验证（请参考服务端登陆验证接口）。
@@ -161,8 +163,6 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                                         if(json.getInt("code") == 1)
                                         {
                                             LoginResult(true, user, "");
-
-
                                         }
                                         else
                                         {
@@ -409,7 +409,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
             CallBack(jo);
         } catch (Exception e) {
             e.printStackTrace();
-            SendError("HuaWei4 onLoginSuccess", e);
+            SendError("4399 LoginResult error", e);
         }
     }
 

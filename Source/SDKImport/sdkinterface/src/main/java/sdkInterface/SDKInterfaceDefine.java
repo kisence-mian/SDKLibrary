@@ -47,8 +47,8 @@ public class SDKInterfaceDefine {
     public static final String LifeCycle_FunctionName_OnApplicationQuit = "OnApplicationQuit";
 
     //Login相关参数
-    public static final String Login_FunctionName_Login    = "LogLogin";
-    public static final String Login_FunctionName_LoginOut = "LogLoginOut";
+    public static final String Login_FunctionName_Login    = "Login";
+    public static final String Login_FunctionName_LoginOut = "LoginOut";
 
     public static final String Login_ParameterName_Device = "Device";
     public static final String Login_ParameterName_AccountId = "AccountId";
