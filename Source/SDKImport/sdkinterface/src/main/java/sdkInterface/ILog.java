@@ -18,11 +18,11 @@ public interface ILog
 
     void RewardVirtualCurrency(JSONObject json);
 
-    void PurchaseVirtualCurrency(JSONObject json);
+    void LogPurchaseVirtualCurrency(JSONObject json);
 
-    void UseItem(JSONObject json);
+    void LogUseItem(JSONObject json);
 
-    void OnEvent(JSONObject json);
+    void LogEvent(JSONObject json);
 
     void LogError(JSONObject json);
 }

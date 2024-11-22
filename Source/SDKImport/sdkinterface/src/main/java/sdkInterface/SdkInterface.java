@@ -335,7 +335,7 @@ public class SdkInterface
     static void InitLoginSDK(JSONObject json) {
         loginSDKList = new ArrayList<>();
 
-        String loginClassNameConfig = SdkManifest.getProperty("LogLogin");
+        String loginClassNameConfig = SdkManifest.getProperty("Log");
         String[] loginClassNameList = loginClassNameConfig.split("\\|");
 
         SendLog("LogLogin Init ->" + loginClassNameConfig);
@@ -619,7 +619,7 @@ public class SdkInterface
                     log.LogLoginOut(json);
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_Event:
-                    log.OnEvent(json);
+                    log.LogEvent(json);
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_LogPay:
                     log.LogPay(json);
@@ -634,10 +634,10 @@ public class SdkInterface
                     log.RewardVirtualCurrency(json);
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_PurchaseVirtualCurrency:
-                    log.PurchaseVirtualCurrency(json);
+                    log.LogPurchaseVirtualCurrency(json);
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_UseItem:
-                    log.UseItem(json);
+                    log.LogUseItem(json);
                     break;
                 default:
                     SendError("Don't support Log_FunctionName " + logFunction, null);

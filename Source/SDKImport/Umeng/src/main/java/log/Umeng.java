@@ -114,15 +114,15 @@ public class Umeng extends SDKBase implements ILog
     }
 
     @Override
-    public void PurchaseVirtualCurrency(JSONObject json) {
-        SendLog("Umeng PurchaseVirtualCurrency " + json);
+    public void LogPurchaseVirtualCurrency(JSONObject json) {
+        SendLog("Umeng LogPurchaseVirtualCurrency " + json);
     }
 
     @Override
-    public void UseItem(JSONObject json) {
+    public void LogUseItem(JSONObject json) {
         try {
 
-            SendLog("Umeng UseItem " + json);
+            SendLog("Umeng LogUseItem " + json);
 
             int num = Integer.parseInt( json.getString(SDKInterfaceDefine.Pay_ParameterName_Count));
             String goods = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
@@ -135,11 +135,11 @@ public class Umeng extends SDKBase implements ILog
     }
 
     @Override
-    public void OnEvent(JSONObject json) {
+    public void LogEvent(JSONObject json) {
 
         try {
 
-            SendLog("Umeng OnEvent " + json);
+            SendLog("Umeng LogEvent " + json);
 
             HashMap<String,String> hashMap = new HashMap<String,String>();
 

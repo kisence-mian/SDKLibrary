@@ -879,19 +879,19 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IShare, IR
 
     //购买虚拟货币
     @Override
-    public void PurchaseVirtualCurrency(JSONObject json) {
+    public void LogPurchaseVirtualCurrency(JSONObject json) {
 
     }
 
     //使用物品
     @Override
-    public void UseItem(JSONObject json) {
+    public void LogUseItem(JSONObject json) {
 
     }
 
     //事件
     @Override
-    public void OnEvent(JSONObject json) {
+    public void LogEvent(JSONObject json) {
 
     }
 

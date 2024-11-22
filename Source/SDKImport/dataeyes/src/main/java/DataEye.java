@@ -51,7 +51,7 @@ public class DataEye extends SDKBase implements ILog
 //                        LogLoginOut(json);
 //                        break;
 //                    case SDKInterfaceDefine.Log_FunctionName_Event:
-//                        OnEvent(json);
+//                        LogEvent(json);
 //                    break;
 //                default:
 //                    SendError("Dont support Log_FunctionName " + logFunction, null);
@@ -97,19 +97,19 @@ public class DataEye extends SDKBase implements ILog
     }
 
     @Override
-    public void PurchaseVirtualCurrency(JSONObject json) {
+    public void LogPurchaseVirtualCurrency(JSONObject json) {
 
     }
 
     @Override
-    public void UseItem(JSONObject json) {
+    public void LogUseItem(JSONObject json) {
 
     }
 
     @Override
-    public void OnEvent(JSONObject json)
+    public void LogEvent(JSONObject json)
     {
-        Log.d("Unity","DataEye OnEvent "+ json.toString());
+        Log.d("Unity","DataEye LogEvent "+ json.toString());
 
         try {
             String eventID = json.getString(SDKInterfaceDefine.Log_ParameterName_EventID);
@@ -126,7 +126,7 @@ public class DataEye extends SDKBase implements ILog
                 DCEvent.onEvent(eventID,map);
             }
         } catch (JSONException e) {
-            SendError("DataEye OnEvent " + e.toString(),e);
+            SendError("DataEye LogEvent " + e.toString(),e);
         }
 
     }

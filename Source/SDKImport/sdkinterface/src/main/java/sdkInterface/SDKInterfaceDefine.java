@@ -22,7 +22,7 @@ public class SDKInterfaceDefine {
     public static final String ModuleName_Dispose = "Dispose";
     public static final String ModuleName_Debug = "Debug";
 
-    public static final String ModuleName_Login = "LogLogin";
+    public static final String ModuleName_Login = "Login";
     public static final String ModuleName_Pay = "Pay";
     public static final String ModuleName_AD = "AD";
     public static final String ModuleName_Share = "Share";

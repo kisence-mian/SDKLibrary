@@ -415,19 +415,19 @@ public class LoogcheerSDK extends SDKBase implements  IPay , IAD , ILog {
     }
 
     @Override
-    public void PurchaseVirtualCurrency(JSONObject json) {
+    public void LogPurchaseVirtualCurrency(JSONObject json) {
 
     }
 
     @Override
-    public void UseItem(JSONObject json) {
+    public void LogUseItem(JSONObject json) {
 
     }
 
     @Override
-    public void OnEvent(JSONObject json) {
+    public void LogEvent(JSONObject json) {
 
-        SendLog("Loongcheer OnEvent " + json.toString());
+        SendLog("Loongcheer LogEvent " + json.toString());
 
         try {
             Map<String, Object> map = new HashMap<>();
@@ -443,7 +443,7 @@ public class LoogcheerSDK extends SDKBase implements  IPay , IAD , ILog {
 
             AppsflyerInit.getInstance().event(GetCurrentActivity(), map, eventID);
         } catch (JSONException e) {
-            SendError("Loongcheer OnEvent error " + e.toString(),e);
+            SendError("Loongcheer LogEvent error " + e.toString(),e);
         }
     }
 

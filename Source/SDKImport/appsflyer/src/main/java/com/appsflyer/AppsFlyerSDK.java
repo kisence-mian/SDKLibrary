@@ -106,17 +106,17 @@ public class AppsFlyerSDK extends SDKBase implements IOther, ILog {
     }
 
     @Override
-    public void PurchaseVirtualCurrency(JSONObject json) {
+    public void LogPurchaseVirtualCurrency(JSONObject json) {
 
     }
 
     @Override
-    public void UseItem(JSONObject json) {
+    public void LogUseItem(JSONObject json) {
 
     }
 
     @Override
-    public void OnEvent(JSONObject json) {
+    public void LogEvent(JSONObject json) {
         Map<String, Object> hashMap = new HashMap<String, Object>();
 
         try {

@@ -177,7 +177,7 @@ public class TalkingData extends SDKBase implements ILog
     }
 
     @Override
-    public void PurchaseVirtualCurrency(JSONObject json) {
+    public void LogPurchaseVirtualCurrency(JSONObject json) {
         try {
             double price = Double.parseDouble( json.getString(SDKInterfaceDefine.Pay_ParameterName_Price));
             int num = Integer.parseInt( json.getString(SDKInterfaceDefine.Pay_ParameterName_Count));
@@ -191,7 +191,7 @@ public class TalkingData extends SDKBase implements ILog
     }
 
     @Override
-    public void UseItem(JSONObject json)
+    public void LogUseItem(JSONObject json)
     {
         try {
             int num = Integer.parseInt( json.getString(SDKInterfaceDefine.Pay_ParameterName_Count));
@@ -205,7 +205,7 @@ public class TalkingData extends SDKBase implements ILog
     }
 
     @Override
-    public void OnEvent(JSONObject json) {
+    public void LogEvent(JSONObject json) {
         try {
             HashMap<String,String> hashMap = new HashMap<String,String>();
 
