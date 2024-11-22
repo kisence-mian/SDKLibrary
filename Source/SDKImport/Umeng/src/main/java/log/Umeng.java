@@ -35,22 +35,22 @@ public class Umeng extends SDKBase implements ILog
     }
 
     @Override
-    public void Login(JSONObject json) {
+    public void LogLogin(JSONObject json) {
 
         try {
-            SendLog("Umeng Login " + json);
+            SendLog("Umeng LogLogin " + json);
 
             String AccountId = json.getString(SDKInterfaceDefine.Log_ParameterName_AccountId);
             MobclickAgent.onProfileSignIn(AccountId);
         }
         catch (Exception e)
         {
-            SendError("Umeng Login Error:" + e,e);
+            SendError("Umeng LogLogin Error:" + e,e);
         }
     }
 
     @Override
-    public void LoginOut(JSONObject json) {
+    public void LogLoginOut(JSONObject json) {
         MobclickAgent.onProfileSignOff();
     }
 

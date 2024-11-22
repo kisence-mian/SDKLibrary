@@ -105,9 +105,9 @@ public class TapTapSDK extends SDKBase implements ILogin {
 
         SendLog("TapTap login 1 >" + GetCurrentActivity() + "<");
 
-        SendLog("Login pid >" + android.os.Process.myTid() );
-        SendLog("Login thread id >"+ Thread.currentThread().getId() + " name=" + Thread.currentThread().getName());
-        SendLog("Login main thread id= "+ (Looper.getMainLooper()).getThread().getId() + " name="+(Looper.getMainLooper()).getThread().getName());
+        SendLog("LogLogin pid >" + android.os.Process.myTid() );
+        SendLog("LogLogin thread id >"+ Thread.currentThread().getId() + " name=" + Thread.currentThread().getName());
+        SendLog("LogLogin main thread id= "+ (Looper.getMainLooper()).getThread().getId() + " name="+(Looper.getMainLooper()).getThread().getName());
 
         try
         {

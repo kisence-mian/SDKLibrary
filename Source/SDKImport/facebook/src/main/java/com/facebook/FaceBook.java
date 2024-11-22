@@ -37,22 +37,22 @@ public class FaceBook extends SDKBase implements ILogin , IShare {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         // App code
-                        Log.d(LogTag," Login Success");
+                        Log.d(LogTag," LogLogin Success");
                         SignResultResultCallBack(true,loginResult.getAccessToken(),"0");
                     }
 
                     @Override
                     public void onCancel() {
                         // App code
-                        Log.d(LogTag," Login Cancel");
-                        SignResultResultCallBack(false,null,"Login Cancel");
+                        Log.d(LogTag," LogLogin Cancel");
+                        SignResultResultCallBack(false,null,"LogLogin Cancel");
                     }
 
                     @Override
                     public void onError(FacebookException exception) {
                         // App code
-                        Log.d(LogTag," Login Error" +exception );
-                        SignResultResultCallBack(false,null," Login Error" +exception);
+                        Log.d(LogTag," LogLogin Error" +exception );
+                        SignResultResultCallBack(false,null," LogLogin Error" +exception);
                     }
                 });
     }
@@ -66,12 +66,12 @@ public class FaceBook extends SDKBase implements ILogin , IShare {
     }
     @Override
     public void Login(JSONObject jsonObject) {
-        Log.d(LogTag," Start Login" );
+        Log.d(LogTag," Start LogLogin" );
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
 
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
-        Log.d(LogTag," Start Login isLoggedIn" + isLoggedIn );
+        Log.d(LogTag," Start LogLogin isLoggedIn" + isLoggedIn );
         if(isLoggedIn)
         {
             Log.d(LogTag,"isLoggedIn" + accessToken.getToken() );
@@ -90,7 +90,7 @@ public class FaceBook extends SDKBase implements ILogin , IShare {
 
         if(accessToken== null)
         {
-            SignOutResultResultCallBack(true,"no Login");
+            SignOutResultResultCallBack(true,"no LogLogin");
             return;
         }
 
@@ -121,7 +121,7 @@ public class FaceBook extends SDKBase implements ILogin , IShare {
             jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, isSuccess);
             jo.put(SDKInterfaceDefine.Login_ParameterName_loginPlatform, LoginPlatform.FaceBook.toString()); //要添加一个facebook
             jo.put(SDKInterfaceDefine.ParameterName_Error,ErrorCode);
-            SendLog("FaceBook Login ResultResultCallBack" + jo);
+            SendLog("FaceBook LogLogin ResultResultCallBack" + jo);
             CallBack(jo);
         }
         catch (Exception e) {

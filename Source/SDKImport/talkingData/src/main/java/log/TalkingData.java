@@ -43,7 +43,7 @@ public class TalkingData extends SDKBase implements ILog
     }
 
     @Override
-    public void Login(JSONObject json)
+    public void LogLogin(JSONObject json)
     {
         try {
             String AccountId = json.getString(SDKInterfaceDefine.Log_ParameterName_AccountId);
@@ -52,7 +52,7 @@ public class TalkingData extends SDKBase implements ILog
             OnSpecialEvent(json);
         } catch (Exception e)
         {
-            SendError("TalkingData Login Error:" + e,e);
+            SendError("TalkingData LogLogin Error:" + e,e);
         }
     }
 
@@ -117,7 +117,7 @@ public class TalkingData extends SDKBase implements ILog
 
 
     @Override
-    public void LoginOut(JSONObject json) {
+    public void LogLoginOut(JSONObject json) {
 
     }
 

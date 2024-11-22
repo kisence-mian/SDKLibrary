@@ -184,7 +184,7 @@ public class UCSDK extends SDKBase implements ILogin, IPay {
         try {
             UCGameSdk.defaultSdk().login(GetCurrentActivity(), null);
         } catch (Exception e) {
-            SendError("UCSDK Login Exception " + e.toString(), e);
+            SendError("UCSDK LogLogin Exception " + e.toString(), e);
             e.printStackTrace();
         }
     }

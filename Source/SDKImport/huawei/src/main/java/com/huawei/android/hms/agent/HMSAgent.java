@@ -281,8 +281,8 @@ public final class HMSAgent implements INoProguard {
      */
     public static final class Game {
         /**
-         * 游戏登录接口 | Game Login method
-         * @param handler 游戏登录结果回调（结果会在主线程回调） | Game Login Result Callback (result will be callback in main thread)
+         * 游戏登录接口 | Game LogLogin method
+         * @param handler 游戏登录结果回调（结果会在主线程回调） | Game LogLogin Result Callback (result will be callback in main thread)
          * @param forceLogin 登录类型 | Logon type：
          *                     0表示如果玩家未登录华为帐号或鉴权失败，SDK不会主动拉起帐号登录页面 | 0 indicates that if the player does not log in to Huawei ID or authentication failure, the SDK will not actively pull up the account login page；</br>
          *                     1表示如果玩家未登录华为帐号或鉴权失败，SDK会主动拉起帐号登录页面。| 1 indicates that if the player does not log in to Huawei ID or authentication failure, the SDK will actively pull up the account login page.</br>

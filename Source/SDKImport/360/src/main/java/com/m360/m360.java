@@ -200,10 +200,10 @@ public class m360 extends SDKBase implements ILogin, IPay {
     @Override
     public void Login(JSONObject json) {
         try {
-            SendLog("360 Login");
+            SendLog("360 LogLogin");
             doSdkLogin(landScape);
         } catch (Exception e) {
-            SendError("360 Login Error " + e, e);
+            SendError("360 LogLogin Error " + e, e);
         }
     }
 
@@ -228,9 +228,9 @@ public class m360 extends SDKBase implements ILogin, IPay {
 //            Intent intent = getSwitchAccountIntent(isLandScape);
 //            Matrix.invokeActivity(this, intent, mAccountSwitchCallback);
 
-            SendLog("360 Login");
+            SendLog("360 LogLogin");
         } catch (Exception e) {
-            SendError("360 Login Error " + e, e);
+            SendError("360 LogLogin Error " + e, e);
         }
     }
 

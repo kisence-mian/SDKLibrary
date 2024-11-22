@@ -70,7 +70,7 @@ public class Activityvivo extends SDKBase implements ILogin,IPay {
     @Override
     public void Login(JSONObject json) {
 
-        SendLog("vivo Login"  );
+        SendLog("vivo LogLogin"  );
         VivoUnionSDK.login(GetCurrentActivity());
     }
 

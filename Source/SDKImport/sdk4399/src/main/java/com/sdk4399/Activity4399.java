@@ -79,7 +79,7 @@ public class Activity4399 extends SDKBase implements ILogin,IPay, IOther{
                 //登录结束后的游戏逻辑
                 LoginCallBack(userInfo.getUid(),userInfo.getState(),success);
 
-                SdkInterface.SendLog("4399SDK Login: " + resultCode );
+                SdkInterface.SendLog("4399SDK LogLogin: " + resultCode );
             }
         });
     }

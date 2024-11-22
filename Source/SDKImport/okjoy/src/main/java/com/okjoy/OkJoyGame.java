@@ -532,12 +532,12 @@ public class OkJoyGame extends SDKBase implements ILogin, IPay, IAD , IShare, IR
     }
 
     @Override
-    public void Login(JSONObject json) {
+    public void LogLogin(JSONObject json) {
         OkJoyLogin();
     }
 
     @Override
-    public void LoginOut(JSONObject json) {
+    public void LogLoginOut(JSONObject json) {
         OkJoyLogout();
     }
 

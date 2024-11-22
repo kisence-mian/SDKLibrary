@@ -48,7 +48,7 @@ import sdkInterface.define.StoreName;
 import sdkInterface.module.PayInfo;
 import sdkInterface.tool.ActResultRequest;
 
-public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
+public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 {
     PayInfo payInfo = new PayInfo();
     String AdUnitID = "";
@@ -61,6 +61,8 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     String roleLevel = "角色等级";    //角色等级
     String serverId = "当前服务器Id"; //当前服务器Id，必须是正式值，纯数字，不能传空
     String serverName = "服务器名称"; //服务器名称 
+
+    String LoginResultCache ="";
 
     @Override
     public void Init(JSONObject json) {
@@ -151,6 +153,8 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
                                 public void HttpCallbackMethod(String result) {
                                     SendLog("onLoginSucceed result " + result);
 
+                                    LoginResultCache = result;
+
                                     try {
                                         JSONObject json = new JSONObject(result);
 
@@ -158,14 +162,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
                                         {
                                             LoginResult(true, user, "");
 
-                                            //前端自行与登录验证接口通讯
-                                            SsjjFNSDK.getInstance().setOauthData(GetCurrentActivity(), result);
 
-                                            SsjjFNSDK.getInstance().logLoginFinish(user.uid);
-                                            SsjjFNSDK.getInstance().logCreateRole("role_1", "role_1", "1", "server_1");
-                                            SsjjFNSDK.getInstance().logSelectServer("role_1", user.uid, "1");
-                                            SsjjFNSDK.getInstance().logEnterGame("role_1", "role_1", "1", "1", "server_1");
-                                            SsjjFNSDK.getInstance().logRoleLevel("2", "1");
                                         }
                                         else
                                         {
@@ -257,6 +254,32 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
                 SendLog("m4399SDK 初始化失败 " + msg);
             }
         });
+    }
+
+    @Override
+    public void LogLogin(JSONObject json) {
+
+        SendLog("4399 LogLogin ");
+
+        try {
+            String typeKey = json.getString(SDKInterfaceDefine.Login_ParameterName_TypeKey);
+
+            //前端自行与登录验证接口通讯
+            SsjjFNSDK.getInstance().setOauthData(GetCurrentActivity(), LoginResultCache);
+
+
+            SendLog("4399 LogLogin typeKey " + typeKey + " LoginResultCache " + LoginResultCache );
+
+            SsjjFNSDK.getInstance().logLoginFinish(typeKey);
+            SsjjFNSDK.getInstance().logCreateRole("role_1", "role_1", "1", "server_1");
+            SsjjFNSDK.getInstance().logSelectServer("role_1", typeKey, "1");
+            SsjjFNSDK.getInstance().logEnterGame("role_1", "role_1", "1", "1", "server_1");
+            SsjjFNSDK.getInstance().logRoleLevel("2", "1");
+
+        }catch (Exception e)
+        {
+            SendError("LogLogin error " + e);
+        }
     }
 
     boolean isSwitching = false;
@@ -560,12 +583,54 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
     @Override
     public void LoginOut(JSONObject json) {
 
-        SendLog("4399 LoginOut");
-
-
-        switchUser();
+        SendLog("4399 LogLoginOut");
         // 改为切换账号
+        switchUser();
+
         // m4399LoginOut();
+    }
+
+
+
+    @Override
+    public void LogLoginOut(JSONObject json) {
+
+
+    }
+
+    @Override
+    public void LogPay(JSONObject json) {
+
+    }
+
+    @Override
+    public void LogPaySuccess(JSONObject json) {
+
+    }
+
+    @Override
+    public void RewardVirtualCurrency(JSONObject json) {
+
+    }
+
+    @Override
+    public void PurchaseVirtualCurrency(JSONObject json) {
+
+    }
+
+    @Override
+    public void UseItem(JSONObject json) {
+
+    }
+
+    @Override
+    public void OnEvent(JSONObject json) {
+
+    }
+
+    @Override
+    public void LogError(JSONObject json) {
+
     }
 
     @Override
@@ -967,7 +1032,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
         if(webType.equals("browser") || webType.equals("url"))
         {
             // 如果是1,2,3类型可不传，如果是4类型要传入打开的url, 如果类型传空或者没传要传入url。注意url必须以http或https开头
-            params.put("webUrl",json.getString("webUrl"));
+            params.put("webUrl", json.getString("webUrl"));
         }
 
         //activity为游戏的主Activity,也就是集成UnityActivity的那个Activity
@@ -1057,6 +1122,9 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
 
     @Override
     public boolean OnAppplicationQuit() {
+
+        SendLog("m4399 OnAppplicationQuit ");
+
         SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
             @Override
             public void onExit() {
@@ -1070,7 +1138,7 @@ public class m4399SDK extends SDKBase implements ILogin,IAD,IPay, IOther
             }
         });
 
-        return false;
+        return true;
     }
 
     void ExitGame()

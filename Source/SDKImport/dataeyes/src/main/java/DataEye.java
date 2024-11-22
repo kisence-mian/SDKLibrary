@@ -38,47 +38,72 @@ public class DataEye extends SDKBase implements ILog
         }
     }
 
+//    @Override
+//    public void Log(JSONObject json) {
+//        try {
+//            String logFunction = json.getString(SDKInterfaceDefine.FunctionName);
+//
+//            switch (logFunction) {
+//                    case SDKInterfaceDefine.Log_FunctionName_Login:
+//                        LogLogin(json);
+//                        break;
+//                    case SDKInterfaceDefine.Log_FunctionName_LoginOut:
+//                        LogLoginOut(json);
+//                        break;
+//                    case SDKInterfaceDefine.Log_FunctionName_Event:
+//                        OnEvent(json);
+//                    break;
+//                default:
+//                    SendError("Dont support Log_FunctionName " + logFunction, null);
+//            }
+//
+//        } catch (JSONException e) {
+//            SendError("Log Exception " + e.toString(),e);
+//        }
+//    }
+
     @Override
-    public void Log(JSONObject json) {
-        try {
-            String logFunction = json.getString(SDKInterfaceDefine.FunctionName);
-
-            switch (logFunction) {
-                    case SDKInterfaceDefine.Log_FunctionName_Login:
-                        Login(json);
-                        break;
-                    case SDKInterfaceDefine.Log_FunctionName_LoginOut:
-                        LoginOut(json);
-                        break;
-                    case SDKInterfaceDefine.Log_FunctionName_Event:
-                        OnEvent(json);
-                    break;
-                default:
-                    SendError("Dont support Log_FunctionName " + logFunction, null);
-            }
-
-        } catch (JSONException e) {
-            SendError("Log Exception " + e.toString(),e);
-        }
-    }
-
-    @Override
-    public void Login(JSONObject json)
+    public void LogLogin(JSONObject json)
     {
-        Log.d("Unity","DataEye Login " + json.toString());
+        Log.d("Unity","DataEye LogLogin " + json.toString());
         try {
             String accountId = json.getString(SDKInterfaceDefine.FunctionName);
             DCAccount.login(accountId);
 
         } catch (Exception e) {
-           SendError("DataEye Login " + e.toString(),e);
+           SendError("DataEye LogLogin " + e.toString(),e);
         }
     }
 
     @Override
-    public void LoginOut(JSONObject json) {
-        Log.d("Unity","DataEye LoginOut "+ json.toString());
+    public void LogLoginOut(JSONObject json) {
+        Log.d("Unity","DataEye LogLoginOut "+ json.toString());
         DCAccount.logout();
+    }
+
+    @Override
+    public void LogPay(JSONObject json) {
+
+    }
+
+    @Override
+    public void LogPaySuccess(JSONObject json) {
+
+    }
+
+    @Override
+    public void RewardVirtualCurrency(JSONObject json) {
+
+    }
+
+    @Override
+    public void PurchaseVirtualCurrency(JSONObject json) {
+
+    }
+
+    @Override
+    public void UseItem(JSONObject json) {
+
     }
 
     @Override
@@ -103,6 +128,11 @@ public class DataEye extends SDKBase implements ILog
         } catch (JSONException e) {
             SendError("DataEye OnEvent " + e.toString(),e);
         }
+
+    }
+
+    @Override
+    public void LogError(JSONObject json) {
 
     }
 

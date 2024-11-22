@@ -131,7 +131,7 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
 
         }catch (Exception e)
         {
-            SendError("葫芦侠 Login error ",e);
+            SendError("葫芦侠 LogLogin error ",e);
         }
     }
 
@@ -166,7 +166,7 @@ public class HuLuXia extends SDKBase implements ILogin, IPay
         }
         catch (Exception e)
         {
-            SendError("葫芦侠 Login error ",e);
+            SendError("葫芦侠 LogLogin error ",e);
         }
     }
 

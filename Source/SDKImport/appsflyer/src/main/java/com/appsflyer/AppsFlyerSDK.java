@@ -81,12 +81,12 @@ public class AppsFlyerSDK extends SDKBase implements IOther, ILog {
     }
 
     @Override
-    public void Login(JSONObject json) {
+    public void LogLogin(JSONObject json) {
 
     }
 
     @Override
-    public void LoginOut(JSONObject json) {
+    public void LogLoginOut(JSONObject json) {
 
     }
 

@@ -22,7 +22,7 @@ public class SDKInterfaceDefine {
     public static final String ModuleName_Dispose = "Dispose";
     public static final String ModuleName_Debug = "Debug";
 
-    public static final String ModuleName_Login = "Login";
+    public static final String ModuleName_Login = "LogLogin";
     public static final String ModuleName_Pay = "Pay";
     public static final String ModuleName_AD = "AD";
     public static final String ModuleName_Share = "Share";
@@ -47,8 +47,8 @@ public class SDKInterfaceDefine {
     public static final String LifeCycle_FunctionName_OnApplicationQuit = "OnApplicationQuit";
 
     //Login相关参数
-    public static final String Login_FunctionName_Login    = "Login";
-    public static final String Login_FunctionName_LoginOut = "LoginOut";
+    public static final String Login_FunctionName_Login    = "LogLogin";
+    public static final String Login_FunctionName_LoginOut = "LogLoginOut";
 
     public static final String Login_ParameterName_Device = "Device";
     public static final String Login_ParameterName_AccountId = "AccountId";
@@ -56,6 +56,7 @@ public class SDKInterfaceDefine {
     public static final String Login_ParameterName_NickName      = "NickName";
     public static final String Login_ParameterName_HeadPortrait  = "HeadPortrait";
     public static final String Login_ParameterName_AuthToken = "AuchToken";
+    public static final String Login_ParameterName_TypeKey   = "TypeKey";
 
     //Pay相关参数
     public static final String Pay_ParameterName_GoodsID = "GoodsID";
@@ -174,6 +175,7 @@ public class SDKInterfaceDefine {
 
     //Properties
     public static final String FileName_ChannelProperties = "Channel";
+    public static final String FileName_ExtraProperties = "Extra";
     public static final String PropertiesKey_IsLog = "IsLog";                           //是否输出日志
     public static final String PropertiesKey_IsMultiDex = "IsMultiDex";                 //是否分包
     public static final String PropertiesKey_SelectNetworkPath = "SelectNetworkPath";  //选服配置下载地址

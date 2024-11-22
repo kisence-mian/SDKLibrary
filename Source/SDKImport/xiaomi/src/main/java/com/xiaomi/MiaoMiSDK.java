@@ -79,7 +79,7 @@ public class MiaoMiSDK extends SDKBase implements ILogin, IPay {
     @Override
     public void Login(JSONObject json) {
 
-        SendLog("XiaoMi Login ");
+        SendLog("XiaoMi LogLogin ");
 
         MiCommplatform.getInstance().miLogin(GetCurrentActivity(), new OnLoginProcessListener()
         {

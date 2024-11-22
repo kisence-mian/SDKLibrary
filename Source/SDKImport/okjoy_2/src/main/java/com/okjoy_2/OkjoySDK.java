@@ -271,13 +271,13 @@ public class OkjoySDK extends SDKBase implements ILogin, IPay, IAD, IOther, IRea
 
     @Override
     public void Login(JSONObject json) {
-        SendLog("OKJOY_2 Login");
+        SendLog("OKJOY_2 LogLogin");
         OKJOYSDK.getInstance().login(GetCurrentActivity());
     }
 
     @Override
     public void LoginOut(JSONObject json) {
-        SendLog("OKJOY_2 LoginOut");
+        SendLog("OKJOY_2 LogLoginOut");
         OKJOYSDK.getInstance().logout(GetCurrentActivity());
     }
 

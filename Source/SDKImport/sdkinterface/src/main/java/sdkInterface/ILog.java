@@ -8,9 +8,9 @@ import org.json.JSONObject;
 
 public interface ILog
 {
-    void Login(JSONObject json);
+    void LogLogin(JSONObject json);
 
-    void LoginOut(JSONObject json);
+    void LogLoginOut(JSONObject json);
 
     void LogPay(JSONObject json);
 

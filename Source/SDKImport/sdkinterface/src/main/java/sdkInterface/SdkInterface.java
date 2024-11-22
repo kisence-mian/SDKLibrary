@@ -150,10 +150,28 @@ public class SdkInterface
         }
     }
 
+    public static String GetProperties(String key,String defaultValue)
+    {
+        try {
+            //默认读取Channel文件
+            return GetProperties(SDKInterfaceDefine.FileName_ChannelProperties,key,defaultValue);
+        }
+        catch (Exception e)
+        {
+            return defaultValue;
+        }
+    }
 
     public static String GetProperties(String properties,String key,String defaultValue)
     {
         try {
+            //2024 1121 允许第三方重打包工具增加额外配置文件覆盖原始配置
+            if(PropertieTool.PropertiesIsExist(GetContext(),SDKInterfaceDefine.FileName_ExtraProperties))
+            {
+                if( PropertieTool.getProperties(GetContext(), SDKInterfaceDefine.FileName_ExtraProperties).containsKey(key)) {
+                    return PropertieTool.getProperties(GetContext(), SDKInterfaceDefine.FileName_ExtraProperties).getProperty(key);
+                }
+            }
 
             if( PropertieTool.getProperties(GetContext(), properties).containsKey(key))
             {
@@ -317,10 +335,10 @@ public class SdkInterface
     static void InitLoginSDK(JSONObject json) {
         loginSDKList = new ArrayList<>();
 
-        String loginClassNameConfig = SdkManifest.getProperty("Login");
+        String loginClassNameConfig = SdkManifest.getProperty("LogLogin");
         String[] loginClassNameList = loginClassNameConfig.split("\\|");
 
-        SendLog("Login Init ->" + loginClassNameConfig);
+        SendLog("LogLogin Init ->" + loginClassNameConfig);
         //加载对应类，并放入loginSDKList
         for (int i = 0; i < loginClassNameList.length; i++) {
 
@@ -363,7 +381,7 @@ public class SdkInterface
             }
             else
             {
-                SendError("Not find Login Class -> " + json.toString(),null);
+                SendError("Not find LogLogin Class -> " + json.toString(),null);
             }
         }
         catch (Exception e)
@@ -595,10 +613,10 @@ public class SdkInterface
 
             switch (logFunction) {
                 case SDKInterfaceDefine.Log_FunctionName_Login:
-                    log.Login(json);
+                    log.LogLogin(json);
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_LoginOut:
-                    log.LoginOut(json);
+                    log.LogLoginOut(json);
                     break;
                 case SDKInterfaceDefine.Log_FunctionName_Event:
                     log.OnEvent(json);

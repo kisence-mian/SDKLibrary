@@ -190,14 +190,14 @@ public class BaiDu extends SDKBase implements ILogin, IPay
     @Override
     public void Login(JSONObject json) {
 
-        SendLog("BaiDu Login " + json);
+        SendLog("BaiDu LogLogin " + json);
         try
         {
             DKPlatform.getInstance().invokeBDLogin(GetCurrentActivity(), loginlistener );
         }
         catch (Exception e)
         {
-            SendError("Baidu error Login " + e,e);
+            SendError("Baidu error LogLogin " + e,e);
         }
     }
 
@@ -231,7 +231,7 @@ public class BaiDu extends SDKBase implements ILogin, IPay
     @Override
     public void LoginOut(JSONObject json) {
 
-        SendLog("BaiDu LoginOut " + json);
+        SendLog("BaiDu LogLoginOut " + json);
 
         GetCurrentActivity().runOnUiThread(new Runnable() {
             @Override

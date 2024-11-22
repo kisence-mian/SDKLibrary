@@ -388,14 +388,14 @@ public class LoogcheerSDK extends SDKBase implements  IPay , IAD , ILog {
     }
 
     @Override
-    public void Login(JSONObject json) {
+    public void LogLogin(JSONObject json) {
 
         SendLog("loongcheer LogLogin " + json.toString());
         ClearGoodOrder();
     }
 
     @Override
-    public void LoginOut(JSONObject json) {
+    public void LogLoginOut(JSONObject json) {
 
     }
 

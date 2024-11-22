@@ -49,7 +49,7 @@ public class Meizu extends SDKBase implements ILogin, IPay {
     @Override
     public void Login(JSONObject json) {
 
-        SendLog("Meizu Login ");
+        SendLog("Meizu LogLogin ");
 
         GetCurrentActivity().runOnUiThread(new Runnable() {
             @Override

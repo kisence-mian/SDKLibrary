@@ -12,6 +12,23 @@ import java.util.Properties;
 
 public class PropertieTool
 {
+    public static boolean PropertiesIsExist(Context c,String propertieName) {
+        try {
+            getProperties(c, propertieName);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static Properties TryGetProperties(Context c,String propertieName) {
+        try {
+            return getProperties(c, propertieName);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     public static Properties getProperties(Context c,String propertieName) throws IOException {
         Properties urlProps;
         Properties props = new Properties();

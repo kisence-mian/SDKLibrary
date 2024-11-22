@@ -38,7 +38,7 @@ public class QQLogin extends SDKBase implements ILogin {
     @Override
     public void Login(JSONObject json)
     {
-        SendLog("QQ Login  start " + json);
+        SendLog("QQ LogLogin  start " + json);
         //添加回调监听
         SdkInterface.SetActivityCallBack(Constants.REQUEST_LOGIN ,new ActResultRequest.Callback() {
             @Override
@@ -52,7 +52,7 @@ public class QQLogin extends SDKBase implements ILogin {
 
         mTencent.login(GetCurrentActivity(),"all",loginListener);
 
-        SendLog("QQ Login finish " + json);
+        SendLog("QQ LogLogin finish " + json);
     }
 
     @Override
@@ -104,11 +104,11 @@ public class QQLogin extends SDKBase implements ILogin {
         protected void doComplete(JSONObject values) {
             try
             {
-                SendLog("Login doComplete " + values);
+                SendLog("LogLogin doComplete " + values);
                 initOpenidAndToken(values);
             }catch (Exception e)
             {
-                SendError("Login onComplete Error " + e,e);
+                SendError("LogLogin onComplete Error " + e,e);
             }
         }
 
@@ -117,18 +117,18 @@ public class QQLogin extends SDKBase implements ILogin {
 
             try
             {
-                SendLog("Login onComplete " + o);
+                SendLog("LogLogin onComplete " + o);
                 initOpenidAndToken((JSONObject) o);
             }catch (Exception e)
             {
-                SendError("Login onComplete Error " + e,e);
+                SendError("LogLogin onComplete Error " + e,e);
             }
         }
 
         @Override
         public void onError(UiError e) {
 
-            SendLog("Login onError " + e.toString());
+            SendLog("LogLogin onError " + e.toString());
 
             LoginCallBack("",false);
         }
@@ -136,7 +136,7 @@ public class QQLogin extends SDKBase implements ILogin {
         @Override
         public void onCancel() {
 
-            SendLog("Login onCancel");
+            SendLog("LogLogin onCancel");
             LoginCallBack("",false);
         }
     };

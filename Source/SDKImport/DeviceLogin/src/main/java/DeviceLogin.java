@@ -11,13 +11,13 @@ public class DeviceLogin extends SDKBase implements ILogin
     public void Init(JSONObject json)
     {
         SDKName = "LoginTest";
-        SendLog("Recivice Login Init");
+        SendLog("Recivice LogLogin Init");
     }
 
     @Override
     public void Login(JSONObject json)
     {
-        SendLog("Recivice Login");
+        SendLog("Recivice LogLogin");
 
         try
         {

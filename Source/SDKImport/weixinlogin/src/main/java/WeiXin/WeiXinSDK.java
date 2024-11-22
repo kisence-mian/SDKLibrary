@@ -46,7 +46,7 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IShare,IOther
     @Override
     public void Login(JSONObject json)
     {
-        SdkInterface.SendLog("WeiXinSDK Login 1 AppID " + AppID + " AppSecret " + AppSecret);
+        SdkInterface.SendLog("WeiXinSDK LogLogin 1 AppID " + AppID + " AppSecret " + AppSecret);
 
         if(api.isWXAppInstalled())
         {
@@ -71,10 +71,10 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IShare,IOther
                 SdkInterface.SendMessage(jo);
             }
             catch (JSONException e) {
-                SdkInterface.SendError("Login error:" + e.toString(),e);
+                SdkInterface.SendError("LogLogin error:" + e.toString(),e);
             }
         }
-        SdkInterface.SendLog("WeiXinSDK Login 3 ");
+        SdkInterface.SendLog("WeiXinSDK LogLogin 3 ");
     }
 
     @Override
@@ -104,7 +104,7 @@ public class WeiXinSDK extends SDKBase implements ILogin,IPay,IShare,IOther
                     SdkInterface.SendMessage(jo);
                 }
                 catch (JSONException e) {
-                    SdkInterface.SendError("Login error:" + e.toString(),e);
+                    SdkInterface.SendError("LogLogin error:" + e.toString(),e);
                 }
             }
             else {
