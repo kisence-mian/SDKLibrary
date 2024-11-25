@@ -68,7 +68,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     public void Init(JSONObject json) {
         super.Init(json);
 
-        SendLog("m4399SDK Init new version 002");
+        SendLog("m4399SDK Init");
 
         // 参数中Activity.this指当前activity实例对象。
         // 方法中两个参数都不能为null。
@@ -807,6 +807,14 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
         SendLog("m4399SDK OnRestart");
         SsjjFNSDK.getInstance().onRestart();
+    }
+
+    @Override
+    public void OnResume() {
+        super.OnResume();
+
+        SendLog("m4399SDK onResume");
+        SsjjFNSDK.getInstance().onResume();
     }
 
     @Override
