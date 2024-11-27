@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 
 import com.ssjj.fnsdk.core.SsjjFNListener;
 import com.ssjj.fnsdk.core.SsjjFNParams;
@@ -63,6 +64,8 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     String serverName = "服务器名称"; //服务器名称 
 
     String LoginResultCache ="";
+
+    Boolean m_isLogin = false;
 
     @Override
     public void Init(JSONObject json) {
@@ -162,6 +165,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
                                         if(json.getInt("code") == 1)
                                         {
+
                                             LoginResult(true, user, "");
                                         }
                                         else
@@ -212,7 +216,6 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                         // 3. 如果进入游戏后，游戏不支持切换帐号，请重启游戏（但直接重启体验不好，请弹出确认框提示“您已切换帐号，需要重启游戏”，点确认重启游戏）
 
                         SendLog("4399 onSwitchUser " + user.uid);
-
                         //ExitGame();
 
                         //2024 0807
@@ -230,10 +233,15 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                         // 1. 此回调可能会在进入游戏后调用。如游戏中点击小助手的“注销帐号”按钮。
                         // 2. 如果进入游戏后，游戏不支持注销返回初始页面，请重启游戏（但直接重启体验不好，请弹出确认框提示“您已注销，需要重启游戏”，点确认重启游戏）
                         // 3. 重点：收到此回调务必终止进入游戏，回退到登录界面，或者退出游戏，否则审核可能有问题
+                        SendLog("onLogout isLogin " + m_isLogin);
+                        if(m_isLogin)
+                        {
+                            m_isLogin = false;
+                            //只有在登录状态下才返回登出
+                            CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,"","onLogout");
+                        }
 
-                        SendLog("onLogout");
 
-                        CallBackLoginOut(LoginPlatform.m4399_FN.toString(),true,m_user.uid,"onLogout");
                     }
                     @Override
                     public void onLogoutException(String msg) {
@@ -259,21 +267,26 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     @Override
     public void LogLogin(JSONObject json) {
 
-        SendLog("4399 LogLogin ");
-
         try {
+
+            m_isLogin = true;
             String typeKey = json.getString(SDKInterfaceDefine.Login_ParameterName_TypeKey);
+            boolean isNew = json.getBoolean(SDKInterfaceDefine.Login_ParameterName_IsNewUser);
 
             //前端自行与登录验证接口通讯
             SsjjFNSDK.getInstance().setOauthData(GetCurrentActivity(), LoginResultCache);
 
-
-            SendLog("4399 LogLogin typeKey " + typeKey + " LoginResultCache " + LoginResultCache );
+            SendLog("4399 LogLogin typeKey " + typeKey  + " isNew " + isNew + " LoginResultCache " + LoginResultCache );
 
             SsjjFNSDK.getInstance().logLoginFinish(typeKey);
-            SsjjFNSDK.getInstance().logCreateRole("role_1", "role_1", "1", "server_1");
-            SsjjFNSDK.getInstance().logSelectServer("role_1", typeKey, "1");
-            SsjjFNSDK.getInstance().logEnterGame("role_1", "role_1", "1", "1", "server_1");
+            if(isNew)
+            {
+                SsjjFNSDK.getInstance().logCreateRole(typeKey, m_user.name, "1", "server_1");
+            }
+
+            SsjjFNSDK.getInstance().logSelectServer(m_user.name, typeKey, "1");
+            SsjjFNSDK.getInstance().logEnterGame(typeKey,m_user.name,"1", "1", "server_1");
+//            SsjjFNSDK.getInstance().logEnterGame("role_1", "role_1", "1", "1", "server_1");
             SsjjFNSDK.getInstance().logRoleLevel("2", "1");
 
         }catch (Exception e)
@@ -653,7 +666,8 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
             info.productDesc = payInfo.goodsDescription;
             info.price = (int)payInfo.price +"";
             info.productCount = "1";
-            info.callbackInfo = payInfo.userID+"|" + payInfo.goodsID +"|" + payInfo.internalOrderID + "|m4399_FN";
+            info.callbackInfo = payInfo.userID+"|" + payInfo.goodsID;
+//            info.callbackInfo = payInfo.userID+"|" + payInfo.goodsID +"|" + payInfo.internalOrderID + "|m4399_FN";
 
             // 充值接口
             SsjjFNSDK.getInstance().pay(GetCurrentActivity(), info, new SsjjFNPayListener() {
@@ -940,6 +954,38 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     }
 
     @Override
+    public void onKeyDown(int keyCode, KeyEvent keyEvent)
+    {
+        SendLog("m4399SDK onKeyDown  " + keyCode);
+
+        if (keyCode == KeyEvent.KEYCODE_BACK && keyEvent.getRepeatCount() == 0) { //按下的如果是BACK，同时没有重复
+
+            boolean res = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_showPlatformExitDialog);
+            SendLog("m4399SDK onKeyDown  " +res);
+
+            if (res) {
+                SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
+                    @Override
+                    public void onExit() {
+                        SendLog("m4399SDK showPlatformExitDialog onExit  ");
+                        ExitGame();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        SendLog("m4399SDK showPlatformExitDialog onCancel  ");
+                    }
+                });
+            }
+        }
+    }
+
+    public static boolean isSupportOnBackPressed()
+    {
+        return SsjjFNSDK.getInstance().isSurportFunc("onBackPressed");
+    }
+
+    @Override
     public void Other(JSONObject json)
     {
         try {
@@ -1131,22 +1177,29 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     @Override
     public boolean OnAppplicationQuit() {
 
-        SendLog("m4399 OnAppplicationQuit ");
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_showPlatformExitDialog);
 
-        SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
-            @Override
-            public void onExit() {
-                // 点击对话框的“确定退出”
-                // 调用"释放SDK资源接口"并退出游戏
-                ExitGame();
-            }
-            @Override
-            public void onCancel() {
-                // 点击对话框的“取消退出”，继续游戏
-            }
-        });
-
-        return true;
+        SendLog("m4399 OnAppplicationQuit " + res);
+        if(res)
+        {
+            SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
+                @Override
+                public void onExit() {
+                    // 点击对话框的“确定退出”
+                    // 调用"释放SDK资源接口"并退出游戏
+                    ExitGame();
+                }
+                @Override
+                public void onCancel() {
+                    // 点击对话框的“取消退出”，继续游戏
+                }
+            });
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void ExitGame()

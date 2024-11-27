@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.KeyEvent;
+
 import com.unity3d.player.UnityPlayerActivity;
 
 import androidx.multidex.MultiDex;
@@ -111,16 +113,18 @@ public class MainActivity extends UnityPlayerActivity
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-
         SdkInterface.onWindowFocusChanged(hasFocus);
-
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
         SdkInterface.onBackPressed();
+    }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
+        SdkInterface.onKeyDown(keyCode, keyEvent);
+        return super.onKeyDown(keyCode, keyEvent);
     }
 }

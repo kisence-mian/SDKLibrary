@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.KeyEvent;
 
 import com.unity3d.player.UnityPlayer;
 
@@ -66,6 +67,8 @@ public class SDKBase {
     public void onAttachedToWindow() {};
 
     public void onBackPressed() {};
+
+    public void onKeyDown(int keyCode, KeyEvent keyEvent) {};
 
     public void onConfigurationChanged(Configuration newConfig) {};
 

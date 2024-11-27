@@ -57,6 +57,7 @@ public class SDKInterfaceDefine {
     public static final String Login_ParameterName_HeadPortrait  = "HeadPortrait";
     public static final String Login_ParameterName_AuthToken = "AuchToken";
     public static final String Login_ParameterName_TypeKey   = "TypeKey";
+    public static final String Login_ParameterName_IsNewUser   = "IsNewUser";
 
     //Pay相关参数
     public static final String Pay_ParameterName_GoodsID = "GoodsID";

@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.KeyEvent;
+
 import com.unity3d.player.UnityPlayer;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -1180,6 +1182,21 @@ public class SdkInterface
             for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
             {
                 entry.getValue().onBackPressed();
+            }
+        }
+        catch (Exception e)
+        {
+            SendError("onBackPressed Error:" + e.toString(),e);
+        }
+    }
+
+    public static void onKeyDown(int keyCode, KeyEvent keyEvent)
+    {
+        SendLog("SDKInterBase onKeyDown keyCode " + keyCode + " keyEvent " + keyEvent );
+        try {
+            for (Map.Entry<String, SDKBase> entry : allClass.entrySet())
+            {
+                entry.getValue().onKeyDown(keyCode,keyEvent);
             }
         }
         catch (Exception e)
