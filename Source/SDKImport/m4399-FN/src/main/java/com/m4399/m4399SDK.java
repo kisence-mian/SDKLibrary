@@ -270,23 +270,27 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         try {
 
             m_isLogin = true;
+            String accountID = json.getString(SDKInterfaceDefine.Log_ParameterName_AccountId);
             String typeKey = json.getString(SDKInterfaceDefine.Login_ParameterName_TypeKey);
             boolean isNew = json.getBoolean(SDKInterfaceDefine.Login_ParameterName_IsNewUser);
 
             //前端自行与登录验证接口通讯
             SsjjFNSDK.getInstance().setOauthData(GetCurrentActivity(), LoginResultCache);
 
-            SendLog("4399 LogLogin typeKey " + typeKey  + " isNew " + isNew + " LoginResultCache " + LoginResultCache );
+            SendLog("4399 LogLogin accountID "+accountID+" typeKey " + typeKey  + " isNew " + isNew + " LoginResultCache " + LoginResultCache );
 
+            //这里传递蜂鸟 UID
             SsjjFNSDK.getInstance().logLoginFinish(typeKey);
             if(isNew)
             {
-                SsjjFNSDK.getInstance().logCreateRole(typeKey, m_user.name, "1", "server_1");
+                //传roleId (游戏ID) roleName serverId serverName
+                SsjjFNSDK.getInstance().logCreateRole(accountID, m_user.name, "1", "server_1");
             }
-
-            SsjjFNSDK.getInstance().logSelectServer(m_user.name, typeKey, "1");
-            SsjjFNSDK.getInstance().logEnterGame(typeKey,m_user.name,"1", "1", "server_1");
-//            SsjjFNSDK.getInstance().logEnterGame("role_1", "role_1", "1", "1", "server_1");
+            //roleLevel UserName ServerId
+            SsjjFNSDK.getInstance().logSelectServer("1",m_user.name, "1");
+            //RoleID roleName roleLevel serverId serverName
+            SsjjFNSDK.getInstance().logEnterGame(accountID,m_user.name,"1", "1", "server_1");
+            // roleLevel ServerId
             SsjjFNSDK.getInstance().logRoleLevel("2", "1");
 
         }catch (Exception e)
