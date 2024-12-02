@@ -271,6 +271,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
             m_isLogin = true;
             String accountID = json.getString(SDKInterfaceDefine.Log_ParameterName_AccountId);
+            String nickName = json.getString(SDKInterfaceDefine.Login_ParameterName_NickName);
             String typeKey = json.getString(SDKInterfaceDefine.Login_ParameterName_TypeKey);
             boolean isNew = json.getBoolean(SDKInterfaceDefine.Login_ParameterName_IsNewUser);
 
@@ -284,12 +285,12 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
             if(isNew)
             {
                 //传roleId (游戏ID) roleName serverId serverName
-                SsjjFNSDK.getInstance().logCreateRole(accountID, m_user.name, "1", "server_1");
+                SsjjFNSDK.getInstance().logCreateRole(accountID, nickName, "1", "server_1");
             }
             //roleLevel UserName ServerId
             SsjjFNSDK.getInstance().logSelectServer("1",m_user.name, "1");
             //RoleID roleName roleLevel serverId serverName
-            SsjjFNSDK.getInstance().logEnterGame(accountID,m_user.name,"1", "1", "server_1");
+            SsjjFNSDK.getInstance().logEnterGame(accountID,nickName,"1", "1", "server_1");
             // roleLevel ServerId
             SsjjFNSDK.getInstance().logRoleLevel("2", "1");
 
@@ -652,6 +653,8 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
     @Override
     public void Pay(JSONObject json) {
+
+        SendLog(" 4399 Pay " + json.toString());
 
         try {
             payInfo = PayInfo.FromJson(json);
