@@ -376,6 +376,10 @@ public class SdkInterface
                 {
                     login.LoginOut(json);
                 }
+                else if(SDKInterfaceDefine.Login_FunctionName_OpenGameCenter.equals(functionName))
+                {
+                    login.OpenGemeCenter(json);
+                }
                 else
                 {
                     SendError("Not find functionName  ->" + functionName + "< >" + json.toString() + "<",null);

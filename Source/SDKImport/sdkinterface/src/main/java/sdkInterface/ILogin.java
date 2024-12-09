@@ -11,4 +11,6 @@ public interface ILogin
     void Login(JSONObject json);
 
     void LoginOut(JSONObject json);
+
+    void OpenGemeCenter(JSONObject json);
 }

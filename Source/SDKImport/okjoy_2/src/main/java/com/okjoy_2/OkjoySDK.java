@@ -28,7 +28,6 @@ import com.okjoy.okjoysdk.api.model.response.OkJoySdkLogoutCallBackModel;
 import com.okjoy.okjoysdk.api.model.response.OkJoySdkOpenUserCenterCallBackModel;
 import com.okjoy.okjoysdk.api.model.response.OkJoySdkPayCallBackModel;
 import com.okjoy.okjoysdk.api.model.response.OkJoySdkSubmitRoleCallBackModel;
-import com.okjoy.okjoysdk.app.OkJoySdkApplication;
 import com.okjoy.okjoysdk.topon.listener.OkJoySdkInterstitialAdListener;
 import com.okjoy.okjoysdk.topon.listener.OkJoySdkRewardAdListener;
 import com.okjoy.okjoysdk.topon.model.OkJoyAdInfoModel;
@@ -55,8 +54,6 @@ import sdkInterface.ILogin;
 import sdkInterface.SDKInterfaceDefine;
 import sdkInterface.SdkInterface;
 import sdkInterface.application.MainApplication;
-import sdkInterface.define.ADType;
-import sdkInterface.define.LoginPlatform;
 import sdkInterface.define.RealNameStatus;
 import sdkInterface.module.PayInfo;
 
@@ -299,7 +296,7 @@ public class OkjoySDK extends SDKBase implements ILogin, IPay, IAD, IOther, IRea
             String funcName = json.getString(SDKInterfaceDefine.FunctionName);
 
             switch (funcName) {
-                case SDKInterfaceDefine.Other_FunctionName_OpenGameCenter: {
+                case SDKInterfaceDefine.Login_FunctionName_OpenGameCenter: {
                     OKJOYSDK.getInstance().openUserCenter(GetCurrentActivity());
                 }
                 break;
@@ -316,7 +313,7 @@ public class OkjoySDK extends SDKBase implements ILogin, IPay, IAD, IOther, IRea
     @Override
     public String[] GetFunctionName() {
         String [] funcNames = new String []{
-            SDKInterfaceDefine.Other_FunctionName_OpenGameCenter};
+            SDKInterfaceDefine.Login_FunctionName_OpenGameCenter};
         return funcNames;
     }
 

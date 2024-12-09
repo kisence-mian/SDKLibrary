@@ -49,6 +49,7 @@ public class SDKInterfaceDefine {
     //Login相关参数
     public static final String Login_FunctionName_Login    = "Login";
     public static final String Login_FunctionName_LoginOut = "LoginOut";
+    public static final String Login_FunctionName_OpenGameCenter ="OpenGameCenter";
 
     public static final String Login_ParameterName_Device = "Device";
     public static final String Login_ParameterName_AccountId = "AccountId";
@@ -164,9 +165,6 @@ public class SDKInterfaceDefine {
     public static final String Other_ParameterName_Progress = "Progress";
     public static final String Other_ParameterName_TotalProgress = "TotalProgress";
     public static final String Other_ParameterName_Size = "Size";
-
-    //Other -> 打开游戏中心
-    public static final String Other_FunctionName_OpenGameCenter="OpenGameCenter";
 
     //Other -> 存档
     public  static  final  String Other_FunctionName_UploadGameRecord="UploadGameRecord";

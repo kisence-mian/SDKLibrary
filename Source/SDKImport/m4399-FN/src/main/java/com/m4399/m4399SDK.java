@@ -608,6 +608,10 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         // m4399LoginOut();
     }
 
+    @Override
+    public void OpenGemeCenter(JSONObject json) {
+
+    }
 
 
     @Override
