@@ -14,6 +14,8 @@ public interface ILog
 
     void LogPay(JSONObject json);
 
+    void LogAD(JSONObject json);
+
     void LogPaySuccess(JSONObject json);
 
     void RewardVirtualCurrency(JSONObject json);

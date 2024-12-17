@@ -630,6 +630,9 @@ public class SdkInterface
                 case SDKInterfaceDefine.Log_FunctionName_LogPay:
                     log.LogPay(json);
                     break;
+                case SDKInterfaceDefine.Log_FunctionName_LogAD:
+                    log.LogAD(json);
+                    break;
                 case SDKInterfaceDefine.Log_FunctionName_LogError:
                     log.LogError(json);
                     break;

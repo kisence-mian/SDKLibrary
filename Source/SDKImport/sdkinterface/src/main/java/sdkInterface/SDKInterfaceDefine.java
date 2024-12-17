@@ -114,6 +114,7 @@ public class SDKInterfaceDefine {
     public static final String Log_FunctionName_LoginOut = "LogLoginOut";
     public static final String Log_FunctionName_Event = "LogEvent";
     public static final String Log_FunctionName_LogPay = "LogPay";
+    public static final String Log_FunctionName_LogAD = "LogAD";
     public static final String Log_FunctionName_LogError = "LogError";
     public static final String Log_FunctionName_LogPaySuccess = "LogPaySuccess";
 

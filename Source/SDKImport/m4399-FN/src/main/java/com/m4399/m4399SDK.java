@@ -626,6 +626,11 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     }
 
     @Override
+    public void LogAD(JSONObject json) {
+
+    }
+
+    @Override
     public void LogPaySuccess(JSONObject json) {
 
     }
