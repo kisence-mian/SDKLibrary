@@ -64,9 +64,9 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     String serverName = "服务器名称"; //服务器名称 
 
     String LoginResultCache ="";
-
     Boolean m_isLogin = false;
 
+    //region 初始化
     @Override
     public void Init(JSONObject json) {
         super.Init(json);
@@ -93,7 +93,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                             //取消强更（必接！！！）
                             // 处理：释放蜂鸟sdk资源，退出游戏
                             ExitGame();
-                        // ------------ 下面事件可以不处理，正常走游戏逻辑（当然也可以根据需要处理）
+                            // ------------ 下面事件可以不处理，正常走游戏逻辑（当然也可以根据需要处理）
                         } else if(code == 7) {
                             //取消非强更（非必接）
                         } else if(code == 10) {
@@ -138,7 +138,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                     @Override
                     public void onLoginSucceed(SsjjFNUser user) {
 
-                        SendLog("onLoginSucceed result uid " + user.uid);
+                        SendLog("4399 onLoginSucceed result uid " + user.uid);
                         // SDK端登录成功。
                         // 处理：
                         // 大陆平台：1. 需将user.name、user.uid和user.ext这3个字段原样传给游戏服务器，在游戏服务端进行登录验证（请参考服务端登陆验证接口）。
@@ -189,6 +189,8 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                     }
                     @Override
                     public void onLoginFailed(String msg) {
+
+                        SendLog("4399 onLoginFailed result uid " + msg);
                         // 登录失败。
                         // 处理：
                         // 1. 游戏停在初始化完成页面（或选服页面），显示登录按钮。
@@ -198,6 +200,8 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                     }
                     @Override
                     public void onLoginCancel() {
+
+                        SendLog("4399 onLoginCancel result  ");
                         // 登录取消。
                         // 处理：
                         // 1. 游戏停在初始化完成页面（或选服页面），显示登录按钮（跟登录失败处理一样）。
@@ -233,7 +237,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                         // 1. 此回调可能会在进入游戏后调用。如游戏中点击小助手的“注销帐号”按钮。
                         // 2. 如果进入游戏后，游戏不支持注销返回初始页面，请重启游戏（但直接重启体验不好，请弹出确认框提示“您已注销，需要重启游戏”，点确认重启游戏）
                         // 3. 重点：收到此回调务必终止进入游戏，回退到登录界面，或者退出游戏，否则审核可能有问题
-                        SendLog("onLogout isLogin " + m_isLogin);
+                        SendLog("4399 onLogout isLogin " + m_isLogin);
                         if(m_isLogin)
                         {
                             m_isLogin = false;
@@ -248,7 +252,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                         // 注销异常
                         // 处理：游戏可不处理
 
-                        SendLog("onLogoutException");
+                        SendLog("4399 onLogoutException");
                     }
                 });
             }
@@ -259,9 +263,74 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                 // 处理：
                 // 法1. 停止加载游戏，显示初始化失败字样和“重新初始化”的按钮
                 // 法2. 走正常游戏流程。但可能无法登陆。
-                SendLog("m4399SDK 初始化失败 " + msg);
+                SendLog("4399 m4399SDK 初始化失败 " + msg);
             }
         });
+    }
+    //endregion
+
+    //region 登录
+
+    @Override
+    public void Login(JSONObject json) {
+
+        SendLog("4399 login");
+
+        SsjjFNSDK.getInstance().login(GetCurrentActivity());
+    }
+
+    @Override
+    public void LoginOut(JSONObject json) {
+
+        SendLog("4399 LogLoginOut");
+        // 改为切换账号
+        switchUser();
+
+        // m4399LoginOut();
+    }
+
+
+    boolean isSwitching = false;
+    public void switchUser()
+    {
+        if( SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_switchUser)) {
+            SendLog("4399 switchUser -> switchUser");
+            // 切换帐号成功后，回调到onSwitchUser。
+            // 注意：务必等SDK初始化完成回调后，才能调用此接口。否则将无法正常登录甚至闪退
+            SsjjFNSDK.getInstance().switchUser(GetCurrentActivity());
+        } else if(SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout)){
+            SendLog("4399 switchUser -> logout");
+            // 如果支持注销，先注销，再登录进行切换。注销后，回调到onLogout。
+            isSwitching = true;
+            SsjjFNSDK.getInstance().logout(GetCurrentActivity());
+        }
+        else
+        {
+            SendLog("4399 switchUser -> 没有支持的方法");
+        }
+    }
+
+    public static boolean isSupportSwitchUser()
+    {
+        if( SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_switchUser)) {
+            return true;
+        } else if(SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout)){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void m4399LoginOut()
+    {
+        boolean result = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout);
+        if(result)
+        {
+            //注销接口
+            SsjjFNSDK.getInstance().logout (GetCurrentActivity());
+        }
     }
 
     @Override
@@ -300,112 +369,9 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         }
     }
 
-    boolean isSwitching = false;
-    public void switchUser()
-    {
-        if( SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_switchUser)) {
-            SendLog("switchUser -> switchUser");
-            // 切换帐号成功后，回调到onSwitchUser。
-            // 注意：务必等SDK初始化完成回调后，才能调用此接口。否则将无法正常登录甚至闪退
-            SsjjFNSDK.getInstance().switchUser(GetCurrentActivity());
-        } else if(SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout)){
-            SendLog("switchUser -> logout");
-            // 如果支持注销，先注销，再登录进行切换。注销后，回调到onLogout。
-            isSwitching = true;
-            SsjjFNSDK.getInstance().logout(GetCurrentActivity());
-        }
-        else
-        {
-            SendLog("switchUser -> 没有支持的方法");
-        }
-    }
-
-    public static boolean isSupportSwitchUser()
-    {
-        if( SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_switchUser)) {
-            return true;
-        } else if(SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout)){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    void m4399LoginOut()
-    {
-        boolean result = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_logout);
-        if(result)
-        {
-            //注销接口
-            SsjjFNSDK.getInstance().logout (GetCurrentActivity());
-        }
-    }
-
-    interface HttpCallback
-    {
-        void HttpCallbackMethod(String result);
-    }
-
-    @TargetApi(Build.VERSION_CODES.CUPCAKE)
-    private class HttpGetTask extends AsyncTask<Void, Void, String> {
-
-        public SsjjFNUser user;
-
-        HttpCallback callback;
-
-        @Override
-        protected String doInBackground(Void... params) {
-
-            try {
-
-                String encodedName = URLEncoder.encode(user.name, "UTF-8");
-                String encodedUid = URLEncoder.encode(user.uid, "UTF-8");
-                String encodedExt = URLEncoder.encode(user.ext, "UTF-8");
-
-                String urlString = "http://fnapi.aiysm.com/sdk/api/login.php?name=" + encodedName + "&uid=" + encodedUid + "&ext=" + encodedExt;
-
-                SendLog("Send URL " + urlString);
-
-                URL url = new URL(urlString);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("GET");
-
-                int status = con.getResponseCode();
-                if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                    InputStream in = con.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                    String line;
-                    StringBuilder response = new StringBuilder();
-
-                    while ((line = reader.readLine()) != null) {
-                        response.append(line);
-                    }
-
-                    reader.close();
-                    con.disconnect();
-
-                    callback.HttpCallbackMethod(response.toString());
-
-                    return response.toString();
-                } else {
-                    System.out.println("Request failed: " + con.getResponseMessage());
-                }
-
-                return "";
-            }
-            catch (Exception e)
-            {
-                SendError("HttpRequest error " + e,e);
-                return "";
-            }
-        }
-    }
-
     private void LoginResult(boolean success,SsjjFNUser user ,String errorString)
     {
-        SendLog("login result  " + success);
+        SendLog("4399 login result  " + success);
         try {
             String typeKey = "";
             if(success && user != null)
@@ -416,7 +382,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
                 typeKey = name + "|" + uid +"|" + ext;
             }
-            SendLog( "send typeKey to Unity :  " + typeKey);
+            SendLog( "4399 send typeKey to Unity :  " + typeKey);
             JSONObject jo = new JSONObject();
             jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Login);
             jo.put(SDKInterfaceDefine.FunctionName,SDKInterfaceDefine.FunctionName_OnLogin);
@@ -430,7 +396,158 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
             SendError("4399 LoginResult error", e);
         }
     }
+    //endregion
 
+    //region 支付
+
+    @Override
+    public void Pay(JSONObject json) {
+
+        SendLog(" 4399 Pay " + json.toString());
+
+        try {
+            payInfo = PayInfo.FromJson(json);
+            String goodsID  = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
+            String playerID = json.getString(SDKInterfaceDefine.ParameterName_UserID);
+
+            // 商品配置
+            SsjjFNProduct info = new SsjjFNProduct();
+
+            info.serverId ="1";
+            info.productId = payInfo.goodsID;
+            //uid 使用服务器传回的值
+            //info.uid = payInfo.userID;
+            info.uid = payInfo.tag;
+            info.productName = payInfo.goodsName;
+            info.productDesc = payInfo.goodsDescription;
+            info.price = (int)payInfo.price +"";
+            info.productCount = "1";
+            info.callbackInfo = payInfo.userID+"|" + payInfo.goodsID;
+//            info.callbackInfo = payInfo.userID+"|" + payInfo.goodsID +"|" + payInfo.internalOrderID + "|m4399_FN";
+
+            // 充值接口
+            SsjjFNSDK.getInstance().pay(GetCurrentActivity(), info, new SsjjFNPayListener() {
+                @Override
+                public void onSucceed() {
+                    // 充值成功。但不要在这里发货！！！看说明
+                    // 只是订单提交成功，不一定会马上到账
+                    // 注意：充值成功后，有些平台不会回调到这里。请以服务端充值回调成功为准
+                    // 处理：游戏自行处理
+                    SendLog("订单成功");
+
+                    SendPayCallBack(true,"");
+                }
+                @Override
+                public void onFailed(String errorMsg) {
+                    // 处理：游戏自行处理
+                    SendLog("订单失败 " + errorMsg);
+
+                    SendPayCallBack(false,errorMsg);
+                }
+                @Override
+                public void onCancel() {
+                    // 处理：游戏自行处理
+                    SendLog("订单取消 ");
+
+                    SendPayCallBack(false,"user cancel");
+                }
+            });
+
+
+        } catch (Exception e) {
+            SendError("Pay Error:" +e.toString(),e);
+        }
+    }
+
+
+    void SendPayCallBack(boolean success,String errorCode) {
+        try {
+            JSONObject jo = new JSONObject();
+            String goodsID = "";
+            if(payInfo != null)
+            {
+                goodsID = payInfo.goodsID;
+            }
+
+            //2024 1031 不再信任前端SDK 返回的支付结果
+
+            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, payInfo.goodsID);
+            //2024 1031 不再信任前端SDK 返回的支付结果
+            //jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
+            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, true);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, payInfo.orderID);
+            jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, "m4399_FN");
+            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, "");
+
+            SendLog( "PayInfo is null " + (payInfo == null) + " jo is null " + (jo == null));
+
+            if (payInfo == null) {
+                payInfo = new PayInfo();
+            }
+            payInfo.ToJson(jo);
+
+            SendLog( jo.toString());
+
+            sdkInterface.SdkInterface.SendMessage(jo);
+        } catch (JSONException e) {
+            SendError("SendPayCallBack Error " + e, e);
+        }
+    }
+
+
+
+    @Override
+    public boolean IsPrePay() {
+        return false;
+    }
+
+    @Override
+    public boolean IsReSendPay() {
+        return false;
+    }
+
+    @Override
+    public void GetGoodsInfo(JSONObject json) {
+    }
+
+    @Override
+    public void ClearPurchase(JSONObject json) {
+
+        try {
+            String OrderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_OrderID);
+
+            // 设置参数
+            SsjjFNParams params = new SsjjFNParams();
+            params.add("orderId","[订单号]"); // 充值成功后返回的订单号
+            params.add("uid",m_user.uid);
+            // 调用接口
+            SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "djConfirmOrder", params, new SsjjFNListener() {
+                @Override
+                public void onCallback(int code, String msg, SsjjFNParams data) {
+                    if (code == SsjjFNTag.CODE_SUCCEED) {
+                        // 成功
+                        // 确认订单成功后, 游戏可以发货
+
+                        SendLog("djConfirmOrder success " + code);
+                    } else {
+                        // 失败
+                        SendLog("djConfirmOrder fail " + code +" msg " + msg);
+                    }
+                }
+            });
+
+        }
+        catch (Exception e)
+        {
+            SendError("ClearPurchase error " + e,e);
+        }
+    }
+
+    //endregion
+
+    //region 广告
 
     @Override
     public void LoadAD(JSONObject json) {
@@ -532,7 +649,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
             CallBack(jo);
         } catch (JSONException e) {
-            SendError("SendPayCallBack Error " + e, e);
+            SendError("4399 SendPayCallBack Error " + e, e);
         }
     }
 
@@ -549,7 +666,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         try {
             return isVideoLoadedSync();
         } catch (Exception e) {
-            SendError("IsLoaded Error " + e);
+            SendError("4399 IsLoaded Error " + e);
             return false;
         }
     }
@@ -557,7 +674,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
     public boolean isVideoLoadedSync() throws InterruptedException {
         boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_hasLoadedVideo"); // 先判断是否支持该方法
 
-        SendLog("isVideoLoadedSync fnadv_hasLoadedVideo " + isSupport);
+        SendLog("4399 isVideoLoadedSync fnadv_hasLoadedVideo " + isSupport);
         if (isSupport) {
             SsjjFNParams data = new SsjjFNParams();
             data.put("AdUnitID", "102338314"); // 激励视频广告位id。非必传，根据业务场景来定
@@ -572,7 +689,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
                 @Override
                 public void onCallback(int code, String msg, SsjjFNParams data) {
 
-                    SendLog("isVideoLoadedSync onCallback code " + code + " msg " + msg);
+                    SendLog("4399 isVideoLoadedSync onCallback code " + code + " msg " + msg);
                     if (code == SsjjFNTag.CODE_SUCCEED) {
                         // 视频加载已完成
                         result[0] = true; // 设置为true表示视频加载完成
@@ -589,23 +706,80 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         return false; // 如果不支持，返回false
     }
 
+    //endregion
+
+    //region 其他
 
     @Override
-    public void Login(JSONObject json) {
+    public void Other(JSONObject json)
+    {
+        try {
 
-        SendLog("4399 login");
+            SendLog("4399 Other " + json);
+            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
 
-        SsjjFNSDK.getInstance().login(GetCurrentActivity());
+            if(functionName .equals("setOauthData"))
+            {
+                String key = json.getString(SDKInterfaceDefine.ParameterName_Content);
+                SsjjFNSDK.getInstance().setOauthData(GetCurrentActivity(), key);
+            }
+
+            if(functionName.equals( "toggle"))
+            {
+                Toggle(json);
+            }
+
+            if(functionName.equals("openWebView"))
+            {
+                OpenWebView(json);
+            }
+
+            if(functionName.equals("showActivityPage"))
+            {
+                showActivityPage(json);
+            }
+
+            if(functionName.equals("ReportViolation"))
+            {
+                reportViolation(json);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void LoginOut(JSONObject json) {
+    public String[] GetFunctionName() {
+        return new String[]{"setOauthData","toggle","openWebView","showActivityPage","ReportViolation"};
+    }
 
-        SendLog("4399 LogLoginOut");
-        // 改为切换账号
-        switchUser();
+    @Override
+    public boolean OnAppplicationQuit() {
 
-        // m4399LoginOut();
+        boolean res = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_showPlatformExitDialog);
+
+        SendLog("m4399 OnAppplicationQuit " + res);
+        if(res)
+        {
+            SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
+                @Override
+                public void onExit() {
+                    // 点击对话框的“确定退出”
+                    // 调用"释放SDK资源接口"并退出游戏
+                    ExitGame();
+                }
+                @Override
+                public void onCancel() {
+                    // 点击对话框的“取消退出”，继续游戏
+                }
+            });
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     @Override
@@ -613,6 +787,64 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
     }
 
+    public void Toggle(JSONObject json) throws JSONException {
+
+        /** 4.  用户勾选“隐私政策”和“用户协议”入口按钮后调用此接口
+         * isSelect 字段说明 勾选传 "true", 不勾选传 "false"
+         * */
+
+        SendLog("4399 Toggle " + json);
+
+        String isSelect = json.getString("isSelect");
+
+        SsjjFNParams params = new SsjjFNParams();
+        params.put("isSelect", isSelect);
+        SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "saveSelect", params,null);
+
+    }
+
+    //举报
+    public void reportViolation(JSONObject json) throws JSONException
+    {
+        SendLog("4399 reportViolation ");
+
+        String uid = m_user.uid;
+        String userName = json.getString(SDKInterfaceDefine.Login_ParameterName_NickName);
+        String contact = "";
+
+        if(json.has("Contact"))
+        {
+            contact = json.getString("Contact");
+        }
+
+        if(SsjjFNSpecial.getInstance().isSurportApi("4399hz_reportViolation")) {
+            SsjjFNParams params = new SsjjFNParams();
+            // 下面例子中的value为key的含义，请修改为真实值；
+            // 各字段必须且名称固定如下，若确实没有可留空，但不能不传！
+            params.put("g_uid", uid);
+            params.put("g_tid", "");
+            params.put("g_sid", "");
+            params.put("g_rid", "");
+            params.put("g_content", "");
+            params.put("g_role", userName);
+            params.put("g_gname", "公会名");
+            params.put("g_cname", "");
+            params.put("contact", contact);
+            SsjjFNSpecial.getInstance().invoke(GetCurrentActivity(),"4399hz_reportViolation", params, new SsjjFNListener() {
+                @Override
+                public void onCallback(int code, String msg, SsjjFNParams data) {
+                    if (code == SsjjFNTag.CODE_SUCCEED) {
+                        // 调用举报窗口成功
+                        SendLog("4399 调用举报窗口成功");
+                    }
+                }
+            });
+        }
+    }
+
+    //endregion
+
+    //region 日志
 
     @Override
     public void LogLoginOut(JSONObject json) {
@@ -660,148 +892,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
     }
 
-    @Override
-    public void Pay(JSONObject json) {
-
-        SendLog(" 4399 Pay " + json.toString());
-
-        try {
-            payInfo = PayInfo.FromJson(json);
-            String goodsID  = json.getString(SDKInterfaceDefine.Pay_ParameterName_GoodsID);
-            String playerID = json.getString(SDKInterfaceDefine.ParameterName_UserID);
-
-            // 商品配置
-            SsjjFNProduct info = new SsjjFNProduct();
-
-            info.serverId ="1";
-            info.productId = payInfo.goodsID;
-            //uid 使用服务器传回的值
-            //info.uid = payInfo.userID;
-            info.uid = payInfo.tag;
-            info.productName = payInfo.goodsName;
-            info.productDesc = payInfo.goodsDescription;
-            info.price = (int)payInfo.price +"";
-            info.productCount = "1";
-            info.callbackInfo = payInfo.userID+"|" + payInfo.goodsID;
-//            info.callbackInfo = payInfo.userID+"|" + payInfo.goodsID +"|" + payInfo.internalOrderID + "|m4399_FN";
-
-            // 充值接口
-            SsjjFNSDK.getInstance().pay(GetCurrentActivity(), info, new SsjjFNPayListener() {
-                @Override
-                public void onSucceed() {
-                    // 充值成功。但不要在这里发货！！！看说明
-                    // 只是订单提交成功，不一定会马上到账
-                    // 注意：充值成功后，有些平台不会回调到这里。请以服务端充值回调成功为准
-                    // 处理：游戏自行处理
-                    SendLog("订单成功");
-
-                    SendPayCallBack(true,"");
-                }
-                @Override
-                public void onFailed(String errorMsg) {
-                    // 处理：游戏自行处理
-                    SendLog("订单失败 " + errorMsg);
-
-                    SendPayCallBack(false,errorMsg);
-                }
-                @Override
-                public void onCancel() {
-                    // 处理：游戏自行处理
-                    SendLog("订单取消 ");
-
-                    SendPayCallBack(false,"user cancel");
-                }
-            });
-
-
-        } catch (Exception e) {
-            SendError("Pay Error:" +e.toString(),e);
-        }
-    }
-
-
-    void SendPayCallBack(boolean success,String errorCode) {
-        try {
-            JSONObject jo = new JSONObject();
-            String goodsID = "";
-            if(payInfo != null)
-            {
-                goodsID = payInfo.goodsID;
-            }
-
-            //2024 1031 不再信任前端SDK 返回的支付结果
-
-            jo.put(SDKInterfaceDefine.ModuleName, SDKInterfaceDefine.ModuleName_Pay);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_GoodsID, payInfo.goodsID);
-            //2024 1031 不再信任前端SDK 返回的支付结果
-            //jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, success);
-            jo.put(SDKInterfaceDefine.ParameterName_IsSuccess, true);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID, payInfo.orderID);
-            jo.put(SDKInterfaceDefine.ParameterName_Error, errorCode);
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, "m4399_FN");
-            jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, "");
-
-            SendLog( "PayInfo is null " + (payInfo == null) + " jo is null " + (jo == null));
-
-            if (payInfo == null) {
-                payInfo = new PayInfo();
-            }
-            payInfo.ToJson(jo);
-
-            SendLog( jo.toString());
-
-            sdkInterface.SdkInterface.SendMessage(jo);
-        } catch (JSONException e) {
-            SendError("SendPayCallBack Error " + e, e);
-        }
-    }
-
-    @Override
-    public boolean IsPrePay() {
-        return false;
-    }
-
-    @Override
-    public boolean IsReSendPay() {
-        return false;
-    }
-
-    @Override
-    public void GetGoodsInfo(JSONObject json) {
-    }
-
-    @Override
-    public void ClearPurchase(JSONObject json) {
-
-        try {
-            String OrderID = json.getString(SDKInterfaceDefine.Pay_ParameterName_OrderID);
-
-            // 设置参数
-            SsjjFNParams params = new SsjjFNParams();
-            params.add("orderId","[订单号]"); // 充值成功后返回的订单号
-            params.add("uid",m_user.uid);
-            // 调用接口
-            SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "djConfirmOrder", params, new SsjjFNListener() {
-                @Override
-                public void onCallback(int code, String msg, SsjjFNParams data) {
-                    if (code == SsjjFNTag.CODE_SUCCEED) {
-                        // 成功
-                        // 确认订单成功后, 游戏可以发货
-
-                        SendLog("djConfirmOrder success " + code);
-                    } else {
-                        // 失败
-                        SendLog("djConfirmOrder fail " + code +" msg " + msg);
-                    }
-                }
-            });
-
-        }
-        catch (Exception e)
-        {
-            SendError("ClearPurchase error " + e,e);
-        }
-    }
+    //endregion
 
     //region 生命周期回调
     @Override
@@ -959,40 +1050,51 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
 
-        boolean res = SsjjFNSDK.getInstance().isSurportFunc("onBackPressed");
-        SendLog("m4399SDK onBackPressed  " +res);
+        try {
 
-        if (res) {
-            SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "onBackPressed", null, null);
+            boolean res = SsjjFNSDK.getInstance().isSurportFunc("onBackPressed");
+            SendLog("m4399SDK onBackPressed  " + res);
+
+            if (res) {
+                SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "onBackPressed", null, null);
+            }
+        }catch (Exception e)
+        {
+            SendError("onBackPressed Exception : " + e);
         }
     }
 
     @Override
     public void onKeyDown(int keyCode, KeyEvent keyEvent)
     {
-        SendLog("m4399SDK onKeyDown  " + keyCode);
+        try
+        {
+            SendLog("m4399SDK onKeyDown  " + keyCode);
 
-        if (keyCode == KeyEvent.KEYCODE_BACK && keyEvent.getRepeatCount() == 0) { //按下的如果是BACK，同时没有重复
+            if (keyCode == KeyEvent.KEYCODE_BACK && keyEvent.getRepeatCount() == 0) { //按下的如果是BACK，同时没有重复
 
-            boolean res = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_showPlatformExitDialog);
-            SendLog("m4399SDK onKeyDown  " +res);
+                boolean res = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_showPlatformExitDialog);
+                SendLog("m4399SDK onKeyDown  " +res);
 
-            if (res) {
-                SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
-                    @Override
-                    public void onExit() {
-                        SendLog("m4399SDK showPlatformExitDialog onExit  ");
-                        ExitGame();
-                    }
+                if (res) {
+                    SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
+                        @Override
+                        public void onExit() {
+                            SendLog("m4399SDK showPlatformExitDialog onExit  ");
+                            ExitGame();
+                        }
 
-                    @Override
-                    public void onCancel() {
-                        SendLog("m4399SDK showPlatformExitDialog onCancel  ");
-                    }
-                });
+                        @Override
+                        public void onCancel() {
+                            SendLog("m4399SDK showPlatformExitDialog onCancel  ");
+                        }
+                    });
+                }
             }
+        }catch (Exception e)
+        {
+            SendError("onKeyDown Exception : " + e);
         }
     }
 
@@ -1001,61 +1103,9 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         return SsjjFNSDK.getInstance().isSurportFunc("onBackPressed");
     }
 
-    @Override
-    public void Other(JSONObject json)
-    {
-        try {
+    //endregion
 
-            SendLog("4399 Other " + json);
-            String functionName = json.getString(SDKInterfaceDefine.FunctionName);
-
-            if(functionName .equals("setOauthData"))
-            {
-                String key = json.getString(SDKInterfaceDefine.ParameterName_Content);
-                SsjjFNSDK.getInstance().setOauthData(GetCurrentActivity(), key);
-            }
-
-            if(functionName.equals( "toggle"))
-            {
-                Toggle(json);
-            }
-
-            if(functionName.equals("openWebView"))
-            {
-                OpenWebView(json);
-            }
-
-            if(functionName.equals("showActivityPage"))
-            {
-                showActivityPage(json);
-            }
-
-            if(functionName.equals("ReportViolation"))
-            {
-                reportViolation(json);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void Toggle(JSONObject json) throws JSONException {
-
-        /** 4.  用户勾选“隐私政策”和“用户协议”入口按钮后调用此接口
-            * isSelect 字段说明 勾选传 "true", 不勾选传 "false"
-            * */
-
-        SendLog("4399 Toggle " + json);
-
-        String isSelect = json.getString("isSelect");
-
-        SsjjFNParams params = new SsjjFNParams();
-        params.put("isSelect", isSelect);
-        SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "saveSelect", params,null);
-
-    }
-
+    //region 工具方法
     public void OpenWebView(JSONObject json) throws JSONException {
 
         SendLog("4399 OpenWebView " + json);
@@ -1147,77 +1197,6 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         });
     }
 
-    public void reportViolation(JSONObject json) throws JSONException
-    {
-        SendLog("4399 reportViolation ");
-
-        String uid = m_user.uid;
-        String userName = json.getString(SDKInterfaceDefine.Login_ParameterName_NickName);
-        String contact = "";
-
-        if(json.has("Contact"))
-        {
-            contact = json.getString("Contact");
-        }
-
-        if(SsjjFNSpecial.getInstance().isSurportApi("4399hz_reportViolation")) {
-            SsjjFNParams params = new SsjjFNParams();
-            // 下面例子中的value为key的含义，请修改为真实值；
-            // 各字段必须且名称固定如下，若确实没有可留空，但不能不传！
-            params.put("g_uid", uid);
-            params.put("g_tid", "");
-            params.put("g_sid", "");
-            params.put("g_rid", "");
-            params.put("g_content", "");
-            params.put("g_role", userName);
-            params.put("g_gname", "公会名");
-            params.put("g_cname", "");
-            params.put("contact", contact);
-            SsjjFNSpecial.getInstance().invoke(GetCurrentActivity(),"4399hz_reportViolation", params, new SsjjFNListener() {
-                @Override
-                public void onCallback(int code, String msg, SsjjFNParams data) {
-                    if (code == SsjjFNTag.CODE_SUCCEED) {
-                        // 调用举报窗口成功
-                        SendLog("4399 调用举报窗口成功");
-                    }
-                }
-            });
-        }
-    }
-
-    @Override
-    public String[] GetFunctionName() {
-        return new String[]{"setOauthData","toggle","openWebView","showActivityPage","ReportViolation"};
-    }
-
-    @Override
-    public boolean OnAppplicationQuit() {
-
-        boolean res = SsjjFNSDK.getInstance().isSurportFunc(SsjjFNTag.FUNC_showPlatformExitDialog);
-
-        SendLog("m4399 OnAppplicationQuit " + res);
-        if(res)
-        {
-            SsjjFNSDK.getInstance().showPlatformExitDialog(new SsjjFNExitDialogListener() {
-                @Override
-                public void onExit() {
-                    // 点击对话框的“确定退出”
-                    // 调用"释放SDK资源接口"并退出游戏
-                    ExitGame();
-                }
-                @Override
-                public void onCancel() {
-                    // 点击对话框的“取消退出”，继续游戏
-                }
-            });
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     void ExitGame()
     {
         SsjjFNSDK.getInstance().exit(new SsjjFNExitListener() {
@@ -1238,5 +1217,64 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         });
     }
 
+    interface HttpCallback
+    {
+        void HttpCallbackMethod(String result);
+    }
+
+    @TargetApi(Build.VERSION_CODES.CUPCAKE)
+    private class HttpGetTask extends AsyncTask<Void, Void, String> {
+
+        public SsjjFNUser user;
+
+        HttpCallback callback;
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            try {
+
+                String encodedName = URLEncoder.encode(user.name, "UTF-8");
+                String encodedUid = URLEncoder.encode(user.uid, "UTF-8");
+                String encodedExt = URLEncoder.encode(user.ext, "UTF-8");
+
+                String urlString = "http://fnapi.aiysm.com/sdk/api/login.php?name=" + encodedName + "&uid=" + encodedUid + "&ext=" + encodedExt;
+
+                SendLog("Send URL " + urlString);
+
+                URL url = new URL(urlString);
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+
+                int status = con.getResponseCode();
+                if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    InputStream in = con.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    String line;
+                    StringBuilder response = new StringBuilder();
+
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+
+                    reader.close();
+                    con.disconnect();
+
+                    callback.HttpCallbackMethod(response.toString());
+
+                    return response.toString();
+                } else {
+                    System.out.println("Request failed: " + con.getResponseMessage());
+                }
+
+                return "";
+            }
+            catch (Exception e)
+            {
+                SendError("HttpRequest error " + e,e);
+                return "";
+            }
+        }
+    }
     //endregion
 }
