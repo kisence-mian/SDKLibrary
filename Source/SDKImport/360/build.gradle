@@ -1,13 +1,11 @@
-apply plugin: 'com.android.library'
-
+plugins {
+    id 'com.android.library'
+}
 android {
-    compileSdkVersion 28
-
-
-
+    namespace 'com.m360'
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion 21
+        targetSdk 33
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -19,6 +17,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileSdk 28
 
 }
 

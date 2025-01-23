@@ -3,11 +3,10 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 28
 
-
+    namespace "xxx" //后续补充
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

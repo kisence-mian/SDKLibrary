@@ -4,10 +4,9 @@ plugins {
 
 android {
     compileSdkVersion 31
-
+    namespace "xxx" //后续补充
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 31
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

@@ -3,10 +3,9 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 30
 
-
+    namespace "com.appsflyer"
     defaultConfig {
         minSdkVersion 17
-        targetSdkVersion 30
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'

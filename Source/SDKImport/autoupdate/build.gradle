@@ -3,11 +3,10 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 28
 
-
+    namespace "com.autoupdate"
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

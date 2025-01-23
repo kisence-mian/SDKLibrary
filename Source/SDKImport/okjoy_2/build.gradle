@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 29
-
+    namespace "xxx" //后续补充
     packagingOptions {
         merge 'res/values-zh/values-zh.xml'
         merge 'assets/39285EFA.dex'
@@ -12,7 +12,6 @@ android {
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'

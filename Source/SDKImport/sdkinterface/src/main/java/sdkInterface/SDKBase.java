@@ -105,6 +105,11 @@ public class SDKBase {
         return UnityPlayer.currentActivity;
     }
 
+    public Context GetContent()
+    {
+        return GetCurrentActivity().getApplicationContext();
+    }
+
     public void StartForResult(Intent intent, ActResultRequest.Callback callback)
     {
         try

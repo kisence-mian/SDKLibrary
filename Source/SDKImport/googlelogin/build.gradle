@@ -3,10 +3,9 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 29
 
-
+    namespace "xxx" //后续补充
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 29
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'

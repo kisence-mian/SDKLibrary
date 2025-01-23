@@ -1,11 +1,10 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion 34
+    namespace "sdkinterface" //后续补充
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -20,11 +19,12 @@ android {
     lintOptions {
         abortOnError false
     }
+    buildToolsVersion '28.0.3'
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
     implementation files('libs/classes.jar')
     implementation files('libs/android-support-multidex.jar')
     implementation 'com.android.support:multidex'

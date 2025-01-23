@@ -3,6 +3,7 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 30
 
+    namespace "xxx" //后续补充
     lintOptions {
         abortOnError false
     }
@@ -17,7 +18,6 @@ android {
     }
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 30
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'

@@ -4,10 +4,9 @@ android {
     compileSdkVersion 28
 
 
-
+    namespace "tool.clipboard"
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

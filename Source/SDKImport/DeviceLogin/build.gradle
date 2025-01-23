@@ -3,9 +3,9 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 26
 
+    namespace "DeviceLogin" //后续补充
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 26
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
