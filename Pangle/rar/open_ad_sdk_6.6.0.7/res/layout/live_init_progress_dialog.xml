@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="92dp"
+    android:layout_height="80dp"
+    android:background="@drawable/live_loading_background"
+    android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="14dp"
+            android:layout_centerHorizontal="true"
+            android:indeterminateDrawable="@drawable/live_loading_anim"
+            android:indeterminateOnly="true"
+            android:indeterminateBehavior="repeat"/>
+        
+        <ImageView
+            android:id="@+id/live_progress_cancel"
+            android:padding="10dp"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:src="@mipmap/live_loading_cancel"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="12dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textColor="#E6FFFFFF"
+            android:text="@string/live_in_loading"/>
+
+</RelativeLayout>

@@ -337,10 +337,10 @@ public class SdkInterface
     static void InitLoginSDK(JSONObject json) {
         loginSDKList = new ArrayList<>();
 
-        String loginClassNameConfig = SdkManifest.getProperty("Log");
+        String loginClassNameConfig = SdkManifest.getProperty("Login");
         String[] loginClassNameList = loginClassNameConfig.split("\\|");
 
-        SendLog("LogLogin Init ->" + loginClassNameConfig);
+        SendLog("Login Init ->" + loginClassNameConfig);
         //加载对应类，并放入loginSDKList
         for (int i = 0; i < loginClassNameList.length; i++) {
 
@@ -387,7 +387,7 @@ public class SdkInterface
             }
             else
             {
-                SendError("Not find LogLogin Class -> " + json.toString(),null);
+                SendError("Not find Login Class -> " + json.toString(),null);
             }
         }
         catch (Exception e)

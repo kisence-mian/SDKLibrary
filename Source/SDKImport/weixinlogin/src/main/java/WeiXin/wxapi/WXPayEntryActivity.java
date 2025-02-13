@@ -52,7 +52,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler
             {
                 JSONObject jo = new JSONObject();
                 jo.put(SDKInterfaceDefine.ModuleName,SDKInterfaceDefine.ModuleName_Pay);
-                jo.put(SDKInterfaceDefine.Pay_ParameterName_CpOrderID,baseResp.transaction);
+                jo.put(SDKInterfaceDefine.Pay_ParameterName_InternalOrderID,baseResp.transaction);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_OrderID,WeiXinSDK.orderID);
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_Payment, StoreName.WX.toString());
                 jo.put(SDKInterfaceDefine.Pay_ParameterName_Receipt, WeiXinSDK.payInfo.tag);

@@ -1,0 +1,965 @@
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+
+-keep class ms.bz.bd.**
+-keep class com.volcengine.mobsecBiz.metasec.ml.PglMS { *;}
+-keep class com.volcengine.mobsecBiz.metasec.ml.PglMSB {*;}
+-keep interface com.volcengine.mobsecBiz.metasec.listener.** {*;}
+
+
+-keep class com.bytedance.embedapplog.** {*;}
+-keep class com.bytedance.embed_dr.** {*;}
+-keep class com.bytedance.dutexplorer.**{*;}
+-keep class com.bytedance.sdk.component.** {*;}
+-keep class com.bytedance.adsdk.ugeno.yoga.** {*;}
+
+-keep class com.bykv.vk.** {*;}
+-keep class com.ss.android.**{*;}
+
+-keep class ms.bz.bd.**
+
+-keep class com.volcengine.mobsecBiz.metasec.ml.PglMS {
+    *;
+}
+
+-keep class com.volcengine.mobsecBiz.metasec.ml.PglMSB {
+    *;
+}
+
+-keep interface com.volcengine.mobsecBiz.metasec.listener.** {
+    *;
+}
+
+
+
+-keep interface com.bytedance.frameworks.baselib.network.http.cronet.I* {*;}
+-keepnames class com.bytedance.framwork.core.sdkmonitor.SDKMonitorUtils
+
+-keep class com.bykv.vk.openvk.preload.**{*;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+
+-dontwarn com.tencent.smtt.sdk.WebView
+-dontwarn com.tencent.smtt.sdk.WebChromeClient
+
+-dontwarn androidx.annotation.Nullable
+-dontwarn androidx.annotation.NonNull
+-dontwarn com.google.android.gms.ads.identifier.AdvertisingIdClient
+-dontwarn com.google.android.gms.ads.identifier.AdvertisingIdClient$Info
+-dontwarn androidx.appcompat.app.AlertDialog
+-dontwarn androidx.appcompat.view.menu.ListMenuItemView
+-dontwarn androidx.recyclerview.widget.RecyclerView
+-dontwarn androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+-dontwarn androidx.viewpager.widget.ViewPager
+-dontwarn androidx.recyclerview.widget.RecyclerView
+-dontwarn androidx.annotation.RequiresApi
+-dontwarn androidx.fragment.app.FragmentActivity
+-dontwarn androidx.fragment.app.Fragment
+-dontwarn androidx.annotation.AnyThread
+-dontwarn androidx.annotation.WorkerThread
+
+-keep class com.bytedance.embedapplog.AppLog { public *; }
+-keep public interface com.bytedance.embedapplog.IDataObserver { *; }
+-keep public interface com.bytedance.embedapplog.IAppParam { *; }
+-keep public interface com.bytedance.embedapplog.IExtraParams { *; }
+-keep public interface com.bytedance.embedapplog.IPicker { *; }
+-keep public interface com.bytedance.embedapplog.IOaidObserver { *; }
+-keep public interface com.bytedance.embedapplog.ISensitiveInfoProvider { *; }
+-keep class com.bytedance.embedapplog.IOaidObserver$Oaid { *; }
+-keep class com.bytedance.embedapplog.GameReportHelper { public *; }
+-keep class com.bytedance.embedapplog.InitConfig { public *; }
+-keep class com.bytedance.embedapplog.util.UriConfig { public *; }
+-keep class com.bytedance.embedapplog.tracker.Tracker { public *; }
+-keep class com.bytedance.embedapplog.picker.Picker { public *; }
+-keep class com.bytedance.embedapplog.tracker.WebViewJsUtil { *; }
+-keep interface com.bytedance.embed_dr.DrLogWriter { public *; }
+-keep interface com.bytedance.embed_bdtracker.bt { public *; }
+-keep class com.bytedance.embed_bdtracker.bt$a { public *; }
+-keep class com.bytedance.embed_bdtracker.bt$a$a { public *; }
+-keep class com.bytedance.embed_dr.VivoIdentifier {*;}
+-keep class com.bytedance.embed_dr.VivoIdentifier$* {*;}
+-keep class com.bun.miitmdid.core.JLibrary{*;}
+-keep class com.bytedance.embed_dr.MethodUtils {*;}
+
+-keep interface com.bytedance.sdk.component.ats_api.IEmbedAppLog {*;}
+
+
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+#-dontshrink
+
+#忽略直播sdk 这几个类中找不到一些无用类的警告，避免执行task minifyReleaseWithProguard 失败，无法打包
+-dontwarn com.bykv.vk.component.ttvideo.*ILivePlayer*
+-dontwarn com.bykv.vk.component.ttvideo.*VideoLiveManager*
+-dontwarn com.bykv.vk.component.ttvideo.liveio.*LiveIOWrapper*
+-dontwarn com.bykv.vk.component.ttvideo.log.*LiveLoggerService*
+
+-keep class com.bytedance.sdk.component.video.ttvideo.**{*;}
+-keep class com.bytedance.sdk.component.video.live.TTLiveVideoPlayer{*;}
+
+-keep class com.bytedance.sdk.component.adok.**{*;}
+
+-keepclasseswithmembernames class * {  # 保持 native 方法不被混淆
+    native <methods>;
+ }
+
+-keepattributes *Annotation*
+-keep @com.bykv.vk.component.ttvideo.player.Keep class *{
+    @com.bykv.vk.component.ttvideo.player.Keep <fields>;
+}
+-keep @com.bykv.vk.component.ttvideo.player.Keep class *
+-keep @com.bykv.vk.component.ttvideo.player.CalledByNative class *
+
+# ttmplayer consumer proguard files
+
+-keep class com.bykv.vk.component.ttvideo.player.Keep {*;}
+-keep class com.bykv.vk.component.ttvideo.player.JNINamespace {*;}
+-keep class com.bykv.vk.component.ttvideo.player.CalledByNative {*;}
+
+-keep @com.bykv.vk.component.ttvideo.player.Keep class * {
+    @com.bykv.vk.component.ttvideo.player.Keep <fields>;
+    @com.bykv.vk.component.ttvideo.player.Keep <methods>;
+    @com.bykv.vk.component.ttvideo.player.CalledByNative <methods>;
+}
+
+-keep @com.bykv.vk.component.ttvideo.player.JNINamespace class * {
+    @com.bykv.vk.component.ttvideo.player.Keep <fields>;
+    @com.bykv.vk.component.ttvideo.player.Keep <methods>;
+    @com.bykv.vk.component.ttvideo.player.CalledByNative <methods>;
+}
+
+
+-keepclasseswithmembers class com.bykv.vk.component.ttvideo.* {
+    native <methods>;
+}
+
+-keep class com.bykv.vk.component.ttvideo.player.TTPlayer {
+    native <methods>;
+}
+
+-keep class com.bykv.vk.component.ttvideo.TTVideoEngine {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.DataLoaderHelper {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.DataLoaderHelper$DataLoaderTaskProgressInfo {
+    public *;
+}
+
+-keep class com.bykv.vk.component.ttvideo.DataLoaderHelper$DataLoaderCacheInfo {
+    public *;
+}
+
+-keep class com.bykv.vk.component.ttvideo.VideoEngineCallback {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.VideoEngineSimpleCallback {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.SeekCompletionListener {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.PreloaderURLItem {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.PreLoaderItemCallBackInfo {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+    public *;
+}
+
+-keep class com.bykv.vk.component.ttvideo.IPreLoaderItemCallBackListener {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.Error {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.TTVideoEngineLog {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.TTVideoEngineLogListener {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.log.VideoEventEngineUploader {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.EngineThreadPool {
+    public static void setExcutorInstance(java.util.concurrent.ThreadPoolExecutor);
+}
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+-keep class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoader {
+    public void onNotify(...);
+    public void onLogInfo(...);
+    public void onLogInfo(...);
+    public void onEventInfo(...);
+    public String getStringValueByStrkey(...);
+}
+-keepclasseswithmembers class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoader {
+    native <methods>;
+}
+-keep public class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoaderListener {
+    *;
+}
+-keep public class com.bykv.vk.component.ttvideo.mediakit.downloader.AVMDLDownLoadTask {
+    *;
+}
+-keep public class com.bykv.vk.component.ttvideo.mediakit.downloader.AVMDLRequest {
+    *;
+}
+-keep class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoaderListener {
+    *;
+}
+-keep class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoaderConfigure {
+    *;
+}
+
+
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in /Users/zhongshaofen/Library/Android/sdk/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the proguardFiles
+# directive in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+##播放内核
+#TTPlayerClient，FrameMetadataListener，MediaPlayer
+#TTPlayerConfiger,IMediaDataSource,MediaPlayerClient,
+#OSPlayerClient,PlaybackParams,MediaTransport
+#-keep class com.bykv.vk.component.ttvideo.player.TTPlayer {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.TTPlayerClient {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.FrameMetadataListener {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.MediaPlayer {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.TTPlayerConfiger {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.IMediaDataSource {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.MediaPlayerClient {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.OSPlayerClient {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.PlaybackParams {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.MediaTransport {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.Keep {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.**{*;}
+
+# 直播拉流SDK
+-keep class com.bykv.vk.component.ttvideo.ILiveListener {*;}
+-keep class com.bykv.vk.component.ttvideo.ILiveListener$Stub {*;}
+-keep class com.bykv.vk.component.ttvideo.ILivePlayer {*;}
+-keep class com.bykv.vk.component.ttvideo.ILiveSettingBundle {*;}
+-keep class com.bykv.vk.component.ttvideo.INetworkClient {*;}
+-keep class com.bykv.vk.component.ttvideo.INetworkClient$Result {*;}
+-keep class com.bykv.vk.component.ttvideo.INetworkClient$Result$Builder {*;}
+-keep class com.bykv.vk.component.ttvideo.VideoLiveManager {*;}
+-keep class com.bykv.vk.component.ttvideo.VideoLiveManager$Builder {*;}
+-keep class com.bykv.vk.component.ttvideo.log.LiveError {*;}
+-keep class com.bykv.vk.component.ttvideo.log.MyLog {*;}
+-keep class com.bykv.vk.component.ttvideo.model.LiveURL {*;}
+-keep class com.bykv.vk.component.ttvideo.utils.URLBuilder {*;}
+
+
+
+# ttmplayer consumer proguard files
+
+-keep class com.bykv.vk.component.ttvideo.player.Keep {*;}
+-keep class com.bykv.vk.component.ttvideo.player.JNINamespace {*;}
+-keep class com.bykv.vk.component.ttvideo.player.CalledByNative {*;}
+
+-keep @com.bykv.vk.component.ttvideo.player.Keep class * {
+    @com.bykv.vk.component.ttvideo.player.Keep <fields>;
+    @com.bykv.vk.component.ttvideo.player.Keep <methods>;
+    @com.bykv.vk.component.ttvideo.player.CalledByNative <methods>;
+}
+
+-keep @com.bykv.vk.component.ttvideo.player.JNINamespace class * {
+    @com.bykv.vk.component.ttvideo.player.Keep <fields>;
+    @com.bykv.vk.component.ttvideo.player.Keep <methods>;
+    @com.bykv.vk.component.ttvideo.player.CalledByNative <methods>;
+}
+
+
+-keepclasseswithmembers class com.bykv.vk.component.ttvideo.* {
+    native <methods>;
+}
+
+-keep class com.bykv.vk.component.ttvideo.player.TTPlayer {
+    native <methods>;
+}
+
+-keep class com.bykv.vk.component.ttvideo.TTVideoEngine {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.DataLoaderHelper {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.DataLoaderHelper$DataLoaderTaskProgressInfo {
+    public *;
+}
+
+-keep class com.bykv.vk.component.ttvideo.DataLoaderHelper$DataLoaderCacheInfo {
+    public *;
+}
+
+-keep class com.bykv.vk.component.ttvideo.VideoEngineCallback {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.VideoEngineSimpleCallback {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.SeekCompletionListener {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.PreloaderURLItem {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.PreLoaderItemCallBackInfo {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+    public *;
+}
+
+-keep class com.bykv.vk.component.ttvideo.IPreLoaderItemCallBackListener {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.Error {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.TTVideoEngineLog {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.TTVideoEngineLogListener {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.log.VideoEventEngineUploader {
+    public static *** *;
+    public static *** *(...);
+    public *** *(...);
+}
+
+-keep class com.bykv.vk.component.ttvideo.utils.EngineThreadPool {
+    public static void setExcutorInstance(java.util.concurrent.ThreadPoolExecutor);
+}
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+-keep class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoader {
+    public void onNotify(...);
+    public void onLogInfo(...);
+    public void onLogInfo(...);
+    public void onEventInfo(...);
+    public String getStringValueByStrkey(...);
+}
+-keepclasseswithmembers class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoader {
+    native <methods>;
+}
+-keep public class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoaderListener {
+    *;
+}
+-keep public class com.bykv.vk.component.ttvideo.mediakit.downloader.AVMDLDownLoadTask {
+    *;
+}
+-keep public class com.bykv.vk.component.ttvideo.mediakit.downloader.AVMDLRequest {
+    *;
+}
+-keep class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoaderListener {
+    *;
+}
+-keep class com.bykv.vk.component.ttvideo.mediakit.medialoader.AVMDLDataLoaderConfigure {
+    *;
+}
+
+
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in /Users/zhongshaofen/Library/Android/sdk/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the proguardFiles
+# directive in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+##播放内核
+#TTPlayerClient，FrameMetadataListener，MediaPlayer
+#TTPlayerConfiger,IMediaDataSource,MediaPlayerClient,
+#OSPlayerClient,PlaybackParams,MediaTransport
+#-keep class com.bykv.vk.component.ttvideo.player.TTPlayer {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.TTPlayerClient {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.FrameMetadataListener {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.MediaPlayer {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.TTPlayerConfiger {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.IMediaDataSource {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.MediaPlayerClient {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.OSPlayerClient {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.PlaybackParams {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.MediaTransport {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.Keep {*;}
+#-keep class com.bykv.vk.component.ttvideo.player.**{*;}
+
+# 直播拉流SDK
+-keep class com.bykv.vk.component.ttvideo.ILiveListener {*;}
+-keep class com.bykv.vk.component.ttvideo.ILiveListener$Stub {*;}
+-keep class com.bykv.vk.component.ttvideo.ILivePlayer {*;}
+-keep class com.bykv.vk.component.ttvideo.ILiveSettingBundle {*;}
+-keep class com.bykv.vk.component.ttvideo.INetworkClient {*;}
+-keep class com.bykv.vk.component.ttvideo.INetworkClient$Result {*;}
+-keep class com.bykv.vk.component.ttvideo.INetworkClient$Result$Builder {*;}
+-keep class com.bykv.vk.component.ttvideo.VideoLiveManager {*;}
+-keep class com.bykv.vk.component.ttvideo.VideoLiveManager$Builder {*;}
+-keep class com.bykv.vk.component.ttvideo.log.LiveError {*;}
+-keep class com.bykv.vk.component.ttvideo.log.MyLog {*;}
+-keep class com.bykv.vk.component.ttvideo.model.LiveURL {*;}
+-keep class com.bykv.vk.component.ttvideo.utils.URLBuilder {*;}
+
+
+
+
+
+
+
+
+-keep class android.support.v4.app.FragmentActivity{}
+-keep class androidx.fragment.app.FragmentActivity{}
+-keepclassmembers class *{
+	*** _GET_PLUGIN_PKG();
+}
+-keep class androidx.fragment.app.FragmentFactory{
+    *** sClassMap;
+}
+
+# 这面规则是为了keep插件中的类。因为每个插件会有一个该类，所以不存在通用版本和非通用版本类名冲突的问题(com.volcengine.zeus和com.volcengine.xx)
+-keep class com.volcengine.StubConfig {
+    *;
+}
+# 其实这个类可以不用keep，因为他在dexSpliter中生成
+-keep class com.volcengine.PluginClassHolder {
+    *;
+}
+
+-keep class com.bytedance.android.ec.** {*;}
+-keep class com.bytedance.android.live.** {*;}
+-keep class com.bytedance.android.livehostapi.** {*;}
+-keep class com.bytedance.android.openliveplugin.** {*;}
+-keep class com.byted.live.** {*;}
+-keep class com.bytedance.pangle.** {*;}
+-keep class com.ss.android.socialbase.downloader.** {*;}
+
+-keep class com.bytedance.android.dy.sdk.** {
+    *;
+}
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+
+-keep class com.bytedance.android.ec.res.BuildConfig{
+      <fields>;
+  }
+
+
+
+-keep class com.bytedance.android.dy.sdk.** {
+    *;
+}
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+
+-keep class com.bytedance.android.ec.res.BuildConfig{
+      <fields>;
+  }
+
+
+
+
+
+
+
+-keep class android.support.v4.app.FragmentActivity{}
+-keep class androidx.fragment.app.FragmentActivity{}
+-keepclassmembers class *{
+	*** _GET_PLUGIN_PKG();
+}
+-keep class androidx.fragment.app.FragmentFactory{
+    *** sClassMap;
+}
+
+# 这面规则是为了keep插件中的类。因为每个插件会有一个该类，所以不存在通用版本和非通用版本类名冲突的问题(com.volcengine.zeus和com.volcengine.xx)
+-keep class com.volcengine.StubConfig {
+    *;
+}
+# 其实这个类可以不用keep，因为他在dexSpliter中生成
+-keep class com.volcengine.PluginClassHolder {
+    *;
+}
+
+-keep class com.bytedance.android.ec.** {*;}
+-keep class com.bytedance.android.live.** {*;}
+-keep class com.bytedance.android.livehostapi.** {*;}
+-keep class com.bytedance.android.openliveplugin.** {*;}
+-keep class com.byted.live.** {*;}
+-keep class com.bytedance.pangle.** {*;}
+-keep class com.ss.android.socialbase.downloader.** {*;}
+
+-keep class com.bytedance.android.dy.sdk.** {
+    *;
+}
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+
+-keep class com.bytedance.android.ec.res.BuildConfig{
+      <fields>;
+  }
+
+
+
+-keep class com.bytedance.android.dy.sdk.** {
+    *;
+}
+
+
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
+
+-keep class com.bytedance.android.ec.res.BuildConfig{
+      <fields>;
+  }
+
+
+
+
+
+
+
+
+# pangle穿山甲
+-keepclassmembers class * {
+    *** getContext(...);
+    *** getActivity(...);
+    *** getResources(...);
+    *** startActivity(...);
+    *** startActivityForResult(...);
+    *** registerReceiver(...);
+    *** unregisterReceiver(...);
+    *** query(...);
+    *** getType(...);
+    *** insert(...);
+    *** delete(...);
+    *** update(...);
+    *** call(...);
+    *** setResult(...);
+    *** startService(...);
+    *** stopService(...);
+    *** bindService(...);
+    *** unbindService(...);
+    *** requestPermissions(...);
+    *** getIdentifier(...);
+   }
+
+#加固类
+-keep class com.bytedance.notpluginpro.tmapcloaknotplugin{*;}
+
+-keep class com.bytedance.pangle.** {*;}
+-keep class com.bytedance.sdk.openadsdk.** { *; }
+-keep class com.bytedance.frameworks.** { *; }
+
+-keep class ms.bd.c.Pgl.**{*;}
+-keep class com.bytedance.mobsec.metasec.ml.**{*;}
+
+-keep class com.ss.android.**{*;}
+
+-keep class com.bytedance.embedapplog.** {*;}
+-keep class com.bytedance.embed_dr.** {*;}
+
+-keep class com.bykv.vk.** {*;}
+
+
+# applog混淆避免外部冲突
+-keep public interface com.uodis.** { *; }
+
+-keep public class com.bytedance.sdk.api.*.**{ *; }
+-keep public class com.bytedance.sdk.api.**{ *; }
+-keep public class com.bytedance.sdk.adapter.*.**{ *; }
+
+
+
+
+# Mintegral 非AndroidX的混淆配置 10.9.02
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class com.mbridge.** {*; }
+-keep interface com.mbridge.** {*; }
+-keep class android.support.v4.** { *; }
+-dontwarn com.mbridge.**
+-keep class **.R$* { public static final int mbridge*; }
+
+# baidu sdk
+-ignorewarnings
+-dontwarn com.baidu.mobads.sdk.api.**
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class com.baidu.mobads.** { *; }
+-keep class com.style.widget.** {*;}
+-keep class com.component.** {*;}
+-keep class com.baidu.ad.magic.flute.** {*;}
+-keep class com.baidu.mobstat.forbes.** {*;}
+
+
+# MSDK混淆
+-keep class com.bytedance.msdk.** { *; }
+
+ #ks 快手
+-keep class org.chromium.** {*;}
+-keep class org.chromium.** { *; }
+-keep class aegon.chrome.** { *; }
+-keep class com.kwai.**{ *; }
+-dontwarn com.kwai.**
+-dontwarn com.kwad.**
+-dontwarn com.ksad.**
+-dontwarn aegon.chrome.**
+
+
+# Admob
+-keep class com.google.android.gms.ads.MobileAds {
+ public *;
+}
+
+#sigmob  不接入sigmob sdk可以不引入
+# androidx
+-keep class com.google.android.material.** {*;}
+-keep class androidx.** {*;}
+-keep public class * extends androidx.**
+-keep interface androidx.** {*;}
+-dontwarn com.google.android.material.**
+-dontnote com.google.android.material.**
+-dontwarn androidx.**
+
+# android.support.v4
+-dontwarn android.support.v4.**
+-keep class android.support.v4.** { *; }
+-keep interface android.support.v4.** { *; }
+-keep public class * extends android.support.v4.**
+
+# WindAd
+-keep class sun.misc.Unsafe { *; }
+-keep class com.sigmob.**.**{*;}
+-keep interface com.sigmob.**.**{*;}
+-keep class com.czhj.**{*;}
+-keep interface com.czhj.**{*;}
+
+# miitmdid
+-dontwarn com.bun.**
+-keep class com.bun.** {*;}
+-keep class a.**{*;}
+-keep class XI.CA.XI.**{*;}
+-keep class XI.K0.XI.**{*;}
+-keep class XI.XI.K0.**{*;}
+-keep class XI.vs.K0.**{*;}
+-keep class XI.xo.XI.XI.**{*;}
+-keep class com.asus.msa.SupplementaryDID.**{*;}
+-keep class com.asus.msa.sdid.**{*;}
+-keep class com.huawei.hms.ads.identifier.**{*;}
+-keep class com.samsung.android.deviceidservice.**{*;}
+-keep class com.zui.opendeviceidlibrary.**{*;}
+-keep class org.json.**{*;}
+-keep public class com.netease.nis.sdkwrapper.Utils {public <methods>;}
+
+#klevin 游可赢
+-keep class com.tencent.tgpa.lite.**{*;}
+-keep class com.ihoc.mgpa.deviceid.**{*;}
+-keep class com.tencent.klevin.**{*;}
+
+#applog
+-keep class com.bytedance.mapplog_dr.VivoIdentifier {*;}
+-keep class com.bytedance.mapplog_dr.VivoIdentifier$* {*;}
+-keep class com.bun.miitmdid.* {*;}
+
+# 自定义Adapter
+-keep class * extends com.bytedance.msdk.api.v2.ad.custom.init.GMCustomAdapterConfiguration { public *;}
+-keep class * extends com.bytedance.msdk.api.v2.ad.custom.banner.GMCustomBannerAdapter { public *;}
+-keep class * extends com.bytedance.msdk.api.v2.ad.custom.fullvideo.GMCustomFullVideoAdapter { public *;}
+-keep class * extends com.bytedance.msdk.api.v2.ad.custom.interstitial.GMCustomInterstitialAdapter { public *;}
+-keep class * extends com.bytedance.msdk.api.v2.ad.custom.nativeAd.GMCustomNativeAdapter { public *;}
+-keep class * extends com.bytedance.msdk.api.v2.ad.custom.splash.GMCustomSplashAdapter { public *;}
+-keep class * extends com.bytedance.msdk.api.v2.ad.custom.reward.GMCustomRewardAdapter { public *;}
+
+-keep class com.bytedance.sdk.gromore.** { *;}
+
+
