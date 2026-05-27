@@ -580,7 +580,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         try {
             m_ADTag = json.getString(SDKInterfaceDefine.Tag);
 
-            String AdUnitID = "28811";
+            String AdUnitID = "28929";
             String AdPlacementId = "";
             String adUnitIdKey = "";
 
@@ -588,13 +588,14 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
             if (isSupport) {
                 SsjjFNParams data = new SsjjFNParams();
 
-                if(json.has(SDKInterfaceDefine.Tag))
-                {
-                    AdUnitID = json.getString(SDKInterfaceDefine.Tag);
-                    data.put("AdUnitID", AdUnitID); // 激励视频广告位id。非必传，根据业务场景来定
-                }
+                data.put("AdUnitID", AdUnitID);
 
-                AdUnitID = "28811";
+                // if(json.has("AdUnitID"))
+                // {
+                //     AdUnitID = json.getString("AdUnitID");
+                //     data.put("AdUnitID", AdUnitID); // 激励视频广告位id。非必传，根据业务场景来定
+                // }
+                // AdUnitID = "28811";
 
                 if(json.has("AdPlacementId"))
                 {
