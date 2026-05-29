@@ -51,6 +51,8 @@ import sdkInterface.tool.ActResultRequest;
 
 public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
 {
+    private static final String FN_REWARD_VIDEO_AD_UNIT_ID = "28929";
+
     PayInfo payInfo = new PayInfo();
     String AdUnitID = "";
     SsjjFNUser m_user;
@@ -557,7 +559,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_loadVideoAD"); // 先判断是否支持该方法
         if (isSupport) {
             SsjjFNParams data = new SsjjFNParams();
-            data.put("AdUnitID", "102338314"); // 激励视频广告位id，非必传，根据业务场景来定
+            data.put("AdUnitID", FN_REWARD_VIDEO_AD_UNIT_ID); // 固定蜂鸟激励视频广告位
             SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_loadVideoAD", data, new SsjjFNListener() {
                 public void onCallback(int code, String msg, SsjjFNParams data) {
                     if (code == SsjjFNTag.CODE_SUCCEED) {
@@ -580,35 +582,16 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         try {
             m_ADTag = json.getString(SDKInterfaceDefine.Tag);
 
-            String AdUnitID = "28929";
-            String AdPlacementId = "";
-            String adUnitIdKey = "";
-
             boolean isSupport = SsjjFNSDK.getInstance().isSurportFunc("fnadv_showVideoAD"); // 先判断是否支持该方法
             if (isSupport) {
                 SsjjFNParams data = new SsjjFNParams();
 
-                data.put("AdUnitID", AdUnitID);
-
-                // if(json.has("AdUnitID"))
-                // {
-                //     AdUnitID = json.getString("AdUnitID");
-                //     data.put("AdUnitID", AdUnitID); // 激励视频广告位id。非必传，根据业务场景来定
-                // }
-                // AdUnitID = "28811";
-
-                if(json.has("AdPlacementId"))
+                data.put("AdUnitID", FN_REWARD_VIDEO_AD_UNIT_ID);
+                if(json.has("AdUnitID") || json.has("AdPlacementId") || json.has("adUnitIdKey"))
                 {
-                    AdPlacementId = json.getString("AdPlacementId");
-                    // 如果研发不想维护广告位id，可用指定的key来映射。映射关系需联系蜂鸟技术在蜂鸟后台配置
-                    data.put("AdPlacementId", AdPlacementId); // 研发自定义的广告位key。非必传，根据业务场景来定
+                    SendLog("4399 PlayAD ignore incoming ad params(AdUnitID/AdPlacementId/adUnitIdKey), force AdUnitID=" + FN_REWARD_VIDEO_AD_UNIT_ID);
                 }
-
-                if(json.has("adUnitIdKey"))
-                {
-                    adUnitIdKey = json.getString("adUnitIdKey");
-                    data.put("adUnitIdKey", adUnitIdKey); // （选传）广告展示位置id，根据运营给的传，没有可不传
-                }
+                SendLog("4399 PlayAD final fnadv_showVideoAD params = [AdUnitID=" + FN_REWARD_VIDEO_AD_UNIT_ID + "]");
 
                 SsjjFNSDK.getInstance().invoke(GetCurrentActivity(), "fnadv_showVideoAD", data, new SsjjFNListener() {
                     public void onCallback(int code, String msg, SsjjFNParams data) {
@@ -678,7 +661,7 @@ public class m4399SDK extends SDKBase implements ILogin,ILog,IAD,IPay,IOther
         SendLog("4399 isVideoLoadedSync fnadv_hasLoadedVideo " + isSupport);
         if (isSupport) {
             SsjjFNParams data = new SsjjFNParams();
-            data.put("AdUnitID", "102338314"); // 激励视频广告位id。非必传，根据业务场景来定
+            data.put("AdUnitID", FN_REWARD_VIDEO_AD_UNIT_ID); // 固定蜂鸟激励视频广告位
             // 如果研发不想维护广告位id，可用指定的key来映射。映射关系需联系蜂鸟技术在蜂鸟后台配置
             // data.put("adUnitIdKey", "1"); // 研发自定义的广告位key。非必传，根据业务场景来定
 

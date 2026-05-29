@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.m4399'
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         minSdk 21
@@ -34,4 +34,63 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+
+def sdkJarName = 'm4399.jar'
+def sdkOutputDir = file("$buildDir/outputs/sdk")
+def sdkLibraryDir = file("${rootProject.projectDir}/../../m4399_FN")
+def smaliCacheDir = file("${sdkLibraryDir}/.smaliCache")
+def jarSourceCandidates = [
+        file("$buildDir/intermediates/compile_library_classes_jar/release/bundleLibCompileToJarRelease/classes.jar"),
+        file("$buildDir/intermediates/aar_main_jar/release/syncReleaseLibJars/classes.jar")
+]
+
+tasks.register('exportJar') {
+    dependsOn 'bundleLibCompileToJarRelease'
+    doLast {
+        def sourceJar = jarSourceCandidates.find { it.exists() }
+        if (sourceJar == null) {
+            throw new RuntimeException("Cannot find classes.jar, checked: ${jarSourceCandidates*.path}")
+        }
+
+        sdkOutputDir.mkdirs()
+        copy {
+            from(sourceJar)
+            into(sdkOutputDir)
+            rename { sdkJarName }
+        }
+    }
+}
+
+tasks.register('copySdkJar') {
+    dependsOn 'exportJar'
+    doLast {
+        def exportedJar = file("$sdkOutputDir/$sdkJarName")
+        if (!exportedJar.exists()) {
+            throw new RuntimeException("Exported jar not found: ${exportedJar.path}")
+        }
+
+        sdkLibraryDir.mkdirs()
+        copy {
+            from(exportedJar)
+            into(sdkLibraryDir)
+        }
+
+        if (smaliCacheDir.exists()) {
+            if (!smaliCacheDir.isDirectory()) {
+                throw new RuntimeException("Expected directory but found file: ${smaliCacheDir.path}")
+            }
+            delete(smaliCacheDir)
+            if (smaliCacheDir.exists()) {
+                throw new RuntimeException("Failed to delete .smaliCache: ${smaliCacheDir.path}")
+            }
+            logger.lifecycle("Deleted old cache directory: ${smaliCacheDir.path}")
+        }
+    }
+}
+
+tasks.configureEach { task ->
+    if (task.name == 'assembleRelease') {
+        task.finalizedBy(tasks.named('copySdkJar'))
+    }
 }
